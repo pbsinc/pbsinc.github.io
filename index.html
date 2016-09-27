@@ -18,20 +18,20 @@
     
 
 
-<meta name="description" content="Bo Pang blog">
+<meta name="description" content="Bo pbsinc blog">
 <meta property="og:type" content="website">
-<meta property="og:title" content="bo`s blog">
+<meta property="og:title" content="Bo`s blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="bo`s blog">
-<meta property="og:description" content="Bo Pang blog">
+<meta property="og:site_name" content="Bo`s blog">
+<meta property="og:description" content="Bo pbsinc blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bo`s blog">
-<meta name="twitter:description" content="Bo Pang blog">
+<meta name="twitter:title" content="Bo`s blog">
+<meta name="twitter:description" content="Bo pbsinc blog">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="bo`s blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Bo`s blog" type="application/atom+xml">
 
 
 
@@ -60,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>bo`s blog</title>
+<title>Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -295,17 +295,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given two binary strings, return their sum (also a binary string).：</p>
+              <p>Given two binary strings, return their sum (also a binary string).：</p>
 <ul>
 <li><strong>For example,</strong></li>
 <li><strong>a = “11”</strong></li>
 <li><strong>b = “1”</strong></li>
-<li><strong>Return “100”.</strong></li>
-</ul>
-<hr>
-<p><strong>关键思路：</strong><br>char ta= ‘1’;<br>int test = ta - ‘0’;<br>则：test 结果为 1<br>char 型的数字’1’的int值为49，’0’为48</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</div><div class="line">     <span class="keyword">int</span> na = a.length();</div><div class="line">     <span class="keyword">int</span> nb = b.length();</div><div class="line">     <span class="keyword">int</span> max = Math.max(na,nb);</div><div class="line">     <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">     String out = <span class="string">""</span>;</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=max;i++)</div><div class="line">     &#123;</div><div class="line">         <span class="keyword">int</span> p=<span class="number">0</span>,q=<span class="number">0</span>;</div><div class="line">         <span class="keyword">if</span>(na-i &gt;= <span class="number">0</span>)</div><div class="line">         &#123;</div><div class="line">             p = a.charAt(na-i) - <span class="string">'0'</span>;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">else</span></div><div class="line">             p = <span class="number">0</span>;</div><div class="line">             </div><div class="line">         <span class="keyword">if</span>(nb-i &gt;=<span class="number">0</span>)</div><div class="line">         &#123;</div><div class="line">             q = b.charAt(nb-i) - <span class="string">'0'</span>;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">else</span></div><div class="line">             q = <span class="number">0</span>;</div><div class="line">         </div><div class="line">         <span class="keyword">int</span> temp = p + q + carry;</div><div class="line">         carry = temp / <span class="number">2</span>;</div><div class="line">         out = temp % <span class="number">2</span> + out;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">if</span> (carry == <span class="number">1</span>)</div><div class="line">     &#123;</div><div class="line">         out = <span class="number">1</span> + out;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> out;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+<li><strong>Return “100”.</strong><br><Excerpt in index | 首页摘要>
+          
       
     </div>
     
@@ -318,6 +314,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2016/09/27/Add Binary/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -364,16 +364,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+              <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p><Excerpt in index | 首页摘要><br>
+          
       
     </div>
     
@@ -382,6 +375,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2016/09/26/hello-world/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
