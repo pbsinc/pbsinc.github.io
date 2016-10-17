@@ -15,15 +15,19 @@
 
 
 
-<meta name="description" content="Bo pbsinc blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bo`s blog">
-<meta property="og:url" content="http://yoursite.com/tags/域名/index.html">
+<meta name="description" content="Write a function that takes a string as input and returns the string reversed.
+Example:Given s = “hello”, return “olleh”.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reverse String.java">
+<meta property="og:url" content="http://yoursite.com/2016/10/17/Reverse String/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Bo pbsinc blog">
+<meta property="og:description" content="Write a function that takes a string as input and returns the string reversed.
+Example:Given s = “hello”, return “olleh”.">
+<meta property="og:updated_time" content="2016-10-17T11:45:58.945Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bo`s blog">
-<meta name="twitter:description" content="Bo pbsinc blog">
+<meta name="twitter:title" content="Reverse String.java">
+<meta name="twitter:description" content="Write a function that takes a string as input and returns the string reversed.
+Example:Given s = “hello”, return “olleh”.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -55,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Tag: 域名 | Bo`s blog</title>
+<title>Reverse String.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -65,9 +69,9 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
-        isTag: true,
+        isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -273,60 +277,193 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Reverse String" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/09/28/hexo 绑定域名/" class="archive-article-date">
-      <time datetime="2016-09-28T08:21:04.943Z" itemprop="datePublished">09-28</time>
+    <div class="article-meta">
+      <a href="/2016/10/17/Reverse String/" class="article-date">
+      <time datetime="2016-10-17T11:38:55.598Z" itemprop="datePublished">2016-10-17</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/28/hexo 绑定域名/">hexo 绑定域名</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Reverse String.java
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/教程/">教程</a>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/域名/">域名</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Write a function that takes a string as input and returns the string reversed.</p>
+<p>Example:<br>Given s = “hello”, return “olleh”.</p>
+<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p><strong>关键：</strong><br>String 转 char[] : char a[] = str.toCharArray();<br>char 转 String ：String str = String.valueOf(char);<br>String 的长度 : str.length();<br>String 可直接相加 ： str = stra + strb;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseString</span><span class="params">(String s)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">char</span> a[] = s.toCharArray();</div><div class="line">        <span class="keyword">int</span> len = s.length();</div><div class="line">        <span class="keyword">char</span> b[] = <span class="keyword">new</span> <span class="keyword">char</span>[len];</div><div class="line">        <span class="comment">//String str = new String();</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=len-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line">            <span class="comment">// String temp = String.valueOf(a[i]);              这种方法时间效率低，A不过</span></div><div class="line">            <span class="comment">// str += temp;</span></div><div class="line">            b[len-<span class="number">1</span> - i] = a[i];</div><div class="line">        &#125;</div><div class="line">        String str = <span class="keyword">new</span> String(b);</div><div class="line">        <span class="keyword">return</span> str;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/10/17/Reverse String/">Reverse String.java</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
+        <p><span>发布时间:</span>2016-10-17, 19:38:55</p>
+        <p><span>最后更新:</span>2016-10-17, 19:45:58</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/17/Reverse String/" title="Reverse String.java">http://yoursite.com/2016/10/17/Reverse String/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/10/17/Reverse String/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/10/17/Fizz Buzz/">
+                    Fizz Buzz.java
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
 
     
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Reverse String.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/17/Reverse String/" data-title="Reverse String.java" data-url="http://yoursite.com/2016/10/17/Reverse String/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"pbsinc"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/10/17/Fizz Buzz/" title="下一篇: Fizz Buzz.java">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/Reverse String/">Reverse String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/Fizz Buzz/">Fizz Buzz.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/28/hexo 绑定域名/">hexo 绑定域名</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/27/Add Binary/">Add Binary.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
