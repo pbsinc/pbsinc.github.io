@@ -23,7 +23,7 @@ Example:Given s = “hello”, return “olleh”.">
 <meta property="og:site_name" content="Bo`s blog">
 <meta property="og:description" content="Write a function that takes a string as input and returns the string reversed.
 Example:Given s = “hello”, return “olleh”.">
-<meta property="og:updated_time" content="2016-10-17T11:45:58.945Z">
+<meta property="og:updated_time" content="2016-10-18T08:57:47.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reverse String.java">
 <meta name="twitter:description" content="Write a function that takes a string as input and returns the string reversed.
@@ -322,9 +322,7 @@ Example:Given s = “hello”, return “olleh”.">
       
           
         <p>Write a function that takes a string as input and returns the string reversed.</p>
-<p>Example:<br>Given s = “hello”, return “olleh”.</p>
-<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p><strong>关键：</strong><br>String 转 char[] : char a[] = str.toCharArray();<br>char 转 String ：String str = String.valueOf(char);<br>String 的长度 : str.length();<br>String 可直接相加 ： str = stra + strb;</p>
+<p>Example:<br>Given s = “hello”, return “olleh”.<br><a id="more"></a><br><strong>关键：</strong><br>String 转 char[] : char a[] = str.toCharArray();<br>char 转 String ：String str = String.valueOf(char);<br>String 的长度 : str.length();<br>String 可直接相加 ： str = stra + strb;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseString</span><span class="params">(String s)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">char</span> a[] = s.toCharArray();</div><div class="line">        <span class="keyword">int</span> len = s.length();</div><div class="line">        <span class="keyword">char</span> b[] = <span class="keyword">new</span> <span class="keyword">char</span>[len];</div><div class="line">        <span class="comment">//String str = new String();</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=len-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line">            <span class="comment">// String temp = String.valueOf(a[i]);              这种方法时间效率低，A不过</span></div><div class="line">            <span class="comment">// str += temp;</span></div><div class="line">            b[len-<span class="number">1</span> - i] = a[i];</div><div class="line">        &#125;</div><div class="line">        String str = <span class="keyword">new</span> String(b);</div><div class="line">        <span class="keyword">return</span> str;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
@@ -337,7 +335,7 @@ Example:Given s = “hello”, return “olleh”.">
         <p><span>本文标题:</span><a href="/2016/10/17/Reverse String/">Reverse String.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
         <p><span>发布时间:</span>2016-10-17, 19:38:55</p>
-        <p><span>最后更新:</span>2016-10-17, 19:45:58</p>
+        <p><span>最后更新:</span>2016-10-18, 16:57:47</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/10/17/Reverse String/" title="Reverse String.java">http://pangbo.space/2016/10/17/Reverse String/</a>
             <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/17/Reverse String/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -373,7 +371,7 @@ Example:Given s = “hello”, return “olleh”.">
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+            
         
     </div>
     <style>
