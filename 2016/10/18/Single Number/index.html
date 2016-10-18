@@ -15,21 +15,16 @@
 
 
 
-<meta name="description" content="去阿里云看了下 pangbo.space 只要5块，果断拍下…
-下面就是用的教程：">
+<meta name="description" content="Given an array of integers, every element appears twice except for one. Find that single one.Note:Your algorithm should have a linear runtime complexity. Could you implement it without using extra mem">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo 绑定域名">
-<meta property="og:url" content="http://pangbo.space/2016/09/28/hexo 绑定域名/index.html">
+<meta property="og:title" content="Single Number.java">
+<meta property="og:url" content="http://pangbo.space/2016/10/18/Single Number/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="去阿里云看了下 pangbo.space 只要5块，果断拍下…
-下面就是用的教程：">
-<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/domain22.png?_=0.8093272649489154">
-<meta property="og:updated_time" content="2016-09-28T08:20:52.972Z">
+<meta property="og:description" content="Given an array of integers, every element appears twice except for one. Find that single one.Note:Your algorithm should have a linear runtime complexity. Could you implement it without using extra mem">
+<meta property="og:updated_time" content="2016-10-18T06:47:56.176Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo 绑定域名">
-<meta name="twitter:description" content="去阿里云看了下 pangbo.space 只要5块，果断拍下…
-下面就是用的教程：">
-<meta name="twitter:image" content="http://7xtawy.com1.z0.glb.clouddn.com/domain22.png?_=0.8093272649489154">
+<meta name="twitter:title" content="Single Number.java">
+<meta name="twitter:description" content="Given an array of integers, every element appears twice except for one. Find that single one.Note:Your algorithm should have a linear runtime complexity. Could you implement it without using extra mem">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -61,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>hexo 绑定域名 | Bo`s blog</title>
+<title>Single Number.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -279,11 +274,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-hexo 绑定域名" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Single Number" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/28/hexo 绑定域名/" class="article-date">
-      <time datetime="2016-09-28T08:21:04.943Z" itemprop="datePublished">2016-09-28</time>
+      <a href="/2016/10/18/Single Number/" class="article-date">
+      <time datetime="2016-10-18T06:36:31.541Z" itemprop="datePublished">2016-10-18</time>
 </a>
 
 
@@ -298,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hexo 绑定域名
+      Single Number.java
     </h1>
   
 
@@ -307,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/教程/">教程</a>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/域名/">域名</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -323,13 +318,39 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>去阿里云看了下 pangbo.space 只要5块，果断拍下…</p>
-<p>下面就是用的教程：</p>
+        <p>Given an array of integers, every element appears twice except for one. Find that single one.<br>Note:<br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
 <p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p><strong>域名解析：</strong></p>
-<p>有了自己的域名之后，luckykun.github.io替换成luckykun.com，只要设置下解析即可，进入万网的云解析页面，添加如下解析：<br><img src="http://7xtawy.com1.z0.glb.clouddn.com/domain22.png?_=0.8093272649489154" alt="这里写图片描述"><br>说明：192.30.252.154和192.30.252.153是github服务器对应的ip地址，这步一定要设置，否则访问不了。</p>
-<p><strong>添加CNAME：</strong><br>然后回到博客项目根目录，在source/下新建一个名为CNAME的文件，里面的内容写入luckykun.com即可。</p>
-<p>最后，hexo g, hexo d.</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p><strong>关键:</strong><br>1.获取int[] nums 的长度,nums.length；注意跟Sthring的区别，没有()；<br>2.break 加标签，跳出outer2层for循环<br>我的做法虽然A过，但太慢了</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>{
+        <span class="keyword">int</span> len = nums.length ;
+        <span class="keyword">int</span> ans = nums[<span class="number">0</span>];
+        outer2:<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=len-<span class="number">1</span>;i++){
+            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=len-<span class="number">1</span>;j++){
+                <span class="keyword">if</span>(i!=j &amp; nums[i] == nums[j]){
+                    <span class="keyword">break</span>;                    <span class="comment">//跳出一层for循环</span>
+                }
+                <span class="keyword">if</span>(j == len-<span class="number">1</span>){
+                    ans = nums[i];
+                    <span class="keyword">break</span> outer2;             <span class="comment">//break 加标签，跳出outer2层for循环</span>
+                }
+            }
+        }
+        <span class="keyword">return</span> ans;
+    }
+}
+</code></pre>
+<p><strong>高效答案:异或！</strong><br>使用异或：1^1^2^2^3^3^4 = 4;<br>按位来看：1001^1001 = 0000 ；1010^ 0011 = 1001;<br><strong>相同为0，相异为1</strong></p>
+<pre><code class="java"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="keyword">public</span> <span class="keyword">int</span> singleNumber（<span class="keyword">int</span>[] A） {
+        <span class="keyword">int</span> result = A[<span class="number">0</span>];
+        <span class="keyword">for</span>（<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length; i++）{
+            result = result ^ A[i];
+        }
+        <span class="keyword">return</span> result;
+    }
+}
+</code></pre>
 
       
     </div>
@@ -338,13 +359,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/09/28/hexo 绑定域名/">hexo 绑定域名</a></p>
+        <p><span>Title:</span><a href="/2016/10/18/Single Number/">Single Number.java</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-09-28, 16:21:04</p>
-        <p><span>Updated:</span>2016-09-28, 16:20:52</p>
+        <p><span>Created:</span>2016-10-18, 14:36:31</p>
+        <p><span>Updated:</span>2016-10-18, 14:47:56</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/09/28/hexo 绑定域名/" title="hexo 绑定域名">http://pangbo.space/2016/09/28/hexo 绑定域名/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/09/28/hexo 绑定域名/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/10/18/Single Number/" title="Single Number.java">http://pangbo.space/2016/10/18/Single Number/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/10/18/Single Number/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -356,16 +377,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/17/Fizz Buzz/">
-                    Fizz Buzz.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/27/Add Binary/">
-                    Add Binary.java
+                <a href="/2016/10/18/long与Long的区别，long型最后有无L的区别/">
+                    long与Long的区别，long型最后有无L的区别
                 </a>
             </div>
         
@@ -413,7 +428,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"hexo 绑定域名　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Single Number.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -431,7 +446,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/28/hexo 绑定域名/" data-title="hexo 绑定域名" data-url="http://pangbo.space/2016/09/28/hexo 绑定域名/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/18/Single Number/" data-title="Single Number.java" data-url="http://pangbo.space/2016/10/18/Single Number/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -454,15 +469,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/17/Fizz Buzz/" title="Pre: Fizz Buzz.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/27/Add Binary/" title="Next: Add Binary.java">
+            <a href="/2016/10/18/long与Long的区别，long型最后有无L的区别/" title="Next: long与Long的区别，long型最后有无L的区别">
                 <i class="fa fa-angle-right"></i>
             </a>
         
