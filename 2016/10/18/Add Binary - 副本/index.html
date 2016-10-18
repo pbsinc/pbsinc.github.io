@@ -15,19 +15,16 @@
 
 
 
-<meta name="description" content="long 与 Long 的区别
-long 9876543211 与 long 9876543211L ，long加不加L的区别">
+<meta name="description" content="Given two binary strings, return their sum (also a binary string).：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="long与Long的区别，long型最后有无L的区别">
-<meta property="og:url" content="http://pangbo.space/2016/10/18/long与Long的区别，long型最后有无L的区别/index.html">
+<meta property="og:title" content="Add Binary.java">
+<meta property="og:url" content="http://pangbo.space/2016/10/18/Add Binary - 副本/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="long 与 Long 的区别
-long 9876543211 与 long 9876543211L ，long加不加L的区别">
-<meta property="og:updated_time" content="2016-10-18T05:13:35.029Z">
+<meta property="og:description" content="Given two binary strings, return their sum (also a binary string).：">
+<meta property="og:updated_time" content="2016-10-18T07:48:27.141Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="long与Long的区别，long型最后有无L的区别">
-<meta name="twitter:description" content="long 与 Long 的区别
-long 9876543211 与 long 9876543211L ，long加不加L的区别">
+<meta name="twitter:title" content="Add Binary.java">
+<meta name="twitter:description" content="Given two binary strings, return their sum (also a binary string).：">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +56,7 @@ long 9876543211 与 long 9876543211L ，long加不加L的区别">
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>long与Long的区别，long型最后有无L的区别 | Bo`s blog</title>
+<title>Add Binary.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -277,11 +274,11 @@ long 9876543211 与 long 9876543211L ，long加不加L的区别">
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-long与Long的区别，long型最后有无L的区别" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Add Binary - 副本" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/18/long与Long的区别，long型最后有无L的区别/" class="article-date">
-      <time datetime="2016-10-18T04:45:59.607Z" itemprop="datePublished">2016-10-18</time>
+      <a href="/2016/10/18/Add Binary - 副本/" class="article-date">
+      <time datetime="2016-10-18T07:48:03.577Z" itemprop="datePublished">2016-10-18</time>
 </a>
 
 
@@ -296,7 +293,7 @@ long 9876543211 与 long 9876543211L ，long加不加L的区别">
         
   
     <h1 class="article-title" itemprop="name">
-      long与Long的区别，long型最后有无L的区别
+      Add Binary.java
     </h1>
   
 
@@ -305,13 +302,13 @@ long 9876543211 与 long 9876543211L ，long加不加L的区别">
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/long与Long/">long与Long</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/long加不加L的区别/">long加不加L的区别</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -321,28 +318,10 @@ long 9876543211 与 long 9876543211L ，long加不加L的区别">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <ol>
-<li>long 与 Long 的区别</li>
-<li>long 9876543211 与 long 9876543211L ，long加不加L的区别<br><excerpt in="" index="" |="" 首页摘要=""> <a id="more"></a>
-<the rest="" of="" contents="" |="" 余下全文="">
-</the></excerpt></li>
-</ol>
-<hr>
-<p><strong>1. long 与 Long 的区别:</strong><br>1.long是基础数据类型，Long是long的封装类型，也叫包装类；<br>2.什么叫包装类？在java中有时候的运算必须是两个类对象之间进行的，不充许对象与数字之间进行运算。所以需要有一个对象，这个对象把数字进行了一下包装，这样这个对象就可以和另一个对象进行运算了。<br>3.long的默认值是0；Long默认值是null；<br>4.基本类型：long,int,byte,float,double,char,short,boolean<br>5.基础数据类型、封装类型及默认值</p>
-<pre><code class="java"><span class="keyword">long</span>(<span class="number">0</span>)               Long(<span class="keyword">null</span>)
-<span class="keyword">int</span>(<span class="number">0</span>)                  Integer(<span class="keyword">null</span>)
-<span class="keyword">byte</span>(<span class="number">0</span>)               Byte(<span class="keyword">null</span>)
-<span class="keyword">float</span>(<span class="number">0.0</span>)            Float(<span class="keyword">null</span>)
-<span class="keyword">double</span>(<span class="number">0.0</span>)        Double(<span class="keyword">null</span>)
-<span class="keyword">short</span>(<span class="number">0</span>)              Short(<span class="keyword">null</span>)
-<span class="keyword">char</span>(<span class="number">0</span>)                Character(<span class="keyword">null</span>)
-<span class="keyword">boolean</span>(<span class="keyword">false</span>)    Boolean(<span class="keyword">null</span>)
-</code></pre>
-<p>到底是选择Long 还是long这个还得看具体环境，如果你认为这个属性不能为null,那么就用long，因为它默认初值为0，如果这个字段可以为null，那么就应该选择Long。</p>
-<p><strong>2. long加不加L的区别:</strong></p>
-<p>不加L默认是int，int转为long是安全的，所以会自动转，能编译通过</p>
-<p> long 9876543211  报错，因为超过int 的范围<br> long 9876543211L 正确写法</p>
-<p>浮点数不加F默认是double类型，double转float可能损失精度，因为不会自动转，编译是通不过的</p>
+        <p>Given two binary strings, return their sum (also a binary string).：</p>
+<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p>则：test 结果为 1<br>char 型的数字’1’的int值为49，’0’为48</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</div><div class="line">     <span class="keyword">int</span> na = a.length();</div><div class="line">     <span class="keyword">int</span> nb = b.length();</div><div class="line">     <span class="keyword">int</span> max = Math.max(na,nb);</div><div class="line">     <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">     String out = <span class="string">""</span>;</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=max;i++)</div><div class="line">     &#123;</div><div class="line">         <span class="keyword">int</span> p=<span class="number">0</span>,q=<span class="number">0</span>;</div><div class="line">         <span class="keyword">if</span>(na-i &gt;= <span class="number">0</span>)</div><div class="line">         &#123;</div><div class="line">             p = a.charAt(na-i) - <span class="string">'0'</span>;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">else</span></div><div class="line">             p = <span class="number">0</span>;</div><div class="line">             </div><div class="line">         <span class="keyword">if</span>(nb-i &gt;=<span class="number">0</span>)</div><div class="line">         &#123;</div><div class="line">             q = b.charAt(nb-i) - <span class="string">'0'</span>;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">else</span></div><div class="line">             q = <span class="number">0</span>;</div><div class="line">         </div><div class="line">         <span class="keyword">int</span> temp = p + q + carry;</div><div class="line">         carry = temp / <span class="number">2</span>;</div><div class="line">         out = temp % <span class="number">2</span> + out;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">if</span> (carry == <span class="number">1</span>)</div><div class="line">     &#123;</div><div class="line">         out = <span class="number">1</span> + out;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> out;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -351,13 +330,13 @@ long 9876543211 与 long 9876543211L ，long加不加L的区别">
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/18/long与Long的区别，long型最后有无L的区别/">long与Long的区别，long型最后有无L的区别</a></p>
+        <p><span>本文标题:</span><a href="/2016/10/18/Add Binary - 副本/">Add Binary.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-18, 12:45:59</p>
-        <p><span>最后更新:</span>2016-10-18, 13:13:35</p>
+        <p><span>发布时间:</span>2016-10-18, 15:48:03</p>
+        <p><span>最后更新:</span>2016-10-18, 15:48:27</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/18/long与Long的区别，long型最后有无L的区别/" title="long与Long的区别，long型最后有无L的区别">http://pangbo.space/2016/10/18/long与Long的区别，long型最后有无L的区别/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/18/long与Long的区别，long型最后有无L的区别/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/18/Add Binary - 副本/" title="Add Binary.java">http://pangbo.space/2016/10/18/Add Binary - 副本/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/18/Add Binary - 副本/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -369,16 +348,10 @@ long 9876543211 与 long 9876543211L ，long加不加L的区别">
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/18/Single Number/">
-                    Single Number.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/18/java各数据类型的范围/">
-                    java各数据类型的范围
+                <a href="/2016/10/18/Sum of Two Integers/">
+                    Sum of Two Integers.java
                 </a>
             </div>
         
@@ -390,7 +363,7 @@ long 9876543211 与 long 9876543211L ，long加不加L的区别">
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
         
     </div>
     <style>
@@ -426,7 +399,7 @@ long 9876543211 与 long 9876543211L ，long加不加L的区别">
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"long与Long的区别，long型最后有无L的区别　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Add Binary.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -444,7 +417,7 @@ long 9876543211 与 long 9876543211L ，long加不加L的区别">
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/18/long与Long的区别，long型最后有无L的区别/" data-title="long与Long的区别，long型最后有无L的区别" data-url="http://pangbo.space/2016/10/18/long与Long的区别，long型最后有无L的区别/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/18/Add Binary - 副本/" data-title="Add Binary.java" data-url="http://pangbo.space/2016/10/18/Add Binary - 副本/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -467,15 +440,13 @@ long 9876543211 与 long 9876543211L ，long加不加L的区别">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/18/Single Number/" title="上一篇: Single Number.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/18/java各数据类型的范围/" title="下一篇: java各数据类型的范围">
+            <a href="/2016/10/18/Sum of Two Integers/" title="下一篇: Sum of Two Integers.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
