@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://pangbo.space/2016/10/20/Remove Duplicates from Sorted Array II/index.html">
 <meta property="og:site_name" content="Bo`s blog">
 <meta property="og:description" content="Follow up for “Remove Duplicates”:What if duplicates are allowed at most twice?For example,Given sorted array nums = [1,1,1,2,2,3],Your function should return length = 5, with the first five elements">
-<meta property="og:updated_time" content="2016-10-20T02:21:01.814Z">
+<meta property="og:updated_time" content="2016-10-20T02:24:30.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Remove Duplicates from Sorted Array II.java">
 <meta name="twitter:description" content="Follow up for “Remove Duplicates”:What if duplicates are allowed at most twice?For example,Given sorted array nums = [1,1,1,2,2,3],Your function should return length = 5, with the first five elements">
@@ -325,12 +325,10 @@
         <span class="keyword">if</span>(len==<span class="number">0</span>)
             <span class="keyword">return</span> <span class="number">0</span>;
         <span class="keyword">int</span> count =<span class="number">1</span>,s=<span class="number">0</span>;
-
         <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++){
             <span class="keyword">if</span>(nums[count-<span class="number">1</span>]==nums[i]){
                 s++;
-                <span class="keyword">if</span>(s&lt;<span class="number">2</span>){
-
+                <span class="keyword">if</span>(s&lt;<span class="number">2</span>){                 
                     <span class="keyword">if</span>(nums[count]!=nums[i])
                         nums[count]=nums[i]; 
                     count++;       
@@ -358,7 +356,7 @@
         <p><span>本文标题:</span><a href="/2016/10/20/Remove Duplicates from Sorted Array II/">Remove Duplicates from Sorted Array II.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
         <p><span>发布时间:</span>2016-10-20, 10:11:56</p>
-        <p><span>最后更新:</span>2016-10-20, 10:21:01</p>
+        <p><span>最后更新:</span>2016-10-20, 10:24:30</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/10/20/Remove Duplicates from Sorted Array II/" title="Remove Duplicates from Sorted Array II.java">http://pangbo.space/2016/10/20/Remove Duplicates from Sorted Array II/</a>
             <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/20/Remove Duplicates from Sorted Array II/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
