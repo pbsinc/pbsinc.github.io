@@ -15,15 +15,16 @@
 
 
 
-<meta name="description" content="Bo pbsinc blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bo`s blog">
-<meta property="og:url" content="http://pangbo.space/categories/java总结/index.html">
+<meta name="description" content="Given an array of integers, return indices of the two numbers such that they add up to a specific target.You may assume that each input would have exactly one solution.Example:Given nums = [2, 7, 11,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Two Sum.java">
+<meta property="og:url" content="http://pangbo.space/2016/10/20/Two Sum/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Bo pbsinc blog">
+<meta property="og:description" content="Given an array of integers, return indices of the two numbers such that they add up to a specific target.You may assume that each input would have exactly one solution.Example:Given nums = [2, 7, 11,">
+<meta property="og:updated_time" content="2016-10-20T02:14:12.431Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bo`s blog">
-<meta name="twitter:description" content="Bo pbsinc blog">
+<meta name="twitter:title" content="Two Sum.java">
+<meta name="twitter:description" content="Given an array of integers, return indices of the two numbers such that they add up to a specific target.You may assume that each input would have exactly one solution.Example:Given nums = [2, 7, 11,">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -55,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Category: java总结 | Bo`s blog</title>
+<title>Two Sum.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -65,10 +66,10 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
-        isCategory: true,
+        isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
         search: undefined
@@ -273,134 +274,198 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Two Sum" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/10/20/Two Sum/" class="article-date">
+      <time datetime="2016-10-20T02:11:49.064Z" itemprop="datePublished">2016-10-20</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Two Sum.java
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/10/18/long与Long的区别，long型最后有无L的区别/" class="archive-article-date">
-      <time datetime="2016-10-18T04:45:59.607Z" itemprop="datePublished">10-18</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/18/long与Long的区别，long型最后有无L的区别/">long与Long的区别，long型最后有无L的区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+        <p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br>You may assume that each input would have exactly one solution.<br>Example:<br>Given nums = [2, 7, 11, 15], target = 9,<br>Because nums[0] + nums[1] = 2 + 7 = 9,    return [0, 1].<br><a id="more"></a><br><strong>注意：</strong><br>return 一个int[]，首先定义一个int[]<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">            <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">            <span class="keyword">int</span> len = nums.length;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;len;i++)&#123;</div><div class="line">                 <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;len;j++)&#123;</div><div class="line">                     <span class="keyword">if</span>(i!=j &amp; nums[i]+nums[j]==target)&#123;</div><div class="line">                         ans[<span class="number">0</span>]=i;</div><div class="line">                         ans[<span class="number">1</span>]=j;</div><div class="line">                         <span class="keyword">return</span> ans;</div><div class="line">                     &#125;</div><div class="line">                 &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">```	</div><div class="line">**用HashMap解答：**</div><div class="line">``` java</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</div><div class="line">        HashMap&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (map.get(numbers[i]) != <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="keyword">int</span>[] result = &#123;map.get(numbers[i]) + <span class="number">1</span>, i + <span class="number">1</span>&#125;;</div><div class="line">                <span class="keyword">return</span> result;</div><div class="line">            &#125;</div><div class="line">            map.put(target - numbers[i], i);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span>[] result = &#123;&#125;;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>HashMap详解:</strong><br><a href="http://www.cnblogs.com/chenssy/p/3521565.html" target="_blank" rel="external">http://www.cnblogs.com/chenssy/p/3521565.html</a></p>
+
+      
     </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/long与Long/">long与Long</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/long加不加L的区别/">long加不加L的区别</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/10/20/Two Sum/">Two Sum.java</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
+        <p><span>发布时间:</span>2016-10-20, 10:11:49</p>
+        <p><span>最后更新:</span>2016-10-20, 10:14:12</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/20/Two Sum/" title="Two Sum.java">http://pangbo.space/2016/10/20/Two Sum/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/20/Two Sum/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/10/20/Remove Duplicates from Sorted Array/">
+                    Remove Duplicates from Sorted Array.java
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/10/18/Maximum Depth of Binary Tree/">
+                    Maximum Depth of Binary Tree.java
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/10/18/java各数据类型的范围/" class="archive-article-date">
-      <time datetime="2016-10-18T04:32:19.707Z" itemprop="datePublished">10-18</time>
-</a>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/18/java各数据类型的范围/">java各数据类型的范围</a>
-    </h1>
-  
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Two Sum.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/20/Two Sum/" data-title="Two Sum.java" data-url="http://pangbo.space/2016/10/20/Two Sum/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"pbsinc"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/10/20/Remove Duplicates from Sorted Array/" title="上一篇: Remove Duplicates from Sorted Array.java">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/10/18/Maximum Depth of Binary Tree/" title="下一篇: Maximum Depth of Binary Tree.java">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
 
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据类型的范围/">数据类型的范围</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/10/18/java中大数的表示BigInteger和BigDecimal/" class="archive-article-date">
-      <time datetime="2016-10-18T03:55:37.911Z" itemprop="datePublished">10-18</time>
-</a>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/10/20/Remove Duplicates from Sorted Array II/">Remove Duplicates from Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/20/Remove Duplicates from Sorted Array/">Remove Duplicates from Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/20/Two Sum/">Two Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/Maximum Depth of Binary Tree/">Maximum Depth of Binary Tree.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/Sum of Two Integers/">Sum of Two Integers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/Single Number/">Single Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/long与Long的区别，long型最后有无L的区别/">long与Long的区别，long型最后有无L的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/java各数据类型的范围/">java各数据类型的范围</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/java中大数的表示BigInteger和BigDecimal/">java中大数的表示BigInteger和BigDecimal</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/Nim Game/">Nim Game.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/Reverse String/">Reverse String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/Fizz Buzz/">Fizz Buzz.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/28/hexo 绑定域名/">hexo 绑定域名</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/27/Add Binary/">Add Binary.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/hello-world/">Hello World</a></li></ul>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/18/java中大数的表示BigInteger和BigDecimal/">java中大数的表示BigInteger和BigDecimal</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
-    </div>
 
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigDecimal/">BigDecimal</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigInteger/">BigInteger</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">

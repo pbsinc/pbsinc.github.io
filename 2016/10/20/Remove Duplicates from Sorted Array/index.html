@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.">
+<meta name="description" content="Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.Do not allocate extra space for another array, you must do this in place with con">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Maximum Depth of Binary Tree.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/18/Maximum Depth of Binary Tree/index.html">
+<meta property="og:title" content="Remove Duplicates from Sorted Array.java">
+<meta property="og:url" content="http://pangbo.space/2016/10/20/Remove Duplicates from Sorted Array/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.">
-<meta property="og:updated_time" content="2016-10-18T12:51:30.708Z">
+<meta property="og:description" content="Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.Do not allocate extra space for another array, you must do this in place with con">
+<meta property="og:updated_time" content="2016-10-20T02:15:36.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Maximum Depth of Binary Tree.java">
-<meta name="twitter:description" content="Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.">
+<meta name="twitter:title" content="Remove Duplicates from Sorted Array.java">
+<meta name="twitter:description" content="Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.Do not allocate extra space for another array, you must do this in place with con">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Maximum Depth of Binary Tree.java | Bo`s blog</title>
+<title>Remove Duplicates from Sorted Array.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Maximum Depth of Binary Tree" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Remove Duplicates from Sorted Array" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/18/Maximum Depth of Binary Tree/" class="article-date">
-      <time datetime="2016-10-18T12:39:06.281Z" itemprop="datePublished">2016-10-18</time>
+      <a href="/2016/10/20/Remove Duplicates from Sorted Array/" class="article-date">
+      <time datetime="2016-10-20T02:11:55.862Z" itemprop="datePublished">2016-10-20</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Maximum Depth of Binary Tree.java
+      Remove Duplicates from Sorted Array.java
     </h1>
   
 
@@ -318,15 +318,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given a binary tree, find its maximum depth.<br>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.<br><a id="more"></a><br><strong>遍历法</strong><br>非递归，用DFS 深度遍历的方法；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> depth;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        depth = <span class="number">0</span>;</div><div class="line">        helper(root,<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> depth;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(TreeNode node, <span class="keyword">int</span> curtdepth)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(node == <span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(curtdepth &gt; depth)&#123;</div><div class="line">            depth = curtdepth;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        helper(node.left,curtdepth + <span class="number">1</span>);</div><div class="line">        helper(node.right,curtdepth + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">```	</div><div class="line">用BFS 广度遍历的方法；</div><div class="line">``` java</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> depth;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        depth = <span class="number">0</span>;</div><div class="line">        helper(root,<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> depth;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(TreeNode node, <span class="keyword">int</span> curtdepth)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(node == <span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(curtdepth &gt; depth)&#123;</div><div class="line">            depth = curtdepth;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        helper(node.left,curtdepth + <span class="number">1</span>);</div><div class="line">        helper(node.right,curtdepth + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>递归思路:</strong><br>返回左子树或者右子树中大的深度加1，作为自己的深度即可，代码如下： </p>
-<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>{  
-    <span class="keyword">if</span>(root == <span class="keyword">null</span>)  
-        <span class="keyword">return</span> <span class="number">0</span>;  
-    <span class="keyword">return</span> Math.max(maxDepth(root.left),maxDepth(root.right))+<span class="number">1</span>;  
-}
-</code></pre>
-<p><strong>此人对树总结很好:</strong><br><a href="http://blog.csdn.net/linhuanmars/article/category/2336231" target="_blank" rel="external">http://blog.csdn.net/linhuanmars/article/category/2336231</a> </p>
+        <p>Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.<br>Do not allocate extra space for another array, you must do this in place with constant memory.<br>For example,<br>Given input array nums = [1,1,2],<br>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn’t matter what you leave beyond the new length.<br><a id="more"></a><br><strong>思路：</strong><br>我的思路完全跑偏了，这是正确思路，一次遍历，比较相邻，若不同按顺序重新填入数组！</p>
+<p>（1）主要是因为数组<strong>已经是排好顺序</strong>的。如果不仔细看题目，把数组当作无序数组进行操作，OJ时会显示超时。</p>
+<p>（2）题目要求是不能申请二额外空间，如果提交时有申请额外空间，也是不通过的。</p>
+<p>（3）还需要注意的一个地方是，数组中元素的位置不能改变。比如对于数组[1,1,1,4,5]，移除重复元素后为[1,4,5]，起始数字为1，而不能是其它数字。</p>
+<p>（4）我们只需对对组遍历一次，并设置一个计数器，每当遍历前后元素不相同，计数器加1，并将计数器对应在数组中位置定位到当前遍历的元素。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">我的思路完全跑偏了，这是正确思路，一次遍历，比较相邻，若不同按顺序重新填入数组！</div><div class="line"></div><div class="line">（<span class="number">1</span>）主要是因为数组**已经是排好顺序**的。如果不仔细看题目，把数组当作无序数组进行操作，OJ时会显示超时。</div><div class="line"></div><div class="line">（<span class="number">2</span>）题目要求是不能申请二额外空间，如果提交时有申请额外空间，也是不通过的。</div><div class="line"></div><div class="line">（<span class="number">3</span>）还需要注意的一个地方是，数组中元素的位置不能改变。比如对于数组[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">5</span>]，移除重复元素后为[<span class="number">1</span>,<span class="number">4</span>,<span class="number">5</span>]，起始数字为<span class="number">1</span>，而不能是其它数字。</div><div class="line"></div><div class="line">（<span class="number">4</span>）我们只需对对组遍历一次，并设置一个计数器，每当遍历前后元素不相同，计数器加<span class="number">1</span>，并将计数器对应在数组中位置定位到当前遍历的元素。</div><div class="line">```	</div><div class="line">用BFS 广度遍历的方法；</div><div class="line">``` java</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> depth;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        depth = <span class="number">0</span>;</div><div class="line">        helper(root,<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span> depth;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(TreeNode node, <span class="keyword">int</span> curtdepth)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(node == <span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(curtdepth &gt; depth)&#123;</div><div class="line">            depth = curtdepth;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        helper(node.left,curtdepth + <span class="number">1</span>);</div><div class="line">        helper(node.right,curtdepth + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -335,13 +331,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/18/Maximum Depth of Binary Tree/">Maximum Depth of Binary Tree.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/10/20/Remove Duplicates from Sorted Array/">Remove Duplicates from Sorted Array.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-18, 20:39:06</p>
-        <p><span>最后更新:</span>2016-10-18, 20:51:30</p>
+        <p><span>发布时间:</span>2016-10-20, 10:11:55</p>
+        <p><span>最后更新:</span>2016-10-20, 10:15:36</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/18/Maximum Depth of Binary Tree/" title="Maximum Depth of Binary Tree.java">http://pangbo.space/2016/10/18/Maximum Depth of Binary Tree/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/18/Maximum Depth of Binary Tree/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/20/Remove Duplicates from Sorted Array/" title="Remove Duplicates from Sorted Array.java">http://pangbo.space/2016/10/20/Remove Duplicates from Sorted Array/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/20/Remove Duplicates from Sorted Array/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -354,15 +350,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/20/Two Sum/">
-                    Two Sum.java
+                <a href="/2016/10/20/Remove Duplicates from Sorted Array II/">
+                    Remove Duplicates from Sorted Array II.java
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/18/Sum of Two Integers/">
-                    Sum of Two Integers.java
+                <a href="/2016/10/20/Two Sum/">
+                    Two Sum.java
                 </a>
             </div>
         
@@ -410,7 +406,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Maximum Depth of Binary Tree.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Remove Duplicates from Sorted Array.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -428,7 +424,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/18/Maximum Depth of Binary Tree/" data-title="Maximum Depth of Binary Tree.java" data-url="http://pangbo.space/2016/10/18/Maximum Depth of Binary Tree/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/20/Remove Duplicates from Sorted Array/" data-title="Remove Duplicates from Sorted Array.java" data-url="http://pangbo.space/2016/10/20/Remove Duplicates from Sorted Array/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -451,7 +447,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/20/Two Sum/" title="上一篇: Two Sum.java">
+            <a href="/2016/10/20/Remove Duplicates from Sorted Array II/" title="上一篇: Remove Duplicates from Sorted Array II.java">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -459,7 +455,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/18/Sum of Two Integers/" title="下一篇: Sum of Two Integers.java">
+            <a href="/2016/10/20/Two Sum/" title="下一篇: Two Sum.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
