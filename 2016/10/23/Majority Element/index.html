@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.Do not allocate extra space for another array, you must do this in place with con">
+<meta name="description" content="Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.You may assume that the array is non-empty and the majority element always">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Remove Duplicates from Sorted Array.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/20/Remove Duplicates from Sorted Array/index.html">
+<meta property="og:title" content="Majority Element.java">
+<meta property="og:url" content="http://pangbo.space/2016/10/23/Majority Element/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.Do not allocate extra space for another array, you must do this in place with con">
-<meta property="og:updated_time" content="2016-10-20T02:24:50.881Z">
+<meta property="og:description" content="Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.You may assume that the array is non-empty and the majority element always">
+<meta property="og:updated_time" content="2016-10-23T12:17:02.395Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Remove Duplicates from Sorted Array.java">
-<meta name="twitter:description" content="Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.Do not allocate extra space for another array, you must do this in place with con">
+<meta name="twitter:title" content="Majority Element.java">
+<meta name="twitter:description" content="Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.You may assume that the array is non-empty and the majority element always">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Remove Duplicates from Sorted Array.java | Bo`s blog</title>
+<title>Majority Element.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Remove Duplicates from Sorted Array" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Majority Element" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/20/Remove Duplicates from Sorted Array/" class="article-date">
-      <time datetime="2016-10-20T02:11:55.862Z" itemprop="datePublished">2016-10-20</time>
+      <a href="/2016/10/23/Majority Element/" class="article-date">
+      <time datetime="2016-10-23T11:38:16.073Z" itemprop="datePublished">2016-10-23</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Remove Duplicates from Sorted Array.java
+      Majority Element.java
     </h1>
   
 
@@ -318,11 +318,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.<br>Do not allocate extra space for another array, you must do this in place with constant memory.<br>For example,<br>Given input array nums = [1,1,2],<br>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn’t matter what you leave beyond the new length.<br><a id="more"></a><br><strong>思路：</strong><br>我的思路完全跑偏了，这是正确思路，一次遍历，比较相邻，若不同按顺序重新填入数组！</p>
-<p>（1）主要是因为数组<strong>已经是排好顺序</strong>的。如果不仔细看题目，把数组当作无序数组进行操作，OJ时会显示超时。</p>
-<p>（2）题目要求是不能申请二额外空间，如果提交时有申请额外空间，也是不通过的。</p>
-<p>（3）还需要注意的一个地方是，数组中元素的位置不能改变。比如对于数组[1,1,1,4,5]，移除重复元素后为[1,4,5]，起始数字为1，而不能是其它数字。</p>
-<p>（4）我们只需对对组遍历一次，并设置一个计数器，每当遍历前后元素不相同，计数器加1，并将计数器对应在数组中位置定位到当前遍历的元素。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">        <span class="keyword">if</span>(len ==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> count =<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i]==nums[i-<span class="number">1</span>])</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">                nums[count]=nums[i];</div><div class="line">                count++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> count;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.<br>You may assume that the array is non-empty and the majority element always exist in the array.<br><a id="more"></a><br><strong>正确思路:</strong><br>一个一个比较计数的话，运行时间过长通不过；<br>所以排序后去中间值肯定对：Arrays.sort(num);<br>或者，利用不同就抵消的思想，最后剩下的就是答案：用count记录某个元素出现的次数，如果后面的元素和它相同就加一，不同就减一，当count等于0时换一个新的元素比较。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> ans =nums[<span class="number">0</span>],count=<span class="number">0</span>,len=nums.length;</div><div class="line">        <span class="keyword">if</span>(len == <span class="number">1</span>)</div><div class="line">            <span class="keyword">return</span> nums[<span class="number">0</span>];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-<span class="number">1</span>;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i] == ans) &#123;</div><div class="line">                count++;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">                count--;</div><div class="line">            <span class="keyword">if</span>(count == <span class="number">0</span>)</div><div class="line">                ans = nums[i+<span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -331,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/20/Remove Duplicates from Sorted Array/">Remove Duplicates from Sorted Array.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/10/23/Majority Element/">Majority Element.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-20, 10:11:55</p>
-        <p><span>最后更新:</span>2016-10-20, 10:24:50</p>
+        <p><span>发布时间:</span>2016-10-23, 19:38:16</p>
+        <p><span>最后更新:</span>2016-10-23, 20:17:02</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/20/Remove Duplicates from Sorted Array/" title="Remove Duplicates from Sorted Array.java">http://pangbo.space/2016/10/20/Remove Duplicates from Sorted Array/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/20/Remove Duplicates from Sorted Array/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/23/Majority Element/" title="Majority Element.java">http://pangbo.space/2016/10/23/Majority Element/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/23/Majority Element/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -349,16 +345,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/20/Remove Duplicates from Sorted Array II/">
-                    Remove Duplicates from Sorted Array II.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/20/Two Sum/">
-                    Two Sum.java
+                <a href="/2016/10/23/Pascal's Triangle II/">
+                    Pascal&#39;s Triangle II.java
                 </a>
             </div>
         
@@ -406,7 +396,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Remove Duplicates from Sorted Array.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Majority Element.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -424,7 +414,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/20/Remove Duplicates from Sorted Array/" data-title="Remove Duplicates from Sorted Array.java" data-url="http://pangbo.space/2016/10/20/Remove Duplicates from Sorted Array/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/23/Majority Element/" data-title="Majority Element.java" data-url="http://pangbo.space/2016/10/23/Majority Element/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -447,15 +437,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/20/Remove Duplicates from Sorted Array II/" title="上一篇: Remove Duplicates from Sorted Array II.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/20/Two Sum/" title="下一篇: Two Sum.java">
+            <a href="/2016/10/23/Pascal's Triangle II/" title="下一篇: Pascal&#39;s Triangle II.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
