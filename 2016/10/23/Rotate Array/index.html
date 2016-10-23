@@ -15,18 +15,16 @@
 
 
 
-<meta name="description" content="去阿里云看了下 pangbo.space 只要5块，果断拍下…下面就是用的教程：">
+<meta name="description" content="Rotate an array of n elements to the right by k steps.For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo 绑定域名">
-<meta property="og:url" content="http://pangbo.space/2016/09/28/hexo 绑定域名/index.html">
+<meta property="og:title" content="Rotate Array.java">
+<meta property="og:url" content="http://pangbo.space/2016/10/23/Rotate Array/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="去阿里云看了下 pangbo.space 只要5块，果断拍下…下面就是用的教程：">
-<meta property="og:image" content="http://7xtawy.com1.z0.glb.clouddn.com/domain22.png?_=0.8093272649489154">
-<meta property="og:updated_time" content="2016-10-18T08:58:04.343Z">
+<meta property="og:description" content="Rotate an array of n elements to the right by k steps.For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].">
+<meta property="og:updated_time" content="2016-10-23T12:32:59.723Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo 绑定域名">
-<meta name="twitter:description" content="去阿里云看了下 pangbo.space 只要5块，果断拍下…下面就是用的教程：">
-<meta name="twitter:image" content="http://7xtawy.com1.z0.glb.clouddn.com/domain22.png?_=0.8093272649489154">
+<meta name="twitter:title" content="Rotate Array.java">
+<meta name="twitter:description" content="Rotate an array of n elements to the right by k steps.For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>hexo 绑定域名 | Bo`s blog</title>
+<title>Rotate Array.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -276,11 +274,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-hexo 绑定域名" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Rotate Array" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/28/hexo 绑定域名/" class="article-date">
-      <time datetime="2016-09-28T08:21:04.943Z" itemprop="datePublished">2016-09-28</time>
+      <a href="/2016/10/23/Rotate Array/" class="article-date">
+      <time datetime="2016-10-23T12:29:54.414Z" itemprop="datePublished">2016-10-23</time>
 </a>
 
 
@@ -295,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hexo 绑定域名
+      Rotate Array.java
     </h1>
   
 
@@ -304,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/教程/">教程</a>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/域名/">域名</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -320,10 +318,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>去阿里云看了下 pangbo.space 只要5块，果断拍下…下面就是用的教程：<br><a id="more"></a><br><strong>域名解析：</strong></p>
-<p>有了自己的域名之后，luckykun.github.io替换成luckykun.com，只要设置下解析即可，进入万网的云解析页面，添加如下解析：<br><img src="http://7xtawy.com1.z0.glb.clouddn.com/domain22.png?_=0.8093272649489154" alt="这里写图片描述"><br>说明：192.30.252.154和192.30.252.153是github服务器对应的ip地址，这步一定要设置，否则访问不了。</p>
-<p><strong>添加CNAME：</strong><br>然后回到博客项目根目录，在source/下新建一个名为CNAME的文件，里面的内容写入luckykun.com即可。</p>
-<p>最后，hexo g, hexo d.</p>
+        <p>Rotate an array of n elements to the right by k steps.<br>For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].<br><a id="more"></a><br><strong>思路:</strong><br>注意一下右移k&gt;len的情况<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[k];</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">        k = k%len;                  <span class="comment">//右移k&gt;len的情况</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)</div><div class="line">            temp[i] = nums[len-k+i];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=len-<span class="number">1</span>;j&gt;=k;j--)</div><div class="line">            nums[j] = nums[j-k];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)</div><div class="line">            nums[i] = temp[i];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -332,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/09/28/hexo 绑定域名/">hexo 绑定域名</a></p>
+        <p><span>Title:</span><a href="/2016/10/23/Rotate Array/">Rotate Array.java</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-09-28, 16:21:04</p>
-        <p><span>Updated:</span>2016-10-18, 16:58:04</p>
+        <p><span>Created:</span>2016-10-23, 20:29:54</p>
+        <p><span>Updated:</span>2016-10-23, 20:32:59</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/09/28/hexo 绑定域名/" title="hexo 绑定域名">http://pangbo.space/2016/09/28/hexo 绑定域名/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/09/28/hexo 绑定域名/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/10/23/Rotate Array/" title="Rotate Array.java">http://pangbo.space/2016/10/23/Rotate Array/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/10/23/Rotate Array/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -350,16 +345,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/17/Fizz Buzz/">
-                    Fizz Buzz.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/27/Add Binary/">
-                    Add Binary.java
+                <a href="/2016/10/23/Majority Element/">
+                    Majority Element.java
                 </a>
             </div>
         
@@ -407,7 +396,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"hexo 绑定域名　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Rotate Array.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -425,7 +414,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/28/hexo 绑定域名/" data-title="hexo 绑定域名" data-url="http://pangbo.space/2016/09/28/hexo 绑定域名/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/23/Rotate Array/" data-title="Rotate Array.java" data-url="http://pangbo.space/2016/10/23/Rotate Array/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -448,15 +437,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/17/Fizz Buzz/" title="Pre: Fizz Buzz.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/27/Add Binary/" title="Next: Add Binary.java">
+            <a href="/2016/10/23/Majority Element/" title="Next: Majority Element.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
