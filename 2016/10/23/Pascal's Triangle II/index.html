@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="12345678Boolean ：true、falseChar 	2个字节Byte (16bit) byte    1个字节Byte (8bit)     -2^7~2^7-1      -128 ~ 127short   2个字节Byte (16bit)    -2^16~2^16-1    -32768 ~ 32767			int     4个字节Byte (32bit)    -2^31~2">
+<meta name="description" content="Given an index k, return the kth row of the Pascal’s triangle.For example, given k = 3,Return [1,3,3,1].Note:Could you optimize your algorithm to use only O(k) extra space?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java各数据类型的范围">
-<meta property="og:url" content="http://pangbo.space/2016/10/18/java各数据类型的范围/index.html">
+<meta property="og:title" content="Pascal's Triangle II.java">
+<meta property="og:url" content="http://pangbo.space/2016/10/23/Pascal's Triangle II/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="12345678Boolean ：true、falseChar 	2个字节Byte (16bit) byte    1个字节Byte (8bit)     -2^7~2^7-1      -128 ~ 127short   2个字节Byte (16bit)    -2^16~2^16-1    -32768 ~ 32767			int     4个字节Byte (32bit)    -2^31~2">
-<meta property="og:updated_time" content="2016-10-18T04:45:42.099Z">
+<meta property="og:description" content="Given an index k, return the kth row of the Pascal’s triangle.For example, given k = 3,Return [1,3,3,1].Note:Could you optimize your algorithm to use only O(k) extra space?">
+<meta property="og:updated_time" content="2016-10-23T10:35:58.816Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java各数据类型的范围">
-<meta name="twitter:description" content="12345678Boolean ：true、falseChar 	2个字节Byte (16bit) byte    1个字节Byte (8bit)     -2^7~2^7-1      -128 ~ 127short   2个字节Byte (16bit)    -2^16~2^16-1    -32768 ~ 32767			int     4个字节Byte (32bit)    -2^31~2">
+<meta name="twitter:title" content="Pascal's Triangle II.java">
+<meta name="twitter:description" content="Given an index k, return the kth row of the Pascal’s triangle.For example, given k = 3,Return [1,3,3,1].Note:Could you optimize your algorithm to use only O(k) extra space?">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>java各数据类型的范围 | Bo`s blog</title>
+<title>Pascal&#39;s Triangle II.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-java各数据类型的范围" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Pascal&#39;s Triangle II" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/18/java各数据类型的范围/" class="article-date">
-      <time datetime="2016-10-18T04:32:19.707Z" itemprop="datePublished">2016-10-18</time>
+      <a href="/2016/10/23/Pascal's Triangle II/" class="article-date">
+      <time datetime="2016-10-23T10:20:12.188Z" itemprop="datePublished">2016-10-23</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      java各数据类型的范围
+      Pascal&#39;s Triangle II.java
     </h1>
   
 
@@ -302,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据类型的范围/">数据类型的范围</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,7 +318,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Boolean ：<span class="keyword">true</span>、<span class="keyword">false</span></div><div class="line">Char 	<span class="number">2</span>个字节Byte (<span class="number">16</span>bit) </div><div class="line"><span class="keyword">byte</span>    <span class="number">1</span>个字节Byte (<span class="number">8</span>bit)     -<span class="number">2</span>^<span class="number">7</span>~<span class="number">2</span>^<span class="number">7</span>-<span class="number">1</span>      -<span class="number">128</span> ~ <span class="number">127</span></div><div class="line"><span class="keyword">short</span>   <span class="number">2</span>个字节Byte (<span class="number">16</span>bit)    -<span class="number">2</span>^<span class="number">16</span>~<span class="number">2</span>^<span class="number">16</span>-<span class="number">1</span>    -<span class="number">32768</span> ~ <span class="number">32767</span>			</div><div class="line"><span class="keyword">int</span>     <span class="number">4</span>个字节Byte (<span class="number">32</span>bit)    -<span class="number">2</span>^<span class="number">31</span>~<span class="number">2</span>^<span class="number">31</span>-<span class="number">1</span>    -<span class="number">2147483648</span> ~ <span class="number">2147483647</span>    Integer.MIN_VALUE ~ Integer.MAX_VALUE</div><div class="line"><span class="keyword">long</span>    <span class="number">8</span>个字节Byte (<span class="number">64</span>bit)    -<span class="number">2</span>^<span class="number">63</span>~<span class="number">2</span>^<span class="number">63</span>-<span class="number">1</span>    -<span class="number">9223372036854775808</span> ~ <span class="number">9223372036854775807</span></div><div class="line"><span class="keyword">float</span>   <span class="number">4</span>个字节Byte (<span class="number">32</span>bit)    <span class="number">1.17549435E-38</span> ~ <span class="number">1.4E-45</span></div><div class="line"><span class="keyword">double</span>  <span class="number">8</span>个字节Byte (<span class="number">64</span>bit)    <span class="number">4.9E-324</span> ~ <span class="number">1.7976931348623157E308</span></div></pre></td></tr></table></figure>
+        <p>Given an index k, return the kth row of the Pascal’s triangle.<br>For example, given k = 3,Return [1,3,3,1].<br>Note:<br>Could you optimize your algorithm to use only O(k) extra space?<br><a id="more"></a><br><strong>我的思路：</strong><br>杨辉三角，百度百科 ： <a href="http://baike.baidu.com/link?url=tDS0pG6dVFeF5Wu2bej3iTV7uT6zCM6j_qPBG-NwWkp5vfHz1u1DCyTd-_7P5h-4PmVuM2BuE8TttuUDRygTG_" target="_blank" rel="external">http://baike.baidu.com/link?url=tDS0pG6dVFeF5Wu2bej3iTV7uT6zCM6j_qPBG-NwWkp5vfHz1u1DCyTd-_7P5h-4PmVuM2BuE8TttuUDRygTG_</a><br>第n行第m个值为C(n-1,m-1)，所以我的做法是实现这个算法，但不知为何n大于14开始，最后几位出错。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">getRow</span><span class="params">(<span class="keyword">int</span> rowIndex)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; out = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        out.add(<span class="number">1</span>);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=rowIndex;i++)&#123;</div><div class="line">            <span class="keyword">int</span> temp1 = rowIndex,ta=<span class="number">1</span>,tb=<span class="number">1</span>,temp2=<span class="number">1</span>,time = i;</div><div class="line">            <span class="keyword">while</span>(time&gt;<span class="number">0</span>)&#123;</div><div class="line">                ta = ta * (temp1--);</div><div class="line">                time--;</div><div class="line">                tb = tb * (temp2++);</div><div class="line">            &#125;</div><div class="line">            out.add(ta/tb);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> out;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>答案思路:</strong><br>这里只需要求出某一行的结果。Pascal’s Triangle中因为是求出全部结果，所以我们需要上一行的数据就很自然的可以去取。而这里我们只需要一行数据，就得考虑一下是不是能只用一行的空间来存储结果而不需要额外的来存储上一行呢？这里确实是可以实现的。对于每一行我们知道如果从前往后扫，第i个元素的值等于上一行的res[i]+res[i+1]，可以看到数据是往前看的，如果我们只用一行空间，那么需要的数据就会被覆盖掉。所以这里采取的方法是从后往前扫，这样每次需要的数据就是res[i]+res[i-1]，我们需要的数据不会被覆盖，因为需要的res[i]只在当前步用，下一步就不需要了。这个技巧在动态规划省空间时也经常使用，主要就是看我们需要的数据是原来的数据还是新的数据来决定我们遍历的方向。时间复杂度还是O(n^2)，而空间这里是O(k)来存储结果，仍然不需要额外空间。代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">getRow</span><span class="params">(<span class="keyword">int</span> rowIndex)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; out = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        out.add(<span class="number">1</span>);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=rowIndex;i++)&#123;      <span class="comment">//这里一定要倒叙，因为是前项相加，顺序的话，上一行的值已经被覆盖了</span></div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=out.size()-<span class="number">1</span>;j&gt;<span class="number">0</span>;j--)</div><div class="line">                out.set(j,out.get(j)+out.get(j-<span class="number">1</span>));</div><div class="line">            out.add(<span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> out;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -326,13 +328,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/10/18/java各数据类型的范围/">java各数据类型的范围</a></p>
+        <p><span>Title:</span><a href="/2016/10/23/Pascal's Triangle II/">Pascal&#39;s Triangle II.java</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-10-18, 12:32:19</p>
-        <p><span>Updated:</span>2016-10-18, 12:45:42</p>
+        <p><span>Created:</span>2016-10-23, 18:20:12</p>
+        <p><span>Updated:</span>2016-10-23, 18:35:58</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/10/18/java各数据类型的范围/" title="java各数据类型的范围">http://pangbo.space/2016/10/18/java各数据类型的范围/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/10/18/java各数据类型的范围/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/10/23/Pascal's Triangle II/" title="Pascal&#39;s Triangle II.java">http://pangbo.space/2016/10/23/Pascal&#39;s Triangle II/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/10/23/Pascal&#39;s Triangle II/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -344,16 +346,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/18/long与Long的区别，long型最后有无L的区别/">
-                    long与Long的区别，long型最后有无L的区别
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/18/java中大数的表示BigInteger和BigDecimal/">
-                    java中大数的表示BigInteger和BigDecimal
+                <a href="/2016/10/23/Pascal's Triangle/">
+                    Pascal&#39;s Triangle.java
                 </a>
             </div>
         
@@ -401,7 +397,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"java各数据类型的范围　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Pascal's Triangle II.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -419,7 +415,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/18/java各数据类型的范围/" data-title="java各数据类型的范围" data-url="http://pangbo.space/2016/10/18/java各数据类型的范围/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/23/Pascal&#39;s Triangle II/" data-title="Pascal&#39;s Triangle II.java" data-url="http://pangbo.space/2016/10/23/Pascal&#39;s Triangle II/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -442,15 +438,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/18/long与Long的区别，long型最后有无L的区别/" title="Pre: long与Long的区别，long型最后有无L的区别">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/18/java中大数的表示BigInteger和BigDecimal/" title="Next: java中大数的表示BigInteger和BigDecimal">
+            <a href="/2016/10/23/Pascal's Triangle/" title="Next: Pascal&#39;s Triangle.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         

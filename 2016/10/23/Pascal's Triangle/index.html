@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="12345678Boolean ：true、falseChar 	2个字节Byte (16bit) byte    1个字节Byte (8bit)     -2^7~2^7-1      -128 ~ 127short   2个字节Byte (16bit)    -2^16~2^16-1    -32768 ~ 32767			int     4个字节Byte (32bit)    -2^31~2">
+<meta name="description" content="Given numRows, generate the first numRows of Pascal’s triangle.For example, given numRows = 5, Return1234567[     [1],    [1,1],   [1,2,1],  [1,3,3,1], [1,4,6,4,1]]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java各数据类型的范围">
-<meta property="og:url" content="http://pangbo.space/2016/10/18/java各数据类型的范围/index.html">
+<meta property="og:title" content="Pascal's Triangle.java">
+<meta property="og:url" content="http://pangbo.space/2016/10/23/Pascal's Triangle/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="12345678Boolean ：true、falseChar 	2个字节Byte (16bit) byte    1个字节Byte (8bit)     -2^7~2^7-1      -128 ~ 127short   2个字节Byte (16bit)    -2^16~2^16-1    -32768 ~ 32767			int     4个字节Byte (32bit)    -2^31~2">
-<meta property="og:updated_time" content="2016-10-18T04:45:42.099Z">
+<meta property="og:description" content="Given numRows, generate the first numRows of Pascal’s triangle.For example, given numRows = 5, Return1234567[     [1],    [1,1],   [1,2,1],  [1,3,3,1], [1,4,6,4,1]]">
+<meta property="og:updated_time" content="2016-10-23T06:25:42.131Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java各数据类型的范围">
-<meta name="twitter:description" content="12345678Boolean ：true、falseChar 	2个字节Byte (16bit) byte    1个字节Byte (8bit)     -2^7~2^7-1      -128 ~ 127short   2个字节Byte (16bit)    -2^16~2^16-1    -32768 ~ 32767			int     4个字节Byte (32bit)    -2^31~2">
+<meta name="twitter:title" content="Pascal's Triangle.java">
+<meta name="twitter:description" content="Given numRows, generate the first numRows of Pascal’s triangle.For example, given numRows = 5, Return1234567[     [1],    [1,1],   [1,2,1],  [1,3,3,1], [1,4,6,4,1]]">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>java各数据类型的范围 | Bo`s blog</title>
+<title>Pascal&#39;s Triangle.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-java各数据类型的范围" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Pascal&#39;s Triangle" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/18/java各数据类型的范围/" class="article-date">
-      <time datetime="2016-10-18T04:32:19.707Z" itemprop="datePublished">2016-10-18</time>
+      <a href="/2016/10/23/Pascal's Triangle/" class="article-date">
+      <time datetime="2016-10-23T06:17:31.080Z" itemprop="datePublished">2016-10-23</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      java各数据类型的范围
+      Pascal&#39;s Triangle.java
     </h1>
   
 
@@ -302,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据类型的范围/">数据类型的范围</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,7 +318,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Boolean ：<span class="keyword">true</span>、<span class="keyword">false</span></div><div class="line">Char 	<span class="number">2</span>个字节Byte (<span class="number">16</span>bit) </div><div class="line"><span class="keyword">byte</span>    <span class="number">1</span>个字节Byte (<span class="number">8</span>bit)     -<span class="number">2</span>^<span class="number">7</span>~<span class="number">2</span>^<span class="number">7</span>-<span class="number">1</span>      -<span class="number">128</span> ~ <span class="number">127</span></div><div class="line"><span class="keyword">short</span>   <span class="number">2</span>个字节Byte (<span class="number">16</span>bit)    -<span class="number">2</span>^<span class="number">16</span>~<span class="number">2</span>^<span class="number">16</span>-<span class="number">1</span>    -<span class="number">32768</span> ~ <span class="number">32767</span>			</div><div class="line"><span class="keyword">int</span>     <span class="number">4</span>个字节Byte (<span class="number">32</span>bit)    -<span class="number">2</span>^<span class="number">31</span>~<span class="number">2</span>^<span class="number">31</span>-<span class="number">1</span>    -<span class="number">2147483648</span> ~ <span class="number">2147483647</span>    Integer.MIN_VALUE ~ Integer.MAX_VALUE</div><div class="line"><span class="keyword">long</span>    <span class="number">8</span>个字节Byte (<span class="number">64</span>bit)    -<span class="number">2</span>^<span class="number">63</span>~<span class="number">2</span>^<span class="number">63</span>-<span class="number">1</span>    -<span class="number">9223372036854775808</span> ~ <span class="number">9223372036854775807</span></div><div class="line"><span class="keyword">float</span>   <span class="number">4</span>个字节Byte (<span class="number">32</span>bit)    <span class="number">1.17549435E-38</span> ~ <span class="number">1.4E-45</span></div><div class="line"><span class="keyword">double</span>  <span class="number">8</span>个字节Byte (<span class="number">64</span>bit)    <span class="number">4.9E-324</span> ~ <span class="number">1.7976931348623157E308</span></div></pre></td></tr></table></figure>
+        <p>Given numRows, generate the first numRows of Pascal’s triangle.<br>For example, given numRows = 5, Return<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">     [<span class="number">1</span>],</div><div class="line">    [<span class="number">1</span>,<span class="number">1</span>],</div><div class="line">   [<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>],</div><div class="line">  [<span class="number">1</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">1</span>],</div><div class="line"> [<span class="number">1</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">1</span>]</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p><strong>思路：</strong><br>杨辉三角，当前值是上一层紧邻两个的和</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; generate(<span class="keyword">int</span> numRows) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; out = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;numRows;i++)&#123;</div><div class="line">            List&lt;Integer&gt; inter = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i;j++)&#123;</div><div class="line">                <span class="keyword">int</span> temp = <span class="number">1</span>;</div><div class="line">                <span class="keyword">if</span>(j&gt;<span class="number">0</span> &amp;&amp; j&lt;i)&#123;</div><div class="line">                    temp = out.get(i-<span class="number">1</span>).get(j) + out.get(i-<span class="number">1</span>).get(j-<span class="number">1</span>);</div><div class="line">                    inter.add(temp);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    inter.add(temp);</div><div class="line">            &#125;</div><div class="line">            out.add(inter);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> out;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>List 接口 用法:</strong><br>1、掌握 List 接口与Collection 接口的关系<br>2、掌握 List 接口的常用子类：ArrayList 、Vector<br>3、掌握 ArrayList 与 Vector 类的区别<br><a href="http://blog.csdn.net/hanshileiai/article/details/6726259" target="_blank" rel="external">http://blog.csdn.net/hanshileiai/article/details/6726259</a></p>
+
       
     </div>
     
@@ -326,13 +331,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/10/18/java各数据类型的范围/">java各数据类型的范围</a></p>
+        <p><span>Title:</span><a href="/2016/10/23/Pascal's Triangle/">Pascal&#39;s Triangle.java</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-10-18, 12:32:19</p>
-        <p><span>Updated:</span>2016-10-18, 12:45:42</p>
+        <p><span>Created:</span>2016-10-23, 14:17:31</p>
+        <p><span>Updated:</span>2016-10-23, 14:25:42</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/10/18/java各数据类型的范围/" title="java各数据类型的范围">http://pangbo.space/2016/10/18/java各数据类型的范围/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/10/18/java各数据类型的范围/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/10/23/Pascal's Triangle/" title="Pascal&#39;s Triangle.java">http://pangbo.space/2016/10/23/Pascal&#39;s Triangle/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/10/23/Pascal&#39;s Triangle/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,15 +350,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/18/long与Long的区别，long型最后有无L的区别/">
-                    long与Long的区别，long型最后有无L的区别
+                <a href="/2016/10/23/Pascal's Triangle II/">
+                    Pascal&#39;s Triangle II.java
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/18/java中大数的表示BigInteger和BigDecimal/">
-                    java中大数的表示BigInteger和BigDecimal
+                <a href="/2016/10/21/Merge Sorted Array/">
+                    Merge Sorted Array.java
                 </a>
             </div>
         
@@ -401,7 +406,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"java各数据类型的范围　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Pascal's Triangle.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -419,7 +424,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/18/java各数据类型的范围/" data-title="java各数据类型的范围" data-url="http://pangbo.space/2016/10/18/java各数据类型的范围/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/23/Pascal&#39;s Triangle/" data-title="Pascal&#39;s Triangle.java" data-url="http://pangbo.space/2016/10/23/Pascal&#39;s Triangle/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -442,7 +447,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/18/long与Long的区别，long型最后有无L的区别/" title="Pre: long与Long的区别，long型最后有无L的区别">
+            <a href="/2016/10/23/Pascal's Triangle II/" title="Pre: Pascal&#39;s Triangle II.java">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -450,7 +455,7 @@
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/18/java中大数的表示BigInteger和BigDecimal/" title="Next: java中大数的表示BigInteger和BigDecimal">
+            <a href="/2016/10/21/Merge Sorted Array/" title="Next: Merge Sorted Array.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
