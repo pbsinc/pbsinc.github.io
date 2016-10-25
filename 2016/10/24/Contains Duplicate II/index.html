@@ -15,31 +15,16 @@
 
 
 
-<meta name="description" content="Given two binary strings, return their sum (also a binary string).：
-
-For example,
-a = “11”
-b = “1”
-Return “100”.">
+<meta name="description" content="Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Add Binary.java">
-<meta property="og:url" content="http://pangbo.space/2016/09/27/Add Binary/index.html">
+<meta property="og:title" content="Contains Duplicate II.java">
+<meta property="og:url" content="http://pangbo.space/2016/10/24/Contains Duplicate II/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given two binary strings, return their sum (also a binary string).：
-
-For example,
-a = “11”
-b = “1”
-Return “100”.">
-<meta property="og:updated_time" content="2016-10-18T08:58:25.086Z">
+<meta property="og:description" content="Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.">
+<meta property="og:updated_time" content="2016-10-24T14:57:41.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Add Binary.java">
-<meta name="twitter:description" content="Given two binary strings, return their sum (also a binary string).：
-
-For example,
-a = “11”
-b = “1”
-Return “100”.">
+<meta name="twitter:title" content="Contains Duplicate II.java">
+<meta name="twitter:description" content="Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -71,7 +56,7 @@ Return “100”.">
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Add Binary.java | Bo`s blog</title>
+<title>Contains Duplicate II.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -289,11 +274,11 @@ Return “100”.">
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Add Binary" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Contains Duplicate II" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/27/Add Binary/" class="article-date">
-      <time datetime="2016-09-27T12:30:45.201Z" itemprop="datePublished">2016-09-27</time>
+      <a href="/2016/10/24/Contains Duplicate II/" class="article-date">
+      <time datetime="2016-10-24T13:41:19.010Z" itemprop="datePublished">2016-10-24</time>
 </a>
 
 
@@ -308,7 +293,7 @@ Return “100”.">
         
   
     <h1 class="article-title" itemprop="name">
-      Add Binary.java
+      Contains Duplicate II.java
     </h1>
   
 
@@ -333,17 +318,9 @@ Return “100”.">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given two binary strings, return their sum (also a binary string).：</p>
-<ul>
-<li><strong>For example,</strong></li>
-<li><strong>a = “11”</strong></li>
-<li><strong>b = “1”</strong></li>
-<li><strong>Return “100”.</strong><a id="more"></a>
-</li>
-</ul>
-<hr>
-<p><strong>关键思路：</strong><br>char ta= ‘1’;<br>int test = ta - ‘0’;<br>则：test 结果为 1<br>char 型的数字’1’的int值为49，’0’为48</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</div><div class="line">     <span class="keyword">int</span> na = a.length();</div><div class="line">     <span class="keyword">int</span> nb = b.length();</div><div class="line">     <span class="keyword">int</span> max = Math.max(na,nb);</div><div class="line">     <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">     String out = <span class="string">""</span>;</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=max;i++)</div><div class="line">     &#123;</div><div class="line">         <span class="keyword">int</span> p=<span class="number">0</span>,q=<span class="number">0</span>;</div><div class="line">         <span class="keyword">if</span>(na-i &gt;= <span class="number">0</span>)</div><div class="line">         &#123;</div><div class="line">             p = a.charAt(na-i) - <span class="string">'0'</span>;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">else</span></div><div class="line">             p = <span class="number">0</span>;</div><div class="line">             </div><div class="line">         <span class="keyword">if</span>(nb-i &gt;=<span class="number">0</span>)</div><div class="line">         &#123;</div><div class="line">             q = b.charAt(nb-i) - <span class="string">'0'</span>;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">else</span></div><div class="line">             q = <span class="number">0</span>;</div><div class="line">         </div><div class="line">         <span class="keyword">int</span> temp = p + q + carry;</div><div class="line">         carry = temp / <span class="number">2</span>;</div><div class="line">         out = temp % <span class="number">2</span> + out;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">if</span> (carry == <span class="number">1</span>)</div><div class="line">     &#123;</div><div class="line">         out = <span class="number">1</span> + out;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> out;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.<br><a id="more"></a></p>
+<p><strong>我的思路:</strong><br>常规做法是超时的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsNearbyDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-<span class="number">1</span>;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++)&#123;</div><div class="line">                <span class="keyword">if</span>(nums[i]==nums[i+j])</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                <span class="keyword">if</span>(i+j == len-<span class="number">1</span>)</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>正确思路:</strong><br>思路分析：这题比较简单，可以直接定义一个长度最大为k的滑动窗口，用一个set维护窗口内的数字判断是否出现重复，使用两个指针start和end标记滑动窗口的两端，初始都是0，然后end不断进行扩展，扫描元素判断是否出现重复元素，直到发现end-start&gt;k, 就开始移动start，并且在set中移除对应的元素。如果以为扫描到数组末尾还没有发现重复元素，那就可以返回false。时间复杂度和空间复杂度都是O（N）。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsNearbyDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        Set&lt;Integer&gt; temp = <span class="keyword">new</span> HashSet&lt;Integer&gt;();     </div><div class="line">        <span class="keyword">int</span> start=<span class="number">0</span>,end=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(temp.contains(nums[i]))</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">                temp.add(nums[i]);</div><div class="line">                end++;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(end-start&gt;k)&#123;</div><div class="line">                temp.remove(nums[start]);</div><div class="line">                start++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -352,13 +329,13 @@ Return “100”.">
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/09/27/Add Binary/">Add Binary.java</a></p>
+        <p><span>Title:</span><a href="/2016/10/24/Contains Duplicate II/">Contains Duplicate II.java</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-09-27, 20:30:45</p>
-        <p><span>Updated:</span>2016-10-18, 16:58:25</p>
+        <p><span>Created:</span>2016-10-24, 21:41:19</p>
+        <p><span>Updated:</span>2016-10-24, 22:57:41</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/09/27/Add Binary/" title="Add Binary.java">http://pangbo.space/2016/09/27/Add Binary/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/09/27/Add Binary/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/10/24/Contains Duplicate II/" title="Contains Duplicate II.java">http://pangbo.space/2016/10/24/Contains Duplicate II/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/10/24/Contains Duplicate II/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -371,15 +348,15 @@ Return “100”.">
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/09/28/hexo 绑定域名/">
-                    hexo 绑定域名
+                <a href="/2016/10/25/Java Map 集合类简介/">
+                    Java Map 集合类简介
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/26/hello-world/">
-                    Hello World
+                <a href="/2016/10/24/Java接口Set用法/">
+                    Java接口Set用法
                 </a>
             </div>
         
@@ -427,7 +404,7 @@ Return “100”.">
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Add Binary.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Contains Duplicate II.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -445,7 +422,7 @@ Return “100”.">
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/27/Add Binary/" data-title="Add Binary.java" data-url="http://pangbo.space/2016/09/27/Add Binary/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/24/Contains Duplicate II/" data-title="Contains Duplicate II.java" data-url="http://pangbo.space/2016/10/24/Contains Duplicate II/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -468,7 +445,7 @@ Return “100”.">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/09/28/hexo 绑定域名/" title="Pre: hexo 绑定域名">
+            <a href="/2016/10/25/Java Map 集合类简介/" title="Pre: Java Map 集合类简介">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -476,7 +453,7 @@ Return “100”.">
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/26/hello-world/" title="Next: Hello World">
+            <a href="/2016/10/24/Java接口Set用法/" title="Next: Java接口Set用法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
