@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.">
+<meta name="description" content="Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Contains Duplicate II.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/24/Contains Duplicate II/index.html">
+<meta property="og:title" content="Third Maximum Number.java">
+<meta property="og:url" content="http://pangbo.space/2016/10/25/Third Maximum Number/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.">
-<meta property="og:updated_time" content="2016-10-24T14:57:41.143Z">
+<meta property="og:description" content="Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).">
+<meta property="og:updated_time" content="2016-10-25T08:59:51.818Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Contains Duplicate II.java">
-<meta name="twitter:description" content="Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.">
+<meta name="twitter:title" content="Third Maximum Number.java">
+<meta name="twitter:description" content="Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Contains Duplicate II.java | Bo`s blog</title>
+<title>Third Maximum Number.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Contains Duplicate II" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Third Maximum Number" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/24/Contains Duplicate II/" class="article-date">
-      <time datetime="2016-10-24T13:41:19.010Z" itemprop="datePublished">2016-10-24</time>
+      <a href="/2016/10/25/Third Maximum Number/" class="article-date">
+      <time datetime="2016-10-25T08:57:12.886Z" itemprop="datePublished">2016-10-25</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Contains Duplicate II.java
+      Third Maximum Number.java
     </h1>
   
 
@@ -318,9 +318,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.<br><a id="more"></a></p>
-<p><strong>我的思路:</strong><br>常规做法是超时的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsNearbyDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-<span class="number">1</span>;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++)&#123;</div><div class="line">                <span class="keyword">if</span>(nums[i]==nums[i+j])</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                <span class="keyword">if</span>(i+j == len-<span class="number">1</span>)</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>正确思路:</strong><br>思路分析：这题比较简单，可以直接定义一个长度最大为k的滑动窗口，用一个set维护窗口内的数字判断是否出现重复，使用两个指针start和end标记滑动窗口的两端，初始都是0，然后end不断进行扩展，扫描元素判断是否出现重复元素，直到发现end-start&gt;k, 就开始移动start，并且在set中移除对应的元素。如果以为扫描到数组末尾还没有发现重复元素，那就可以返回false。时间复杂度和空间复杂度都是O（N）。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsNearbyDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        Set&lt;Integer&gt; temp = <span class="keyword">new</span> HashSet&lt;Integer&gt;();     </div><div class="line">        <span class="keyword">int</span> start=<span class="number">0</span>,end=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(temp.contains(nums[i]))</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">                temp.add(nums[i]);</div><div class="line">                end++;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(end-start&gt;k)&#123;</div><div class="line">                temp.remove(nums[start]);</div><div class="line">                start++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).<br><a id="more"></a><br>Example 1:<br>Input: [3, 2, 1]<br>Output: 1</p>
+<h2 id="Explanation-The-third-maximum-is-1"><a href="#Explanation-The-third-maximum-is-1" class="headerlink" title="Explanation: The third maximum is 1."></a>Explanation: The third maximum is 1.</h2><p>Example 2:<br>Input: [1, 2]<br>Output: 2</p>
+<h2 id="Explanation-The-third-maximum-does-not-exist-so-the-maximum-2-is-returned-instead"><a href="#Explanation-The-third-maximum-does-not-exist-so-the-maximum-2-is-returned-instead" class="headerlink" title="Explanation: The third maximum does not exist, so the maximum (2) is returned instead."></a>Explanation: The third maximum does not exist, so the maximum (2) is returned instead.</h2><p>Example 3:<br>Input: [2, 2, 3, 1]<br>Output: 1<br>Explanation: Note that the third maximum here means the third maximum distinct number.<br>Both numbers with value 2 are both considered as second maximum.<br><strong>思路:</strong><br>循环一遍，a b c,从大到小放。Integer.MIN_VALUE 为int的最小值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">thirdMax</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> a=Integer.MIN_VALUE,b=Integer.MIN_VALUE,c=Integer.MIN_VALUE;</div><div class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> x: nums)&#123;</div><div class="line">            <span class="keyword">if</span>(x &gt; a)&#123;</div><div class="line">                c=b;b=a;</div><div class="line">                a=x;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(x &gt; b &amp;&amp; x&lt;a)&#123;</div><div class="line">                c = b;</div><div class="line">                b = x;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(x &gt;= c &amp;&amp; x&lt;b)&#123;</div><div class="line">                c = x;  flag = <span class="number">0</span>;</div><div class="line">                <span class="keyword">if</span>(c == Integer.MIN_VALUE)</div><div class="line">                    flag = <span class="number">1</span>;</div><div class="line">            &#125;    </div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(x == Integer.MIN_VALUE)</div><div class="line">                flag = <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>((c == Integer.MIN_VALUE &amp;&amp; flag == <span class="number">0</span>) || b==c)</div><div class="line">            <span class="keyword">return</span> a;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> c;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -329,13 +329,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/24/Contains Duplicate II/">Contains Duplicate II.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/10/25/Third Maximum Number/">Third Maximum Number.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-24, 21:41:19</p>
-        <p><span>最后更新:</span>2016-10-24, 22:57:41</p>
+        <p><span>发布时间:</span>2016-10-25, 16:57:12</p>
+        <p><span>最后更新:</span>2016-10-25, 16:59:51</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/24/Contains Duplicate II/" title="Contains Duplicate II.java">http://pangbo.space/2016/10/24/Contains Duplicate II/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/24/Contains Duplicate II/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/25/Third Maximum Number/" title="Third Maximum Number.java">http://pangbo.space/2016/10/25/Third Maximum Number/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/25/Third Maximum Number/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -347,16 +347,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/25/Java Map 集合类简介/">
-                    Java Map 集合类简介
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/24/Java接口Set用法/">
-                    Java接口Set用法
+                <a href="/2016/10/25/Move Zeroes/">
+                    Move Zeroes.java
                 </a>
             </div>
         
@@ -368,7 +362,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Explanation-The-third-maximum-is-1"><span class="toc-number">1.</span> <span class="toc-text">Explanation: The third maximum is 1.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explanation-The-third-maximum-does-not-exist-so-the-maximum-2-is-returned-instead"><span class="toc-number">2.</span> <span class="toc-text">Explanation: The third maximum does not exist, so the maximum (2) is returned instead.</span></a></li></ol>
         
     </div>
     <style>
@@ -404,7 +398,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Contains Duplicate II.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Third Maximum Number.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,7 +416,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/24/Contains Duplicate II/" data-title="Contains Duplicate II.java" data-url="http://pangbo.space/2016/10/24/Contains Duplicate II/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/25/Third Maximum Number/" data-title="Third Maximum Number.java" data-url="http://pangbo.space/2016/10/25/Third Maximum Number/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -445,15 +439,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/25/Java Map 集合类简介/" title="上一篇: Java Map 集合类简介">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/24/Java接口Set用法/" title="下一篇: Java接口Set用法">
+            <a href="/2016/10/25/Move Zeroes/" title="下一篇: Move Zeroes.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
