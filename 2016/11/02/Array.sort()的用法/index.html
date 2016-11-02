@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.For example, given nums = [0, 1, 0, 3, 12], after calling your func">
+<meta name="description" content="Arrays.sort为java中的数组排序。Arrays.sort(Array) 需加包import java.util.;或import java.util.Arrays;Arrays.sort(数组名)为数组排序的操作,但这个方法在 java.util 这个包里面,所以在用到的时候需要先将它导入">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Move Zeroes.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/25/Move Zeroes/index.html">
+<meta property="og:title" content="Array.sort()的用法">
+<meta property="og:url" content="http://pangbo.space/2016/11/02/Array.sort()的用法/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.For example, given nums = [0, 1, 0, 3, 12], after calling your func">
-<meta property="og:updated_time" content="2016-10-25T07:19:57.130Z">
+<meta property="og:description" content="Arrays.sort为java中的数组排序。Arrays.sort(Array) 需加包import java.util.;或import java.util.Arrays;Arrays.sort(数组名)为数组排序的操作,但这个方法在 java.util 这个包里面,所以在用到的时候需要先将它导入">
+<meta property="og:updated_time" content="2016-11-02T11:47:30.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Move Zeroes.java">
-<meta name="twitter:description" content="Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.For example, given nums = [0, 1, 0, 3, 12], after calling your func">
+<meta name="twitter:title" content="Array.sort()的用法">
+<meta name="twitter:description" content="Arrays.sort为java中的数组排序。Arrays.sort(Array) 需加包import java.util.;或import java.util.Arrays;Arrays.sort(数组名)为数组排序的操作,但这个方法在 java.util 这个包里面,所以在用到的时候需要先将它导入">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Move Zeroes.java | Bo`s blog</title>
+<title>Array.sort()的用法 | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Move Zeroes" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Array.sort()的用法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/25/Move Zeroes/" class="article-date">
-      <time datetime="2016-10-25T07:16:03.143Z" itemprop="datePublished">2016-10-25</time>
+      <a href="/2016/11/02/Array.sort()的用法/" class="article-date">
+      <time datetime="2016-11-02T11:26:53.321Z" itemprop="datePublished">2016-11-02</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Move Zeroes.java
+      Array.sort()的用法
     </h1>
   
 
@@ -302,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+    <a class="article-category-link" href="/categories/java总结/">java总结</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array-sort/">Array.sort()</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,8 +318,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.<br>For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].<br>Note:<br>You must do this in-place without making a copy of the array.<br>Minimize the total number of operations.<br><a id="more"></a></p>
-<p><strong>思路:</strong><br>循环一遍，遇0且后一位非0时，左移一位。若后一位仍为0，记录0的个数n，将来遇到非0值左移n位。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> n =<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length-<span class="number">1</span>;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i]==<span class="number">0</span>)&#123;</div><div class="line">                <span class="keyword">if</span>(nums[i+<span class="number">1</span>]!=<span class="number">0</span>)&#123;</div><div class="line">                    nums[i-n+<span class="number">1</span>]=nums[i+<span class="number">1</span>];</div><div class="line">                    nums[i+<span class="number">1</span>]=<span class="number">0</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    n++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Arrays.sort为java中的数组排序。<br>Arrays.sort(<em>Array) 需加包import java.util.</em>;或import java.util.Arrays;<br>Arrays.sort(数组名)为数组排序的操作,但这个方法在 java.util 这个包里面,所以在用到的时候需要先将它导入<br><a id="more"></a><br><strong>1.sort(byte[] a)</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">对指定的 <span class="keyword">byte</span> 型数组按数字升序进行排序。</div><div class="line">　　sort(<span class="keyword">byte</span>[] a, <span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</div><div class="line">　　对指定 <span class="keyword">byte</span> 型数组的指定范围按数字升序进行排序。</div><div class="line">　　sort(<span class="keyword">char</span>[] a)</div><div class="line">　　对指定的 <span class="keyword">char</span> 型数组按数字升序进行排序。</div><div class="line">　　sort(<span class="keyword">char</span>[] a, <span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</div><div class="line">　　对指定 <span class="keyword">char</span> 型数组的指定范围按数字升序进行排序。</div><div class="line">　　sort(<span class="keyword">double</span>[] a)</div><div class="line">　　对指定的 <span class="keyword">double</span> 型数组按数字升序进行排序。</div><div class="line">　　sort(<span class="keyword">double</span>[] a, <span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</div><div class="line">　　对指定 <span class="keyword">double</span> 型数组的指定范围按数字升序进行排序。</div><div class="line">　　sort(<span class="keyword">float</span>[] a)</div><div class="line">　　对指定的 <span class="keyword">float</span> 型数组按数字升序进行排序。</div><div class="line">　　sort(<span class="keyword">float</span>[] a, <span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</div><div class="line">　　对指定 <span class="keyword">float</span> 型数组的指定范围按数字升序进行排序。</div><div class="line">　　sort(<span class="keyword">int</span>[] a)</div><div class="line">　　对指定的 <span class="keyword">int</span> 型数组按数字升序进行排序。</div><div class="line">　　sort(<span class="keyword">int</span>[] a, <span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</div></pre></td></tr></table></figure></p>
+<p><strong>2.sort(long[] a)</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">对指定的 <span class="keyword">long</span> 型数组按数字升序进行排序。</div><div class="line">　　sort(<span class="keyword">long</span>[] a, <span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</div><div class="line">　　对指定 <span class="keyword">long</span> 型数组的指定范围按数字升序进行排序。</div><div class="line">　　sort(Object[] a)</div><div class="line">　　根据元素的自然顺序，对指定对象数组按升序进行排序。</div><div class="line">　　sort(Object[] a, <span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</div><div class="line">　　根据元素的自然顺序，对指定对象数组的指定范围按升序进行排序。</div><div class="line">　　sort(<span class="keyword">short</span>[] a)</div><div class="line">　　对指定的 <span class="keyword">short</span> 型数组按数字升序进行排序。</div><div class="line">　　sort(<span class="keyword">short</span>[] a, <span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</div><div class="line">　　对指定 <span class="keyword">short</span> 型数组的指定范围按数字升序进行排序。</div><div class="line">　　sort(T[] a, Comparator&lt;? <span class="keyword">super</span> T&gt; c)       <span class="comment">// 见3.从大到小排序</span></div><div class="line">　　根据指定比较器产生的顺序对指定对象数组进行排序。</div><div class="line">　　sort(T[] a, <span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex, Comparator&lt;? <span class="keyword">super</span> T&gt; c)</div><div class="line">　　根据指定比较器产生的顺序对指定对象数组的指定范围进行排序。</div></pre></td></tr></table></figure></p>
+<p><strong>3.从大到小排序</strong><br>多了一个Comparator类型的参数而已。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> test;</div><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"><span class="keyword">import</span> java.util.Comparator;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">//注意，要想改变默认的排列顺序，不能使用基本类型（int,double, char）</span></div><div class="line">        <span class="comment">//而要使用它们对应的类</span></div><div class="line">        Integer[] a = &#123;<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">5</span>&#125;;</div><div class="line">        <span class="comment">//定义一个自定义类MyComparator的对象</span></div><div class="line">        Comparator cmp = <span class="keyword">new</span> MyComparator();</div><div class="line">        Arrays.sort(a, cmp);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i ++) &#123;</div><div class="line">            System.out.print(a[i] + <span class="string">" "</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Comparator是一个接口，所以这里我们自己定义的类MyComparator要implents该接口</span></div><div class="line"><span class="comment">//而不是extends Comparator</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Integer</span>&gt;</span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer o1, Integer o2)</span> </span>&#123;</div><div class="line">        <span class="comment">//如果n1小于n2，我们就返回正值，如果n1大于n2我们就返回负值，</span></div><div class="line">        <span class="comment">//这样颠倒一下，就可以实现反向排序了</span></div><div class="line">        <span class="keyword">if</span>(o1 &lt; o2) &#123; </div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(o1 &gt; o2) &#123;</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -328,13 +329,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/10/25/Move Zeroes/">Move Zeroes.java</a></p>
+        <p><span>Title:</span><a href="/2016/11/02/Array.sort()的用法/">Array.sort()的用法</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-10-25, 15:16:03</p>
-        <p><span>Updated:</span>2016-10-25, 15:19:57</p>
+        <p><span>Created:</span>2016-11-02, 19:26:53</p>
+        <p><span>Updated:</span>2016-11-02, 19:47:30</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/10/25/Move Zeroes/" title="Move Zeroes.java">http://pangbo.space/2016/10/25/Move Zeroes/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/10/25/Move Zeroes/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/11/02/Array.sort()的用法/" title="Array.sort()的用法">http://pangbo.space/2016/11/02/Array.sort()的用法/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/11/02/Array.sort()的用法/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -347,15 +348,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/25/Third Maximum Number/">
-                    Third Maximum Number.java
+                <a href="/2016/11/02/Java中List集合的常用操作/">
+                    Java中List集合的常用操作
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/25/Java Map 集合类简介/">
-                    Java Map 集合类简介
+                <a href="/2016/11/02/3Sum/">
+                    3Sum.java
                 </a>
             </div>
         
@@ -403,7 +404,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Move Zeroes.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Array.sort()的用法　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -421,7 +422,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/25/Move Zeroes/" data-title="Move Zeroes.java" data-url="http://pangbo.space/2016/10/25/Move Zeroes/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/02/Array.sort()的用法/" data-title="Array.sort()的用法" data-url="http://pangbo.space/2016/11/02/Array.sort()的用法/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -444,7 +445,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/25/Third Maximum Number/" title="Pre: Third Maximum Number.java">
+            <a href="/2016/11/02/Java中List集合的常用操作/" title="Pre: Java中List集合的常用操作">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -452,7 +453,7 @@
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/25/Java Map 集合类简介/" title="Next: Java Map 集合类简介">
+            <a href="/2016/11/02/3Sum/" title="Next: 3Sum.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         

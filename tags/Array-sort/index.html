@@ -15,16 +15,15 @@
 
 
 
-<meta name="description" content="Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.For example, given nums = [0, 1, 0, 3, 12], after calling your func">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Move Zeroes.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/25/Move Zeroes/index.html">
+<meta name="description" content="Bo pbsinc blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bo`s blog">
+<meta property="og:url" content="http://pangbo.space/tags/Array-sort/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.For example, given nums = [0, 1, 0, 3, 12], after calling your func">
-<meta property="og:updated_time" content="2016-10-25T07:19:57.130Z">
+<meta property="og:description" content="Bo pbsinc blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Move Zeroes.java">
-<meta name="twitter:description" content="Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.For example, given nums = [0, 1, 0, 3, 12], after calling your func">
+<meta name="twitter:title" content="Bo`s blog">
+<meta name="twitter:description" content="Bo pbsinc blog">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +55,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Move Zeroes.java | Bo`s blog</title>
+<title>Tag: Array.sort() | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -66,9 +65,9 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: true,
+        isPost: false,
         isArchive: false,
-        isTag: false,
+        isTag: true,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -274,198 +273,60 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Move Zeroes" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2016/10/25/Move Zeroes/" class="article-date">
-      <time datetime="2016-10-25T07:16:03.143Z" itemprop="datePublished">2016-10-25</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2016/11/02/Array.sort()的用法/" class="archive-article-date">
+      <time datetime="2016-11-02T11:26:53.321Z" itemprop="datePublished">11-02</time>
 </a>
 
 
-    </div>
+        </div>
+         
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Move Zeroes.java
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/11/02/Array.sort()的用法/">Array.sort()的用法</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
-    </div>
-
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="article-info info-on-archive">
           
-        <p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.<br>For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].<br>Note:<br>You must do this in-place without making a copy of the array.<br>Minimize the total number of operations.<br><a id="more"></a></p>
-<p><strong>思路:</strong><br>循环一遍，遇0且后一位非0时，左移一位。若后一位仍为0，记录0的个数n，将来遇到非0值左移n位。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> n =<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length-<span class="number">1</span>;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i]==<span class="number">0</span>)&#123;</div><div class="line">                <span class="keyword">if</span>(nums[i+<span class="number">1</span>]!=<span class="number">0</span>)&#123;</div><div class="line">                    nums[i-n+<span class="number">1</span>]=nums[i+<span class="number">1</span>];</div><div class="line">                    nums[i+<span class="number">1</span>]=<span class="number">0</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    n++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-  </div>
-  
-    
-    <div class="copyright">
-        <p><span>Title:</span><a href="/2016/10/25/Move Zeroes/">Move Zeroes.java</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-10-25, 15:16:03</p>
-        <p><span>Updated:</span>2016-10-25, 15:19:57</p>
-        <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/10/25/Move Zeroes/" title="Move Zeroes.java">http://pangbo.space/2016/10/25/Move Zeroes/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/10/25/Move Zeroes/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
-        </p>
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java总结/">java总结</a>
     </div>
 
 
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/25/Third Maximum Number/">
-                    Third Maximum Number.java
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/25/Java Map 集合类简介/">
-                    Java Map 集合类简介
-                </a>
-            </div>
-        
-    </nav>
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-            
-        
+          
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array-sort/">Array.sort()</a></li></ul>
     </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
-
-    <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Move Zeroes.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
     
-        <div class="addthis_sharing_toolbox"></div>
-    
-</div>
 
-
-
-
-
-
-
-    
-      <div class="duoshuo" id="comments">
-    <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/25/Move Zeroes/" data-title="Move Zeroes.java" data-url="http://pangbo.space/2016/10/25/Move Zeroes/"></div>
-    <script>
-        var duoshuoQuery = {short_name:"pbsinc"};
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            s.async = true; s.charset = 'UTF-8';
-            (d.head || d.body).appendChild(s);
-        }
-
-        
-    </script>
-    
-    <script> loadComment(); </script>
-
-</div>
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2016/10/25/Third Maximum Number/" title="Pre: Third Maximum Number.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2016/10/25/Java Map 集合类简介/" title="Next: Java Map 集合类简介">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/Java中List集合的常用操作/">Java中List集合的常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/Array.sort()的用法/">Array.sort()的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/3Sum/">3Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/28/Container With Most Water/">Container With Most Water.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/25/Best Time to Buy and Sell Stock II/">Best Time to Buy and Sell Stock II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/25/Best Time to Buy and Sell Stock/">Best Time to Buy and Sell Stock.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/25/Third Maximum Number/">Third Maximum Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/25/Move Zeroes/">Move Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/25/Java Map 集合类简介/">Java Map 集合类简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/Contains Duplicate II/">Contains Duplicate II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/Java接口Set用法/">Java接口Set用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/Contains Duplicate/">Contains Duplicate.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/23/Rotate Array/">Rotate Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/23/Majority Element/">Majority Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/23/Pascal's Triangle II/">Pascal's Triangle II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/23/Pascal's Triangle/">Pascal's Triangle.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/Merge Sorted Array/">Merge Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/Plus One/">Plus One.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/Remove Element/">Remove Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/20/Remove Duplicates from Sorted Array II/">Remove Duplicates from Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/20/Remove Duplicates from Sorted Array/">Remove Duplicates from Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/20/Two Sum/">Two Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/Maximum Depth of Binary Tree/">Maximum Depth of Binary Tree.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/Sum of Two Integers/">Sum of Two Integers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/Single Number/">Single Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/long与Long的区别，long型最后有无L的区别/">long与Long的区别，long型最后有无L的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/java各数据类型的范围/">java各数据类型的范围</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/java中大数的表示BigInteger和BigDecimal/">java中大数的表示BigInteger和BigDecimal</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/Nim Game/">Nim Game.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/Reverse String/">Reverse String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/Fizz Buzz/">Fizz Buzz.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/28/hexo 绑定域名/">hexo 绑定域名</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/27/Add Binary/">Add Binary.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/hello-world/">Hello World</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
     <div class="outer">
