@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given an array and a value, remove all instances of that value in place and return the new length.Do not allocate extra space for another array, you must do this in place with constant memory.The orde">
+<meta name="description" content="Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Remove Element.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/21/Remove Element/index.html">
+<meta property="og:title" content="3Sum Closest.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/09/3Sum Closest/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given an array and a value, remove all instances of that value in place and return the new length.Do not allocate extra space for another array, you must do this in place with constant memory.The orde">
-<meta property="og:updated_time" content="2016-10-21T03:46:48.552Z">
+<meta property="og:description" content="Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly">
+<meta property="og:updated_time" content="2016-11-09T07:00:32.720Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Remove Element.java">
-<meta name="twitter:description" content="Given an array and a value, remove all instances of that value in place and return the new length.Do not allocate extra space for another array, you must do this in place with constant memory.The orde">
+<meta name="twitter:title" content="3Sum Closest.java">
+<meta name="twitter:description" content="Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Remove Element.java | Bo`s blog</title>
+<title>3Sum Closest.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Remove Element" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-3Sum Closest" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/21/Remove Element/" class="article-date">
-      <time datetime="2016-10-21T03:45:00.285Z" itemprop="datePublished">2016-10-21</time>
+      <a href="/2016/11/09/3Sum Closest/" class="article-date">
+      <time datetime="2016-11-09T06:59:06.918Z" itemprop="datePublished">2016-11-09</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Remove Element.java
+      3Sum Closest.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/medium/">medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,8 +318,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given an array and a value, remove all instances of that value in place and return the new length.<br>Do not allocate extra space for another array, you must do this in place with constant memory.<br>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.<br>Example:<br>Given input array nums = [3,2,2,3], val = 3<br>Your function should return length = 2, with the first two elements of nums being 2.<br><a id="more"></a><br><strong>思路：</strong><br>把正序检测到的重复的数与逆序检测到的非重复的数交换。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length,count=len;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i]==val)</div><div class="line">                count--;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-<span class="number">1</span>;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i]==val)&#123;</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=len-<span class="number">1</span>;j&gt;i;j--)&#123;</div><div class="line">                    <span class="keyword">if</span>(nums[j]!=val)&#123;</div><div class="line">                        nums[i]=nums[j];</div><div class="line">                        nums[j]=val;</div><div class="line">                        <span class="keyword">break</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> count;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.<br>For example, given array S = {-1 2 1 -4}, and target = 1.<br>The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).<br><a id="more"></a></p>
+<p><strong>思路：</strong><br>升序排列，使之变成非递减数组，调用java自带的Arrays.sort()方法即可。<br>然后求最接近的数。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> ans = Integer.MAX_VALUE;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">threeSumClosest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">		Arrays.sort(nums);</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;len-<span class="number">2</span>;i++)&#123;</div><div class="line">			<span class="keyword">int</span> start = i+<span class="number">1</span>;</div><div class="line">			<span class="keyword">int</span> end = len-<span class="number">1</span>; </div><div class="line">			calculate(nums,nums[i],start,end,target);</div><div class="line">			<span class="keyword">if</span>(ans == <span class="number">0</span>)</div><div class="line">			    <span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> ans+target;</div><div class="line">    &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> temp,<span class="keyword">int</span> start,<span class="keyword">int</span> end,<span class="keyword">int</span> target)</span></span>&#123;</div><div class="line">		<span class="keyword">while</span> (start &lt; end)&#123;</div><div class="line">			<span class="keyword">if</span>(temp + nums[start] + nums[end] - target == <span class="number">0</span>)&#123;</div><div class="line">				ans = <span class="number">0</span>;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(temp + nums[start] + nums[end] - target &gt; <span class="number">0</span>)&#123;</div><div class="line">				<span class="keyword">if</span>(Math.abs(temp + nums[start] + nums[end] - target) &lt; Math.abs(ans))</div><div class="line">					ans = temp + nums[start] + nums[end] - target;</div><div class="line">				end--;	</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> &#123;</div><div class="line">				<span class="keyword">if</span>(Math.abs(temp + nums[start] + nums[end] - target) &lt; Math.abs(ans))</div><div class="line">					ans = temp + nums[start] + nums[end] - target;</div><div class="line">				start++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -327,13 +328,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/21/Remove Element/">Remove Element.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/09/3Sum Closest/">3Sum Closest.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-21, 11:45:00</p>
-        <p><span>最后更新:</span>2016-10-21, 11:46:48</p>
+        <p><span>发布时间:</span>2016-11-09, 14:59:06</p>
+        <p><span>最后更新:</span>2016-11-09, 15:00:32</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/21/Remove Element/" title="Remove Element.java">http://pangbo.space/2016/10/21/Remove Element/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/21/Remove Element/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/09/3Sum Closest/" title="3Sum Closest.java">http://pangbo.space/2016/11/09/3Sum Closest/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/09/3Sum Closest/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +346,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/21/Plus One/">
-                    Plus One.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/20/Remove Duplicates from Sorted Array II/">
-                    Remove Duplicates from Sorted Array II.java
+                <a href="/2016/11/02/Java中List集合的常用操作/">
+                    Java中List集合的常用操作
                 </a>
             </div>
         
@@ -402,7 +397,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Remove Element.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"3Sum Closest.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +415,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/21/Remove Element/" data-title="Remove Element.java" data-url="http://pangbo.space/2016/10/21/Remove Element/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/09/3Sum Closest/" data-title="3Sum Closest.java" data-url="http://pangbo.space/2016/11/09/3Sum Closest/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -443,15 +438,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/21/Plus One/" title="上一篇: Plus One.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/20/Remove Duplicates from Sorted Array II/" title="下一篇: Remove Duplicates from Sorted Array II.java">
+            <a href="/2016/11/02/Java中List集合的常用操作/" title="下一篇: Java中List集合的常用操作">
                 <i class="fa fa-angle-right"></i>
             </a>
         
