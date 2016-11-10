@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given a non-negative number represented as an array of digits, plus one to the number.The digits are stored such that the most significant digit is at the head of the list.">
+<meta name="description" content="Given a sorted array of integers, find the starting and ending position of a given target value.Your algorithm’s runtime complexity must be in the order of O(log n).If the target is not found in the a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Plus One.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/21/Plus One/index.html">
+<meta property="og:title" content="Search for a Range.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/10/Search for a Range/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given a non-negative number represented as an array of digits, plus one to the number.The digits are stored such that the most significant digit is at the head of the list.">
-<meta property="og:updated_time" content="2016-10-21T03:47:26.432Z">
+<meta property="og:description" content="Given a sorted array of integers, find the starting and ending position of a given target value.Your algorithm’s runtime complexity must be in the order of O(log n).If the target is not found in the a">
+<meta property="og:updated_time" content="2016-11-10T13:44:45.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Plus One.java">
-<meta name="twitter:description" content="Given a non-negative number represented as an array of digits, plus one to the number.The digits are stored such that the most significant digit is at the head of the list.">
+<meta name="twitter:title" content="Search for a Range.java">
+<meta name="twitter:description" content="Given a sorted array of integers, find the starting and ending position of a given target value.Your algorithm’s runtime complexity must be in the order of O(log n).If the target is not found in the a">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Plus One.java | Bo`s blog</title>
+<title>Search for a Range.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Plus One" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Search for a Range" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/21/Plus One/" class="article-date">
-      <time datetime="2016-10-21T03:45:02.398Z" itemprop="datePublished">2016-10-21</time>
+      <a href="/2016/11/10/Search for a Range/" class="article-date">
+      <time datetime="2016-11-10T13:43:29.197Z" itemprop="datePublished">2016-11-10</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Plus One.java
+      Search for a Range.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/medium/">medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,7 +318,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given a non-negative number represented as an array of digits, plus one to the number.<br>The digits are stored such that the most significant digit is at the head of the list.<br><a id="more"></a><br><strong>思路：</strong><br>考虑进位，每一位数都与上一位的进位相加并得到新的进位。注意最高位的进位<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] plusOne(<span class="keyword">int</span>[] digits) &#123;</div><div class="line">        <span class="keyword">int</span> len=digits.length, j=<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=len-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line">            digits[i] += j;</div><div class="line">            j = digits[i]/<span class="number">10</span>;</div><div class="line">            digits[i] = digits[i]%<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(j==<span class="number">1</span>)&#123;</div><div class="line">            <span class="keyword">int</span>[] plusone = <span class="keyword">new</span> <span class="keyword">int</span>[len+<span class="number">1</span>];</div><div class="line">            plusone[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=len;k++)</div><div class="line">                plusone[k]=digits[k-<span class="number">1</span>];</div><div class="line">            <span class="keyword">return</span> plusone;    </div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">return</span> digits;    </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Given a sorted array of integers, find the starting and ending position of a given target value.<br>Your algorithm’s runtime complexity must be in the order of O(log n).<br>If the target is not found in the array, return [-1, -1].<br>For example,<br>Given [5, 7, 7, 8, 8, 10] and target value 8,<br>return [3, 4].<br><a id="more"></a><br><strong>思路：</strong><br>类似二分查找，但等于目标值时需要向左向右对其相邻元素进行判断。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] searchRange(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">		<span class="keyword">int</span> start = -<span class="number">1</span>, end = -<span class="number">1</span>;</div><div class="line">		<span class="keyword">while</span>(len != i &amp;&amp; i&gt;=<span class="number">0</span>)&#123;</div><div class="line">			<span class="keyword">if</span>(nums[i] == target)&#123;</div><div class="line">				start = i;</div><div class="line">				end = i;</div><div class="line">				<span class="keyword">while</span>(start-<span class="number">1</span>&gt;=<span class="number">0</span> &amp;&amp; nums[start-<span class="number">1</span>] == target)</div><div class="line">					start--;</div><div class="line">				<span class="keyword">while</span>(end+<span class="number">1</span>&lt;len &amp;&amp; nums[end+<span class="number">1</span>] == target)</div><div class="line">					end++;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[i] &gt; target)&#123;</div><div class="line">				<span class="keyword">int</span> temp = i;</div><div class="line">				<span class="keyword">if</span>(len-i == <span class="number">1</span>)</div><div class="line">				    i--;</div><div class="line">				<span class="keyword">else</span></div><div class="line">				    i = i - (len-i)/<span class="number">2</span>;</div><div class="line">				len = temp;</div><div class="line">			&#125;<span class="keyword">else</span></div><div class="line">				i = len - (len-i)/<span class="number">2</span>;</div><div class="line">		&#125;</div><div class="line">		ans[<span class="number">0</span>] = start;</div><div class="line">		ans[<span class="number">1</span>] = end;</div><div class="line">		<span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -327,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/21/Plus One/">Plus One.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/10/Search for a Range/">Search for a Range.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-21, 11:45:02</p>
-        <p><span>最后更新:</span>2016-10-21, 11:47:26</p>
+        <p><span>发布时间:</span>2016-11-10, 21:43:29</p>
+        <p><span>最后更新:</span>2016-11-10, 21:44:45</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/21/Plus One/" title="Plus One.java">http://pangbo.space/2016/10/21/Plus One/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/21/Plus One/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/10/Search for a Range/" title="Search for a Range.java">http://pangbo.space/2016/11/10/Search for a Range/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/10/Search for a Range/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +345,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/21/Merge Sorted Array/">
-                    Merge Sorted Array.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/21/Remove Element/">
-                    Remove Element.java
+                <a href="/2016/11/10/集合Collections工具类用法/">
+                    集合Collections工具类用法
                 </a>
             </div>
         
@@ -402,7 +396,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Plus One.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Search for a Range.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +414,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/21/Plus One/" data-title="Plus One.java" data-url="http://pangbo.space/2016/10/21/Plus One/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/10/Search for a Range/" data-title="Search for a Range.java" data-url="http://pangbo.space/2016/11/10/Search for a Range/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -443,15 +437,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/21/Merge Sorted Array/" title="上一篇: Merge Sorted Array.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/21/Remove Element/" title="下一篇: Remove Element.java">
+            <a href="/2016/11/10/集合Collections工具类用法/" title="下一篇: 集合Collections工具类用法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
