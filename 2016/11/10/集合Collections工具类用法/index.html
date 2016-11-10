@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly">
+<meta name="description" content="Collections工具类提供了大量针对Collection/Map的操作，总体可分为四类，都为静态（static）方法：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3Sum Closest.java">
-<meta property="og:url" content="http://pangbo.space/2016/11/09/3Sum Closest/index.html">
+<meta property="og:title" content="集合Collections工具类用法">
+<meta property="og:url" content="http://pangbo.space/2016/11/10/集合Collections工具类用法/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly">
-<meta property="og:updated_time" content="2016-11-09T07:00:32.720Z">
+<meta property="og:description" content="Collections工具类提供了大量针对Collection/Map的操作，总体可分为四类，都为静态（static）方法：">
+<meta property="og:updated_time" content="2016-11-10T10:29:09.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3Sum Closest.java">
-<meta name="twitter:description" content="Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly">
+<meta name="twitter:title" content="集合Collections工具类用法">
+<meta name="twitter:description" content="Collections工具类提供了大量针对Collection/Map的操作，总体可分为四类，都为静态（static）方法：">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>3Sum Closest.java | Bo`s blog</title>
+<title>集合Collections工具类用法 | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-3Sum Closest" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-集合Collections工具类用法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/09/3Sum Closest/" class="article-date">
-      <time datetime="2016-11-09T06:59:06.918Z" itemprop="datePublished">2016-11-09</time>
+      <a href="/2016/11/10/集合Collections工具类用法/" class="article-date">
+      <time datetime="2016-11-10T10:22:02.624Z" itemprop="datePublished">2016-11-10</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      3Sum Closest.java
+      集合Collections工具类用法
     </h1>
   
 
@@ -302,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+    <a class="article-category-link" href="/categories/java总结/">java总结</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/medium/">medium</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Collections工具类/">Collections工具类</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,8 +318,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.<br>For example, given array S = {-1 2 1 -4}, and target = 1.<br>The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).<br><a id="more"></a></p>
-<p><strong>思路：</strong><br>升序排列，使之变成非递减数组，调用java自带的Arrays.sort()方法即可。<br>然后求最接近的数。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> ans = Integer.MAX_VALUE;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">threeSumClosest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">		Arrays.sort(nums);</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;len-<span class="number">2</span>;i++)&#123;</div><div class="line">			<span class="keyword">int</span> start = i+<span class="number">1</span>;</div><div class="line">			<span class="keyword">int</span> end = len-<span class="number">1</span>; </div><div class="line">			calculate(nums,nums[i],start,end,target);</div><div class="line">			<span class="keyword">if</span>(ans == <span class="number">0</span>)</div><div class="line">			    <span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> ans+target;</div><div class="line">    &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> temp,<span class="keyword">int</span> start,<span class="keyword">int</span> end,<span class="keyword">int</span> target)</span></span>&#123;</div><div class="line">		<span class="keyword">while</span> (start &lt; end)&#123;</div><div class="line">			<span class="keyword">if</span>(temp + nums[start] + nums[end] - target == <span class="number">0</span>)&#123;</div><div class="line">				ans = <span class="number">0</span>;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(temp + nums[start] + nums[end] - target &gt; <span class="number">0</span>)&#123;</div><div class="line">				<span class="keyword">if</span>(Math.abs(temp + nums[start] + nums[end] - target) &lt; Math.abs(ans))</div><div class="line">					ans = temp + nums[start] + nums[end] - target;</div><div class="line">				end--;	</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> &#123;</div><div class="line">				<span class="keyword">if</span>(Math.abs(temp + nums[start] + nums[end] - target) &lt; Math.abs(ans))</div><div class="line">					ans = temp + nums[start] + nums[end] - target;</div><div class="line">				start++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Collections工具类提供了大量针对Collection/Map的操作，总体可分为四类，都为静态（static）方法：<br><a id="more"></a><br><strong>1. 排序操作（主要针对List接口相关）</strong><br>reverse(List list)：反转指定List集合中元素的顺序<br>shuffle(List list)：对List中的元素进行随机排序（洗牌）<br>sort(List list)：对List里的元素根据自然升序排序<br>sort(List list, Comparator c)：自定义比较器进行排序<br>swap(List list, int i, int j)：将指定List集合中i处元素和j出元素进行交换<br>rotate(List list, int distance)：将所有元素向右移位指定长度，如果distance等于size那么结果不变<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">原始顺序：[b张三, d孙六, a李四, e钱七, c赵五]</div><div class="line"></div><div class="line">Collections.reverse(list);</div><div class="line">reverse后顺序：[c赵五, e钱七, a李四, d孙六, b张三]</div><div class="line"></div><div class="line">Collections.shuffle(list);</div><div class="line">shuffle后顺序：[b张三, c赵五, d孙六, e钱七, a李四]</div><div class="line"></div><div class="line">Collections.swap(list, <span class="number">1</span>, <span class="number">3</span>);</div><div class="line">swap后顺序：[b张三, e钱七, d孙六, c赵五, a李四]</div><div class="line"></div><div class="line">Collections.sort(list);</div><div class="line">sort后顺序：[a李四, b张三, c赵五, d孙六, e钱七]</div><div class="line"></div><div class="line">Collections.rotate(list, <span class="number">1</span>);</div><div class="line">rotate后顺序：[e钱七, a李四, b张三, c赵五, d孙六]</div></pre></td></tr></table></figure></p>
+<p><strong>2. 查找和替换（主要针对Collection接口相关）</strong><br>binarySearch(List list, Object key)：使用二分搜索法，以获得指定对象在List中的索引，前提是集合已经排序<br>max(Collection coll)：返回最大元素<br>max(Collection coll, Comparator comp)：根据自定义比较器，返回最大元素<br>min(Collection coll)：返回最小元素<br>min(Collection coll, Comparator comp)：根据自定义比较器，返回最小元素<br>fill(List list, Object obj)：使用指定对象填充<br>frequency(Collection Object o)：返回指定集合中指定对象出现的次数<br>replaceAll(List list, Object old, Object new)：替换<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSearch</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"给定的list："</span> + list);</div><div class="line">        System.out.println(<span class="string">"max："</span> + Collections.max(list));</div><div class="line">        System.out.println(<span class="string">"min："</span> + Collections.min(list));</div><div class="line">        System.out.println(<span class="string">"frequency："</span> + Collections.frequency(list, <span class="string">"a李四"</span>));</div><div class="line">        Collections.replaceAll(list, <span class="string">"a李四"</span>, <span class="string">"aa李四"</span>);</div><div class="line">        System.out.println(<span class="string">"replaceAll之后："</span> + list);</div><div class="line">        </div><div class="line">        <span class="comment">// 如果binarySearch的对象没有排序的话，搜索结果是不确定的</span></div><div class="line">        System.out.println(<span class="string">"binarySearch在sort之前："</span> + Collections.binarySearch(list, <span class="string">"c赵五"</span>));</div><div class="line">        Collections.sort(list);</div><div class="line">        <span class="comment">// sort之后，结果出来了</span></div><div class="line">        System.out.println(<span class="string">"binarySearch在sort之后："</span> + Collections.binarySearch(list, <span class="string">"c赵五"</span>));</div><div class="line"></div><div class="line">        Collections.fill(list, <span class="string">"A"</span>);</div><div class="line">        System.out.println(<span class="string">"fill："</span> + list);</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">	输出</div><div class="line"></div><div class="line">给定的list：[b张三, d孙六, a李四, e钱七, c赵五]</div><div class="line">max：e钱七</div><div class="line">min：a李四</div><div class="line">frequency：<span class="number">1</span></div><div class="line">replaceAll之后：[b张三, d孙六, aa李四, e钱七, c赵五]</div><div class="line">binarySearch在sort之前：-<span class="number">4</span></div><div class="line">binarySearch在sort之后：<span class="number">2</span></div><div class="line">fill：[A, A, A, A, A]</div></pre></td></tr></table></figure></p>
+<p><strong>3. 同步控制</strong><br>Collections工具类中提供了多个synchronizedXxx方法，该方法返回指定集合对象对应的同步对象，从而解决多线程并发访问集合时线程的安全问题。HashSet、ArrayList、HashMap都是线程不安全的，如果需要考虑同步，则使用这些方法。这些方法主要有：synchronizedSet、synchronizedSortedSet、synchronizedList、synchronizedMap、synchronizedSortedMap。<br>特别需要指出的是，在使用迭代方法遍历集合时需要手工同步返回的集合。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Map m = Collections.synchronizedMap(<span class="keyword">new</span> HashMap());</div><div class="line">      ...</div><div class="line">  Set s = m.keySet();  <span class="comment">// Needn't be in synchronized block</span></div><div class="line">      ...</div><div class="line">  <span class="keyword">synchronized</span> (m) &#123;  <span class="comment">// Synchronizing on m, not s!</span></div><div class="line">      Iterator i = s.iterator(); <span class="comment">// Must be in synchronized block</span></div><div class="line">      <span class="keyword">while</span> (i.hasNext())</div><div class="line">          foo(i.next());</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p><strong>4. 设置不可变集合</strong><br>Collections有三类方法可返回一个不可变集合：<br>emptyXxx()：返回一个空的不可变的集合对象<br>singletonXxx()：返回一个只包含指定对象的，不可变的集合对象。<br>unmodifiableXxx()：返回指定集合对象的不可变视图<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUnmodifiable</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"给定的list："</span> + list);</div><div class="line">        List&lt;String&gt; unmodList = Collections.unmodifiableList(list);</div><div class="line">        </div><div class="line">        unmodList.add(<span class="string">"再加个试试！"</span>); <span class="comment">// 抛出：java.lang.UnsupportedOperationException</span></div><div class="line">        </div><div class="line">        <span class="comment">// 这一行不会执行了</span></div><div class="line">        System.out.println(<span class="string">"新的unmodList："</span> + unmodList);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p><strong>5. 其它</strong><br>disjoint(Collection&lt;?&gt; c1, Collection&lt;?&gt; c2) - 如果两个指定 collection 中没有相同的元素，则返回 true。<br>addAll(Collection&lt;? super T&gt; c, T… a) - 一种方便的方式，将所有指定元素添加到指定 collection 中。示范：<br>Collections.addAll(flavors, “Peaches ‘n Plutonium”, “Rocky Racoon”);<br>Comparator<t> reverseOrder(Comparator<t> cmp) - 返回一个比较器，它强行反转指定比较器的顺序。如果指定比较器为 null，则此方法等同于 reverseOrder()（换句话说，它返回一个比较器，该比较器将强行反转实现 Comparable 接口那些对象 collection 上的自然顺序）。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOther</span><span class="params">()</span> </span>&#123;</div><div class="line">        List&lt;String&gt; list1 = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">        List&lt;String&gt; list2 = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">        </div><div class="line">        <span class="comment">// addAll增加变长参数</span></div><div class="line">        Collections.addAll(list1, <span class="string">"大家好"</span>, <span class="string">"你好"</span>,<span class="string">"我也好"</span>);</div><div class="line">        Collections.addAll(list2, <span class="string">"大家好"</span>, <span class="string">"a李四"</span>,<span class="string">"我也好"</span>);</div><div class="line">        </div><div class="line">        <span class="comment">// disjoint检查两个Collection是否的交集</span></div><div class="line">        <span class="keyword">boolean</span> b1 = Collections.disjoint(list, list1);</div><div class="line">        <span class="keyword">boolean</span> b2 = Collections.disjoint(list, list2);</div><div class="line">        System.out.println(b1 + <span class="string">"\t"</span> + b2);</div><div class="line">        </div><div class="line">        <span class="comment">// 利用reverseOrder倒序</span></div><div class="line">        Collections.sort(list1, Collections.reverseOrder());</div><div class="line">        System.out.println(list1);</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">	输出</div><div class="line"></div><div class="line"><span class="keyword">true</span> <span class="keyword">false</span></div><div class="line">[我也好, 大家好, 你好]</div></pre></td></tr></table></figure></t></t></p>
 
       
     </div>
@@ -328,13 +331,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/09/3Sum Closest/">3Sum Closest.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/10/集合Collections工具类用法/">集合Collections工具类用法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-11-09, 14:59:06</p>
-        <p><span>最后更新:</span>2016-11-09, 15:00:32</p>
+        <p><span>发布时间:</span>2016-11-10, 18:22:02</p>
+        <p><span>最后更新:</span>2016-11-10, 18:29:09</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/09/3Sum Closest/" title="3Sum Closest.java">http://pangbo.space/2016/11/09/3Sum Closest/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/09/3Sum Closest/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/10/集合Collections工具类用法/" title="集合Collections工具类用法">http://pangbo.space/2016/11/10/集合Collections工具类用法/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/10/集合Collections工具类用法/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -346,16 +349,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/09/4Sum/">
-                    4Sum.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/02/Java中List集合的常用操作/">
-                    Java中List集合的常用操作
+                <a href="/2016/11/10/Next Permutation/">
+                    Next Permutation.java
                 </a>
             </div>
         
@@ -403,7 +400,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"3Sum Closest.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"集合Collections工具类用法　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -421,7 +418,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/09/3Sum Closest/" data-title="3Sum Closest.java" data-url="http://pangbo.space/2016/11/09/3Sum Closest/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/10/集合Collections工具类用法/" data-title="集合Collections工具类用法" data-url="http://pangbo.space/2016/11/10/集合Collections工具类用法/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -444,15 +441,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/09/4Sum/" title="上一篇: 4Sum.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/02/Java中List集合的常用操作/" title="下一篇: Java中List集合的常用操作">
+            <a href="/2016/11/10/Next Permutation/" title="下一篇: Next Permutation.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
