@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://pangbo.space/2016/11/11/List,Set,Map,数组间的相互转换/index.html">
 <meta property="og:site_name" content="Bo`s blog">
 <meta property="og:description" content="转自：http://teamojiao.iteye.com/blog/436139">
-<meta property="og:updated_time" content="2016-11-11T10:48:14.060Z">
+<meta property="og:updated_time" content="2016-11-11T10:51:13.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="List,Set,Map,数组间的相互转换">
 <meta name="twitter:description" content="转自：http://teamojiao.iteye.com/blog/436139">
@@ -323,7 +323,7 @@
 <p><strong>3.数组转为list</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List stooges = Arrays.asList(<span class="string">"Larry"</span>, <span class="string">"Moe"</span>, <span class="string">"Curly"</span>);    </div><div class="line">此时stooges中有有三个元素。</div></pre></td></tr></table></figure></p>
 <p><strong>4.数组转为set </strong><br>int[] a = { 1, 2, 3 };<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Set set = <span class="keyword">new</span> HashSet(Arrays.asList(a));</div></pre></td></tr></table></figure></p>
 <p><strong>5.map的相关操作。</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Map map = <span class="keyword">new</span> HashMap();     </div><div class="line">map.put(<span class="string">"1"</span>, <span class="string">"a"</span>);     </div><div class="line">map.put(<span class="string">'2'</span>, <span class="string">'b'</span>);     </div><div class="line">map.put(<span class="string">'3'</span>, <span class="string">'c'</span>);     </div><div class="line">System.out.println(map);     </div><div class="line"><span class="comment">// 输出所有的值     </span></div><div class="line">System.out.println(map.keySet());     </div><div class="line"><span class="comment">// 输出所有的键     </span></div><div class="line">System.out.println(map.values());     </div><div class="line"><span class="comment">// 将map的值转化为List     </span></div><div class="line">List list = <span class="keyword">new</span> ArrayList(map.values());     </div><div class="line">System.out.println(list);     </div><div class="line"><span class="comment">// 将map的值转化为Set     </span></div><div class="line">Set set = <span class="keyword">new</span> HashSet(map.values());     </div><div class="line">System.out.println(set);</div></pre></td></tr></table></figure></p>
-<p><em>*6.list转数组</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">List list = Arrays.asList(<span class="string">"a"</span>,<span class="string">"b"</span>);     </div><div class="line">System.out.println(list);     </div><div class="line">             </div><div class="line">String[] arr = (String[])list.toArray(<span class="keyword">new</span> String[list.size()]);     </div><div class="line">System.out.println(Arrays.toString(arr));</div></pre></td></tr></table></figure></p>
+<p><strong>6.list转数组</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">List list = Arrays.asList(<span class="string">"a"</span>,<span class="string">"b"</span>);     </div><div class="line">System.out.println(list);     </div><div class="line">             </div><div class="line">String[] arr = (String[])list.toArray(<span class="keyword">new</span> String[list.size()]);     </div><div class="line">System.out.println(Arrays.toString(arr));</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -335,7 +335,7 @@
         <p><span>本文标题:</span><a href="/2016/11/11/List,Set,Map,数组间的相互转换/">List,Set,Map,数组间的相互转换</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
         <p><span>发布时间:</span>2016-11-11, 18:41:47</p>
-        <p><span>最后更新:</span>2016-11-11, 18:48:14</p>
+        <p><span>最后更新:</span>2016-11-11, 18:51:13</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/11/11/List,Set,Map,数组间的相互转换/" title="List,Set,Map,数组间的相互转换">http://pangbo.space/2016/11/11/List,Set,Map,数组间的相互转换/</a>
             <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/11/List,Set,Map,数组间的相互转换/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
