@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="1.对象就是传引用2.原始类型就是传值3.String等immutable类型因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待。可以认为是传值。">
+<meta name="description" content="Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.Example 1:Input: k = 3, n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java值传递&引用传递">
-<meta property="og:url" content="http://pangbo.space/2016/11/11/java值传递&引用传递/index.html">
+<meta property="og:title" content="Combination Sum III.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/11/Combination Sum III/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="1.对象就是传引用2.原始类型就是传值3.String等immutable类型因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待。可以认为是传值。">
-<meta property="og:updated_time" content="2016-11-11T09:17:59.452Z">
+<meta property="og:description" content="Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.Example 1:Input: k = 3, n">
+<meta property="og:updated_time" content="2016-11-11T11:11:58.392Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java值传递&引用传递">
-<meta name="twitter:description" content="1.对象就是传引用2.原始类型就是传值3.String等immutable类型因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待。可以认为是传值。">
+<meta name="twitter:title" content="Combination Sum III.java">
+<meta name="twitter:description" content="Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.Example 1:Input: k = 3, n">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>java值传递&amp;引用传递 | Bo`s blog</title>
+<title>Combination Sum III.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-java值传递&amp;引用传递" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Combination Sum III" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/11/java值传递&引用传递/" class="article-date">
-      <time datetime="2016-11-11T09:07:43.202Z" itemprop="datePublished">2016-11-11</time>
+      <a href="/2016/11/11/Combination Sum III/" class="article-date">
+      <time datetime="2016-11-11T11:09:21.173Z" itemprop="datePublished">2016-11-11</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      java值传递&amp;引用传递
+      Combination Sum III.java
     </h1>
   
 
@@ -302,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/值传递-引用传递/">值传递&引用传递</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,10 +318,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>1.对象就是传引用<br>2.原始类型就是传值<br>3.String等immutable类型因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待。可以认为是传值。<br><a id="more"></a><br><strong>扩展说就是：</strong><br>1、对象是按引用传递的<br>2、Java 应用程序有且仅有的一种参数传递机制，即按值传递<br>3、按值传递意味着当将一个参数传递给一个函数时，函数接收的是原始值的一个副本<br>4、按引用传递意味着当将一个参数传递给一个函数时，函数接收的是原始值的内存地址，而不是值的副本</p>
-<p><strong>以题Combination Sum为例：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">	List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">	List&lt;Integer&gt; temp = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">		calculate(nums,target,<span class="number">0</span>,<span class="number">0</span>);</div><div class="line">		<span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target,<span class="keyword">int</span> sum,<span class="keyword">int</span> level)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(sum &gt; target)</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(sum == target)&#123;</div><div class="line">			List&lt;Integer&gt; t = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(temp); </div><div class="line">			<span class="comment">//注意每次传给ans的temp必须是新的对象，这是把temp的值赋给新的对象t，此后temp的改变不影响t，temp与t完全无关，这是**值传递**；</span></div><div class="line">			<span class="comment">//t = temp;                                    </span></div><div class="line">			<span class="comment">//这是t引用了temp，传递的是引用的地址值(即temp的内存空间的地址)，他们指向同一个内存空间，此后temp的改变直接影响t，temp与t完全关联，这是**引用传递**；</span></div><div class="line">			ans.add(t);                                     </div><div class="line">			<span class="comment">//如直接ans.add(temp);实际上是重复将同一个对象temp往ans里面传，错误。</span></div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;             <span class="comment">// DFS</span></div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=level;i&lt;nums.length;i++)&#123;</div><div class="line">				sum += nums[i];</div><div class="line">				temp.add(nums[i]);</div><div class="line">				calculate(nums,target,sum,i);</div><div class="line">				temp.remove(temp.size()-<span class="number">1</span>);</div><div class="line">				sum -= nums[i];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>理解按引用传递的过程——内存分配示意图</strong><br><a href="http://blog.csdn.net/zzp_403184692/article/details/8184751" target="_blank" rel="external">http://blog.csdn.net/zzp_403184692/article/details/8184751</a><br><strong>说明</strong><br>1：“在Java里面参数传递都是按值传递”这句话的意思是：按值传递是传递的值的拷贝，按引用传递其实传递的是引用的地址值，所以统称按值传递。<br>2：在Java里面只有基本类型和按照下面这种定义方式的String是按值传递，其它的都是按引用传递。就是直接使用双引号定义字符串方式：String str = “Java私塾”;</p>
-
+        <p>Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.<br>Example 1:<br>Input: k = 3, n = 7<br>Output:[[1,2,4]]<br>Example 2:<br>Input: k = 3, n = 9<br>Output:[[1,2,6], [1,3,5], [2,3,4]]<br><a id="more"></a><br><strong>思路：</strong><br>与Combination SumII一样，只是判断一下组合中元素个数是否为k即可;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">	List&lt;Integer&gt; temp = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum3(<span class="keyword">int</span> k, <span class="keyword">int</span> target) &#123;</div><div class="line">		<span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</div><div class="line">		calculate(nums,target,<span class="number">0</span>,<span class="number">0</span>,k);</div><div class="line">		<span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target,<span class="keyword">int</span> sum,<span class="keyword">int</span> level,<span class="keyword">int</span> k)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(sum &gt; target)</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(sum == target &amp;&amp; temp.size() == k)&#123;        <span class="comment">// 判断组合中元素个数是否为k</span></div><div class="line">			List&lt;Integer&gt; t = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(temp); </div><div class="line">			ans.add(t);                                     </div><div class="line">			<span class="comment">//如直接ans.add(temp);实际上是重复将同一个对象temp往ans里面传，错误。</span></div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;             <span class="comment">// DFS</span></div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=level;i&lt;nums.length;i++)&#123;</div><div class="line">				sum += nums[i];</div><div class="line">				temp.add(nums[i]);</div><div class="line">				calculate(nums,target,sum,i+<span class="number">1</span>,k);   <span class="comment">//数字不能重复使用</span></div><div class="line">				temp.remove(temp.size()-<span class="number">1</span>);</div><div class="line">				sum -= nums[i];</div><div class="line">				<span class="keyword">while</span>(i&lt;nums.length-<span class="number">1</span> &amp;&amp; nums[i+<span class="number">1</span>]==nums[i])  <span class="comment">//去除重复的组合</span></div><div class="line">					i++;  </div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -329,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/11/11/java值传递&引用传递/">java值传递&amp;引用传递</a></p>
+        <p><span>Title:</span><a href="/2016/11/11/Combination Sum III/">Combination Sum III.java</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-11-11, 17:07:43</p>
-        <p><span>Updated:</span>2016-11-11, 17:17:59</p>
+        <p><span>Created:</span>2016-11-11, 19:09:21</p>
+        <p><span>Updated:</span>2016-11-11, 19:11:58</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/11/11/java值传递&引用传递/" title="java值传递&amp;引用传递">http://pangbo.space/2016/11/11/java值传递&amp;引用传递/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/11/11/java值传递&amp;引用传递/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/11/11/Combination Sum III/" title="Combination Sum III.java">http://pangbo.space/2016/11/11/Combination Sum III/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/11/11/Combination Sum III/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -347,16 +345,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/11/Combination Sum II/">
-                    Combination Sum II.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/11/Combination Sum/">
-                    Combination Sum.java
+                <a href="/2016/11/11/List,Set,Map,数组间的相互转换/">
+                    List,Set,Map,数组间的相互转换
                 </a>
             </div>
         
@@ -404,7 +396,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"java值传递&引用传递　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Combination Sum III.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,7 +414,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/11/java值传递&amp;引用传递/" data-title="java值传递&amp;引用传递" data-url="http://pangbo.space/2016/11/11/java值传递&amp;引用传递/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/11/Combination Sum III/" data-title="Combination Sum III.java" data-url="http://pangbo.space/2016/11/11/Combination Sum III/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -445,15 +437,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/11/Combination Sum II/" title="Pre: Combination Sum II.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/11/Combination Sum/" title="Next: Combination Sum.java">
+            <a href="/2016/11/11/List,Set,Map,数组间的相互转换/" title="Next: List,Set,Map,数组间的相互转换">
                 <i class="fa fa-angle-right"></i>
             </a>
         
