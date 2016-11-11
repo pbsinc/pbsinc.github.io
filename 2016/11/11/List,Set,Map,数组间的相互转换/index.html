@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.You may assume no duplicates in the array.Here">
+<meta name="description" content="转自：http://teamojiao.iteye.com/blog/436139">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Search Insert Position.java">
-<meta property="og:url" content="http://pangbo.space/2016/11/11/Search Insert Position/index.html">
+<meta property="og:title" content="List,Set,Map,数组间的相互转换">
+<meta property="og:url" content="http://pangbo.space/2016/11/11/List,Set,Map,数组间的相互转换/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.You may assume no duplicates in the array.Here">
-<meta property="og:updated_time" content="2016-11-11T06:05:16.166Z">
+<meta property="og:description" content="转自：http://teamojiao.iteye.com/blog/436139">
+<meta property="og:updated_time" content="2016-11-11T10:48:14.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Search Insert Position.java">
-<meta name="twitter:description" content="Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.You may assume no duplicates in the array.Here">
+<meta name="twitter:title" content="List,Set,Map,数组间的相互转换">
+<meta name="twitter:description" content="转自：http://teamojiao.iteye.com/blog/436139">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Search Insert Position.java | Bo`s blog</title>
+<title>List,Set,Map,数组间的相互转换 | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Search Insert Position" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-List,Set,Map,数组间的相互转换" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/11/Search Insert Position/" class="article-date">
-      <time datetime="2016-11-11T05:58:11.442Z" itemprop="datePublished">2016-11-11</time>
+      <a href="/2016/11/11/List,Set,Map,数组间的相互转换/" class="article-date">
+      <time datetime="2016-11-11T10:41:47.380Z" itemprop="datePublished">2016-11-11</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Search Insert Position.java
+      List,Set,Map,数组间的相互转换
     </h1>
   
 
@@ -302,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+    <a class="article-category-link" href="/categories/java总结/">java总结</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/List-Set-Map-数组间的相互转换/">List,Set,Map,数组间的相互转换</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,8 +318,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.<br>You may assume no duplicates in the array.<br>Here are few examples.<br>[1,3,5,6], 5 → 2<br>[1,3,5,6], 2 → 1<br>[1,3,5,6], 7 → 4<br>[1,3,5,6], 0 → 0<br><a id="more"></a><br><strong>思路：</strong><br>左右比大小就好</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">		<span class="keyword">while</span>(i&lt;len)&#123;</div><div class="line">			<span class="keyword">if</span>(nums[i] == target || nums[<span class="number">0</span>]&gt;target)</div><div class="line">				<span class="keyword">return</span> i;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i+<span class="number">1</span>&lt;len &amp;&amp; nums[i]&lt;target &amp;&amp; target&lt;nums[i+<span class="number">1</span>])</div><div class="line">				<span class="keyword">return</span> i+<span class="number">1</span>;</div><div class="line">			<span class="keyword">else</span> </div><div class="line">				i++;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> i;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>转自：<br><a href="http://teamojiao.iteye.com/blog/436139" target="_blank" rel="external">http://teamojiao.iteye.com/blog/436139</a><br><a id="more"></a><br><strong>1.list转set</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Set set = <span class="keyword">new</span> HashSet(<span class="keyword">new</span> ArrayList());</div></pre></td></tr></table></figure></p>
+<p><strong>2.set转list</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List list = <span class="keyword">new</span> ArrayList(<span class="keyword">new</span> HashSet());</div></pre></td></tr></table></figure></p>
+<p><strong>3.数组转为list</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List stooges = Arrays.asList(<span class="string">"Larry"</span>, <span class="string">"Moe"</span>, <span class="string">"Curly"</span>);    </div><div class="line">此时stooges中有有三个元素。</div></pre></td></tr></table></figure></p>
+<p><strong>4.数组转为set </strong><br>int[] a = { 1, 2, 3 };<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Set set = <span class="keyword">new</span> HashSet(Arrays.asList(a));</div></pre></td></tr></table></figure></p>
+<p><strong>5.map的相关操作。</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Map map = <span class="keyword">new</span> HashMap();     </div><div class="line">map.put(<span class="string">"1"</span>, <span class="string">"a"</span>);     </div><div class="line">map.put(<span class="string">'2'</span>, <span class="string">'b'</span>);     </div><div class="line">map.put(<span class="string">'3'</span>, <span class="string">'c'</span>);     </div><div class="line">System.out.println(map);     </div><div class="line"><span class="comment">// 输出所有的值     </span></div><div class="line">System.out.println(map.keySet());     </div><div class="line"><span class="comment">// 输出所有的键     </span></div><div class="line">System.out.println(map.values());     </div><div class="line"><span class="comment">// 将map的值转化为List     </span></div><div class="line">List list = <span class="keyword">new</span> ArrayList(map.values());     </div><div class="line">System.out.println(list);     </div><div class="line"><span class="comment">// 将map的值转化为Set     </span></div><div class="line">Set set = <span class="keyword">new</span> HashSet(map.values());     </div><div class="line">System.out.println(set);</div></pre></td></tr></table></figure></p>
+<p><em>*6.list转数组</em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">List list = Arrays.asList(<span class="string">"a"</span>,<span class="string">"b"</span>);     </div><div class="line">System.out.println(list);     </div><div class="line">             </div><div class="line">String[] arr = (String[])list.toArray(<span class="keyword">new</span> String[list.size()]);     </div><div class="line">System.out.println(Arrays.toString(arr));</div></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -327,13 +332,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/11/Search Insert Position/">Search Insert Position.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/11/List,Set,Map,数组间的相互转换/">List,Set,Map,数组间的相互转换</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-11-11, 13:58:11</p>
-        <p><span>最后更新:</span>2016-11-11, 14:05:16</p>
+        <p><span>发布时间:</span>2016-11-11, 18:41:47</p>
+        <p><span>最后更新:</span>2016-11-11, 18:48:14</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/11/Search Insert Position/" title="Search Insert Position.java">http://pangbo.space/2016/11/11/Search Insert Position/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/11/Search Insert Position/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/11/List,Set,Map,数组间的相互转换/" title="List,Set,Map,数组间的相互转换">http://pangbo.space/2016/11/11/List,Set,Map,数组间的相互转换/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/11/List,Set,Map,数组间的相互转换/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +350,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/11/Combination Sum/">
-                    Combination Sum.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/10/Search for a Range/">
-                    Search for a Range.java
+                <a href="/2016/11/11/Combination Sum II/">
+                    Combination Sum II.java
                 </a>
             </div>
         
@@ -402,7 +401,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Search Insert Position.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"List,Set,Map,数组间的相互转换　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +419,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/11/Search Insert Position/" data-title="Search Insert Position.java" data-url="http://pangbo.space/2016/11/11/Search Insert Position/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/11/List,Set,Map,数组间的相互转换/" data-title="List,Set,Map,数组间的相互转换" data-url="http://pangbo.space/2016/11/11/List,Set,Map,数组间的相互转换/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -443,15 +442,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/11/Combination Sum/" title="上一篇: Combination Sum.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/10/Search for a Range/" title="下一篇: Search for a Range.java">
+            <a href="/2016/11/11/Combination Sum II/" title="下一篇: Combination Sum II.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
