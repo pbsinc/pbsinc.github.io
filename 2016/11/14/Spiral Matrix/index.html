@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="1.对象就是传引用2.原始类型就是传值3.String等immutable类型因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待。可以认为是传值。">
+<meta name="description" content="Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.For example,Given the following matrix:[ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ]]You should return">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java值传递&引用传递">
-<meta property="og:url" content="http://pangbo.space/2016/11/11/java值传递&引用传递/index.html">
+<meta property="og:title" content="Spiral Matrix.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/14/Spiral Matrix/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="1.对象就是传引用2.原始类型就是传值3.String等immutable类型因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待。可以认为是传值。">
-<meta property="og:updated_time" content="2016-11-11T09:17:59.452Z">
+<meta property="og:description" content="Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.For example,Given the following matrix:[ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ]]You should return">
+<meta property="og:updated_time" content="2016-11-14T14:05:56.817Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java值传递&引用传递">
-<meta name="twitter:description" content="1.对象就是传引用2.原始类型就是传值3.String等immutable类型因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待。可以认为是传值。">
+<meta name="twitter:title" content="Spiral Matrix.java">
+<meta name="twitter:description" content="Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.For example,Given the following matrix:[ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ]]You should return">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>java值传递&amp;引用传递 | Bo`s blog</title>
+<title>Spiral Matrix.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-java值传递&amp;引用传递" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Spiral Matrix" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/11/java值传递&引用传递/" class="article-date">
-      <time datetime="2016-11-11T09:07:43.202Z" itemprop="datePublished">2016-11-11</time>
+      <a href="/2016/11/14/Spiral Matrix/" class="article-date">
+      <time datetime="2016-11-14T12:41:50.257Z" itemprop="datePublished">2016-11-14</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      java值传递&amp;引用传递
+      Spiral Matrix.java
     </h1>
   
 
@@ -302,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/值传递-引用传递/">值传递&引用传递</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,9 +318,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>1.对象就是传引用<br>2.原始类型就是传值<br>3.String等immutable类型因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待。可以认为是传值。<br><a id="more"></a><br><strong>扩展说就是：</strong><br>1、对象是按引用传递的<br>2、Java 应用程序有且仅有的一种参数传递机制，即按值传递<br>3、按值传递意味着当将一个参数传递给一个函数时，函数接收的是原始值的一个副本<br>4、按引用传递意味着当将一个参数传递给一个函数时，函数接收的是原始值的内存地址，而不是值的副本</p>
-<p><strong>以题Combination Sum为例：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">	List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">	List&lt;Integer&gt; temp = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">		calculate(nums,target,<span class="number">0</span>,<span class="number">0</span>);</div><div class="line">		<span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target,<span class="keyword">int</span> sum,<span class="keyword">int</span> level)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(sum &gt; target)</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(sum == target)&#123;</div><div class="line">			List&lt;Integer&gt; t = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(temp); </div><div class="line">			<span class="comment">//注意每次传给ans的temp必须是新的对象，这是把temp的值赋给新的对象t，此后temp的改变不影响t，temp与t完全无关，这是**值传递**；</span></div><div class="line">			<span class="comment">//t = temp;                                    </span></div><div class="line">			<span class="comment">//这是t引用了temp，传递的是引用的地址值(即temp的内存空间的地址)，他们指向同一个内存空间，此后temp的改变直接影响t，temp与t完全关联，这是**引用传递**；</span></div><div class="line">			ans.add(t);                                     </div><div class="line">			<span class="comment">//如直接ans.add(temp);实际上是重复将同一个对象temp往ans里面传，错误。</span></div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;             <span class="comment">// DFS</span></div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=level;i&lt;nums.length;i++)&#123;</div><div class="line">				sum += nums[i];</div><div class="line">				temp.add(nums[i]);</div><div class="line">				calculate(nums,target,sum,i);</div><div class="line">				temp.remove(temp.size()-<span class="number">1</span>);</div><div class="line">				sum -= nums[i];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>理解按引用传递的过程——内存分配示意图</strong><br><a href="http://blog.csdn.net/zzp_403184692/article/details/8184751" target="_blank" rel="external">http://blog.csdn.net/zzp_403184692/article/details/8184751</a><br><strong>说明</strong><br>1：“在Java里面参数传递都是按值传递”这句话的意思是：按值传递是传递的值的拷贝，按引用传递其实传递的是引用的地址值，所以统称按值传递。<br>2：在Java里面只有基本类型和按照下面这种定义方式的String是按值传递，其它的都是按引用传递。就是直接使用双引号定义字符串方式：String str = “Java私塾”;</p>
+        <p>Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.<br>For example,Given the following matrix:<br>[<br> [ 1, 2, 3 ],<br> [ 4, 5, 6 ],<br> [ 7, 8, 9 ]<br>]<br>You should return [1,2,3,6,9,8,7,4,5].<br><a id="more"></a><br><strong>思路：</strong><br>首先判断矩阵是空时，直接输出空；<br>有元素需时转圈：从左到右，从上到下，从右到左，从下到上；<br>从大圈依次循环到小圈即可。<br>注意：第一行第一次循环时，必须全部添加进去，而不可选择将最后一位留给从上到下时再添加，否则：当遇到[[1]]时，读不到！<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">spiralOrder</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; ans = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">		<span class="keyword">int</span> m = matrix.length-<span class="number">1</span>;</div><div class="line">		<span class="keyword">if</span>(m&lt;<span class="number">0</span>) <span class="keyword">return</span> ans; </div><div class="line">		<span class="keyword">int</span> a = <span class="number">0</span>,b = <span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span> n = matrix[<span class="number">0</span>].length-<span class="number">1</span>;</div><div class="line">		<span class="keyword">while</span>(a&lt;=m &amp;&amp; b&lt;=n)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=b;i&lt;=n;i++)&#123;     <span class="comment">//当遇到[[1]]时，如为i&lt;n，则读不到！</span></div><div class="line">				ans.add(matrix[a][i]);	</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=a+<span class="number">1</span>;j&lt;=m;j++)&#123;</div><div class="line">				ans.add(matrix[j][n]);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(a !=m)&#123;</div><div class="line">			    <span class="keyword">for</span>(<span class="keyword">int</span> k=n-<span class="number">1</span>;k&gt;=b;k--)&#123;</div><div class="line">		    		ans.add(matrix[m][k]);</div><div class="line">		    	&#125;</div><div class="line">			&#125;</div><div class="line">		    <span class="keyword">if</span>(b!=n)&#123;</div><div class="line">			    <span class="keyword">for</span>(<span class="keyword">int</span> s=m-<span class="number">1</span>;s&gt;a;s--)&#123;</div><div class="line">			    	ans.add(matrix[s][b]);</div><div class="line">		    	&#125;</div><div class="line">		    &#125;</div><div class="line">			a++;</div><div class="line">			b++;</div><div class="line">			m--;</div><div class="line">			n--;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -329,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/11/java值传递&引用传递/">java值传递&amp;引用传递</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/14/Spiral Matrix/">Spiral Matrix.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-11-11, 17:07:43</p>
-        <p><span>最后更新:</span>2016-11-11, 17:17:59</p>
+        <p><span>发布时间:</span>2016-11-14, 20:41:50</p>
+        <p><span>最后更新:</span>2016-11-14, 22:05:56</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/11/java值传递&引用传递/" title="java值传递&amp;引用传递">http://pangbo.space/2016/11/11/java值传递&amp;引用传递/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/11/java值传递&amp;引用传递/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/14/Spiral Matrix/" title="Spiral Matrix.java">http://pangbo.space/2016/11/14/Spiral Matrix/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/14/Spiral Matrix/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -347,16 +345,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/11/Combination Sum II/">
-                    Combination Sum II.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/11/Combination Sum/">
-                    Combination Sum.java
+                <a href="/2016/11/14/Maximum Subarray/">
+                    Maximum Subarray.java
                 </a>
             </div>
         
@@ -404,7 +396,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"java值传递&引用传递　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Spiral Matrix.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,7 +414,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/11/java值传递&amp;引用传递/" data-title="java值传递&amp;引用传递" data-url="http://pangbo.space/2016/11/11/java值传递&amp;引用传递/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/14/Spiral Matrix/" data-title="Spiral Matrix.java" data-url="http://pangbo.space/2016/11/14/Spiral Matrix/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -445,15 +437,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/11/Combination Sum II/" title="上一篇: Combination Sum II.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/11/Combination Sum/" title="下一篇: Combination Sum.java">
+            <a href="/2016/11/14/Maximum Subarray/" title="下一篇: Maximum Subarray.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
