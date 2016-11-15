@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="1.对象就是传引用2.原始类型就是传值3.String等immutable类型因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待。可以认为是传值。">
+<meta name="description" content="Given an array of non-negative integers, you are initially positioned at the first index of the array.Each element in the array represents your maximum jump length at that position.Determine if you ar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java值传递&引用传递">
-<meta property="og:url" content="http://pangbo.space/2016/11/11/java值传递&引用传递/index.html">
+<meta property="og:title" content="Jump Game.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/15/Jump Game/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="1.对象就是传引用2.原始类型就是传值3.String等immutable类型因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待。可以认为是传值。">
-<meta property="og:updated_time" content="2016-11-11T09:17:59.452Z">
+<meta property="og:description" content="Given an array of non-negative integers, you are initially positioned at the first index of the array.Each element in the array represents your maximum jump length at that position.Determine if you ar">
+<meta property="og:updated_time" content="2016-11-15T07:35:41.806Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java值传递&引用传递">
-<meta name="twitter:description" content="1.对象就是传引用2.原始类型就是传值3.String等immutable类型因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待。可以认为是传值。">
+<meta name="twitter:title" content="Jump Game.java">
+<meta name="twitter:description" content="Given an array of non-negative integers, you are initially positioned at the first index of the array.Each element in the array represents your maximum jump length at that position.Determine if you ar">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>java值传递&amp;引用传递 | Bo`s blog</title>
+<title>Jump Game.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-java值传递&amp;引用传递" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Jump Game" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/11/java值传递&引用传递/" class="article-date">
-      <time datetime="2016-11-11T09:07:43.202Z" itemprop="datePublished">2016-11-11</time>
+      <a href="/2016/11/15/Jump Game/" class="article-date">
+      <time datetime="2016-11-15T02:53:03.669Z" itemprop="datePublished">2016-11-15</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      java值传递&amp;引用传递
+      Jump Game.java
     </h1>
   
 
@@ -302,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/值传递-引用传递/">值传递&引用传递</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,9 +318,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>1.对象就是传引用<br>2.原始类型就是传值<br>3.String等immutable类型因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待。可以认为是传值。<br><a id="more"></a><br><strong>扩展说就是：</strong><br>1、对象是按引用传递的<br>2、Java 应用程序有且仅有的一种参数传递机制，即按值传递<br>3、按值传递意味着当将一个参数传递给一个函数时，函数接收的是原始值的一个副本<br>4、按引用传递意味着当将一个参数传递给一个函数时，函数接收的是原始值的内存地址，而不是值的副本</p>
-<p><strong>以题Combination Sum为例：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">	List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">	List&lt;Integer&gt; temp = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">		calculate(nums,target,<span class="number">0</span>,<span class="number">0</span>);</div><div class="line">		<span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target,<span class="keyword">int</span> sum,<span class="keyword">int</span> level)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(sum &gt; target)</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(sum == target)&#123;</div><div class="line">			List&lt;Integer&gt; t = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(temp); </div><div class="line">			<span class="comment">//注意每次传给ans的temp必须是新的对象，这是把temp的值赋给新的对象t，此后temp的改变不影响t，temp与t完全无关，这是**值传递**；</span></div><div class="line">			<span class="comment">//t = temp;                                    </span></div><div class="line">			<span class="comment">//这是t引用了temp，传递的是引用的地址值(即temp的内存空间的地址)，他们指向同一个内存空间，此后temp的改变直接影响t，temp与t完全关联，这是**引用传递**；</span></div><div class="line">			ans.add(t);                                     </div><div class="line">			<span class="comment">//如直接ans.add(temp);实际上是重复将同一个对象temp往ans里面传，错误。</span></div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;             <span class="comment">// DFS</span></div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=level;i&lt;nums.length;i++)&#123;</div><div class="line">				sum += nums[i];</div><div class="line">				temp.add(nums[i]);</div><div class="line">				calculate(nums,target,sum,i);</div><div class="line">				temp.remove(temp.size()-<span class="number">1</span>);</div><div class="line">				sum -= nums[i];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>理解按引用传递的过程——内存分配示意图</strong><br><a href="http://blog.csdn.net/zzp_403184692/article/details/8184751" target="_blank" rel="external">http://blog.csdn.net/zzp_403184692/article/details/8184751</a><br><strong>说明</strong><br>1：“在Java里面参数传递都是按值传递”这句话的意思是：按值传递是传递的值的拷贝，按引用传递其实传递的是引用的地址值，所以统称按值传递。<br>2：在Java里面只有基本类型和按照下面这种定义方式的String是按值传递，其它的都是按引用传递。就是直接使用双引号定义字符串方式：String str = “Java私塾”;</p>
+        <p>Given an array of non-negative integers, you are initially positioned at the first index of the array.<br>Each element in the array represents your maximum jump length at that position.<br>Determine if you are able to reach the last index.<br>For example:<br>A = [2,3,1,1,4], return true.<br>A = [3,2,1,0,4], return false.<br><a id="more"></a><br><strong>思路：</strong><br>取到每次跳动可以最远的位置作为新的起点，变量变化比较多，注意。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canJump</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> end = nums.length-<span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span> start = <span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span> jump = nums[<span class="number">0</span>];</div><div class="line">		<span class="keyword">if</span>(end == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">while</span>(start&lt;=end)&#123;</div><div class="line">			<span class="keyword">int</span> temp = start;		</div><div class="line">			<span class="keyword">int</span> max=<span class="number">0</span>;		</div><div class="line">			start += jump;</div><div class="line">			<span class="keyword">if</span>(start &gt;= end)</div><div class="line">				<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">			<span class="keyword">int</span> temp2 = start;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=temp+<span class="number">1</span>;i&lt;=temp2;i++)&#123;</div><div class="line">				<span class="keyword">if</span>(nums[i]+i &gt;= max)&#123;</div><div class="line">					max = nums[i]+i;</div><div class="line">					jump = nums[i];</div><div class="line">					start = i;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(jump == <span class="number">0</span>)</div><div class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -329,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/11/java值传递&引用传递/">java值传递&amp;引用传递</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/15/Jump Game/">Jump Game.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-11-11, 17:07:43</p>
-        <p><span>最后更新:</span>2016-11-11, 17:17:59</p>
+        <p><span>发布时间:</span>2016-11-15, 10:53:03</p>
+        <p><span>最后更新:</span>2016-11-15, 15:35:41</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/11/java值传递&引用传递/" title="java值传递&amp;引用传递">http://pangbo.space/2016/11/11/java值传递&amp;引用传递/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/11/java值传递&amp;引用传递/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/15/Jump Game/" title="Jump Game.java">http://pangbo.space/2016/11/15/Jump Game/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/15/Jump Game/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -348,15 +346,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/11/Combination Sum II/">
-                    Combination Sum II.java
+                <a href="/2016/11/15/Unique Paths/">
+                    Unique Paths.java
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/11/Combination Sum/">
-                    Combination Sum.java
+                <a href="/2016/11/15/Spiral Matrix II/">
+                    Spiral Matrix II.java
                 </a>
             </div>
         
@@ -404,7 +402,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"java值传递&引用传递　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Jump Game.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,7 +420,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/11/java值传递&amp;引用传递/" data-title="java值传递&amp;引用传递" data-url="http://pangbo.space/2016/11/11/java值传递&amp;引用传递/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/15/Jump Game/" data-title="Jump Game.java" data-url="http://pangbo.space/2016/11/15/Jump Game/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -445,7 +443,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/11/Combination Sum II/" title="上一篇: Combination Sum II.java">
+            <a href="/2016/11/15/Unique Paths/" title="上一篇: Unique Paths.java">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -453,7 +451,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/11/Combination Sum/" title="下一篇: Combination Sum.java">
+            <a href="/2016/11/15/Spiral Matrix II/" title="下一篇: Spiral Matrix II.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
