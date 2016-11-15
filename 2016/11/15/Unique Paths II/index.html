@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.If such arrangement is not possible, it must rearrange it as the lowest possible ord">
+<meta name="description" content="Follow up for “Unique Paths”:Now consider if some obstacles are added to the grids. How many unique paths would there be?An obstacle and empty space is marked as 1 and 0 respectively in the grid.For e">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Next Permutation.java">
-<meta property="og:url" content="http://pangbo.space/2016/11/10/Next Permutation/index.html">
+<meta property="og:title" content="Unique Paths II.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/15/Unique Paths II/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.If such arrangement is not possible, it must rearrange it as the lowest possible ord">
-<meta property="og:updated_time" content="2016-11-11T05:37:52.125Z">
+<meta property="og:description" content="Follow up for “Unique Paths”:Now consider if some obstacles are added to the grids. How many unique paths would there be?An obstacle and empty space is marked as 1 and 0 respectively in the grid.For e">
+<meta property="og:updated_time" content="2016-11-15T09:58:19.756Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Next Permutation.java">
-<meta name="twitter:description" content="Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.If such arrangement is not possible, it must rearrange it as the lowest possible ord">
+<meta name="twitter:title" content="Unique Paths II.java">
+<meta name="twitter:description" content="Follow up for “Unique Paths”:Now consider if some obstacles are added to the grids. How many unique paths would there be?An obstacle and empty space is marked as 1 and 0 respectively in the grid.For e">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Next Permutation.java | Bo`s blog</title>
+<title>Unique Paths II.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Next Permutation" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Unique Paths II" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/10/Next Permutation/" class="article-date">
-      <time datetime="2016-11-10T09:18:01.479Z" itemprop="datePublished">2016-11-10</time>
+      <a href="/2016/11/15/Unique Paths II/" class="article-date">
+      <time datetime="2016-11-15T09:54:12.258Z" itemprop="datePublished">2016-11-15</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Next Permutation.java
+      Unique Paths II.java
     </h1>
   
 
@@ -318,9 +318,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.<br>If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).<br>The replacement must be in-place, do not allocate extra memory.<br>Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.<br>1,2,3 → 1,3,2<br>3,2,1 → 1,2,3<br>1,1,5 → 1,5,1<br><a id="more"></a><br><strong>思路：</strong><br>数学中的排列组合，比如“1，2，3”的全排列，依次是：<br>1 2 3<br>1 3 2<br>2 1 3<br>2 3 1<br>3 1 2<br>3 2 1</p>
-<p>网上看来一个示例，觉得挺好的，也没必要另外找一个了。<br>6 5 4 8 7 5 1<br>一开始没看对方的后面介绍，就自己在想这个排列的下一个排列是怎样的。<br>首先肯定从后面开始看，1和5调换了没有用。<br>7、5和1调换了也没有效果，因此而发现了8、7、5、1是递减的。<br>如果想要找到下一个排列，<strong>找到递增的位置</strong>是关键。<br>因为在这里才可以使其增长得更大。<br>于是找到了4，显而易见4过了是5而不是8或者7更不是1。<br>因此就需要找出比4大但在这些大数里面最小的值，并将其两者调换。<br>那么整个排列就成了：6 5 5 8 7 4 1<br>然而最后一步将后面的8 7 4 1做一个递增。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nextPermutation</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> i = nums.length - <span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span> temp = <span class="number">0</span>;</div><div class="line">		<span class="keyword">while</span>(i&gt;<span class="number">0</span>)&#123;</div><div class="line">			<span class="keyword">if</span>(nums[i-<span class="number">1</span>]&gt;=nums[i])&#123;</div><div class="line">				i--;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">			    temp = nums[i-<span class="number">1</span>];</div><div class="line">				<span class="keyword">int</span> j = i;</div><div class="line">				<span class="keyword">while</span>(j&lt;nums.length)&#123;</div><div class="line">					<span class="keyword">if</span>(temp &lt; nums[j])&#123;</div><div class="line">						j++;</div><div class="line">					&#125;</div><div class="line">					<span class="keyword">else</span>&#123;</div><div class="line">						temp = nums[j-<span class="number">1</span>];</div><div class="line">						nums[j-<span class="number">1</span>] = nums[i-<span class="number">1</span>];</div><div class="line">						nums[i-<span class="number">1</span>] = temp;</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">					&#125;</div><div class="line">					<span class="keyword">if</span>(j == nums.length)&#123;</div><div class="line">						temp = nums[j-<span class="number">1</span>];</div><div class="line">						nums[j-<span class="number">1</span>] = nums[i-<span class="number">1</span>];</div><div class="line">						nums[i-<span class="number">1</span>] = temp;</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">int</span> k = nums.length - <span class="number">1</span>;</div><div class="line">		<span class="keyword">while</span>(i&lt;k)&#123;</div><div class="line">			temp = nums[i];</div><div class="line">			nums[i] = nums[k];</div><div class="line">			nums[k] = temp;       <span class="comment">//Collections.swap(nums, i, k);   Collections工具类见java总结</span></div><div class="line">			i++;</div><div class="line">			k--;</div><div class="line">		&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Follow up for “Unique Paths”:<br>Now consider if some obstacles are added to the grids. How many unique paths would there be?<br>An obstacle and empty space is marked as 1 and 0 respectively in the grid.<br>For example,There is one obstacle in the middle of a 3x3 grid as illustrated below.<br>[<br>  [0,0,0],<br>  [0,1,0],<br>  [0,0,0]<br>]<br>The total number of unique paths is 2. Note: m and n will be at most 100.<br><a id="more"></a><br><strong>思路：</strong><br>与Unique Paths类似，遇到阻碍（元素为1时），将当前ans[i][j]堵死（置为0）即可；<br>注意第一行第一列遇到阻碍时，将后面都堵死。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> m = obstacleGrid.length;</div><div class="line">		<span class="keyword">if</span>(m == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span> n = obstacleGrid[<span class="number">0</span>].length;</div><div class="line">		<span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span>[][] ans = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</div><div class="line">		<span class="keyword">if</span>(obstacleGrid[<span class="number">0</span>][<span class="number">0</span>] == <span class="number">1</span>) </div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">else</span></div><div class="line">			ans[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">			</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(obstacleGrid[<span class="number">0</span>][i] == <span class="number">1</span>)&#123;</div><div class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;n;j++)</div><div class="line">					ans[<span class="number">0</span>][j] = <span class="number">0</span>;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span></div><div class="line">				ans[<span class="number">0</span>][i] = <span class="number">1</span>;</div><div class="line">		&#125;	</div><div class="line">					</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(obstacleGrid[i][<span class="number">0</span>] == <span class="number">1</span>)&#123;</div><div class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;m;j++)</div><div class="line">					ans[j][<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span></div><div class="line">				ans[i][<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">		&#125;	</div><div class="line">		</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;m;i++)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;n;j++)</div><div class="line">				<span class="keyword">if</span>(obstacleGrid[i][j] == <span class="number">1</span>)</div><div class="line">					ans[i][j] = <span class="number">0</span>;</div><div class="line">				<span class="keyword">else</span></div><div class="line">					ans[i][j] = ans[i-<span class="number">1</span>][j] + ans[i][j-<span class="number">1</span>];</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> ans[m-<span class="number">1</span>][n-<span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -328,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/10/Next Permutation/">Next Permutation.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/15/Unique Paths II/">Unique Paths II.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-11-10, 17:18:01</p>
-        <p><span>最后更新:</span>2016-11-11, 13:37:52</p>
+        <p><span>发布时间:</span>2016-11-15, 17:54:12</p>
+        <p><span>最后更新:</span>2016-11-15, 17:58:19</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/10/Next Permutation/" title="Next Permutation.java">http://pangbo.space/2016/11/10/Next Permutation/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/10/Next Permutation/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/15/Unique Paths II/" title="Unique Paths II.java">http://pangbo.space/2016/11/15/Unique Paths II/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/15/Unique Paths II/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -346,16 +345,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/10/集合Collections工具类用法/">
-                    集合Collections工具类用法
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/09/4Sum/">
-                    4Sum.java
+                <a href="/2016/11/15/Unique Paths/">
+                    Unique Paths.java
                 </a>
             </div>
         
@@ -403,7 +396,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Next Permutation.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Unique Paths II.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -421,7 +414,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/10/Next Permutation/" data-title="Next Permutation.java" data-url="http://pangbo.space/2016/11/10/Next Permutation/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/15/Unique Paths II/" data-title="Unique Paths II.java" data-url="http://pangbo.space/2016/11/15/Unique Paths II/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -444,15 +437,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/10/集合Collections工具类用法/" title="上一篇: 集合Collections工具类用法">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/09/4Sum/" title="下一篇: 4Sum.java">
+            <a href="/2016/11/15/Unique Paths/" title="下一篇: Unique Paths.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
