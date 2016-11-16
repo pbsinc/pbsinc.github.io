@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given n non-negative integers a1, a2, …, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two li">
+<meta name="description" content="Follow up for “Search in Rotated Sorted Array”:What if duplicates are allowed?Would this affect the run-time complexity? How and why?Write a function to determine if a given target is in the array.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Container With Most Water.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/28/Container With Most Water/index.html">
+<meta property="og:title" content="Search in Rotated Sorted Array II.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/16/Search in Rotated Sorted Array II/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given n non-negative integers a1, a2, …, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two li">
-<meta property="og:updated_time" content="2016-10-28T14:28:28.735Z">
+<meta property="og:description" content="Follow up for “Search in Rotated Sorted Array”:What if duplicates are allowed?Would this affect the run-time complexity? How and why?Write a function to determine if a given target is in the array.">
+<meta property="og:updated_time" content="2016-11-16T14:21:37.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Container With Most Water.java">
-<meta name="twitter:description" content="Given n non-negative integers a1, a2, …, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two li">
+<meta name="twitter:title" content="Search in Rotated Sorted Array II.java">
+<meta name="twitter:description" content="Follow up for “Search in Rotated Sorted Array”:What if duplicates are allowed?Would this affect the run-time complexity? How and why?Write a function to determine if a given target is in the array.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Container With Most Water.java | Bo`s blog</title>
+<title>Search in Rotated Sorted Array II.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Container With Most Water" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Search in Rotated Sorted Array II" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/28/Container With Most Water/" class="article-date">
-      <time datetime="2016-10-28T13:18:43.247Z" itemprop="datePublished">2016-10-28</time>
+      <a href="/2016/11/16/Search in Rotated Sorted Array II/" class="article-date">
+      <time datetime="2016-11-16T14:19:24.463Z" itemprop="datePublished">2016-11-16</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Container With Most Water.java
+      Search in Rotated Sorted Array II.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,8 +318,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given n non-negative integers a1, a2, …, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.<br>Note: You may not slant the container.<br><a id="more"></a><br><strong>常规思路:</strong><br>LTE，以后时间复杂度是n方的就不要想了，肯定不对。。。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> max=<span class="number">0</span>,temp=<span class="number">0</span>,n = height.length;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;=n;j++)&#123;</div><div class="line">                temp = (j-i) * Math.min(height[i-<span class="number">1</span>],height[j-<span class="number">1</span>]);</div><div class="line">                max = Math.max(max,temp);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> max;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>正确思路:</strong><br>最大盛水量取决于两边中较短的那条边，而且如果将较短的边换为更短边的话，盛水量只会变少。所以我们可以用两个头尾指针，计算出当前最大的盛水量后，将较短的边向中间移，因为我们想看看能不能把较短的边换长一点。这样一直计算到左边大于右边为止就行了。<br>注意：如果将较短的边向中间移后，新的边还更短一些，其实可以跳过，减少一些计算量<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> max=<span class="number">0</span>,left=<span class="number">0</span>, right = height.length - <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span>(left &lt; right)&#123; v</div><div class="line">            max = Math.max(max,(right - left)*Math.min(height[left],height[right])); <span class="comment">//right - left 减号中间要加空格，否则有可能报错</span></div><div class="line">            <span class="comment">// 如果左边较低，则将左边向中间移一点</span></div><div class="line">            <span class="keyword">if</span>(height[left] &lt; height[right])&#123;</div><div class="line">                left++;</div><div class="line">            <span class="comment">// 如果右边较低，则将右边向中间移一点</span></div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                right--;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> max;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Follow up for “Search in Rotated Sorted Array”:<br>What if duplicates are allowed?<br>Would this affect the run-time complexity? How and why?<br>Write a function to determine if a given target is in the array.<br><a id="more"></a><br><strong>思路：</strong><br>在上一题的基础上加入Arrays.sort(nums)即可；<br>或以下思路：<br>这道题与之前Search in Rotated Sorted Array类似，问题只在于存在dupilcate。那么和之前那道题的解法区别就是，不能通过比较A[mid]和边缘值来确定哪边是有序的，会出现A[mid]与边缘值相等的状态。所以，解决方法就是对于A[mid]==A[low]和A[mid]==A[high]单独处理。<br>当中间值与边缘值相等时，让指向边缘值的指针分别往前移动，忽略掉这个相同点，再用之前的方法判断即可。<br>这一改变增加了时间复杂度，试想一个数组有同一数字组成{1，1，1，1，1}，target=2, 那么这个算法就会将整个数组遍历，时间复杂度由O(logn)升到O(n)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> [] A,<span class="keyword">int</span> target)</span></span>&#123;</div><div class="line">       <span class="keyword">if</span>(A==<span class="keyword">null</span>||A.length==<span class="number">0</span>)</div><div class="line">         <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        </div><div class="line">       <span class="keyword">int</span> low = <span class="number">0</span>;</div><div class="line">       <span class="keyword">int</span> high = A.length-<span class="number">1</span>;</div><div class="line">      </div><div class="line">       <span class="keyword">while</span>(low &lt;= high)&#123;</div><div class="line">           <span class="keyword">int</span> mid = (low + high)/<span class="number">2</span>;</div><div class="line">           <span class="keyword">if</span>(target &lt; A[mid])&#123;</div><div class="line">               <span class="keyword">if</span>(A[mid]&lt;A[high])<span class="comment">//right side is sorted</span></div><div class="line">                 high = mid - <span class="number">1</span>;<span class="comment">//target must in left side</span></div><div class="line">               <span class="keyword">else</span> <span class="keyword">if</span>(A[mid]==A[high])<span class="comment">//cannot tell right is sorted, move pointer high</span></div><div class="line">                 high--;</div><div class="line">               <span class="keyword">else</span><span class="comment">//left side is sorted</span></div><div class="line">                 <span class="keyword">if</span>(target&lt;A[low])</div><div class="line">                    low = mid + <span class="number">1</span>;</div><div class="line">                 <span class="keyword">else</span> </div><div class="line">                    high = mid - <span class="number">1</span>;</div><div class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &gt; A[mid])&#123;</div><div class="line">               <span class="keyword">if</span>(A[low]&lt;A[mid])<span class="comment">//left side is sorted</span></div><div class="line">                 low = mid + <span class="number">1</span>;<span class="comment">//target must in right side</span></div><div class="line">               <span class="keyword">else</span> <span class="keyword">if</span>(A[low]==A[mid])<span class="comment">//cannot tell left is sorted, move pointer low</span></div><div class="line">                 low++;</div><div class="line">               <span class="keyword">else</span><span class="comment">//right side is sorted</span></div><div class="line">                 <span class="keyword">if</span>(target&gt;A[high])</div><div class="line">                    high = mid - <span class="number">1</span>;</div><div class="line">                 <span class="keyword">else</span></div><div class="line">                    low = mid + <span class="number">1</span>;</div><div class="line">           &#125;<span class="keyword">else</span></div><div class="line">             <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">       &#125;</div><div class="line">       </div><div class="line">       <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -328,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/28/Container With Most Water/">Container With Most Water.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/16/Search in Rotated Sorted Array II/">Search in Rotated Sorted Array II.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-28, 21:18:43</p>
-        <p><span>最后更新:</span>2016-10-28, 22:28:28</p>
+        <p><span>发布时间:</span>2016-11-16, 22:19:24</p>
+        <p><span>最后更新:</span>2016-11-16, 22:21:37</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/28/Container With Most Water/" title="Container With Most Water.java">http://pangbo.space/2016/10/28/Container With Most Water/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/28/Container With Most Water/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/16/Search in Rotated Sorted Array II/" title="Search in Rotated Sorted Array II.java">http://pangbo.space/2016/11/16/Search in Rotated Sorted Array II/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/16/Search in Rotated Sorted Array II/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -346,16 +345,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/02/3Sum/">
-                    3Sum.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/25/Best Time to Buy and Sell Stock II/">
-                    Best Time to Buy and Sell Stock II.java
+                <a href="/2016/11/16/Search in Rotated Sorted Array/">
+                    Search in Rotated Sorted Array.java
                 </a>
             </div>
         
@@ -403,7 +396,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Container With Most Water.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Search in Rotated Sorted Array II.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -421,7 +414,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/28/Container With Most Water/" data-title="Container With Most Water.java" data-url="http://pangbo.space/2016/10/28/Container With Most Water/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/16/Search in Rotated Sorted Array II/" data-title="Search in Rotated Sorted Array II.java" data-url="http://pangbo.space/2016/11/16/Search in Rotated Sorted Array II/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -444,15 +437,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/02/3Sum/" title="上一篇: 3Sum.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/25/Best Time to Buy and Sell Stock II/" title="下一篇: Best Time to Buy and Sell Stock II.java">
+            <a href="/2016/11/16/Search in Rotated Sorted Array/" title="下一篇: Search in Rotated Sorted Array.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
