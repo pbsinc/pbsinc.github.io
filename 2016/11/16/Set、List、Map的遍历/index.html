@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="本文实例讲述了Java集合Set、List、Map的遍历方法，分享给大家供大家参考。具体方法如下:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798">
+<meta name="description" content="本文实例讲述了Java集合Set、List、Map的遍历方法，分享给大家供大家参考。具体方法如下:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Set、List、Map的遍历">
 <meta property="og:url" content="http://pangbo.space/2016/11/16/Set、List、Map的遍历/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="本文实例讲述了Java集合Set、List、Map的遍历方法，分享给大家供大家参考。具体方法如下:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798">
-<meta property="og:updated_time" content="2016-11-16T01:28:18.179Z">
+<meta property="og:description" content="本文实例讲述了Java集合Set、List、Map的遍历方法，分享给大家供大家参考。具体方法如下:">
+<meta property="og:updated_time" content="2016-11-16T01:31:02.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Set、List、Map的遍历">
-<meta name="twitter:description" content="本文实例讲述了Java集合Set、List、Map的遍历方法，分享给大家供大家参考。具体方法如下:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798">
+<meta name="twitter:description" content="本文实例讲述了Java集合Set、List、Map的遍历方法，分享给大家供大家参考。具体方法如下:">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -140,13 +140,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -272,7 +272,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-Set、List、Map的遍历" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -318,8 +318,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
-<p>本文实例讲述了Java集合Set、List、Map的遍历方法，分享给大家供大家参考。具体方法如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestCollection</span> </span>&#123;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(Collection&lt;? extends Object&gt; c)</span></span>&#123;</div><div class="line">    Iterator&lt;? extends Object&gt; it = c.iterator();</div><div class="line">    <span class="keyword">while</span> (it.hasNext()) &#123;</div><div class="line">      Object object = (Object) it.next();</div><div class="line">      System.out.println(object);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="meta">@Test</span></div><div class="line">  </div><div class="line"><span class="comment">/*-----------------------Set----------------------*/</span>   </div><div class="line"> </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo1</span><span class="params">()</span></span>&#123;</div><div class="line">    Set&lt;String&gt; set = <span class="keyword">new</span> HashSet&lt;String&gt;();</div><div class="line">    set.add(<span class="string">"AAA"</span>);</div><div class="line">    set.add(<span class="string">"BBB"</span>);</div><div class="line">    set.add(<span class="string">"CCC"</span>);</div><div class="line">    print(set);</div><div class="line">	</div><div class="line">    <span class="comment">//Set的第一种遍历方式:利用Iterator</span></div><div class="line">    Iterator&lt;String&gt; it1 = set.iterator();</div><div class="line">    <span class="keyword">for</span> (String ss : set) &#123;</div><div class="line">      System.out.println(ss);</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    <span class="comment">//Set的第一种遍历方式:利用foreach</span></div><div class="line">    <span class="keyword">for</span> (String sss : set) &#123;</div><div class="line">      System.out.println(sss);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line"><span class="comment">/*-----------------------List----------------------*/</span>  </div><div class="line">	</div><div class="line">    List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">    list.add(<span class="string">"DDDDD"</span>);</div><div class="line">    list.add(<span class="string">"EEEEE"</span>);</div><div class="line">    list.add(<span class="string">"FFFFF"</span>);</div><div class="line">    print(list);</div><div class="line">    </div><div class="line">    <span class="comment">//List的第一种遍历方式:因为list有顺序，利用size()和get()方法获取</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</div><div class="line">      System.out.println(list.get(i));</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    <span class="comment">//List的第二种遍历方式：利用Iterator</span></div><div class="line">    Iterator&lt;String&gt; it = list.iterator();</div><div class="line">    <span class="keyword">while</span> (it.hasNext()) &#123;</div><div class="line">      System.out.println(it.next());</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    <span class="comment">//List的第三种遍历方式:利用foreach</span></div><div class="line">    <span class="keyword">for</span> (String s2 : list) &#123;</div><div class="line">      System.out.println(s2);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line"><span class="comment">/*-----------------------Map----------------------*/</span>  </div><div class="line"> </div><div class="line">    Map&lt;String,String&gt; map = <span class="keyword">new</span> TreeMap&lt;String, String&gt;();</div><div class="line">    map.put(<span class="string">"Jerry"</span>, <span class="string">"10000"</span>);</div><div class="line">    map.put(<span class="string">"shellway"</span>, <span class="string">"20000"</span>);</div><div class="line">    map.put(<span class="string">"Kizi"</span>, <span class="string">"30000"</span>);</div><div class="line">    print(map.entrySet());</div><div class="line">	</div><div class="line">    <span class="comment">//Map的第一种遍历方式：在for-each循环中遍历keys或values,如果只需要map中的键或者值，你可以通过keySet或values来实现遍历，而不是用entrySet。</span></div><div class="line">    <span class="comment">//遍历map中的键 </span></div><div class="line">	<span class="keyword">for</span> (Integer key : map.keySet()) &#123; </div><div class="line">		System.out.println(<span class="string">"Key = "</span> + key); </div><div class="line">	&#125; </div><div class="line">	<span class="comment">//遍历map中的值 </span></div><div class="line">	<span class="keyword">for</span> (Integer value : map.values()) &#123; </div><div class="line">		System.out.println(<span class="string">"Value = "</span> + value); </div><div class="line">	&#125; </div><div class="line">	<span class="comment">//该方法比entrySet遍历在性能上稍好（快了10%），而且代码更加干净。</span></div><div class="line">	</div><div class="line">    <span class="comment">//Map的第二种遍历方式：获得键值对</span></div><div class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : map.entrySet()) &#123;</div><div class="line">      System.out.println(entry.getKey()+<span class="string">" : "</span>+entry.getValue());</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>本文实例讲述了Java集合Set、List、Map的遍历方法，分享给大家供大家参考。具体方法如下:<br><a id="more"></a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestCollection</span> </span>&#123;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(Collection&lt;? extends Object&gt; c)</span></span>&#123;</div><div class="line">    Iterator&lt;? extends Object&gt; it = c.iterator();</div><div class="line">    <span class="keyword">while</span> (it.hasNext()) &#123;</div><div class="line">      Object object = (Object) it.next();</div><div class="line">      System.out.println(object);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="meta">@Test</span></div><div class="line">  </div><div class="line"><span class="comment">/*-----------------------Set----------------------*/</span>   </div><div class="line"> </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo1</span><span class="params">()</span></span>&#123;</div><div class="line">    Set&lt;String&gt; set = <span class="keyword">new</span> HashSet&lt;String&gt;();</div><div class="line">    set.add(<span class="string">"AAA"</span>);</div><div class="line">    set.add(<span class="string">"BBB"</span>);</div><div class="line">    set.add(<span class="string">"CCC"</span>);</div><div class="line">    print(set);</div><div class="line">	</div><div class="line">    <span class="comment">//Set的第一种遍历方式:利用Iterator</span></div><div class="line">    Iterator&lt;String&gt; it1 = set.iterator();</div><div class="line">    <span class="keyword">for</span> (String ss : set) &#123;</div><div class="line">      System.out.println(ss);</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    <span class="comment">//Set的第一种遍历方式:利用foreach</span></div><div class="line">    <span class="keyword">for</span> (String sss : set) &#123;</div><div class="line">      System.out.println(sss);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line"><span class="comment">/*-----------------------List----------------------*/</span>  </div><div class="line">	</div><div class="line">    List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">    list.add(<span class="string">"DDDDD"</span>);</div><div class="line">    list.add(<span class="string">"EEEEE"</span>);</div><div class="line">    list.add(<span class="string">"FFFFF"</span>);</div><div class="line">    print(list);</div><div class="line">    </div><div class="line">    <span class="comment">//List的第一种遍历方式:因为list有顺序，利用size()和get()方法获取</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</div><div class="line">      System.out.println(list.get(i));</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    <span class="comment">//List的第二种遍历方式：利用Iterator</span></div><div class="line">    Iterator&lt;String&gt; it = list.iterator();</div><div class="line">    <span class="keyword">while</span> (it.hasNext()) &#123;</div><div class="line">      System.out.println(it.next());</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    <span class="comment">//List的第三种遍历方式:利用foreach</span></div><div class="line">    <span class="keyword">for</span> (String s2 : list) &#123;</div><div class="line">      System.out.println(s2);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line"><span class="comment">/*-----------------------Map----------------------*/</span>  </div><div class="line"> </div><div class="line">    Map&lt;String,String&gt; map = <span class="keyword">new</span> TreeMap&lt;String, String&gt;();</div><div class="line">    map.put(<span class="string">"Jerry"</span>, <span class="string">"10000"</span>);</div><div class="line">    map.put(<span class="string">"shellway"</span>, <span class="string">"20000"</span>);</div><div class="line">    map.put(<span class="string">"Kizi"</span>, <span class="string">"30000"</span>);</div><div class="line">    print(map.entrySet());</div><div class="line">	</div><div class="line">    <span class="comment">//Map的第一种遍历方式：在for-each循环中遍历keys或values,如果只需要map中的键或者值，你可以通过keySet或values来实现遍历，而不是用entrySet。</span></div><div class="line">    <span class="comment">//遍历map中的键 </span></div><div class="line">	<span class="keyword">for</span> (Integer key : map.keySet()) &#123; </div><div class="line">		System.out.println(<span class="string">"Key = "</span> + key); </div><div class="line">	&#125; </div><div class="line">	<span class="comment">//遍历map中的值 </span></div><div class="line">	<span class="keyword">for</span> (Integer value : map.values()) &#123; </div><div class="line">		System.out.println(<span class="string">"Value = "</span> + value); </div><div class="line">	&#125; </div><div class="line">	<span class="comment">//该方法比entrySet遍历在性能上稍好（快了10%），而且代码更加干净。</span></div><div class="line">	</div><div class="line">    <span class="comment">//Map的第二种遍历方式：获得键值对</span></div><div class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : map.entrySet()) &#123;</div><div class="line">      System.out.println(entry.getKey()+<span class="string">" : "</span>+entry.getValue());</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这里使用泛型对集合对象进行类型安全检查和遍历。</p>
 
       
@@ -329,17 +329,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/16/Set、List、Map的遍历/">Set、List、Map的遍历</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-11-16, 09:17:09</p>
-        <p><span>最后更新:</span>2016-11-16, 09:28:18</p>
+        <p><span>Title:</span><a href="/2016/11/16/Set、List、Map的遍历/">Set、List、Map的遍历</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
+        <p><span>Created:</span>2016-11-16, 09:17:09</p>
+        <p><span>Updated:</span>2016-11-16, 09:31:02</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/16/Set、List、Map的遍历/" title="Set、List、Map的遍历">http://pangbo.space/2016/11/16/Set、List、Map的遍历/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/16/Set、List、Map的遍历/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/11/16/Set、List、Map的遍历/" title="Set、List、Map的遍历">http://pangbo.space/2016/11/16/Set、List、Map的遍历/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/11/16/Set、List、Map的遍历/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -360,7 +360,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
             
         
@@ -376,10 +376,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -439,13 +439,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/16/Set Matrix Zeroes/" title="下一篇: Set Matrix Zeroes.java">
+            <a href="/2016/11/16/Set Matrix Zeroes/" title="Next: Set Matrix Zeroes.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -468,14 +468,14 @@
                 2016 Bo Pang
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -484,7 +484,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -517,9 +517,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
