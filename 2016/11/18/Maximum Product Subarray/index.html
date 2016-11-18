@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the">
+<meta name="description" content="Find the contiguous subarray within an array (containing at least one number) which has the largest product.For example, given the array [2,3,-2,4],the contiguous subarray [2,3] has the largest produc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nim Game.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/17/Nim Game/index.html">
+<meta property="og:title" content="Maximum Product Subarray.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/18/Maximum Product Subarray/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the">
-<meta property="og:updated_time" content="2016-10-18T08:57:33.886Z">
+<meta property="og:description" content="Find the contiguous subarray within an array (containing at least one number) which has the largest product.For example, given the array [2,3,-2,4],the contiguous subarray [2,3] has the largest produc">
+<meta property="og:updated_time" content="2016-11-18T09:26:54.201Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nim Game.java">
-<meta name="twitter:description" content="You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the">
+<meta name="twitter:title" content="Maximum Product Subarray.java">
+<meta name="twitter:description" content="Find the contiguous subarray within an array (containing at least one number) which has the largest product.For example, given the array [2,3,-2,4],the contiguous subarray [2,3] has the largest produc">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Nim Game.java | Bo`s blog</title>
+<title>Maximum Product Subarray.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Nim Game" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Maximum Product Subarray" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/17/Nim Game/" class="article-date">
-      <time datetime="2016-10-17T13:27:59.229Z" itemprop="datePublished">2016-10-17</time>
+      <a href="/2016/11/18/Maximum Product Subarray/" class="article-date">
+      <time datetime="2016-11-18T09:21:58.073Z" itemprop="datePublished">2016-11-18</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Nim Game.java
+      Maximum Product Subarray.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,10 +318,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.</p>
-<p>Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.</p>
-<p>For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.<br><a id="more"></a><br><strong>关键：</strong><br>没什么可说的，n为4的倍数输。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canWinNim</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(n%<span class="number">4</span> == <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Find the contiguous subarray within an array (containing at least one number) which has the largest product.<br>For example, given the array [2,3,-2,4],<br>the contiguous subarray [2,3] has the largest product = 6.<br><a id="more"></a><br><strong>思路：</strong><br>找出0的位置，以0为分割，将数组分为很多小块；<br>对每小块计算负数的个数；<br>最终所求得范围里，只要保证负数的个数为偶数即可。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line"></div><div class="line">		<span class="keyword">if</span>(nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">if</span>(nums.length == <span class="number">1</span>) <span class="keyword">return</span> nums[<span class="number">0</span>];</div><div class="line">		<span class="keyword">int</span> start = -<span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span> end = -<span class="number">1</span>;</div><div class="line">		List&lt;Integer&gt; ans = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(nums[i] == <span class="number">0</span>)&#123;</div><div class="line">				start = end;</div><div class="line">				end = i;</div><div class="line">				ans.add(calculate(nums,start,end));</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		start = end;</div><div class="line">		end = nums.length;</div><div class="line">		<span class="keyword">if</span>(start != end)</div><div class="line">			ans.add(calculate(nums,start,end));</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> Collections.max(ans);</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> start,<span class="keyword">int</span> end)</span></span>&#123;</div><div class="line">		</div><div class="line">		List&lt;Integer&gt; temp = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">		<span class="keyword">int</span> count = <span class="number">0</span>;   <span class="comment">//负值的个数</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=start+<span class="number">1</span>;i&lt;end;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(nums[i] &lt; <span class="number">0</span>)&#123;</div><div class="line">				count++;</div><div class="line">				temp.add(i);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">			<span class="keyword">if</span>(start+<span class="number">1</span> &lt; nums.length)</div><div class="line">				res = nums[start+<span class="number">1</span>];</div><div class="line">		</div><div class="line">		<span class="keyword">if</span>(count % <span class="number">2</span> == <span class="number">0</span>)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=start+<span class="number">2</span>;i&lt;end;i++)&#123;</div><div class="line">				res = res * nums[i];</div><div class="line">			&#125;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">int</span> indexFirst = temp.get(<span class="number">0</span>);</div><div class="line">			<span class="keyword">int</span> indexLast = temp.get(temp.size()-<span class="number">1</span>);</div><div class="line">			<span class="keyword">int</span> res1 = nums[start+<span class="number">1</span>];</div><div class="line">			<span class="keyword">int</span> res2 = <span class="number">0</span>;</div><div class="line">			<span class="keyword">if</span>(indexFirst+<span class="number">1</span> &lt; nums.length)</div><div class="line">				res2 = nums[indexFirst+<span class="number">1</span>];</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=start+<span class="number">2</span>;i&lt;indexLast;i++)&#123;</div><div class="line">				res1 = res1 * nums[i];</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=indexFirst+<span class="number">2</span>;i&lt;end;i++)&#123;</div><div class="line">				res2 = res2 * nums[i];</div><div class="line">			&#125;</div><div class="line">			res = Math.max(res1,res2);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>动态规划 的思想：</strong><br>其实子数组乘积最大值的可能性为：累乘的最大值碰到了一个正数；或者，累乘的最小值（负数），碰到了一个负数。所以每次要保存累乘的最大（正数）和最小值（负数）。<br>同时还有一个选择起点的逻辑，如果之前的最大和最小值同当前元素相乘之后，没有当前元素大（或小）那么当前元素就可作为新的起点。<br>例如，前一个元素为0的情况，{1,0,9,2}，到9的时候9应该作为一个最大值，也就是新的起点，{1,0,-9,-2}也是同样道理，-9比当前最小值还小，所以更新为当前最小值。<br>这种方法只需要遍历一次数组即可，算法时间复杂度为O(n)。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="keyword">int</span> A[])</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(A==<span class="keyword">null</span>||A.length==<span class="number">0</span>) &#123;</div><div class="line">	      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	    &#125;</div><div class="line">	    <span class="keyword">int</span> maxProduct = A[<span class="number">0</span>];</div><div class="line">	    <span class="keyword">int</span> max_temp   = A[<span class="number">0</span>];</div><div class="line">	    <span class="keyword">int</span> min_temp   = A[<span class="number">0</span>];</div><div class="line">	    </div><div class="line">	    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;A.length;i++) &#123;</div><div class="line">	    	<span class="keyword">int</span> a = A[i]*max_temp;</div><div class="line">	    	<span class="keyword">int</span> b = A[i]*min_temp;</div><div class="line">	    	max_temp = Math.max(Math.max(a,b), A[i]);</div><div class="line">	    	min_temp = Math.min(Math.min(a,b), A[i]);</div><div class="line">	    	maxProduct = Math.max(maxProduct, max_temp);</div><div class="line">	    &#125;</div><div class="line">	    <span class="keyword">return</span> maxProduct;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -330,13 +328,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/17/Nim Game/">Nim Game.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/18/Maximum Product Subarray/">Maximum Product Subarray.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-17, 21:27:59</p>
-        <p><span>最后更新:</span>2016-10-18, 16:57:33</p>
+        <p><span>发布时间:</span>2016-11-18, 17:21:58</p>
+        <p><span>最后更新:</span>2016-11-18, 17:26:54</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/17/Nim Game/" title="Nim Game.java">http://pangbo.space/2016/10/17/Nim Game/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/17/Nim Game/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/18/Maximum Product Subarray/" title="Maximum Product Subarray.java">http://pangbo.space/2016/11/18/Maximum Product Subarray/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/18/Maximum Product Subarray/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -348,16 +346,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/18/java中大数的表示BigInteger和BigDecimal/">
-                    java中大数的表示BigInteger和BigDecimal
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/17/Reverse String/">
-                    Reverse String.java
+                <a href="/2016/11/18/动态规划算法 Dynamic Programming/">
+                    动态规划算法 Dynamic Programming
                 </a>
             </div>
         
@@ -405,7 +397,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Nim Game.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Maximum Product Subarray.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -423,7 +415,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/17/Nim Game/" data-title="Nim Game.java" data-url="http://pangbo.space/2016/10/17/Nim Game/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/18/Maximum Product Subarray/" data-title="Maximum Product Subarray.java" data-url="http://pangbo.space/2016/11/18/Maximum Product Subarray/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -446,15 +438,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/18/java中大数的表示BigInteger和BigDecimal/" title="上一篇: java中大数的表示BigInteger和BigDecimal">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/17/Reverse String/" title="下一篇: Reverse String.java">
+            <a href="/2016/11/18/动态规划算法 Dynamic Programming/" title="下一篇: 动态规划算法 Dynamic Programming">
                 <i class="fa fa-angle-right"></i>
             </a>
         
