@@ -15,19 +15,16 @@
 
 
 
-<meta name="description" content="Write a program that outputs the string representation of numbers from 1 to n.
-But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For">
+<meta name="description" content="A peak element is an element that is greater than its neighbors.Given an input array where num[i] ≠ num[i+1], find a peak element and return its index.The array may contain multiple peaks, in that cas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fizz Buzz.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/17/Fizz Buzz/index.html">
+<meta property="og:title" content="Find Peak Element.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/19/Find Peak Element/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Write a program that outputs the string representation of numbers from 1 to n.
-But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For">
-<meta property="og:updated_time" content="2016-10-18T08:57:54.705Z">
+<meta property="og:description" content="A peak element is an element that is greater than its neighbors.Given an input array where num[i] ≠ num[i+1], find a peak element and return its index.The array may contain multiple peaks, in that cas">
+<meta property="og:updated_time" content="2016-11-19T08:01:10.447Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fizz Buzz.java">
-<meta name="twitter:description" content="Write a program that outputs the string representation of numbers from 1 to n.
-But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For">
+<meta name="twitter:title" content="Find Peak Element.java">
+<meta name="twitter:description" content="A peak element is an element that is greater than its neighbors.Given an input array where num[i] ≠ num[i+1], find a peak element and return its index.The array may contain multiple peaks, in that cas">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +56,7 @@ But for multiples of three it should output “Fizz” instead of the number and
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Fizz Buzz.java | Bo`s blog</title>
+<title>Find Peak Element.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -277,11 +274,11 @@ But for multiples of three it should output “Fizz” instead of the number and
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Fizz Buzz" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Find Peak Element" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/17/Fizz Buzz/" class="article-date">
-      <time datetime="2016-10-17T10:19:49.884Z" itemprop="datePublished">2016-10-17</time>
+      <a href="/2016/11/19/Find Peak Element/" class="article-date">
+      <time datetime="2016-11-19T07:59:53.919Z" itemprop="datePublished">2016-11-19</time>
 </a>
 
 
@@ -296,7 +293,7 @@ But for multiples of three it should output “Fizz” instead of the number and
         
   
     <h1 class="article-title" itemprop="name">
-      Fizz Buzz.java
+      Find Peak Element.java
     </h1>
   
 
@@ -311,7 +308,7 @@ But for multiples of three it should output “Fizz” instead of the number and
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -321,9 +318,7 @@ But for multiples of three it should output “Fizz” instead of the number and
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Write a program that outputs the string representation of numbers from 1 to n.</p>
-<p>But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.<br><a id="more"></a><br><strong>关键：</strong><br>List<string> test = new ArrayList<string>(); 列表add方法：list.add(str);<br>int转String三种方法：<br>1》String.valueOf(i)<br>2》 Integer.toString(i)<br>3》 i+””</string></string></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">fizzBuzz</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        </div><div class="line">        List&lt;String&gt; test = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">        String str = <span class="keyword">new</span> String();</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i &lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(i%<span class="number">3</span> == <span class="number">0</span> &amp; i%<span class="number">5</span> != <span class="number">0</span>)&#123;</div><div class="line">                test.add(<span class="string">"Fizz"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(i%<span class="number">3</span> != <span class="number">0</span> &amp; i%<span class="number">5</span> == <span class="number">0</span>)&#123;</div><div class="line">                test.add(<span class="string">"Buzz"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(i%<span class="number">3</span> == <span class="number">0</span> &amp; i%<span class="number">5</span> == <span class="number">0</span>)&#123;</div><div class="line">                test.add(<span class="string">"FizzBuzz"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">                str = Integer.toString(i);</div><div class="line">                test.add(str);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> test;     </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>A peak element is an element that is greater than its neighbors.<br>Given an input array where num[i] ≠ num[i+1], find a peak element and return its index.<br>The array may contain multiple peaks, in that case return the index to any one of the peaks is fine.<br>You may imagine that num[-1] = num[n] = -∞.<br>For example, in array [1, 2, 3, 1], 3 is a peak element and your function should return the index number 2.<br><a id="more"></a><br><strong>思路：</strong><br>二分法：<br>题目要求时间复杂度为O(logN)，logN时间的题目一般都是Heap，二叉树，分治法，二分搜索这些很“二”解法。这题是找特定元素，基本锁定二分搜索法。我们先取中点，由题意可知因为两端都是负无穷，有上坡就必定有一个峰，我们看中点的左右两边大小，如果向左是上坡，就抛弃右边，如果向右是上坡，就抛弃左边。直到两边都小于中间，就是峰了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findPeakElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span> end = nums.length-<span class="number">1</span>;</div><div class="line">		<span class="keyword">if</span>(end==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">if</span>(end&gt;<span class="number">0</span> &amp;&amp; nums[<span class="number">0</span>] &gt; nums[<span class="number">1</span>]) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">if</span>(end&gt;<span class="number">0</span> &amp;&amp; nums[end] &gt; nums[end-<span class="number">1</span>]) <span class="keyword">return</span> end;</div><div class="line">		<span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">		<span class="keyword">while</span>(start &lt;= end)&#123;</div><div class="line">			<span class="keyword">int</span> mid = (start+end)/<span class="number">2</span>;</div><div class="line">			<span class="keyword">if</span>(start&gt;<span class="number">0</span> &amp;&amp; nums[start] &gt; nums[start-<span class="number">1</span>] &amp;&amp; nums[start] &gt; nums[start+<span class="number">1</span>] ) &#123;</div><div class="line">				ans = start;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(end&lt;nums.length-<span class="number">1</span> &amp;&amp; nums[end] &gt; nums[end-<span class="number">1</span>] &amp;&amp; nums[end] &gt; nums[end+<span class="number">1</span>]) &#123;</div><div class="line">				ans = end;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(mid&gt;<span class="number">0</span> &amp;&amp; mid&lt;nums.length-<span class="number">1</span> &amp;&amp; nums[mid-<span class="number">1</span>]&lt;nums[mid] &amp;&amp; nums[mid+<span class="number">1</span>]&lt;nums[mid] ) &#123;</div><div class="line">				ans = mid;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="keyword">if</span>(mid&gt;<span class="number">0</span> &amp;&amp; nums[mid-<span class="number">1</span>]&gt;nums[mid])&#123;</div><div class="line">				end = mid-<span class="number">1</span>;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(mid&lt;nums.length-<span class="number">1</span> &amp;&amp; nums[mid]&lt;nums[mid+<span class="number">1</span>])&#123;</div><div class="line">				start = mid+<span class="number">1</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -332,13 +327,13 @@ But for multiples of three it should output “Fizz” instead of the number and
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/17/Fizz Buzz/">Fizz Buzz.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/19/Find Peak Element/">Find Peak Element.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-17, 18:19:49</p>
-        <p><span>最后更新:</span>2016-10-18, 16:57:54</p>
+        <p><span>发布时间:</span>2016-11-19, 15:59:53</p>
+        <p><span>最后更新:</span>2016-11-19, 16:01:10</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/17/Fizz Buzz/" title="Fizz Buzz.java">http://pangbo.space/2016/10/17/Fizz Buzz/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/17/Fizz Buzz/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/19/Find Peak Element/" title="Find Peak Element.java">http://pangbo.space/2016/11/19/Find Peak Element/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/19/Find Peak Element/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -351,15 +346,15 @@ But for multiples of three it should output “Fizz” instead of the number and
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/17/Reverse String/">
-                    Reverse String.java
+                <a href="/2016/11/19/Two Sum II - Input array is sorted/">
+                    Two Sum II - Input array is sorted.java
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/28/hexo 绑定域名/">
-                    hexo 绑定域名
+                <a href="/2016/11/18/Find Minimum in Rotated Sorted Array II/">
+                    Find Minimum in Rotated Sorted Array II.java
                 </a>
             </div>
         
@@ -407,7 +402,7 @@ But for multiples of three it should output “Fizz” instead of the number and
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Fizz Buzz.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Find Peak Element.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -425,7 +420,7 @@ But for multiples of three it should output “Fizz” instead of the number and
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/17/Fizz Buzz/" data-title="Fizz Buzz.java" data-url="http://pangbo.space/2016/10/17/Fizz Buzz/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/19/Find Peak Element/" data-title="Find Peak Element.java" data-url="http://pangbo.space/2016/11/19/Find Peak Element/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -448,7 +443,7 @@ But for multiples of three it should output “Fizz” instead of the number and
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/17/Reverse String/" title="上一篇: Reverse String.java">
+            <a href="/2016/11/19/Two Sum II - Input array is sorted/" title="上一篇: Two Sum II - Input array is sorted.java">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -456,7 +451,7 @@ But for multiples of three it should output “Fizz” instead of the number and
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/28/hexo 绑定域名/" title="下一篇: hexo 绑定域名">
+            <a href="/2016/11/18/Find Minimum in Rotated Sorted Array II/" title="下一篇: Find Minimum in Rotated Sorted Array II.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
