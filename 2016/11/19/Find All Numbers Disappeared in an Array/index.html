@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Say you have an array for which the ith element is the price of a given stock on day i.If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), des">
+<meta name="description" content="Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.Find all the elements of [1, n] inclusive that do not appear in this array.Could yo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Best Time to Buy and Sell Stock.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/25/Best Time to Buy and Sell Stock/index.html">
+<meta property="og:title" content="Find All Numbers Disappeared in an Array.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/19/Find All Numbers Disappeared in an Array/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Say you have an array for which the ith element is the price of a given stock on day i.If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), des">
-<meta property="og:updated_time" content="2016-10-25T13:18:22.909Z">
+<meta property="og:description" content="Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.Find all the elements of [1, n] inclusive that do not appear in this array.Could yo">
+<meta property="og:updated_time" content="2016-11-19T10:34:43.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Best Time to Buy and Sell Stock.java">
-<meta name="twitter:description" content="Say you have an array for which the ith element is the price of a given stock on day i.If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), des">
+<meta name="twitter:title" content="Find All Numbers Disappeared in an Array.java">
+<meta name="twitter:description" content="Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.Find all the elements of [1, n] inclusive that do not appear in this array.Could yo">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Best Time to Buy and Sell Stock.java | Bo`s blog</title>
+<title>Find All Numbers Disappeared in an Array.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Best Time to Buy and Sell Stock" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Find All Numbers Disappeared in an Array" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/25/Best Time to Buy and Sell Stock/" class="article-date">
-      <time datetime="2016-10-25T12:22:36.008Z" itemprop="datePublished">2016-10-25</time>
+      <a href="/2016/11/19/Find All Numbers Disappeared in an Array/" class="article-date">
+      <time datetime="2016-11-19T10:27:46.873Z" itemprop="datePublished">2016-11-19</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Best Time to Buy and Sell Stock.java
+      Find All Numbers Disappeared in an Array.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Collections/">Collections</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/List要remove一个int对象/">List要remove一个int对象</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,11 +318,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Say you have an array for which the ith element is the price of a given stock on day i.<br>If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.<br><a id="more"></a><br>Example 1:<br>Input: [7, 1, 5, 3, 6, 4]<br>Output: 5</p>
-<p>max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than buying price)<br>Example 2:<br>Input: [7, 6, 4, 3, 1]<br>Output: 0</p>
-<p>In this case, no transaction is done, i.e. max profit = 0.</p>
-<p><strong>思路:</strong><br>买入值设为最大，便利一次，遇到更小的值，设为买入值；<br>将每次遍历遇到的值与买入值做差，与原利润比较，更大的设为利润。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> buy = Integer.MAX_VALUE,profit=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;prices.length;i++)&#123;</div><div class="line">            buy=Math.min(buy,prices[i]);</div><div class="line">            profit=Math.max(profit,prices[i]-buy);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> profit;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>Collections:</strong><br><a href="http://www.yiibai.com/java/util/java_util_collections.html" target="_blank" rel="external">http://www.yiibai.com/java/util/java_util_collections.html</a></p>
+        <p>Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.<br>Find all the elements of [1, n] inclusive that do not appear in this array.<br>Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.<br>Example:<br>Input:[4,3,2,7,8,2,3,1]<br>Output:[5,6]<br><a id="more"></a><br><strong>思路：</strong><br>把非重复的元素都加入list，遍历1——n，如果list中已经contains，则remove，否则add.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">findDisappearedNumbers</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(!res.contains(nums[i]))</div><div class="line">                res.add(nums[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=nums.length;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(res.contains(i))</div><div class="line">                res.remove(<span class="keyword">new</span> Integer(i)); <span class="comment">//remove(Object i)  |   res.remove(i);  //remove(index) </span></div><div class="line">            <span class="keyword">else</span></div><div class="line">                res.add(i);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -331,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/25/Best Time to Buy and Sell Stock/">Best Time to Buy and Sell Stock.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/19/Find All Numbers Disappeared in an Array/">Find All Numbers Disappeared in an Array.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-25, 20:22:36</p>
-        <p><span>最后更新:</span>2016-10-25, 21:18:22</p>
+        <p><span>发布时间:</span>2016-11-19, 18:27:46</p>
+        <p><span>最后更新:</span>2016-11-19, 18:34:43</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/25/Best Time to Buy and Sell Stock/" title="Best Time to Buy and Sell Stock.java">http://pangbo.space/2016/10/25/Best Time to Buy and Sell Stock/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/25/Best Time to Buy and Sell Stock/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/19/Find All Numbers Disappeared in an Array/" title="Find All Numbers Disappeared in an Array.java">http://pangbo.space/2016/11/19/Find All Numbers Disappeared in an Array/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/19/Find All Numbers Disappeared in an Array/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -350,15 +346,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/25/Best Time to Buy and Sell Stock II/">
-                    Best Time to Buy and Sell Stock II.java
+                <a href="/2016/11/19/Find All Duplicates in an Array/">
+                    Find All Duplicates in an Array.java
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/25/Third Maximum Number/">
-                    Third Maximum Number.java
+                <a href="/2016/11/19/Minimum Size Subarray Sum/">
+                    Minimum Size Subarray Sum.java
                 </a>
             </div>
         
@@ -406,7 +402,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Best Time to Buy and Sell Stock.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Find All Numbers Disappeared in an Array.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -424,7 +420,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/25/Best Time to Buy and Sell Stock/" data-title="Best Time to Buy and Sell Stock.java" data-url="http://pangbo.space/2016/10/25/Best Time to Buy and Sell Stock/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/19/Find All Numbers Disappeared in an Array/" data-title="Find All Numbers Disappeared in an Array.java" data-url="http://pangbo.space/2016/11/19/Find All Numbers Disappeared in an Array/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -447,7 +443,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/25/Best Time to Buy and Sell Stock II/" title="上一篇: Best Time to Buy and Sell Stock II.java">
+            <a href="/2016/11/19/Find All Duplicates in an Array/" title="上一篇: Find All Duplicates in an Array.java">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -455,7 +451,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/25/Third Maximum Number/" title="下一篇: Third Maximum Number.java">
+            <a href="/2016/11/19/Minimum Size Subarray Sum/" title="下一篇: Minimum Size Subarray Sum.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
