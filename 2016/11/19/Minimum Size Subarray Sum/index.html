@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is">
+<meta name="description" content="Given an array of n positive integers and a positive integer s, find the minimal length of a subarray of which the sum ≥ s. If there isn’t one, return 0 instead.For example, given the array [2,3,1,2,4">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Contains Duplicate.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/24/Contains Duplicate/index.html">
+<meta property="og:title" content="Minimum Size Subarray Sum.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/19/Minimum Size Subarray Sum/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is">
-<meta property="og:updated_time" content="2016-10-24T14:39:15.021Z">
+<meta property="og:description" content="Given an array of n positive integers and a positive integer s, find the minimal length of a subarray of which the sum ≥ s. If there isn’t one, return 0 instead.For example, given the array [2,3,1,2,4">
+<meta property="og:updated_time" content="2016-11-19T09:52:23.967Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Contains Duplicate.java">
-<meta name="twitter:description" content="Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is">
+<meta name="twitter:title" content="Minimum Size Subarray Sum.java">
+<meta name="twitter:description" content="Given an array of n positive integers and a positive integer s, find the minimal length of a subarray of which the sum ≥ s. If there isn’t one, return 0 instead.For example, given the array [2,3,1,2,4">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Contains Duplicate.java | Bo`s blog</title>
+<title>Minimum Size Subarray Sum.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Contains Duplicate" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Minimum Size Subarray Sum" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/24/Contains Duplicate/" class="article-date">
-      <time datetime="2016-10-24T12:56:45.740Z" itemprop="datePublished">2016-10-24</time>
+      <a href="/2016/11/19/Minimum Size Subarray Sum/" class="article-date">
+      <time datetime="2016-11-19T09:47:23.608Z" itemprop="datePublished">2016-11-19</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Contains Duplicate.java
+      Minimum Size Subarray Sum.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,9 +318,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.<br><a id="more"></a></p>
-<p><strong>思路:</strong><br>使用set接口的方法,常规做法是超时的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        Set&lt;Integer&gt; temp = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> x : nums)&#123;                            <span class="comment">//------------ for循环，遍历nums所有项的简便方法，注意：x为nums[]的元素！</span></div><div class="line">            <span class="keyword">if</span>(temp.contains(x))</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">else</span></div><div class="line">                temp.add(x);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>set:</strong><br><a href="http://blog.csdn.net/vegetable_bird_001/article/details/50992925" target="_blank" rel="external">http://blog.csdn.net/vegetable_bird_001/article/details/50992925</a></p>
+        <p>Given an array of n positive integers and a positive integer s, find the minimal length of a subarray of which the sum ≥ s. If there isn’t one, return 0 instead.<br>For example, given the array [2,3,1,2,4,3] and s = 7,<br>the subarray [4,3] has the minimal length under the problem constraint.<br>More practice:<br>If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log n).<br><a id="more"></a><br><strong>思路：</strong><br>双指针法，维护一个动态窗口，保证窗口内sum&gt;=s即可，每次取窗口最小长度为最终结果。<br>窗口左边为start，右边为i。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">		<span class="keyword">if</span>(len == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span> start = <span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span> min = Integer.MAX_VALUE;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</div><div class="line">			sum += nums[i];</div><div class="line">			<span class="keyword">while</span>(sum  &gt;= s)&#123;  <span class="comment">//尝试将窗口左边不断右移</span></div><div class="line">			    min = Math.min(min,i-start+<span class="number">1</span>);</div><div class="line">				sum -= nums[start];</div><div class="line">				start++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(min == Integer.MAX_VALUE) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">return</span> min;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>或者：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">		<span class="keyword">if</span>(nums == <span class="keyword">null</span> || len == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">		<span class="keyword">int</span> start = <span class="number">0</span> , end = <span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span> min = Integer.MAX_VALUE;</div><div class="line">		<span class="keyword">while</span>(start&lt;=end &amp;&amp; end&lt;len &amp;&amp; sum &lt; s)&#123;  <span class="comment">//一个意思，for换了种写法</span></div><div class="line">			sum += nums[end];</div><div class="line">			</div><div class="line">			<span class="keyword">while</span>(start&lt;=end &amp;&amp; sum &gt;= s)&#123;</div><div class="line">				min = Math.min(min,end-start+<span class="number">1</span>);</div><div class="line">				sum -= nums[start];</div><div class="line">				start++;</div><div class="line">			&#125;</div><div class="line">			end++;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(min == Integer.MAX_VALUE) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">return</span> min;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -329,13 +328,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/10/24/Contains Duplicate/">Contains Duplicate.java</a></p>
+        <p><span>Title:</span><a href="/2016/11/19/Minimum Size Subarray Sum/">Minimum Size Subarray Sum.java</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-10-24, 20:56:45</p>
-        <p><span>Updated:</span>2016-10-24, 22:39:15</p>
+        <p><span>Created:</span>2016-11-19, 17:47:23</p>
+        <p><span>Updated:</span>2016-11-19, 17:52:23</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/10/24/Contains Duplicate/" title="Contains Duplicate.java">http://pangbo.space/2016/10/24/Contains Duplicate/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/10/24/Contains Duplicate/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/11/19/Minimum Size Subarray Sum/" title="Minimum Size Subarray Sum.java">http://pangbo.space/2016/11/19/Minimum Size Subarray Sum/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/11/19/Minimum Size Subarray Sum/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -347,16 +346,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/24/Java接口Set用法/">
-                    Java接口Set用法
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/23/Rotate Array/">
-                    Rotate Array.java
+                <a href="/2016/11/19/Two Sum II - Input array is sorted/">
+                    Two Sum II - Input array is sorted.java
                 </a>
             </div>
         
@@ -404,7 +397,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Contains Duplicate.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Minimum Size Subarray Sum.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,7 +415,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/24/Contains Duplicate/" data-title="Contains Duplicate.java" data-url="http://pangbo.space/2016/10/24/Contains Duplicate/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/19/Minimum Size Subarray Sum/" data-title="Minimum Size Subarray Sum.java" data-url="http://pangbo.space/2016/11/19/Minimum Size Subarray Sum/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -445,15 +438,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/24/Java接口Set用法/" title="Pre: Java接口Set用法">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/23/Rotate Array/" title="Next: Rotate Array.java">
+            <a href="/2016/11/19/Two Sum II - Input array is sorted/" title="Next: Two Sum II - Input array is sorted.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
