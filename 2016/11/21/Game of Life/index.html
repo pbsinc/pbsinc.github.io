@@ -15,31 +15,16 @@
 
 
 
-<meta name="description" content="Given two binary strings, return their sum (also a binary string).：
-
-For example,
-a = “11”
-b = “1”
-Return “100”.">
+<meta name="description" content="According to the Wikipedia’s article: “The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.”Given a board with m by n c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Add Binary.java">
-<meta property="og:url" content="http://pangbo.space/2016/09/27/Add Binary/index.html">
+<meta property="og:title" content="Game of Life.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/21/Game of Life/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given two binary strings, return their sum (also a binary string).：
-
-For example,
-a = “11”
-b = “1”
-Return “100”.">
-<meta property="og:updated_time" content="2016-10-18T08:58:25.086Z">
+<meta property="og:description" content="According to the Wikipedia’s article: “The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.”Given a board with m by n c">
+<meta property="og:updated_time" content="2016-11-21T02:29:05.332Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Add Binary.java">
-<meta name="twitter:description" content="Given two binary strings, return their sum (also a binary string).：
-
-For example,
-a = “11”
-b = “1”
-Return “100”.">
+<meta name="twitter:title" content="Game of Life.java">
+<meta name="twitter:description" content="According to the Wikipedia’s article: “The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.”Given a board with m by n c">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -71,7 +56,7 @@ Return “100”.">
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Add Binary.java | Bo`s blog</title>
+<title>Game of Life.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -289,11 +274,11 @@ Return “100”.">
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Add Binary" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Game of Life" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/27/Add Binary/" class="article-date">
-      <time datetime="2016-09-27T12:30:45.201Z" itemprop="datePublished">2016-09-27</time>
+      <a href="/2016/11/21/Game of Life/" class="article-date">
+      <time datetime="2016-11-21T02:26:41.313Z" itemprop="datePublished">2016-11-21</time>
 </a>
 
 
@@ -308,7 +293,7 @@ Return “100”.">
         
   
     <h1 class="article-title" itemprop="name">
-      Add Binary.java
+      Game of Life.java
     </h1>
   
 
@@ -323,7 +308,7 @@ Return “100”.">
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -333,17 +318,8 @@ Return “100”.">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given two binary strings, return their sum (also a binary string).：</p>
-<ul>
-<li><strong>For example,</strong></li>
-<li><strong>a = “11”</strong></li>
-<li><strong>b = “1”</strong></li>
-<li><strong>Return “100”.</strong><a id="more"></a>
-</li>
-</ul>
-<hr>
-<p><strong>关键思路：</strong><br>char ta= ‘1’;<br>int test = ta - ‘0’;<br>则：test 结果为 1<br>char 型的数字’1’的int值为49，’0’为48</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</div><div class="line">     <span class="keyword">int</span> na = a.length();</div><div class="line">     <span class="keyword">int</span> nb = b.length();</div><div class="line">     <span class="keyword">int</span> max = Math.max(na,nb);</div><div class="line">     <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">     String out = <span class="string">""</span>;</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=max;i++)</div><div class="line">     &#123;</div><div class="line">         <span class="keyword">int</span> p=<span class="number">0</span>,q=<span class="number">0</span>;</div><div class="line">         <span class="keyword">if</span>(na-i &gt;= <span class="number">0</span>)</div><div class="line">         &#123;</div><div class="line">             p = a.charAt(na-i) - <span class="string">'0'</span>;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">else</span></div><div class="line">             p = <span class="number">0</span>;</div><div class="line">             </div><div class="line">         <span class="keyword">if</span>(nb-i &gt;=<span class="number">0</span>)</div><div class="line">         &#123;</div><div class="line">             q = b.charAt(nb-i) - <span class="string">'0'</span>;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">else</span></div><div class="line">             q = <span class="number">0</span>;</div><div class="line">         </div><div class="line">         <span class="keyword">int</span> temp = p + q + carry;</div><div class="line">         carry = temp / <span class="number">2</span>;</div><div class="line">         out = temp % <span class="number">2</span> + out;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">if</span> (carry == <span class="number">1</span>)</div><div class="line">     &#123;</div><div class="line">         out = <span class="number">1</span> + out;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> out;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>According to the Wikipedia’s article: “The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.”<br>Given a board with m by n cells, each cell has an initial state live (1) or dead (0). Each cell interacts with its eight neighbors (horizontal, vertical, diagonal) using the following four rules (taken from the above Wikipedia article):<br>1.Any live cell with fewer than two live neighbors dies, as if caused by under-population.<br>2.Any live cell with two or three live neighbors lives on to the next generation.<br>3.Any live cell with more than three live neighbors dies, as if by over-population..<br>4.Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.<br>Write a function to compute the next state (after one update) of the board given its current state.<br>Follow up:<br>Could you solve it in-place? Remember that the board needs to be updated at the same time: You cannot update some cells first and then use their updated values to update other cells.<br>In this question, we represent the board using a 2D array. In principle, the board is infinite, which would cause problems when the active area encroaches the border of the array. How would you address these problems?<br><a id="more"></a><br><strong>思路：</strong><br>简单的想法就是copy 原来矩阵，然后根据copy 来修改原来的矩阵，如此做会使用O(m*n) space.<br>如何做到In-space呢，我们需要根据改动前的状态来数出live cell 的个数，已经更改的点如何知道原有的状态呢。就要多mark出几种conditions.<br>Dead-&gt;Dead: Condition 0; Live-&gt;Live : Condition 1; Live-&gt;Dead: Condition 2; Dead-&gt;Live:Condition 3<br>如此在数数的时候如果原道1 和 2他们原有的状态都是live，就都要算。<br>最后通过把所有的数%2来得到更改后的状态。</p>
+<p>如何定义这四种状态？第一个原因是通过如此顺序是因为0本身就是dead cell, 1本身就是live cell, 如此在countLive完成后可以尽量少改动数组，如果还是live的1的状态就不用动了；<br>第二个原因最后对0,1,2,3改回0,1时 可以直接通过%2改动省事。<br>如果需要记住原有状态就可以通过增加condition 来搞定。<br>Time Complexity: O(m*n). Space: O(1).<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">gameOfLife</span><span class="params">(<span class="keyword">int</span>[][] board)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span>(board == <span class="keyword">null</span> || board.length == <span class="number">0</span> || board[<span class="number">0</span>].length == <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> m = board.length;</div><div class="line">		<span class="keyword">int</span> n = board[<span class="number">0</span>].length;</div><div class="line">		<span class="comment">//Mark four conditions</span></div><div class="line">        <span class="comment">// Dead-&gt;Dead: 0; Live-&gt;Live : 1; Live-&gt;Dead: 2; Dead-&gt;Live:3</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</div><div class="line">			    <span class="keyword">int</span> num = livenum(board,i,j);</div><div class="line">				<span class="keyword">if</span>(board[i][j] == <span class="number">1</span> )&#123;	</div><div class="line">					<span class="keyword">if</span>(num &lt; <span class="number">2</span>)</div><div class="line">						board[i][j] = <span class="number">2</span>;</div><div class="line">					<span class="keyword">if</span>(num == <span class="number">2</span> || num == <span class="number">3</span>)</div><div class="line">						board[i][j] = <span class="number">1</span>;</div><div class="line">					<span class="keyword">if</span>(num &gt; <span class="number">3</span>)</div><div class="line">						board[i][j] = <span class="number">2</span>;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(board[i][j] == <span class="number">0</span> &amp;&amp; num ==<span class="number">3</span>)&#123;</div><div class="line">						board[i][j] = <span class="number">3</span>;</div><div class="line">				&#125;</div><div class="line">				</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</div><div class="line">				board[i][j] = board[i][j]%<span class="number">2</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;		</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">livenum</span><span class="params">(<span class="keyword">int</span>[][] board,<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> m = board.length;</div><div class="line">		<span class="keyword">int</span> n = board[<span class="number">0</span>].length;</div><div class="line">		<span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=x-<span class="number">1</span>;i&lt;=x+<span class="number">1</span>;i++)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=y-<span class="number">1</span>;j&lt;=y+<span class="number">1</span>;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(i&gt;=<span class="number">0</span> &amp;&amp; j&gt;=<span class="number">0</span> &amp;&amp; i&lt;m &amp;&amp; j&lt;n &amp;&amp; !(i==x &amp;&amp; j==y)) <span class="comment">// 注意这里不能取当前点的情况</span></div><div class="line">					<span class="keyword">if</span>(board[i][j] == <span class="number">1</span> || board[i][j] == <span class="number">2</span>)</div><div class="line">						count++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> count;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -352,13 +328,13 @@ Return “100”.">
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/09/27/Add Binary/">Add Binary.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/21/Game of Life/">Game of Life.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-09-27, 20:30:45</p>
-        <p><span>最后更新:</span>2016-10-18, 16:58:25</p>
+        <p><span>发布时间:</span>2016-11-21, 10:26:41</p>
+        <p><span>最后更新:</span>2016-11-21, 10:29:05</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/09/27/Add Binary/" title="Add Binary.java">http://pangbo.space/2016/09/27/Add Binary/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/09/27/Add Binary/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/21/Game of Life/" title="Game of Life.java">http://pangbo.space/2016/11/21/Game of Life/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/21/Game of Life/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -370,16 +346,10 @@ Return “100”.">
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/09/28/hexo 绑定域名/">
-                    hexo 绑定域名
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/26/hello-world/">
-                    Hello World
+                <a href="/2016/11/19/Find All Duplicates in an Array/">
+                    Find All Duplicates in an Array.java
                 </a>
             </div>
         
@@ -427,7 +397,7 @@ Return “100”.">
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Add Binary.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Game of Life.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -445,7 +415,7 @@ Return “100”.">
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/27/Add Binary/" data-title="Add Binary.java" data-url="http://pangbo.space/2016/09/27/Add Binary/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/21/Game of Life/" data-title="Game of Life.java" data-url="http://pangbo.space/2016/11/21/Game of Life/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -468,15 +438,13 @@ Return “100”.">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/09/28/hexo 绑定域名/" title="上一篇: hexo 绑定域名">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/26/hello-world/" title="下一篇: Hello World">
+            <a href="/2016/11/19/Find All Duplicates in an Array/" title="下一篇: Find All Duplicates in an Array.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
