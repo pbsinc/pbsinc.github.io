@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.You may assume no duplicates in the array.Here">
+<meta name="description" content="Given an array of n integers where n &amp;gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].Solve it without division and in O(n).F">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Search Insert Position.java">
-<meta property="og:url" content="http://pangbo.space/2016/11/11/Search Insert Position/index.html">
+<meta property="og:title" content="Product of Array Except Self.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/21/Product of Array Except Self/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.You may assume no duplicates in the array.Here">
-<meta property="og:updated_time" content="2016-11-11T06:05:16.166Z">
+<meta property="og:description" content="Given an array of n integers where n &amp;gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].Solve it without division and in O(n).F">
+<meta property="og:updated_time" content="2016-11-21T03:30:52.791Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Search Insert Position.java">
-<meta name="twitter:description" content="Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.You may assume no duplicates in the array.Here">
+<meta name="twitter:title" content="Product of Array Except Self.java">
+<meta name="twitter:description" content="Given an array of n integers where n &amp;gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].Solve it without division and in O(n).F">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Search Insert Position.java | Bo`s blog</title>
+<title>Product of Array Except Self.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Search Insert Position" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Product of Array Except Self" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/11/Search Insert Position/" class="article-date">
-      <time datetime="2016-11-11T05:58:11.442Z" itemprop="datePublished">2016-11-11</time>
+      <a href="/2016/11/21/Product of Array Except Self/" class="article-date">
+      <time datetime="2016-11-21T03:28:46.134Z" itemprop="datePublished">2016-11-21</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Search Insert Position.java
+      Product of Array Except Self.java
     </h1>
   
 
@@ -318,8 +318,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.<br>You may assume no duplicates in the array.<br>Here are few examples.<br>[1,3,5,6], 5 → 2<br>[1,3,5,6], 2 → 1<br>[1,3,5,6], 7 → 4<br>[1,3,5,6], 0 → 0<br><a id="more"></a><br><strong>思路：</strong><br>左右比大小就好</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">		<span class="keyword">while</span>(i&lt;len)&#123;</div><div class="line">			<span class="keyword">if</span>(nums[i] == target || nums[<span class="number">0</span>]&gt;target)</div><div class="line">				<span class="keyword">return</span> i;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i+<span class="number">1</span>&lt;len &amp;&amp; nums[i]&lt;target &amp;&amp; target&lt;nums[i+<span class="number">1</span>])</div><div class="line">				<span class="keyword">return</span> i+<span class="number">1</span>;</div><div class="line">			<span class="keyword">else</span> </div><div class="line">				i++;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> i;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Given an array of n integers where n &gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].<br>Solve it without division and in O(n).<br>For example, given [1,2,3,4], return [24,12,8,6].<br>Follow up:<br>Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.)</p>
+<a id="more"></a>
+<p><strong>思路：</strong><br>这道题给定我们一个数组，让我们返回一个新数组，对于每一个位置上的数是其他位置上数的乘积，并且限定了时间复杂度O(n)，并且不让我们用除法。如果让用除法的话，那这道题就应该属于Easy，因为可以先遍历一遍数组求出所有数字之积，然后除以对应位置的上的数字。但是这道题禁止我们使用除法，那么我们只能另辟蹊径。我们可以先遍历一遍数组，每一个位置上存之前所有数字的乘积。那么一遍下来，最后一个位置上的数字是之前所有数字之积，是符合题目要求的，只是前面所有的数还需要在继续乘。我们这时候再从后往前扫描，每个位置上的数在乘以后面所有数字之积，对于最后一个位置来说，由于后面没有数字了，所以乘以1就行。参见代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] productExceptSelf(<span class="keyword">int</span>[] nums) &#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">		<span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[len];</div><div class="line">		res[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span> right =<span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</div><div class="line">			res[i] = res[i-<span class="number">1</span>] * nums[i-<span class="number">1</span>];</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = len-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line">			res[i] *= right;</div><div class="line">			right *= nums[i];</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -327,13 +329,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/11/Search Insert Position/">Search Insert Position.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/21/Product of Array Except Self/">Product of Array Except Self.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-11-11, 13:58:11</p>
-        <p><span>最后更新:</span>2016-11-11, 14:05:16</p>
+        <p><span>发布时间:</span>2016-11-21, 11:28:46</p>
+        <p><span>最后更新:</span>2016-11-21, 11:30:52</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/11/Search Insert Position/" title="Search Insert Position.java">http://pangbo.space/2016/11/11/Search Insert Position/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/11/Search Insert Position/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/21/Product of Array Except Self/" title="Product of Array Except Self.java">http://pangbo.space/2016/11/21/Product of Array Except Self/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/21/Product of Array Except Self/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +347,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/11/Combination Sum/">
-                    Combination Sum.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/10/Search for a Range/">
-                    Search for a Range.java
+                <a href="/2016/11/21/Missing Number/">
+                    Missing Number.java
                 </a>
             </div>
         
@@ -402,7 +398,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Search Insert Position.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Product of Array Except Self.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +416,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/11/Search Insert Position/" data-title="Search Insert Position.java" data-url="http://pangbo.space/2016/11/11/Search Insert Position/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/21/Product of Array Except Self/" data-title="Product of Array Except Self.java" data-url="http://pangbo.space/2016/11/21/Product of Array Except Self/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -443,15 +439,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/11/Combination Sum/" title="上一篇: Combination Sum.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/10/Search for a Range/" title="下一篇: Search for a Range.java">
+            <a href="/2016/11/21/Missing Number/" title="下一篇: Missing Number.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
