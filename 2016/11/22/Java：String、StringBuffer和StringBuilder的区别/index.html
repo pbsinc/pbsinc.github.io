@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://pangbo.space/2016/11/22/Java：String、StringBuffer和StringBuilder的区别/index.html">
 <meta property="og:site_name" content="Bo`s blog">
 <meta property="og:description" content="转自：http://blog.csdn.net/kingzone_2008/article/details/9220691">
-<meta property="og:updated_time" content="2016-11-22T02:35:42.785Z">
+<meta property="og:updated_time" content="2016-11-22T02:52:46.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java：String、StringBuffer和StringBuilder的区别">
 <meta name="twitter:description" content="转自：http://blog.csdn.net/kingzone_2008/article/details/9220691">
@@ -334,29 +334,24 @@ StringBuilder()                    创建一个容量为<span class="number">16<
 StringBuilder(CharSequence cs)    创建一个包含cs的StringBuilder对象，末尾附加<span class="number">16</span>个空元素
 StringBuilder(<span class="keyword">int</span> initCapacity)    创建一个容量为initCapacity的StringBuilder对象
 StringBuilder(String s)            创建一个包含s的StringBuilder对象，末尾附加<span class="number">16</span>个空元素
-``` java
-在大部分情况下，StringBuilder &gt; StringBuffer。这主要是由于前者不需要考虑线程安全。
-
-**<span class="number">4</span> 三者区别**
-String 类型和StringBuffer的主要性能区别：String是不可变的对象, 因此在每次对**String 类型**进行改变的时候，都会生成一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响，特别当内存中无引用对象多了以后， JVM 的 GC 就会开始工作，性能就会降低。
-
-使用 StringBuffer 类时，每次都会对 StringBuffer 对象本身进行操作，而不是生成新的对象并改变对象引用。所以多数情况下推荐使用 StringBuffer ，特别是**字符串对象经常改变的情况**下。
-
-在某些特别情况下， String 对象的字符串拼接其实是被 Java Compiler 编译成了 StringBuffer 对象的拼接，所以这些时候 String 对象的速度并不会比 StringBuffer 对象慢，例如：
-
-``` java
-String s1 = “This is only a” + “ simple” + “ test”;  
+</code></pre>
+<p>在大部分情况下，StringBuilder &gt; StringBuffer。这主要是由于前者不需要考虑线程安全。</p>
+<p><strong>4 三者区别</strong><br>String 类型和StringBuffer的主要性能区别：String是不可变的对象, 因此在每次对<strong>String 类型</strong>进行改变的时候，都会生成一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响，特别当内存中无引用对象多了以后， JVM 的 GC 就会开始工作，性能就会降低。</p>
+<p>使用 StringBuffer 类时，每次都会对 StringBuffer 对象本身进行操作，而不是生成新的对象并改变对象引用。所以多数情况下推荐使用 StringBuffer ，特别是<strong>字符串对象经常改变的情况</strong>下。</p>
+<p>在某些特别情况下， String 对象的字符串拼接其实是被 Java Compiler 编译成了 StringBuffer 对象的拼接，所以这些时候 String 对象的速度并不会比 StringBuffer 对象慢，例如：</p>
+<pre><code class="java">String s1 = “This is only a” + “ simple” + “ test”;  
 StringBuffer Sb = <span class="keyword">new</span> StringBuilder(“This is only a”).append(“ simple”).append(“ test”);
 </code></pre>
 <p>生成 String s1对象的速度并不比 StringBuffer慢。其实在Java Compiler里，自动做了如下转换：<br>Java Compiler直接把上述第一条语句编译为：</p>
 <pre><code class="java">String s1 = “This is only a simple test”;
 </code></pre>
 <p>所以速度很快。但要注意的是，如果拼接的字符串来自另外的String对象的话，Java Compiler就不会自动转换了，速度也就没那么快了，例如：</p>
-<pre><code>String s2 = “This is only a”;  
+<pre><code class="java">String s2 = “This is only a”;  
 String s3 = “ simple”;  
 String s4 = “ test”;  
 String s1 = s2 + s3 + s4;
-</code></pre><p>这时候，Java Compiler会规规矩矩的按照原来的方式去做，String的concatenation（即+）操作利用了StringBuilder（或StringBuffer）的append方法实现，此时，对于上述情况，若s2，s3，s4采用String定义，拼接时需要额外创建一个StringBuffer（或StringBuilder），之后将StringBuffer转换为String；若采用StringBuffer（或StringBuilder），则不需额外创建StringBuffer。</p>
+</code></pre>
+<p>这时候，Java Compiler会规规矩矩的按照原来的方式去做，String的concatenation（即+）操作利用了StringBuilder（或StringBuffer）的append方法实现，此时，对于上述情况，若s2，s3，s4采用String定义，拼接时需要额外创建一个StringBuffer（或StringBuilder），之后将StringBuffer转换为String；若采用StringBuffer（或StringBuilder），则不需额外创建StringBuffer。</p>
 <p><strong>5 使用策略</strong><br>（1）基本原则：如果要操作少量的数据，用String ；单线程操作大量数据，用StringBuilder ；多线程操作大量数据，用StringBuffer。</p>
 <p>（2）不要使用String类的”+”来进行<strong>频繁的拼接</strong>，因为那样的性能极差的，应该使用StringBuffer或StringBuilder类，这在Java的优化上是一条比较重要的原则。例如：</p>
 <pre><code class="java">String result = <span class="string">""</span>;  
@@ -389,7 +384,7 @@ String result = sb.toString();
         <p><span>本文标题:</span><a href="/2016/11/22/Java：String、StringBuffer和StringBuilder的区别/">Java：String、StringBuffer和StringBuilder的区别</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
         <p><span>发布时间:</span>2016-11-22, 10:28:36</p>
-        <p><span>最后更新:</span>2016-11-22, 10:35:42</p>
+        <p><span>最后更新:</span>2016-11-22, 10:52:46</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/11/22/Java：String、StringBuffer和StringBuilder的区别/" title="Java：String、StringBuffer和StringBuilder的区别">http://pangbo.space/2016/11/22/Java：String、StringBuffer和StringBuilder的区别/</a>
             <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/22/Java：String、StringBuffer和StringBuilder的区别/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
