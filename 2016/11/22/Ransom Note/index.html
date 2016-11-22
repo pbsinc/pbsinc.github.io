@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times. The algorithm should run in linear time and in O(1) space.">
+<meta name="description" content="Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; ot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Majority Element II.java">
-<meta property="og:url" content="http://pangbo.space/2016/11/21/Majority Element II/index.html">
+<meta property="og:title" content="Ransom Note.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/22/Ransom Note/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times. The algorithm should run in linear time and in O(1) space.">
-<meta property="og:updated_time" content="2016-11-21T08:49:41.798Z">
+<meta property="og:description" content="Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; ot">
+<meta property="og:updated_time" content="2016-11-22T03:45:42.577Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Majority Element II.java">
-<meta name="twitter:description" content="Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times. The algorithm should run in linear time and in O(1) space.">
+<meta name="twitter:title" content="Ransom Note.java">
+<meta name="twitter:description" content="Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; ot">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Majority Element II.java | Bo`s blog</title>
+<title>Ransom Note.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Majority Element II" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Ransom Note" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/21/Majority Element II/" class="article-date">
-      <time datetime="2016-11-21T06:30:51.965Z" itemprop="datePublished">2016-11-21</time>
+      <a href="/2016/11/22/Ransom Note/" class="article-date">
+      <time datetime="2016-11-22T03:41:09.922Z" itemprop="datePublished">2016-11-22</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Majority Element II.java
+      Ransom Note.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多数投票算法/">多数投票算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,8 +318,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times. The algorithm should run in linear time and in O(1) space.<br><a id="more"></a><br><strong>思路：</strong><br>排序后，判断元素重复出现的次数为（n/3 +1）时，输出该元素；<br>但是，Arrays.sort(nums); 排序复杂度最小也是o(nlogn)，所以按道理此方法不可。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">		Arrays.sort(nums);</div><div class="line">		List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">		<span class="keyword">if</span>(nums.length == <span class="number">1</span>)&#123;</div><div class="line">			res.add(nums[<span class="number">0</span>]);</div><div class="line">			<span class="keyword">return</span> res;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(nums.length == <span class="number">2</span>)&#123;</div><div class="line">			res.add(nums[<span class="number">0</span>]);</div><div class="line">			<span class="keyword">if</span>(nums[<span class="number">1</span>] != nums[<span class="number">0</span>])</div><div class="line">				res.add(nums[<span class="number">1</span>]);</div><div class="line">			<span class="keyword">return</span> res;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length-<span class="number">1</span>;i++)&#123;</div><div class="line">			<span class="keyword">int</span> count = <span class="number">1</span>;</div><div class="line">			<span class="keyword">while</span>(i&lt;nums.length-<span class="number">1</span> &amp;&amp; nums[i] == nums[i+<span class="number">1</span>])&#123;</div><div class="line">				count++;</div><div class="line">				i++;</div><div class="line">				<span class="keyword">if</span>(count == nums.length/<span class="number">3</span> + <span class="number">1</span>)&#123;</div><div class="line">					res.add(nums[i]);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>正确思路：多数投票算法</strong><br>看到这题首先想到的是出现次数大于⌊ n/3 ⌋的数不只有一个，思考了一下，这个数最多有两个，最少一个也没有。所以可以用一个大小为2的数组保存候选结果，最后进行筛选。<br>多数投票算法:<br>1.如果count==0，则将now的值设置为数组的当前元素，将count赋值为1；<br>2.反之，如果now和现在数组元素值相同，则count++，反之count–；<br>3.重复上述两步，直到扫描完数组。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">		List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">		<span class="keyword">if</span>(nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> res;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> numbers[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">		<span class="keyword">int</span> count[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(count[<span class="number">0</span>] == <span class="number">0</span> &amp;&amp; nums[i] != numbers[<span class="number">1</span>])&#123;</div><div class="line">				numbers[<span class="number">0</span>] = nums[i];</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(count[<span class="number">1</span>] == <span class="number">0</span> &amp;&amp; nums[i] != numbers[<span class="number">0</span>])&#123;</div><div class="line">				numbers[<span class="number">1</span>] = nums[i];</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="keyword">if</span>(nums[i] == numbers[<span class="number">0</span>])&#123;</div><div class="line">				count[<span class="number">0</span>]++;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[i] == numbers[<span class="number">1</span>])&#123;</div><div class="line">				count[<span class="number">1</span>]++;</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				count[<span class="number">0</span>]--;</div><div class="line">				count[<span class="number">1</span>]--;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		count[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">		count[<span class="number">1</span>] = <span class="number">0</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(nums[i] == numbers[<span class="number">0</span>])</div><div class="line">				count[<span class="number">0</span>]++;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(nums[i] == numbers[<span class="number">1</span>])</div><div class="line">				count[<span class="number">1</span>]++;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(count[<span class="number">0</span>] &gt; nums.length/<span class="number">3</span>)</div><div class="line">			res.add(numbers[<span class="number">0</span>]);</div><div class="line">		<span class="keyword">if</span>(count[<span class="number">1</span>] &gt; nums.length/<span class="number">3</span> &amp;&amp; numbers[<span class="number">1</span>] != numbers[<span class="number">0</span>])</div><div class="line">			res.add(numbers[<span class="number">1</span>]);</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.<br>Each letter in the magazine string can only be used once in your ransom note.<br>Note:<br>You may assume that both strings contain only lowercase letters.<br>canConstruct(“a”, “b”) -&gt; false<br>canConstruct(“aa”, “ab”) -&gt; false<br>canConstruct(“aa”, “aab”) -&gt; true<br><a id="more"></a><br><strong>思路1：</strong><br>这种解法比较简单，就是将ransomNote的字符串挨个遍历，每个字符再从magazine里遍历匹配，只是再创建了个数组，数组每个元素的索引表示magazine字符串的位置，元素值表示是否被校验过，0表示还未被校验过，非0就表示该位置已经被校验过。<br>不过这种做法效率不高。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canConstruct</span><span class="params">(String ransomNote, String magazine)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = magazine.length();</div><div class="line">        <span class="keyword">if</span>(ransomNote==<span class="keyword">null</span>|| ransomNote.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		<span class="keyword">if</span>(magazine == <span class="keyword">null</span> || len == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		<span class="keyword">int</span>[] flag = <span class="keyword">new</span> <span class="keyword">int</span>[len];</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ransomNote.length();i++)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(flag[j] == <span class="number">0</span> &amp;&amp; ransomNote.charAt(i) == magazine.charAt(j))&#123;</div><div class="line">					flag[j] = <span class="number">1</span>;</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span>(j == len-<span class="number">1</span>)</div><div class="line">					<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>思路2：</strong><br>这是LeetCode Discuss中的最热代码，它的原理就是列出了magazine的字母表，然后算出了出现个数，然后遍历ransomNote，保证有足够的字母可用，代码非常清晰。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canConstruct</span><span class="params">(String ransomNote, String magazine)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; magazine.length(); i++) &#123;</div><div class="line">            arr[magazine.charAt(i) - <span class="string">'a'</span>]++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ransomNote.length(); i++) &#123;</div><div class="line">            <span class="keyword">if</span>(--arr[ransomNote.charAt(i)-<span class="string">'a'</span>] &lt; <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>思路3：</strong><br>将ransomNote和magazine都从小到大排序，然后对ransomNote遍历，同时在magazine中匹配，如果匹配到了，则记住此时magazine中字符的索引，便于下次操作，因为都是排序的。如果直到magazine中字符已经大于ransomNote中字符了，就说明就再也匹配不到了，则表示匹配失败。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canConstruct</span><span class="params">(String ransomNote, String magazine)</span> </span>&#123;</div><div class="line">        <span class="keyword">boolean</span> ret = <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">char</span>[] ra = ransomNote.toCharArray();</div><div class="line">        Arrays.sort(ra);</div><div class="line">        <span class="keyword">char</span>[] ma = magazine.toCharArray();</div><div class="line">        Arrays.sort(ma);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line">        <span class="keyword">boolean</span> found = <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ra.length &amp;&amp; ret; i++) &#123;</div><div class="line">            <span class="keyword">char</span> ri = ra[i];</div><div class="line">            found = <span class="keyword">false</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = index; j &lt; ma.length; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (ma[j] &gt; ri) &#123;</div><div class="line">                    ret = <span class="keyword">false</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ma[j] == ri) &#123;</div><div class="line">                    index++;</div><div class="line">                    found = <span class="keyword">true</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    index++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (!found) &#123;</div><div class="line">                ret = <span class="keyword">false</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -328,13 +329,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/11/21/Majority Element II/">Majority Element II.java</a></p>
+        <p><span>Title:</span><a href="/2016/11/22/Ransom Note/">Ransom Note.java</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-11-21, 14:30:51</p>
-        <p><span>Updated:</span>2016-11-21, 16:49:41</p>
+        <p><span>Created:</span>2016-11-22, 11:41:09</p>
+        <p><span>Updated:</span>2016-11-22, 11:45:42</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/11/21/Majority Element II/" title="Majority Element II.java">http://pangbo.space/2016/11/21/Majority Element II/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/11/21/Majority Element II/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/11/22/Ransom Note/" title="Ransom Note.java">http://pangbo.space/2016/11/22/Ransom Note/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/11/22/Ransom Note/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -346,16 +347,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/21/Summary Ranges/">
-                    Summary Ranges.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/21/Product of Array Except Self/">
-                    Product of Array Except Self.java
+                <a href="/2016/11/22/Java：String、StringBuffer和StringBuilder的区别/">
+                    Java：String、StringBuffer和StringBuilder的区别
                 </a>
             </div>
         
@@ -403,7 +398,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Majority Element II.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Ransom Note.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -421,7 +416,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/21/Majority Element II/" data-title="Majority Element II.java" data-url="http://pangbo.space/2016/11/21/Majority Element II/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/22/Ransom Note/" data-title="Ransom Note.java" data-url="http://pangbo.space/2016/11/22/Ransom Note/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -444,15 +439,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/21/Summary Ranges/" title="Pre: Summary Ranges.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/21/Product of Array Except Self/" title="Next: Product of Array Except Self.java">
+            <a href="/2016/11/22/Java：String、StringBuffer和StringBuilder的区别/" title="Next: Java：String、StringBuffer和StringBuilder的区别">
                 <i class="fa fa-angle-right"></i>
             </a>
         
