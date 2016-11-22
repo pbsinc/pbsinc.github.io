@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given a sorted integer array without duplicates, return the summary of its ranges.For example, given [0,1,2,4,5,7], return [“0-&amp;gt;2”,”4-&amp;gt;5”,”7”].">
+<meta name="description" content="Given a roman numeral, convert it to an integer.Input is guaranteed to be within the range from 1 to 3999.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Summary Ranges.java">
-<meta property="og:url" content="http://pangbo.space/2016/11/21/Summary Ranges/index.html">
+<meta property="og:title" content="Roman to Integer.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/22/Roman to Integer/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given a sorted integer array without duplicates, return the summary of its ranges.For example, given [0,1,2,4,5,7], return [“0-&amp;gt;2”,”4-&amp;gt;5”,”7”].">
-<meta property="og:updated_time" content="2016-11-21T08:06:07.597Z">
+<meta property="og:description" content="Given a roman numeral, convert it to an integer.Input is guaranteed to be within the range from 1 to 3999.">
+<meta property="og:updated_time" content="2016-11-22T06:50:44.330Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Summary Ranges.java">
-<meta name="twitter:description" content="Given a sorted integer array without duplicates, return the summary of its ranges.For example, given [0,1,2,4,5,7], return [“0-&amp;gt;2”,”4-&amp;gt;5”,”7”].">
+<meta name="twitter:title" content="Roman to Integer.java">
+<meta name="twitter:description" content="Given a roman numeral, convert it to an integer.Input is guaranteed to be within the range from 1 to 3999.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Summary Ranges.java | Bo`s blog</title>
+<title>Roman to Integer.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Summary Ranges" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Roman to Integer" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/21/Summary Ranges/" class="article-date">
-      <time datetime="2016-11-21T08:03:38.797Z" itemprop="datePublished">2016-11-21</time>
+      <a href="/2016/11/22/Roman to Integer/" class="article-date">
+      <time datetime="2016-11-22T06:47:55.991Z" itemprop="datePublished">2016-11-22</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Summary Ranges.java
+      Roman to Integer.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,7 +318,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given a sorted integer array without duplicates, return the summary of its ranges.<br>For example, given [0,1,2,4,5,7], return [“0-&gt;2”,”4-&gt;5”,”7”].<br><a id="more"></a><br><strong>思路：</strong><br>记录连续的起点终点就可以了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">summaryRanges</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">		List&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</div><div class="line">			<span class="keyword">int</span> start =i;</div><div class="line">			<span class="keyword">while</span>(i&lt; nums.length-<span class="number">1</span> &amp;&amp; nums[i]+<span class="number">1</span> == nums[i+<span class="number">1</span>])&#123;</div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(i != start)&#123;</div><div class="line">				String temp = <span class="keyword">new</span> String(nums[start]+<span class="string">"-&gt;"</span>+nums[i]);</div><div class="line">				res.add(temp);</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				String temp = <span class="keyword">new</span> String(Integer.toString(nums[i])); <span class="comment">// int 转 Sting</span></div><div class="line">				res.add(temp);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Given a roman numeral, convert it to an integer.<br>Input is guaranteed to be within the range from 1 to 3999.<br><a id="more"></a><br><strong>思路1：</strong><br>罗马字母表：<br><a href="http://wenku.baidu.com/link?url=ilLmXotR8yKePd80_gjicFaEIxqQWCy1Zmtdpl_JrnBHrTHt3STHiZys9pKj3raY_n4otk_na3lCxK44ehrEoAVUs36BlpT_j23oL_2ipPi" target="_blank" rel="external">http://wenku.baidu.com/link?url=ilLmXotR8yKePd80_gjicFaEIxqQWCy1Zmtdpl_JrnBHrTHt3STHiZys9pKj3raY_n4otk_na3lCxK44ehrEoAVUs36BlpT_j23oL_2ipPi</a><br>从前往后扫描，用一个临时变量记录分段数字。</p>
+<p>如果当前处理的字符对应的值和上一个字符一样，那么临时变量加上这个字符。比如III = 3<br>如果当前比前一个大，说明这一段的值应该是当前这个值减去前面记录下的临时变量中的值。比如IIV = 5 – 2<br>如果当前比前一个小，那么就可以先将临时变量的值加到结果中，然后开始下一段记录。比如VI = 5 + 1<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</div><div class="line">			<span class="keyword">if</span>(s.charAt(i) == <span class="string">'M'</span>)&#123;</div><div class="line">				res += <span class="number">1000</span>;</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(i) == <span class="string">'D'</span>)&#123;</div><div class="line">				res += <span class="number">500</span>;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(i) == <span class="string">'C'</span>)&#123;</div><div class="line">				<span class="keyword">if</span>(i&lt;s.length()-<span class="number">1</span> &amp;&amp; s.charAt(i+<span class="number">1</span>) == <span class="string">'M'</span>)&#123;</div><div class="line">					res += <span class="number">900</span>;</div><div class="line">					i++;</div><div class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(i&lt;s.length()-<span class="number">1</span> &amp;&amp; s.charAt(i+<span class="number">1</span>) == <span class="string">'D'</span>)&#123;</div><div class="line">					res += <span class="number">400</span>;</div><div class="line">					i++;</div><div class="line">				&#125;<span class="keyword">else</span>&#123;</div><div class="line">					res += <span class="number">100</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(i) == <span class="string">'L'</span>)&#123;</div><div class="line">				res += <span class="number">50</span>;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(i) == <span class="string">'X'</span>)&#123;</div><div class="line">				<span class="keyword">if</span>(i&lt;s.length()-<span class="number">1</span> &amp;&amp; s.charAt(i+<span class="number">1</span>) == <span class="string">'C'</span>)&#123;</div><div class="line">					res += <span class="number">90</span>;</div><div class="line">					i++;</div><div class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(i&lt;s.length()-<span class="number">1</span> &amp;&amp; s.charAt(i+<span class="number">1</span>) == <span class="string">'L'</span>)&#123;</div><div class="line">					res += <span class="number">40</span>;</div><div class="line">					i++;</div><div class="line">				&#125;<span class="keyword">else</span>&#123;</div><div class="line">					res += <span class="number">10</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(i) == <span class="string">'V'</span>)&#123;</div><div class="line">				res += <span class="number">5</span>;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(i) == <span class="string">'I'</span>)&#123;</div><div class="line">				<span class="keyword">if</span>(i&lt;s.length()-<span class="number">1</span> &amp;&amp; s.charAt(i+<span class="number">1</span>) == <span class="string">'X'</span>)&#123;</div><div class="line">					res += <span class="number">9</span>;</div><div class="line">					i++;</div><div class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(i&lt;s.length()-<span class="number">1</span> &amp;&amp; s.charAt(i+<span class="number">1</span>) == <span class="string">'V'</span>)&#123;</div><div class="line">					res += <span class="number">4</span>;</div><div class="line">					i++;</div><div class="line">				&#125;<span class="keyword">else</span>&#123;</div><div class="line">					res += <span class="number">1</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>写成函数形式：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;  </div><div class="line">      </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;  </div><div class="line">        <span class="keyword">if</span>(s.length() &lt; <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;  </div><div class="line">        <span class="keyword">int</span> sub = getRomanValue(s.charAt(<span class="number">0</span>));  </div><div class="line">        <span class="keyword">int</span> lastv = sub;  </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt; s.length(); ++i) &#123;  </div><div class="line">            <span class="keyword">char</span> curc = s.charAt(i);  </div><div class="line">            <span class="keyword">int</span> curv = getRomanValue(curc);  </div><div class="line">            <span class="keyword">if</span>(curv == lastv)   </div><div class="line">                sub += curv;  </div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>( curv &lt; lastv) &#123;  </div><div class="line">                result += sub;  </div><div class="line">                sub = curv;  </div><div class="line">            &#125; <span class="keyword">else</span> &#123;  </div><div class="line">                sub = curv - sub;  </div><div class="line">            &#125;  </div><div class="line">            lastv = curv;  </div><div class="line">        &#125;  </div><div class="line">        result += sub;  </div><div class="line">        <span class="keyword">return</span> result;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRomanValue</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;  </div><div class="line">        <span class="keyword">switch</span>(c) &#123;  </div><div class="line">            <span class="keyword">case</span> <span class="string">'I'</span>: <span class="keyword">return</span> <span class="number">1</span>;   </div><div class="line">            <span class="keyword">case</span> <span class="string">'V'</span>: <span class="keyword">return</span> <span class="number">5</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="string">'X'</span>: <span class="keyword">return</span> <span class="number">10</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="string">'L'</span>: <span class="keyword">return</span> <span class="number">50</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="string">'C'</span>: <span class="keyword">return</span> <span class="number">100</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="string">'D'</span>: <span class="keyword">return</span> <span class="number">500</span>;  </div><div class="line">            <span class="keyword">case</span> <span class="string">'M'</span>: <span class="keyword">return</span> <span class="number">1000</span>;  </div><div class="line">            <span class="keyword">default</span>: <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -327,13 +329,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/21/Summary Ranges/">Summary Ranges.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/22/Roman to Integer/">Roman to Integer.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-11-21, 16:03:38</p>
-        <p><span>最后更新:</span>2016-11-21, 16:06:07</p>
+        <p><span>发布时间:</span>2016-11-22, 14:47:55</p>
+        <p><span>最后更新:</span>2016-11-22, 14:50:44</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/21/Summary Ranges/" title="Summary Ranges.java">http://pangbo.space/2016/11/21/Summary Ranges/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/21/Summary Ranges/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/22/Roman to Integer/" title="Roman to Integer.java">http://pangbo.space/2016/11/22/Roman to Integer/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/22/Roman to Integer/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +347,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/21/Java各种类型互相转换/">
-                    Java各种类型互相转换
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/21/Majority Element II/">
-                    Majority Element II.java
+                <a href="/2016/11/22/Ransom Note/">
+                    Ransom Note.java
                 </a>
             </div>
         
@@ -402,7 +398,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Summary Ranges.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Roman to Integer.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +416,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/21/Summary Ranges/" data-title="Summary Ranges.java" data-url="http://pangbo.space/2016/11/21/Summary Ranges/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/22/Roman to Integer/" data-title="Roman to Integer.java" data-url="http://pangbo.space/2016/11/22/Roman to Integer/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -443,15 +439,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/21/Java各种类型互相转换/" title="上一篇: Java各种类型互相转换">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/21/Majority Element II/" title="下一篇: Majority Element II.java">
+            <a href="/2016/11/22/Ransom Note/" title="下一篇: Ransom Note.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
