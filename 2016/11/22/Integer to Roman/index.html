@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://pangbo.space/2016/11/22/Integer to Roman/index.html">
 <meta property="og:site_name" content="Bo`s blog">
 <meta property="og:description" content="Given an integer, convert it to a roman numeral.Input is guaranteed to be within the range from 1 to 3999.">
-<meta property="og:updated_time" content="2016-11-22T07:11:45.497Z">
+<meta property="og:updated_time" content="2016-11-22T07:15:56.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Integer to Roman.java">
 <meta name="twitter:description" content="Given an integer, convert it to a roman numeral.Input is guaranteed to be within the range from 1 to 3999.">
@@ -320,7 +320,7 @@
           
         <p>Given an integer, convert it to a roman numeral.<br>Input is guaranteed to be within the range from 1 to 3999.<br><a id="more"></a><br><strong>思路1：</strong><br>罗马字母表：<br><a href="http://wenku.baidu.com/link?url=ilLmXotR8yKePd80_gjicFaEIxqQWCy1Zmtdpl_JrnBHrTHt3STHiZys9pKj3raY_n4otk_na3lCxK44ehrEoAVUs36BlpT_j23oL_2ipPi" target="_blank" rel="external">http://wenku.baidu.com/link?url=ilLmXotR8yKePd80_gjicFaEIxqQWCy1Zmtdpl_JrnBHrTHt3STHiZys9pKj3raY_n4otk_na3lCxK44ehrEoAVUs36BlpT_j23oL_2ipPi</a></p>
 <p>馬數字共有7個，即I（1）、V（5）、X（10）、L（50）、C（100）、D（500）和M（1000）。<br>按照下述的規則可以表示任意正整數。需要注意的是罗马数字中没有“0”，與進位制無關。一般認為羅馬數字只用來記數，而不作演算。</p>
-<p>重複數次：一個羅馬數字重複幾次，就表示這個數的幾倍。<br>右加左減：<br>    在較大的羅馬數字的右邊記上較小的羅馬數字，表示大數字加小數字。<br>    在較大的羅馬數字的左邊記上較小的羅馬數字，表示大數字减小數字。<br>    左减的数字有限制，仅限于I、X、C。比如45不可以写成VL，只能是XLV<br>    但是，左減時不可跨越一個位數。比如，99不可以用IC（）表示，而是用XCIX（）表示。（等同於阿拉伯數字每位數字分別表示。）<br>    左減數字必須為一位，比如8寫成VIII，而非IIX。<br>    右加數字不可連續超過三位，比如14寫成XIV，而非XIIII。（見下方“數碼限制”一項。）<br>加線乘千：<br>    在羅馬數字的上方加上一條橫線或者加上下標的Ⅿ，表示將這個數乘以1000，即是原數的1000倍。<br>    同理，如果上方有兩條橫線，即是原數的1000000（）倍。<br>數碼限制：<br>    同一數碼最    多只能出現三次，如40不可表示為XXXX，而要表示為XL。<br>    例外：由於IV是古羅馬神話主神朱庇特（即IVPITER，古羅馬字母裡沒有J和U）的首字，因此有時用IIII代替IV。</p>
+<p>重複數次：一個羅馬數字重複幾次，就表示這個數的幾倍。<br>右加左減：<br>    1.在較大的羅馬數字的右邊記上較小的羅馬數字，表示大數字加小數字。<br>    2.在較大的羅馬數字的左邊記上較小的羅馬數字，表示大數字减小數字。<br>    3.左减的数字有限制，仅限于I、X、C。比如45不可以写成VL，只能是XLV<br>    4.但是，左減時不可跨越一個位數。比如，99不可以用IC（）表示，而是用XCIX（）表示。（等同於阿拉伯數字每位數字分別表示。）<br>    5.左減數字必須為一位，比如8寫成VIII，而非IIX。<br>    6.右加數字不可連續超過三位，比如14寫成XIV，而非XIIII。（見下方“數碼限制”一項。）<br>加線乘千：<br>    1.在羅馬數字的上方加上一條橫線或者加上下標的Ⅿ，表示將這個數乘以1000，即是原數的1000倍。<br>    2.同理，如果上方有兩條橫線，即是原數的1000000（）倍。<br>數碼限制：<br>    1.同一數碼最    多只能出現三次，如40不可表示為XXXX，而要表示為XL。<br>    2.例外：由於IV是古羅馬神話主神朱庇特（即IVPITER，古羅馬字母裡沒有J和U）的首字，因此有時用IIII代替IV。</p>
 <p>根据上述规则，我们可以发现两条对解这道题有帮助的内容：</p>
 <pre><code>1.左减的数字有限制，仅限于I、X、C。比如45不可以写成VL，只能是XLV
 2.但是，左減時不可跨越一個位數。比如，99不可以用IC（）表示，而是用XCIX（）表示。（等同於阿拉伯數字每位數字分別表示。）
@@ -342,7 +342,7 @@
         <p><span>本文标题:</span><a href="/2016/11/22/Integer to Roman/">Integer to Roman.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
         <p><span>发布时间:</span>2016-11-22, 15:06:18</p>
-        <p><span>最后更新:</span>2016-11-22, 15:11:45</p>
+        <p><span>最后更新:</span>2016-11-22, 15:15:56</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/11/22/Integer to Roman/" title="Integer to Roman.java">http://pangbo.space/2016/11/22/Integer to Roman/</a>
             <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/22/Integer to Roman/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
