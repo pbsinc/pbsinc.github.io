@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.For example,Given nums = [0, 1, 3] return 2.Note:Your algorithm should run in linear">
+<meta name="description" content="Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.The brackets must close in the correct order, “()” and “()[]{}” are all valid but">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Missing Number.java">
-<meta property="og:url" content="http://pangbo.space/2016/11/21/Missing Number/index.html">
+<meta property="og:title" content="Valid Parentheses.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/23/Valid Parentheses/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.For example,Given nums = [0, 1, 3] return 2.Note:Your algorithm should run in linear">
-<meta property="og:updated_time" content="2016-11-21T03:00:11.039Z">
+<meta property="og:description" content="Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.The brackets must close in the correct order, “()” and “()[]{}” are all valid but">
+<meta property="og:updated_time" content="2016-11-23T11:02:50.071Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Missing Number.java">
-<meta name="twitter:description" content="Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.For example,Given nums = [0, 1, 3] return 2.Note:Your algorithm should run in linear">
+<meta name="twitter:title" content="Valid Parentheses.java">
+<meta name="twitter:description" content="Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.The brackets must close in the correct order, “()” and “()[]{}” are all valid but">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Missing Number.java | Bo`s blog</title>
+<title>Valid Parentheses.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Missing Number" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Valid Parentheses" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/21/Missing Number/" class="article-date">
-      <time datetime="2016-11-21T02:56:39.767Z" itemprop="datePublished">2016-11-21</time>
+      <a href="/2016/11/23/Valid Parentheses/" class="article-date">
+      <time datetime="2016-11-23T10:57:33.684Z" itemprop="datePublished">2016-11-23</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Missing Number.java
+      Valid Parentheses.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/char和Character/">char和Character</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,8 +318,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.<br>For example,<br>Given nums = [0, 1, 3] return 2.<br>Note:Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?<br><a id="more"></a><br><strong>思路：</strong><br>对原数组进行排序:<br>找出不连续的数；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">		Arrays.sort(nums);</div><div class="line">		<span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">		<span class="keyword">if</span>(len == <span class="number">1</span>)&#123;</div><div class="line">			<span class="keyword">if</span>(nums[<span class="number">0</span>] == <span class="number">0</span>)</div><div class="line">				<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">			<span class="keyword">else</span></div><div class="line">				<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-<span class="number">1</span>;i++)&#123;</div><div class="line">			<span class="keyword">if</span>((nums[i]+<span class="number">1</span>) != nums[i+<span class="number">1</span>])&#123;</div><div class="line">				ans = nums[i]+<span class="number">1</span>;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(i == len-<span class="number">2</span>)</div><div class="line">				<span class="keyword">if</span>(nums[<span class="number">0</span>] == <span class="number">0</span>)</div><div class="line">					ans = len;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>1ms方法：</strong><br>1：0-n求和，再减去数组元素的总和，即为缺失元素。<br>2：亦或操作。两个相同的数亦或结果为0，一个不为0的数与0亦或，其值为本身。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1. Runtime: 1 ms</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> sum = (<span class="keyword">int</span>)((nums.length + <span class="number">1</span>) / <span class="number">2.0</span> * nums.length);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</div><div class="line">            sum -= n;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> sum;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//2. Runtime: 1 ms</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> miss = nums[<span class="number">0</span>] ^ <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            miss ^= nums[i];</div><div class="line">            miss ^= i;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> miss ^= nums.length;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.<br>The brackets must close in the correct order, “()” and “()[]{}” are all valid but “(]” and “([)]” are not.<br><a id="more"></a><br><strong>思路：</strong><br>遍历一遍，记录左括号的个数，并把所有左括号加入ArratList；<br>每次遇到右括号与ArrayList的最后一个比较：<br>相同：ArrayList remove 掉最后一个符号；<br>不同: return false;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">		<span class="keyword">boolean</span> res = <span class="keyword">true</span>;</div><div class="line">		<span class="keyword">int</span> left = <span class="number">0</span>;</div><div class="line">		List&lt;Character&gt; templeft = <span class="keyword">new</span> ArrayList&lt;Character&gt;(); <span class="comment">//Character是char的对象类型；类似于int和Integer</span></div><div class="line">		</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</div><div class="line">			<span class="keyword">if</span>(s.charAt(i) == <span class="string">')'</span> || s.charAt(i) == <span class="string">']'</span> || s.charAt(i) == <span class="string">'&#125;'</span>)&#123;</div><div class="line">				<span class="keyword">if</span>(i == <span class="number">0</span> || left == <span class="number">0</span>) &#123;</div><div class="line">					res = <span class="keyword">false</span>; </div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">char</span> temp = <span class="string">' '</span>;</div><div class="line">				<span class="keyword">if</span>(s.charAt(i) == <span class="string">')'</span>) temp = <span class="string">'('</span>;</div><div class="line">				<span class="keyword">if</span>(s.charAt(i) == <span class="string">']'</span>) temp = <span class="string">'['</span>;</div><div class="line">				<span class="keyword">if</span>(s.charAt(i) == <span class="string">'&#125;'</span>) temp = <span class="string">'&#123;'</span>;</div><div class="line">				<span class="keyword">if</span>(templeft.get(left-<span class="number">1</span>) != temp)&#123;</div><div class="line">					res = <span class="keyword">false</span>; </div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">				templeft.remove(left-<span class="number">1</span>);</div><div class="line">				left--;</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				templeft.add(s.charAt(i));</div><div class="line">				left++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(i == s.length()-<span class="number">1</span>)&#123;</div><div class="line">				<span class="keyword">if</span>(left != <span class="number">0</span>)&#123;</div><div class="line">					res = <span class="keyword">false</span>; </div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -328,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/21/Missing Number/">Missing Number.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/23/Valid Parentheses/">Valid Parentheses.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-11-21, 10:56:39</p>
-        <p><span>最后更新:</span>2016-11-21, 11:00:11</p>
+        <p><span>发布时间:</span>2016-11-23, 18:57:33</p>
+        <p><span>最后更新:</span>2016-11-23, 19:02:50</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/21/Missing Number/" title="Missing Number.java">http://pangbo.space/2016/11/21/Missing Number/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/21/Missing Number/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/23/Valid Parentheses/" title="Valid Parentheses.java">http://pangbo.space/2016/11/23/Valid Parentheses/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/23/Valid Parentheses/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -346,16 +345,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/21/Product of Array Except Self/">
-                    Product of Array Except Self.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/21/Game of Life/">
-                    Game of Life.java
+                <a href="/2016/11/23/Letter Combinations of a Phone Number/">
+                    Letter Combinations of a Phone Number.java
                 </a>
             </div>
         
@@ -403,7 +396,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Missing Number.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Valid Parentheses.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -421,7 +414,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/21/Missing Number/" data-title="Missing Number.java" data-url="http://pangbo.space/2016/11/21/Missing Number/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/23/Valid Parentheses/" data-title="Valid Parentheses.java" data-url="http://pangbo.space/2016/11/23/Valid Parentheses/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -444,15 +437,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/21/Product of Array Except Self/" title="上一篇: Product of Array Except Self.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/21/Game of Life/" title="下一篇: Game of Life.java">
+            <a href="/2016/11/23/Letter Combinations of a Phone Number/" title="下一篇: Letter Combinations of a Phone Number.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
