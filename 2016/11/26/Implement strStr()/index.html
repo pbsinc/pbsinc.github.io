@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Follow up for “Find Minimum in Rotated Sorted Array”:What if duplicates are allowed?Would this affect the run-time complexity? How and why?Suppose a sorted array is rotated at some pivot unknown to yo">
+<meta name="description" content="Implement strStr().Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Find Minimum in Rotated Sorted Array II.java">
-<meta property="og:url" content="http://pangbo.space/2016/11/18/Find Minimum in Rotated Sorted Array II/index.html">
+<meta property="og:title" content="Implement strStr().java">
+<meta property="og:url" content="http://pangbo.space/2016/11/26/Implement strStr()/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Follow up for “Find Minimum in Rotated Sorted Array”:What if duplicates are allowed?Would this affect the run-time complexity? How and why?Suppose a sorted array is rotated at some pivot unknown to yo">
-<meta property="og:updated_time" content="2016-11-18T12:55:23.160Z">
+<meta property="og:description" content="Implement strStr().Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.">
+<meta property="og:updated_time" content="2016-11-26T09:42:05.522Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Find Minimum in Rotated Sorted Array II.java">
-<meta name="twitter:description" content="Follow up for “Find Minimum in Rotated Sorted Array”:What if duplicates are allowed?Would this affect the run-time complexity? How and why?Suppose a sorted array is rotated at some pivot unknown to yo">
+<meta name="twitter:title" content="Implement strStr().java">
+<meta name="twitter:description" content="Implement strStr().Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Find Minimum in Rotated Sorted Array II.java | Bo`s blog</title>
+<title>Implement strStr().java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Find Minimum in Rotated Sorted Array II" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Implement strStr()" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/18/Find Minimum in Rotated Sorted Array II/" class="article-date">
-      <time datetime="2016-11-18T12:50:37.231Z" itemprop="datePublished">2016-11-18</time>
+      <a href="/2016/11/26/Implement strStr()/" class="article-date">
+      <time datetime="2016-11-26T09:39:41.822Z" itemprop="datePublished">2016-11-26</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Find Minimum in Rotated Sorted Array II.java
+      Implement strStr().java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,13 +318,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Follow up for “Find Minimum in Rotated Sorted Array”:<br>What if duplicates are allowed?<br>Would this affect the run-time complexity? How and why?<br>Suppose a sorted array is rotated at some pivot unknown to you beforehand.<br>(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).<br>Find the minimum element.<br>The array may contain duplicates.<br><a id="more"></a><br><strong>思路：</strong><br>对于数组里找某个值得问题显然首选二分法，对于此题有两种情况：</p>
-<ol>
-<li>中间值大于左值，此时左半边数组是有序的，所以左半边最小值是左半边第一个。</li>
-<li>中间值小于左值，此时右半边数组是有序的，所以右半边最小值是右半边第一个。</li>
-<li>如果数组中有重复元素，则还有可能是中间值等于左值，此时只需要左值右移一位即可。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] num)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> right = num.length-<span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> min = Integer.MAX_VALUE;</div><div class="line">        <span class="keyword">while</span>(left &lt; right-<span class="number">1</span>)&#123;</div><div class="line">            <span class="keyword">int</span> mid = (left + right)/<span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span>(num[mid] &gt; num[left])&#123;</div><div class="line">                min = Math.min(min, num[left]);</div><div class="line">                left = mid + <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(num[mid] &lt; num[left])&#123;</div><div class="line">                min = Math.min(min, num[mid]);</div><div class="line">                right = mid - <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">                left++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        min = Math.min(Math.min(min, num[left]), num[right]);</div><div class="line">        <span class="keyword">return</span> min;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
+        <p>Implement strStr().<br>Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.<br><a id="more"></a><br><strong>思路：</strong><br>一遍过，直到 needle的每一个都配对上，输出index；<br>如果没配上，从index的下一位开始重新配对，以防以下情况：<br>“mississippi”<br>“issip”<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> j = <span class="number">0</span>,index = <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span>(needle.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">boolean</span> first = <span class="keyword">true</span>,isPart = <span class="keyword">false</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;haystack.length();i++)&#123;</div><div class="line">			<span class="keyword">if</span>(haystack.charAt(i) == needle.charAt(j))&#123;</div><div class="line">				<span class="keyword">if</span>(first)&#123;</div><div class="line">					index = i;</div><div class="line">					first = <span class="keyword">false</span>;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span>(j == needle.length()-<span class="number">1</span>)&#123;</div><div class="line">					isPart = <span class="keyword">true</span>;</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">				j++;</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(!first)&#123;</div><div class="line">				i = index;</div><div class="line">				j = <span class="number">0</span>;</div><div class="line">				first = <span class="keyword">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(!isPart)</div><div class="line">			index = -<span class="number">1</span>;</div><div class="line">		<span class="keyword">return</span> index;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -333,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/11/18/Find Minimum in Rotated Sorted Array II/">Find Minimum in Rotated Sorted Array II.java</a></p>
+        <p><span>Title:</span><a href="/2016/11/26/Implement strStr()/">Implement strStr().java</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-11-18, 20:50:37</p>
-        <p><span>Updated:</span>2016-11-18, 20:55:23</p>
+        <p><span>Created:</span>2016-11-26, 17:39:41</p>
+        <p><span>Updated:</span>2016-11-26, 17:42:05</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/11/18/Find Minimum in Rotated Sorted Array II/" title="Find Minimum in Rotated Sorted Array II.java">http://pangbo.space/2016/11/18/Find Minimum in Rotated Sorted Array II/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/11/18/Find Minimum in Rotated Sorted Array II/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/11/26/Implement strStr()/" title="Implement strStr().java">http://pangbo.space/2016/11/26/Implement strStr()/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/11/26/Implement strStr()/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -351,16 +345,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/19/Find Peak Element/">
-                    Find Peak Element.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/18/Find Minimum in Rotated Sorted Array/">
-                    Find Minimum in Rotated Sorted Array.java
+                <a href="/2016/11/26/java堆栈Stack类简介/">
+                    java堆栈Stack类简介
                 </a>
             </div>
         
@@ -408,7 +396,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Find Minimum in Rotated Sorted Array II.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Implement strStr().java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -426,7 +414,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/18/Find Minimum in Rotated Sorted Array II/" data-title="Find Minimum in Rotated Sorted Array II.java" data-url="http://pangbo.space/2016/11/18/Find Minimum in Rotated Sorted Array II/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/26/Implement strStr()/" data-title="Implement strStr().java" data-url="http://pangbo.space/2016/11/26/Implement strStr()/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -449,15 +437,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/19/Find Peak Element/" title="Pre: Find Peak Element.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/18/Find Minimum in Rotated Sorted Array/" title="Next: Find Minimum in Rotated Sorted Array.java">
+            <a href="/2016/11/26/java堆栈Stack类简介/" title="Next: java堆栈Stack类简介">
                 <i class="fa fa-angle-right"></i>
             </a>
         
