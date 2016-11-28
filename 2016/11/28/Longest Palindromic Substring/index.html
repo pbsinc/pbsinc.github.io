@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Write a function that takes a string as input and reverse only the vowels of a string.Example 1:Given s = “hello”, return “holle”.Example 2:Given s = “leetcode”, return “leotcede”.Note:The vowels does">
+<meta name="description" content="Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.Example:Input: “babad”;Output: “bab”Note: “aba” is also a valid answer.Example:Input:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Repeated Substring Pattern.java">
-<meta property="og:url" content="http://pangbo.space/2016/11/23/Reverse Vowels of a String/index.html">
+<meta property="og:title" content="Longest Palindromic Substring.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/28/Longest Palindromic Substring/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Write a function that takes a string as input and reverse only the vowels of a string.Example 1:Given s = “hello”, return “holle”.Example 2:Given s = “leetcode”, return “leotcede”.Note:The vowels does">
-<meta property="og:updated_time" content="2016-11-23T03:48:02.342Z">
+<meta property="og:description" content="Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.Example:Input: “babad”;Output: “bab”Note: “aba” is also a valid answer.Example:Input:">
+<meta property="og:updated_time" content="2016-11-28T08:54:29.592Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Repeated Substring Pattern.java">
-<meta name="twitter:description" content="Write a function that takes a string as input and reverse only the vowels of a string.Example 1:Given s = “hello”, return “holle”.Example 2:Given s = “leetcode”, return “leotcede”.Note:The vowels does">
+<meta name="twitter:title" content="Longest Palindromic Substring.java">
+<meta name="twitter:description" content="Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.Example:Input: “babad”;Output: “bab”Note: “aba” is also a valid answer.Example:Input:">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Repeated Substring Pattern.java | Bo`s blog</title>
+<title>Longest Palindromic Substring.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Reverse Vowels of a String" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Longest Palindromic Substring" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/23/Reverse Vowels of a String/" class="article-date">
-      <time datetime="2016-11-23T03:33:12.548Z" itemprop="datePublished">2016-11-23</time>
+      <a href="/2016/11/28/Longest Palindromic Substring/" class="article-date">
+      <time datetime="2016-11-28T08:44:22.308Z" itemprop="datePublished">2016-11-28</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Repeated Substring Pattern.java
+      Longest Palindromic Substring.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,8 +318,97 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Write a function that takes a string as input and reverse only the vowels of a string.<br>Example 1:<br>Given s = “hello”, return “holle”.<br>Example 2:<br>Given s = “leetcode”, return “leotcede”.<br>Note:<br>The vowels does not include the letter “y”.<br><a id="more"></a><br><strong>思路：</strong><br>左右分别靠拢，遇到元音交换即可；<br>比较坑爹的是这个题的意思是左右换，而不是相邻换：aao答案是oaa，而不是aoa。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseVowels</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">		ArrayList&lt;Character&gt; vowList = <span class="keyword">new</span> ArrayList&lt;Character&gt;();</div><div class="line">		vowList.add(<span class="string">'a'</span>);</div><div class="line">		vowList.add(<span class="string">'e'</span>);</div><div class="line">		vowList.add(<span class="string">'i'</span>);</div><div class="line">		vowList.add(<span class="string">'o'</span>);</div><div class="line">		vowList.add(<span class="string">'u'</span>);</div><div class="line">		vowList.add(<span class="string">'A'</span>);</div><div class="line">		vowList.add(<span class="string">'E'</span>);</div><div class="line">		vowList.add(<span class="string">'I'</span>);</div><div class="line">		vowList.add(<span class="string">'O'</span>);</div><div class="line">		vowList.add(<span class="string">'U'</span>);</div><div class="line"> </div><div class="line">		<span class="keyword">char</span>[] arr = s.toCharArray();</div><div class="line">	 </div><div class="line">		<span class="keyword">int</span> i=<span class="number">0</span>; </div><div class="line">		<span class="keyword">int</span> j=s.length()-<span class="number">1</span>;</div><div class="line">	 </div><div class="line">		<span class="keyword">while</span>(i&lt;j)&#123;</div><div class="line">			<span class="keyword">if</span>(!vowList.contains(arr[i]))&#123;</div><div class="line">				i++;</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			&#125;</div><div class="line">	 </div><div class="line">			<span class="keyword">if</span>(!vowList.contains(arr[j]))&#123;</div><div class="line">				j--;</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			&#125;</div><div class="line">	 </div><div class="line">			<span class="keyword">char</span> t = arr[i];</div><div class="line">			arr[i]=arr[j];</div><div class="line">			arr[j]=t;</div><div class="line">	 </div><div class="line">			i++;</div><div class="line">			j--; </div><div class="line">		&#125;</div><div class="line">	 </div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> String(arr); <span class="comment">// char[] 转 String: 1.String res = new String(arr);2.String res = String.valueOf(arr);</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.<br>Example:<br>Input: “babad”;Output: “bab”<br>Note: “aba” is also a valid answer.<br>Example:<br>Input: “cbbd”;Output: “bb”<br><a id="more"></a><br><strong>TLE思路：</strong><br> 第一种方法就是挨个检查，维护全局最长，时间复杂度为O（n3），会TLE。</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>{
+        <span class="keyword">if</span>(s.length()==<span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;
+        <span class="keyword">int</span> start = <span class="number">0</span>, end = s.length()-<span class="number">1</span>;
+        String res = String.valueOf(s.charAt(<span class="number">0</span>));
+        <span class="keyword">int</span> tempend = <span class="number">0</span>;
+        <span class="keyword">while</span>(start&lt;=end){
+            <span class="keyword">if</span>(end == tempend){
+                end = start;
+            }<span class="keyword">else</span> <span class="keyword">if</span>(s.length()-start &lt;= res.length()){
+                <span class="keyword">break</span>;
+            }<span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(start) == s.charAt(end)){
+                String substr = s.substring(start,end+<span class="number">1</span>);
+
+                <span class="keyword">if</span>(substr.length() &gt; res.length()){
+                    <span class="keyword">if</span>(isPalindrome(substr)){    
+                        res = substr;
+                        tempend = end;
+                        end = start;
+                    }<span class="keyword">else</span>
+                        end--;
+                }<span class="keyword">else</span>
+                    end = start;    
+
+            }<span class="keyword">else</span>{
+                end--;
+            }
+            <span class="keyword">if</span>(start == end){
+                <span class="keyword">if</span>(start == s.length()-<span class="number">1</span>) <span class="keyword">break</span>;
+                start++;
+                end = s.length()-<span class="number">1</span>;
+            }
+
+        }
+        <span class="keyword">return</span> res;
+
+    }
+     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>{
+        <span class="keyword">if</span>(s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;
+        <span class="keyword">int</span> start = <span class="number">0</span>, end = s.length()-<span class="number">1</span>;
+        <span class="keyword">boolean</span> res = <span class="keyword">true</span>;
+        s=s.toLowerCase();
+        <span class="keyword">while</span>(start &lt;= end){
+            <span class="keyword">if</span>(s.charAt(start) != s.charAt(end)){
+                res = <span class="keyword">false</span>;
+                <span class="keyword">break</span>;
+            }<span class="keyword">else</span>{
+                start++;
+                end--;
+            }
+        }
+        <span class="keyword">return</span> res;
+    }
+}
+</code></pre>
+<p><strong>第二种方法：中心发散法</strong><br>对于每个子串的中心<br>（可以是一个字符，或者是两个字符的间隙，比如串abc,中心可以是a,b,c,或者是ab的间隙，bc的间隙，例如aba是回文，abba也是回文，这两种情况要分情况考虑）<br>往两边同时进行扫描，直到不是回文串为止。<br>假设字符串的长度为n,那么中心的个数为2<em>n-1(字符作为中心有n个，间隙有n-1个）。<br>对于每个中心往两边扫描的复杂 度为O(n),所以时间复杂度为O((2</em>n-1)*n)=O(n^2),空间复杂度为O(1)。<br>引自Code ganker（<a href="http://codeganker.blogspot.com/2014/02/longest-palindromic-substring-leetcode.html）" target="_blank" rel="external">http://codeganker.blogspot.com/2014/02/longest-palindromic-substring-leetcode.html）</a></p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>{
+        <span class="keyword">if</span> (s.isEmpty()||s==<span class="keyword">null</span>||s.length() == <span class="number">1</span>)
+            <span class="keyword">return</span> s;
+
+        String longest = s.substring(<span class="number">0</span>, <span class="number">1</span>);
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) {
+            <span class="comment">// get longest palindrome with center of i</span>
+            String tmp = helper(s, i, i);
+
+            <span class="keyword">if</span> (tmp.length() &gt; longest.length())
+                longest = tmp;
+
+            <span class="comment">// get longest palindrome with center of i, i+1</span>
+            tmp = helper(s, i, i + <span class="number">1</span>);
+            <span class="keyword">if</span> (tmp.length() &gt; longest.length())
+                longest = tmp;
+        }
+
+        <span class="keyword">return</span> longest;
+    }
+
+    <span class="comment">// Given a center, either one letter or two letter, </span>
+    <span class="comment">// Find longest palindrome</span>
+    <span class="function"><span class="keyword">public</span> String <span class="title">helper</span><span class="params">(String s, <span class="keyword">int</span> begin, <span class="keyword">int</span> end)</span> </span>{
+        <span class="keyword">while</span> (begin &gt;= <span class="number">0</span> &amp;&amp; end &lt;= s.length() - <span class="number">1</span> &amp;&amp; s.charAt(begin) == s.charAt(end)) {
+            begin--;
+            end++;
+        }
+        <span class="keyword">return</span> s.substring(begin + <span class="number">1</span>, end);
+    }
+}
+</code></pre>
+
       
     </div>
     
@@ -327,13 +416,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/23/Reverse Vowels of a String/">Repeated Substring Pattern.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/28/Longest Palindromic Substring/">Longest Palindromic Substring.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-11-23, 11:33:12</p>
-        <p><span>最后更新:</span>2016-11-23, 11:48:02</p>
+        <p><span>发布时间:</span>2016-11-28, 16:44:22</p>
+        <p><span>最后更新:</span>2016-11-28, 16:54:29</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/23/Reverse Vowels of a String/" title="Repeated Substring Pattern.java">http://pangbo.space/2016/11/23/Reverse Vowels of a String/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/23/Reverse Vowels of a String/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/28/Longest Palindromic Substring/" title="Longest Palindromic Substring.java">http://pangbo.space/2016/11/28/Longest Palindromic Substring/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/28/Longest Palindromic Substring/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +434,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/23/Count and Say/">
-                    Count and Say.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/23/Repeated Substring Pattern/">
-                    Repeated Substring Pattern.java
+                <a href="/2016/11/28/Valid Palindrome/">
+                    Valid Palindrome.java
                 </a>
             </div>
         
@@ -402,7 +485,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Repeated Substring Pattern.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Longest Palindromic Substring.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +503,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/23/Reverse Vowels of a String/" data-title="Repeated Substring Pattern.java" data-url="http://pangbo.space/2016/11/23/Reverse Vowels of a String/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/28/Longest Palindromic Substring/" data-title="Longest Palindromic Substring.java" data-url="http://pangbo.space/2016/11/28/Longest Palindromic Substring/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -443,15 +526,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/23/Count and Say/" title="上一篇: Count and Say.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/23/Repeated Substring Pattern/" title="下一篇: Repeated Substring Pattern.java">
+            <a href="/2016/11/28/Valid Palindrome/" title="下一篇: Valid Palindrome.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
