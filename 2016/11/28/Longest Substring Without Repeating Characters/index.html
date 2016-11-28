@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Construct Binary Tree from Preorder and Inorder TraversalGiven preorder and inorder traversal of a tree, construct the binary tree.Note:You may assume that duplicates do not exist in the tree.">
+<meta name="description" content="Given a string, find the length of the longest substring without repeating characters.Examples:Given “abcabcbb”, the answer is “abc”, which the length is 3.Given “bbbbb”, the answer is “b”, with the l">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Construct Binary Tree from Preorder and Inorder Traversal.java">
-<meta property="og:url" content="http://pangbo.space/2016/11/18/Construct Binary Tree from Preorder and Inorder Traversal/index.html">
+<meta property="og:title" content="Longest Substring Without Repeating Characters.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/28/Longest Substring Without Repeating Characters/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Construct Binary Tree from Preorder and Inorder TraversalGiven preorder and inorder traversal of a tree, construct the binary tree.Note:You may assume that duplicates do not exist in the tree.">
-<meta property="og:updated_time" content="2016-11-18T05:57:56.821Z">
+<meta property="og:description" content="Given a string, find the length of the longest substring without repeating characters.Examples:Given “abcabcbb”, the answer is “abc”, which the length is 3.Given “bbbbb”, the answer is “b”, with the l">
+<meta property="og:updated_time" content="2016-11-28T11:58:51.797Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Construct Binary Tree from Preorder and Inorder Traversal.java">
-<meta name="twitter:description" content="Construct Binary Tree from Preorder and Inorder TraversalGiven preorder and inorder traversal of a tree, construct the binary tree.Note:You may assume that duplicates do not exist in the tree.">
+<meta name="twitter:title" content="Longest Substring Without Repeating Characters.java">
+<meta name="twitter:description" content="Given a string, find the length of the longest substring without repeating characters.Examples:Given “abcabcbb”, the answer is “abc”, which the length is 3.Given “bbbbb”, the answer is “b”, with the l">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Construct Binary Tree from Preorder and Inorder Traversal.java | Bo`s blog</title>
+<title>Longest Substring Without Repeating Characters.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Construct Binary Tree from Preorder and Inorder Traversal" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Longest Substring Without Repeating Characters" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/18/Construct Binary Tree from Preorder and Inorder Traversal/" class="article-date">
-      <time datetime="2016-11-18T02:54:07.012Z" itemprop="datePublished">2016-11-18</time>
+      <a href="/2016/11/28/Longest Substring Without Repeating Characters/" class="article-date">
+      <time datetime="2016-11-28T11:38:40.364Z" itemprop="datePublished">2016-11-28</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Construct Binary Tree from Preorder and Inorder Traversal.java
+      Longest Substring Without Repeating Characters.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中序遍历/">中序遍历</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/先序遍历/">先序遍历</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,16 +318,46 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Construct Binary Tree from Preorder and Inorder Traversal<br>Given preorder and inorder traversal of a tree, construct the binary tree.<br>Note:<br>You may assume that duplicates do not exist in the tree.<br><a id="more"></a><br><strong>思路：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    <span class="number">1</span>       </div><div class="line">   / \   </div><div class="line">  <span class="number">2</span>   <span class="number">3</span>   </div><div class="line"> / \ / \   </div><div class="line"><span class="number">4</span>  <span class="number">5</span> <span class="number">6</span>  <span class="number">7</span></div></pre></td></tr></table></figure></p>
-<p>对于上图的树来说，<br>        index: 0 1 2 3 4 5 6<br>     先序遍历为: 1 2 4 5 3 6 7<br>     中序遍历为: 4 2 5 1 6 3 7</p>
-<p>可以发现的规律是：</p>
-<ol>
-<li><strong>先序遍历的从左数第一个为整棵树的根节点</strong>。</li>
-<li><strong>中序遍历中根节点是左子树右子树的分割点</strong>。</li>
-</ol>
-<p>再看这个树的左子树：<br>     先序遍历为: 2 4 5<br>     中序遍历为: 4 2 5<br>依然可以套用上面发现的规律。</p>
-<p>右子树：<br>     先序遍历为: 3 6 7<br>     中序遍历为: 6 3 7<br>也是可以套用上面的规律的。</p>
-<p>所以这道题可以用递归的方法解决。<br>具体解决方法是：<br>通过<strong>先序遍历</strong>找到第一个点作为<strong>根节点</strong>，在<strong>中序遍历</strong>中<strong>找到根节点</strong>并记录index。<br>因为中序遍历中根节点左边为左子树，所以可以记录左子树的长度并在先序遍历中依据这个长度找到左子树的区间，用同样方法可以找到右子树的区间。<br>递归的建立好左子树和右子树就好。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">buildTree</span><span class="params">(<span class="keyword">int</span>[] preorder, <span class="keyword">int</span>[] inorder)</span> </span>&#123;</div><div class="line">       <span class="keyword">int</span> prelength = preorder.length;</div><div class="line">	   <span class="keyword">int</span> inlength = inorder.length;</div><div class="line">	   <span class="keyword">return</span> buildtree(preorder,<span class="number">0</span>,prelength-<span class="number">1</span>,inorder,<span class="number">0</span>,inlength-<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> TreeNode <span class="title">buildtree</span><span class="params">(<span class="keyword">int</span>[] preorder,<span class="keyword">int</span> preStart,<span class="keyword">int</span> preEnd,<span class="keyword">int</span>[] inorder,<span class="keyword">int</span> inStart,<span class="keyword">int</span> inEnd)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(inStart &gt; inEnd || preStart &gt; preEnd)</div><div class="line">             <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> rootVal = preorder[preStart];</div><div class="line">		<span class="keyword">int</span> inrootindex =<span class="number">0</span>; </div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=inStart;i&lt;=inEnd;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(inorder[i] == rootVal)&#123;</div><div class="line">				inrootindex = i;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> len = inrootindex - inStart;</div><div class="line">		TreeNode root = <span class="keyword">new</span> TreeNode(rootVal);</div><div class="line">		root.left = buildtree(preorder,preStart+<span class="number">1</span>,preStart+len,inorder,inStart,inrootindex-<span class="number">1</span>);</div><div class="line">		root.right = buildtree(preorder,preStart+len+<span class="number">1</span>,preEnd,inorder,inrootindex+<span class="number">1</span>,inEnd);</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> root;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Given a string, find the length of the longest substring without repeating characters.<br>Examples:<br>Given “abcabcbb”, the answer is “abc”, which the length is 3.<br>Given “bbbbb”, the answer is “b”, with the length of 1.<br>Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the answer must be a substring, “pwke” is a subsequence and not a substring.<br><a id="more"></a><br><strong>思路：</strong><br>用StringBuilder维护一个动态的没有重复字符串，遍历一遍。</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>{
+        <span class="keyword">int</span> len = s.length();
+        <span class="keyword">if</span>(len == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;
+        <span class="keyword">int</span> maxlen = <span class="number">1</span>;
+
+        StringBuilder sb = <span class="keyword">new</span> StringBuilder();
+        sb.append(s.charAt(<span class="number">0</span>));
+        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;len;j++){
+            <span class="keyword">if</span>(sb.indexOf(String.valueOf(s.charAt(j))) &lt; <span class="number">0</span>){ <span class="comment">//sb.indexOf(str) 返回str的指针，没有为-1</span>
+                sb.append(s.charAt(j));
+                maxlen = Math.max(maxlen,sb.length());
+            }<span class="keyword">else</span>{ <span class="comment">//如果重复，删除重复元素及之前的所有元素</span>
+                <span class="keyword">int</span> index = sb.indexOf(String.valueOf(s.charAt(j)));
+                sb.delete(<span class="number">0</span>,index+<span class="number">1</span>);
+                sb.append(s.charAt(j));
+            }
+        }
+        <span class="keyword">return</span> maxlen;
+    }
+}
+</code></pre>
+<p><strong>hashmap思路：</strong><br>the basic idea is, keep a hashmap which stores the characters in string as keys and their positions as values,<br>and keep two pointers which define the max substring. move the right pointer to scan through the string ,<br>and meanwhile update the hashmap. If the character is already in the hashmap, then move the left pointer to the right of the same character last found.<br>Note that the two pointers can only move forward.</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>{
+        <span class="keyword">if</span> (s.length()==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;
+        HashMap&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Character, Integer&gt;();
+        <span class="keyword">int</span> max=<span class="number">0</span>;
+        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>, j=<span class="number">0</span>; i&lt;s.length(); ++i){
+            <span class="keyword">if</span> (map.containsKey(s.charAt(i))){
+                j = Math.max(j,map.get(s.charAt(i))+<span class="number">1</span>);
+            }
+            map.put(s.charAt(i),i);
+            max = Math.max(max,i-j+<span class="number">1</span>);
+        }
+        <span class="keyword">return</span> max;
+    }
+}
+</code></pre>
 
       
     </div>
@@ -336,13 +366,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/18/Construct Binary Tree from Preorder and Inorder Traversal/">Construct Binary Tree from Preorder and Inorder Traversal.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/28/Longest Substring Without Repeating Characters/">Longest Substring Without Repeating Characters.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-11-18, 10:54:07</p>
-        <p><span>最后更新:</span>2016-11-18, 13:57:56</p>
+        <p><span>发布时间:</span>2016-11-28, 19:38:40</p>
+        <p><span>最后更新:</span>2016-11-28, 19:58:51</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/18/Construct Binary Tree from Preorder and Inorder Traversal/" title="Construct Binary Tree from Preorder and Inorder Traversal.java">http://pangbo.space/2016/11/18/Construct Binary Tree from Preorder and Inorder Traversal/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/18/Construct Binary Tree from Preorder and Inorder Traversal/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/28/Longest Substring Without Repeating Characters/" title="Longest Substring Without Repeating Characters.java">http://pangbo.space/2016/11/28/Longest Substring Without Repeating Characters/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/28/Longest Substring Without Repeating Characters/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -354,16 +384,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/18/Construct Binary Tree from Inorder and Postorder Traversal/">
-                    Construct Binary Tree from Inorder and Postorder Traversal.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/16/Search in Rotated Sorted Array II/">
-                    Search in Rotated Sorted Array II.java
+                <a href="/2016/11/28/Longest Palindromic Substring/">
+                    Longest Palindromic Substring.java
                 </a>
             </div>
         
@@ -411,7 +435,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Construct Binary Tree from Preorder and Inorder Traversal.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Longest Substring Without Repeating Characters.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -429,7 +453,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/18/Construct Binary Tree from Preorder and Inorder Traversal/" data-title="Construct Binary Tree from Preorder and Inorder Traversal.java" data-url="http://pangbo.space/2016/11/18/Construct Binary Tree from Preorder and Inorder Traversal/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/28/Longest Substring Without Repeating Characters/" data-title="Longest Substring Without Repeating Characters.java" data-url="http://pangbo.space/2016/11/28/Longest Substring Without Repeating Characters/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -452,15 +476,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/18/Construct Binary Tree from Inorder and Postorder Traversal/" title="上一篇: Construct Binary Tree from Inorder and Postorder Traversal.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/16/Search in Rotated Sorted Array II/" title="下一篇: Search in Rotated Sorted Array II.java">
+            <a href="/2016/11/28/Longest Palindromic Substring/" title="下一篇: Longest Palindromic Substring.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
