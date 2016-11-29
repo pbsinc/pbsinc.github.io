@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is">
+<meta name="description" content="Given an input string, reverse the string word by word.For example,Given s = “the sky is blue”,return “blue is sky the”.Update (2015-02-12):For C programmers: Try to solve it in-place in O(1) space.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Contains Duplicate.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/24/Contains Duplicate/index.html">
+<meta property="og:title" content="Reverse Words in a String.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/29/Reverse Words in a String/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is">
-<meta property="og:updated_time" content="2016-10-24T14:39:15.021Z">
+<meta property="og:description" content="Given an input string, reverse the string word by word.For example,Given s = “the sky is blue”,return “blue is sky the”.Update (2015-02-12):For C programmers: Try to solve it in-place in O(1) space.">
+<meta property="og:updated_time" content="2016-11-29T06:21:17.899Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Contains Duplicate.java">
-<meta name="twitter:description" content="Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is">
+<meta name="twitter:title" content="Reverse Words in a String.java">
+<meta name="twitter:description" content="Given an input string, reverse the string word by word.For example,Given s = “the sky is blue”,return “blue is sky the”.Update (2015-02-12):For C programmers: Try to solve it in-place in O(1) space.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Contains Duplicate.java | Bo`s blog</title>
+<title>Reverse Words in a String.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Contains Duplicate" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Reverse Words in a String" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/24/Contains Duplicate/" class="article-date">
-      <time datetime="2016-10-24T12:56:45.740Z" itemprop="datePublished">2016-10-24</time>
+      <a href="/2016/11/29/Reverse Words in a String/" class="article-date">
+      <time datetime="2016-11-29T06:16:49.950Z" itemprop="datePublished">2016-11-29</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Contains Duplicate.java
+      Reverse Words in a String.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,9 +318,109 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.<br><a id="more"></a></p>
-<p><strong>思路:</strong><br>使用set接口的方法,常规做法是超时的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        Set&lt;Integer&gt; temp = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> x : nums)&#123;                            <span class="comment">//------------ for循环，遍历nums所有项的简便方法，注意：x为nums[]的元素！</span></div><div class="line">            <span class="keyword">if</span>(temp.contains(x))</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">else</span></div><div class="line">                temp.add(x);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>set:</strong><br><a href="http://blog.csdn.net/vegetable_bird_001/article/details/50992925" target="_blank" rel="external">http://blog.csdn.net/vegetable_bird_001/article/details/50992925</a></p>
+        <p>Given an input string, reverse the string word by word.<br>For example,<br>Given s = “the sky is blue”,<br>return “blue is sky the”.<br>Update (2015-02-12):<br>For C programmers: Try to solve it in-place in O(1) space.<br><a id="more"></a><br><strong>思路：</strong><br>StringBuilder 的 append()方法；<br>逆序；<br>从后往前将每个单词安子夫顺序，append()到sb末尾；<br>这个题不能自定义测试，一直有问题，找不到在哪。</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> String <span class="title">reverseWords</span><span class="params">(String s)</span> </span>{
+
+        <span class="keyword">if</span>(s == <span class="keyword">null</span>) {
+            <span class="keyword">return</span> s;
+        }
+
+        <span class="keyword">int</span> len = s.length();
+
+        <span class="keyword">int</span> left = <span class="number">0</span>,right = len-<span class="number">1</span>;
+
+
+        <span class="keyword">while</span>(left&lt;s.length()&amp;&amp;s.charAt(left)==<span class="string">' '</span>) {  
+            left++;  
+        }  
+        <span class="keyword">if</span>(left==s.length()) {  
+            <span class="keyword">return</span> <span class="string">""</span>;  
+        }  
+
+        left = <span class="number">0</span>;
+        StringBuilder sb = <span class="keyword">new</span> StringBuilder();
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=len-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--){
+            <span class="keyword">if</span>(s.charAt(i) == <span class="string">' '</span>){
+                left = i+<span class="number">1</span>;
+                <span class="comment">//subReverse(s, left,right,sb);</span>
+
+                <span class="keyword">for</span>(<span class="keyword">int</span> j=left;j&lt;=right;j++){
+                    sb.append(s.charAt(j));
+                }
+                <span class="keyword">while</span>(i&gt;=<span class="number">0</span> &amp;&amp; s.charAt(i) == <span class="string">' '</span>){
+                    i--;
+                }
+
+                sb.append(<span class="string">' '</span>);
+                right = i;
+            }
+        }
+        <span class="keyword">return</span> sb.toString();
+    }
+}
+</code></pre>
+<p><strong>法二：</strong><br>StringBuilder 的 insert()方法；<br>顺序；<br>将每个单词作为一个 substring ；<br>然后插入sb的最开始</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> String <span class="title">reverseWords</span><span class="params">(String s)</span> </span>{  
+        <span class="keyword">if</span>(s==<span class="keyword">null</span>) {  
+            <span class="keyword">return</span> s;  
+        }  
+
+        <span class="keyword">int</span> begin = <span class="number">0</span>;  
+        <span class="keyword">int</span> end   = <span class="number">0</span>;  
+        <span class="keyword">while</span>(begin&lt;s.length()&amp;&amp;s.charAt(begin)==<span class="string">' '</span>) {  
+            begin++;  
+        }  
+        <span class="keyword">if</span>(begin==s.length()) {  
+            <span class="keyword">return</span> <span class="string">""</span>;  
+        }  
+
+        <span class="keyword">if</span>(s.length()&lt;=<span class="number">1</span>) {  
+            <span class="keyword">return</span> s;  
+        }  
+        StringBuilder result = <span class="keyword">new</span> StringBuilder(<span class="string">""</span>);  
+
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=len-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--){
+            <span class="keyword">if</span>(s.charAt(i) == <span class="string">' '</span>){
+                left = i+<span class="number">1</span>;
+                <span class="comment">//subReverse(s, left,right,sb);</span>
+
+                <span class="keyword">for</span>(<span class="keyword">int</span> j=left;j&lt;=right;j++){
+                    sb.append(s.charAt(j));
+                }
+
+                sb.append(<span class="string">' '</span>);
+                right = i-<span class="number">1</span>;
+            }
+        }
+
+        <span class="keyword">while</span>(begin&lt;s.length()&amp;&amp;end&lt;s.length()) {  
+            <span class="keyword">while</span>(begin&lt;s.length()&amp;&amp;s.charAt(begin)==<span class="string">' '</span>) {  
+                begin++;  
+            }  
+            <span class="keyword">if</span>(begin==s.length()) {  
+                <span class="keyword">break</span>;  
+            }  
+            end = begin + <span class="number">1</span>;  
+            <span class="keyword">while</span>(end&lt;s.length()&amp;&amp;s.charAt(end)!=<span class="string">' '</span>) {  
+                end++;  
+            }  
+            <span class="keyword">if</span>(result.length()!=<span class="number">0</span>) {  
+                result.insert(<span class="number">0</span>,<span class="string">" "</span>);  
+            }  
+            <span class="keyword">if</span>(end&lt;s.length()) {  
+                result.insert(<span class="number">0</span>,s.substring(begin,end));  
+            } <span class="keyword">else</span> {  
+                result.insert(<span class="number">0</span>,s.substring(begin,s.length()));  
+                <span class="keyword">break</span>;  
+            }  
+            begin = end + <span class="number">1</span>;  
+        }  
+        <span class="keyword">return</span> result.toString();  
+    }  
+}
+</code></pre>
 
       
     </div>
@@ -329,13 +429,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/24/Contains Duplicate/">Contains Duplicate.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/29/Reverse Words in a String/">Reverse Words in a String.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-24, 20:56:45</p>
-        <p><span>最后更新:</span>2016-10-24, 22:39:15</p>
+        <p><span>发布时间:</span>2016-11-29, 14:16:49</p>
+        <p><span>最后更新:</span>2016-11-29, 14:21:17</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/24/Contains Duplicate/" title="Contains Duplicate.java">http://pangbo.space/2016/10/24/Contains Duplicate/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/24/Contains Duplicate/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/29/Reverse Words in a String/" title="Reverse Words in a String.java">http://pangbo.space/2016/11/29/Reverse Words in a String/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/29/Reverse Words in a String/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -347,16 +447,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/24/Java接口Set用法/">
-                    Java接口Set用法
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/23/Rotate Array/">
-                    Rotate Array.java
+                <a href="/2016/11/29/Decode Ways/">
+                    Decode Ways.java
                 </a>
             </div>
         
@@ -404,7 +498,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Contains Duplicate.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Reverse Words in a String.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,7 +516,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/24/Contains Duplicate/" data-title="Contains Duplicate.java" data-url="http://pangbo.space/2016/10/24/Contains Duplicate/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/29/Reverse Words in a String/" data-title="Reverse Words in a String.java" data-url="http://pangbo.space/2016/11/29/Reverse Words in a String/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -445,15 +539,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/24/Java接口Set用法/" title="上一篇: Java接口Set用法">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/23/Rotate Array/" title="下一篇: Rotate Array.java">
+            <a href="/2016/11/29/Decode Ways/" title="下一篇: Decode Ways.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
