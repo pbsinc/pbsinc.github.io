@@ -15,16 +15,37 @@
 
 
 
-<meta name="description" content="Given a non-negative number represented as an array of digits, plus one to the number.The digits are stored such that the most significant digit is at the head of the list.">
+<meta name="description" content="Given a positive integer, return its corresponding column title as appear in an Excel sheet.For example:
+1 -&amp;gt; A
+2 -&amp;gt; B
+3 -&amp;gt; C
+...
+26 -&amp;gt; Z
+27 -&amp;gt; AA
+28 -&amp;gt; AB">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Plus One.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/21/Plus One/index.html">
+<meta property="og:title" content="Excel Sheet Column Title.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/30/Excel Sheet Column Title/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given a non-negative number represented as an array of digits, plus one to the number.The digits are stored such that the most significant digit is at the head of the list.">
-<meta property="og:updated_time" content="2016-10-21T03:47:26.432Z">
+<meta property="og:description" content="Given a positive integer, return its corresponding column title as appear in an Excel sheet.For example:
+1 -&amp;gt; A
+2 -&amp;gt; B
+3 -&amp;gt; C
+...
+26 -&amp;gt; Z
+27 -&amp;gt; AA
+28 -&amp;gt; AB">
+<meta property="og:updated_time" content="2016-11-30T09:57:24.842Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Plus One.java">
-<meta name="twitter:description" content="Given a non-negative number represented as an array of digits, plus one to the number.The digits are stored such that the most significant digit is at the head of the list.">
+<meta name="twitter:title" content="Excel Sheet Column Title.java">
+<meta name="twitter:description" content="Given a positive integer, return its corresponding column title as appear in an Excel sheet.For example:
+1 -&amp;gt; A
+2 -&amp;gt; B
+3 -&amp;gt; C
+...
+26 -&amp;gt; Z
+27 -&amp;gt; AA
+28 -&amp;gt; AB">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +77,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Plus One.java | Bo`s blog</title>
+<title>Excel Sheet Column Title.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +295,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Plus One" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Excel Sheet Column Title" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/21/Plus One/" class="article-date">
-      <time datetime="2016-10-21T03:45:02.398Z" itemprop="datePublished">2016-10-21</time>
+      <a href="/2016/11/30/Excel Sheet Column Title/" class="article-date">
+      <time datetime="2016-11-30T09:56:38.456Z" itemprop="datePublished">2016-11-30</time>
 </a>
 
 
@@ -293,7 +314,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Plus One.java
+      Excel Sheet Column Title.java
     </h1>
   
 
@@ -318,7 +339,35 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given a non-negative number represented as an array of digits, plus one to the number.<br>The digits are stored such that the most significant digit is at the head of the list.<br><a id="more"></a><br><strong>思路：</strong><br>考虑进位，每一位数都与上一位的进位相加并得到新的进位。注意最高位的进位<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] plusOne(<span class="keyword">int</span>[] digits) &#123;</div><div class="line">        <span class="keyword">int</span> len=digits.length, j=<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=len-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line">            digits[i] += j;</div><div class="line">            j = digits[i]/<span class="number">10</span>;</div><div class="line">            digits[i] = digits[i]%<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(j==<span class="number">1</span>)&#123;</div><div class="line">            <span class="keyword">int</span>[] plusone = <span class="keyword">new</span> <span class="keyword">int</span>[len+<span class="number">1</span>];</div><div class="line">            plusone[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=len;k++)</div><div class="line">                plusone[k]=digits[k-<span class="number">1</span>];</div><div class="line">            <span class="keyword">return</span> plusone;    </div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">return</span> digits;    </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Given a positive integer, return its corresponding column title as appear in an Excel sheet.<br>For example:</p>
+<pre><code>1 -&gt; A
+2 -&gt; B
+3 -&gt; C
+...
+26 -&gt; Z
+27 -&gt; AA
+28 -&gt; AB 
+</code></pre><a id="more"></a>
+<p><strong>思路：</strong><br>相当于10进制转26进制。</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    StringBuilder sb = <span class="keyword">new</span> StringBuilder();
+
+    <span class="function"><span class="keyword">public</span> String <span class="title">convertToTitle</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="keyword">int</span> up = (n-<span class="number">1</span>)/<span class="number">26</span>;
+        <span class="keyword">int</span> remainder = n%<span class="number">26</span>;
+
+        sb.insert(<span class="number">0</span>,calculate(remainder));
+        <span class="keyword">if</span>(up != <span class="number">0</span>)
+            convertToTitle(up);
+
+        <span class="keyword">return</span> sb.toString();    
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">char</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span> n)</span></span>{
+        <span class="keyword">char</span>[] res = <span class="keyword">new</span> <span class="keyword">char</span>[]{<span class="string">'Z'</span>,<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>,<span class="string">'E'</span>,<span class="string">'F'</span>,<span class="string">'G'</span>,<span class="string">'H'</span>,<span class="string">'I'</span>,<span class="string">'J'</span>,<span class="string">'K'</span>,<span class="string">'L'</span>,<span class="string">'M'</span>,<span class="string">'N'</span>,<span class="string">'O'</span>,<span class="string">'P'</span>,<span class="string">'Q'</span>,<span class="string">'R'</span>,<span class="string">'S'</span>,<span class="string">'T'</span>,<span class="string">'U'</span>,<span class="string">'V'</span>,<span class="string">'W'</span>,<span class="string">'X'</span>,<span class="string">'Y'</span>};
+        <span class="keyword">return</span> res[n];
+    }
+}
+</code></pre>
 
       
     </div>
@@ -327,13 +376,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/21/Plus One/">Plus One.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/30/Excel Sheet Column Title/">Excel Sheet Column Title.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-21, 11:45:02</p>
-        <p><span>最后更新:</span>2016-10-21, 11:47:26</p>
+        <p><span>发布时间:</span>2016-11-30, 17:56:38</p>
+        <p><span>最后更新:</span>2016-11-30, 17:57:24</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/21/Plus One/" title="Plus One.java">http://pangbo.space/2016/10/21/Plus One/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/21/Plus One/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/30/Excel Sheet Column Title/" title="Excel Sheet Column Title.java">http://pangbo.space/2016/11/30/Excel Sheet Column Title/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/30/Excel Sheet Column Title/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +394,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/21/Merge Sorted Array/">
-                    Merge Sorted Array.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/21/Remove Element/">
-                    Remove Element.java
+                <a href="/2016/11/30/Excel Sheet Column Number/">
+                    Excel Sheet Column Number.java
                 </a>
             </div>
         
@@ -402,7 +445,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Plus One.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Excel Sheet Column Title.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +463,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/21/Plus One/" data-title="Plus One.java" data-url="http://pangbo.space/2016/10/21/Plus One/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/30/Excel Sheet Column Title/" data-title="Excel Sheet Column Title.java" data-url="http://pangbo.space/2016/11/30/Excel Sheet Column Title/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -443,15 +486,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/21/Merge Sorted Array/" title="上一篇: Merge Sorted Array.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/21/Remove Element/" title="下一篇: Remove Element.java">
+            <a href="/2016/11/30/Excel Sheet Column Number/" title="下一篇: Excel Sheet Column Number.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
