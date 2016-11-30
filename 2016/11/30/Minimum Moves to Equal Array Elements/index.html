@@ -15,19 +15,16 @@
 
 
 
-<meta name="description" content="Write a program that outputs the string representation of numbers from 1 to n.
-But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For">
+<meta name="description" content="Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.Example:Input:[1,2,3]Output:3Exp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fizz Buzz.java">
-<meta property="og:url" content="http://pangbo.space/2016/10/17/Fizz Buzz/index.html">
+<meta property="og:title" content="Minimum Moves to Equal Array Elements.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/30/Minimum Moves to Equal Array Elements/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Write a program that outputs the string representation of numbers from 1 to n.
-But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For">
-<meta property="og:updated_time" content="2016-10-18T08:57:54.705Z">
+<meta property="og:description" content="Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.Example:Input:[1,2,3]Output:3Exp">
+<meta property="og:updated_time" content="2016-11-30T07:58:36.119Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fizz Buzz.java">
-<meta name="twitter:description" content="Write a program that outputs the string representation of numbers from 1 to n.
-But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For">
+<meta name="twitter:title" content="Minimum Moves to Equal Array Elements.java">
+<meta name="twitter:description" content="Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.Example:Input:[1,2,3]Output:3Exp">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +56,7 @@ But for multiples of three it should output “Fizz” instead of the number and
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Fizz Buzz.java | Bo`s blog</title>
+<title>Minimum Moves to Equal Array Elements.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -277,11 +274,11 @@ But for multiples of three it should output “Fizz” instead of the number and
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Fizz Buzz" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Minimum Moves to Equal Array Elements" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/17/Fizz Buzz/" class="article-date">
-      <time datetime="2016-10-17T10:19:49.884Z" itemprop="datePublished">2016-10-17</time>
+      <a href="/2016/11/30/Minimum Moves to Equal Array Elements/" class="article-date">
+      <time datetime="2016-11-30T07:55:03.509Z" itemprop="datePublished">2016-11-30</time>
 </a>
 
 
@@ -296,7 +293,7 @@ But for multiples of three it should output “Fizz” instead of the number and
         
   
     <h1 class="article-title" itemprop="name">
-      Fizz Buzz.java
+      Minimum Moves to Equal Array Elements.java
     </h1>
   
 
@@ -321,9 +318,23 @@ But for multiples of three it should output “Fizz” instead of the number and
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Write a program that outputs the string representation of numbers from 1 to n.</p>
-<p>But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.<br><a id="more"></a><br><strong>关键：</strong><br>List<string> test = new ArrayList<string>(); 列表add方法：list.add(str);<br>int转String三种方法：<br>1》String.valueOf(i)<br>2》 Integer.toString(i)<br>3》 i+””</string></string></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">fizzBuzz</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        </div><div class="line">        List&lt;String&gt; test = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">        String str = <span class="keyword">new</span> String();</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i &lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(i%<span class="number">3</span> == <span class="number">0</span> &amp; i%<span class="number">5</span> != <span class="number">0</span>)&#123;</div><div class="line">                test.add(<span class="string">"Fizz"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(i%<span class="number">3</span> != <span class="number">0</span> &amp; i%<span class="number">5</span> == <span class="number">0</span>)&#123;</div><div class="line">                test.add(<span class="string">"Buzz"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(i%<span class="number">3</span> == <span class="number">0</span> &amp; i%<span class="number">5</span> == <span class="number">0</span>)&#123;</div><div class="line">                test.add(<span class="string">"FizzBuzz"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">                str = Integer.toString(i);</div><div class="line">                test.add(str);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> test;     </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.<br>Example:<br>Input:[1,2,3]<br>Output:3<br>Explanation:<br>Only three moves are needed (remember each move increments two elements):<br>[1,2,3]  =&gt;  [2,3,3]  =&gt;  [3,4,3]  =&gt;  [4,4,4]<br><a id="more"></a><br><strong>思路：</strong><br>给n-1个数加1，也就是给一个数（最大数）减1；<br>总共次数因此便等于每个数要减1的次数之和；<br>知道所有数等于最小数，即每个数与最小数做差。</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minMoves</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>{
+        <span class="keyword">int</span> count = <span class="number">0</span>;
+        <span class="keyword">int</span> min = nums[<span class="number">0</span>];
+
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++){
+            min = Math.min(min,nums[i]);
+        }
+
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++){
+            count += nums[i] - min;
+        }
+        <span class="keyword">return</span> count;
+    }
+}
+</code></pre>
 
       
     </div>
@@ -332,13 +343,13 @@ But for multiples of three it should output “Fizz” instead of the number and
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/10/17/Fizz Buzz/">Fizz Buzz.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/30/Minimum Moves to Equal Array Elements/">Minimum Moves to Equal Array Elements.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-10-17, 18:19:49</p>
-        <p><span>最后更新:</span>2016-10-18, 16:57:54</p>
+        <p><span>发布时间:</span>2016-11-30, 15:55:03</p>
+        <p><span>最后更新:</span>2016-11-30, 15:58:36</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/10/17/Fizz Buzz/" title="Fizz Buzz.java">http://pangbo.space/2016/10/17/Fizz Buzz/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/10/17/Fizz Buzz/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/30/Minimum Moves to Equal Array Elements/" title="Minimum Moves to Equal Array Elements.java">http://pangbo.space/2016/11/30/Minimum Moves to Equal Array Elements/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/11/30/Minimum Moves to Equal Array Elements/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -351,15 +362,15 @@ But for multiples of three it should output “Fizz” instead of the number and
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/17/Reverse String/">
-                    Reverse String.java
+                <a href="/2016/11/30/Minimum Moves to Equal Array Elements II/">
+                    Add Digits.java
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/28/hexo 绑定域名/">
-                    hexo 绑定域名
+                <a href="/2016/11/30/Add Digits/">
+                    Add Digits.java
                 </a>
             </div>
         
@@ -407,7 +418,7 @@ But for multiples of three it should output “Fizz” instead of the number and
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Fizz Buzz.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Minimum Moves to Equal Array Elements.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -425,7 +436,7 @@ But for multiples of three it should output “Fizz” instead of the number and
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/17/Fizz Buzz/" data-title="Fizz Buzz.java" data-url="http://pangbo.space/2016/10/17/Fizz Buzz/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/30/Minimum Moves to Equal Array Elements/" data-title="Minimum Moves to Equal Array Elements.java" data-url="http://pangbo.space/2016/11/30/Minimum Moves to Equal Array Elements/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -448,7 +459,7 @@ But for multiples of three it should output “Fizz” instead of the number and
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/17/Reverse String/" title="上一篇: Reverse String.java">
+            <a href="/2016/11/30/Minimum Moves to Equal Array Elements II/" title="上一篇: Add Digits.java">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -456,7 +467,7 @@ But for multiples of three it should output “Fizz” instead of the number and
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/28/hexo 绑定域名/" title="下一篇: hexo 绑定域名">
+            <a href="/2016/11/30/Add Digits/" title="下一篇: Add Digits.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
