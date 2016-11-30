@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Compare two version numbers version1 and version2.If version1 &amp;gt; version2 return 1, if version1 &amp;lt; version2 return -1, otherwise return 0.You may assume that the version strings are non-empty and">
+<meta name="description" content="There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Compare Version Numbers.java">
-<meta property="og:url" content="http://pangbo.space/2016/11/28/Compare Version Numbers/index.html">
+<meta property="og:title" content="第100题Bulb Switcher.java">
+<meta property="og:url" content="http://pangbo.space/2016/11/30/Bulb Switcher/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Compare two version numbers version1 and version2.If version1 &amp;gt; version2 return 1, if version1 &amp;lt; version2 return -1, otherwise return 0.You may assume that the version strings are non-empty and">
-<meta property="og:updated_time" content="2016-11-28T13:20:14.691Z">
+<meta property="og:description" content="There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off">
+<meta property="og:updated_time" content="2016-11-30T13:35:44.988Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Compare Version Numbers.java">
-<meta name="twitter:description" content="Compare two version numbers version1 and version2.If version1 &amp;gt; version2 return 1, if version1 &amp;lt; version2 return -1, otherwise return 0.You may assume that the version strings are non-empty and">
+<meta name="twitter:title" content="第100题Bulb Switcher.java">
+<meta name="twitter:description" content="There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Compare Version Numbers.java | Bo`s blog</title>
+<title>第100题Bulb Switcher.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Compare Version Numbers" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Bulb Switcher" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/28/Compare Version Numbers/" class="article-date">
-      <time datetime="2016-11-28T13:18:40.216Z" itemprop="datePublished">2016-11-28</time>
+      <a href="/2016/11/30/Bulb Switcher/" class="article-date">
+      <time datetime="2016-11-30T13:29:54.623Z" itemprop="datePublished">2016-11-30</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Compare Version Numbers.java
+      第100题Bulb Switcher.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,28 +318,50 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Compare two version numbers version1 and version2.<br>If version1 &gt; version2 return 1, if version1 &lt; version2 return -1, otherwise return 0.<br>You may assume that the version strings are non-empty and contain only digits and the . character.<br>The . character does not represent a decimal point and is used to separate number sequences.<br>For instance, 2.5 is not “two and a half” or “half way to version three”, it is the fifth second-level revision of the second first-level revision.<br>Here is an example of version numbers ordering:<br>0.1 &lt; 1.1 &lt; 1.2 &lt; 13.37<br><a id="more"></a><br><strong>思路：</strong><br>解法：O（N）<br>顺着遍历一遍。每次记录每个字符串中的当前层的大小，进行对比。直接判断返回。总有不一样，否则就是完全相同，在最后返回相等。</p>
+        <p>There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off if it’s on). For the ith round, you toggle every i bulb. For the nth round, you only toggle the last bulb. Find how many bulbs are on after n rounds.<br>Example:<br>Given n = 3. </p>
+<pre><code>At first, the three bulbs are [off, off, off].
+After first round, the three bulbs are [on, on, on].
+After second round, the three bulbs are [on, off, on].
+After third round, the three bulbs are [on, off, off]. 
+</code></pre><p>So you should return 1, because there is only one bulb is on.<br><a id="more"></a><br><strong>LTE思路：</strong><br>暴力解题，制作机械开关，超时。</p>
 <pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareVersion</span><span class="params">(String version1, String version2)</span> </span>{
-        <span class="keyword">long</span> a = <span class="number">0</span>, b =<span class="number">0</span>;
-        <span class="keyword">int</span> v1len = version1.length(), v2len = version2.length();
-        <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;
-        <span class="keyword">while</span> (i &lt; v1len || j &lt; v2len) {
-                a = <span class="number">0</span>; b =<span class="number">0</span>;
-                <span class="keyword">while</span> (i &lt; v1len &amp;&amp; version1.charAt(i) != <span class="string">'.'</span>) {
-                        a = a * <span class="number">10</span> + version1.charAt(i) - <span class="string">'0'</span>;
-                        i++;
-                }
-                i++;
-                <span class="keyword">while</span> (j &lt; v2len &amp;&amp; version2.charAt(j) != <span class="string">'.'</span>) {
-                        b = b * <span class="number">10</span> + version2.charAt(j) - <span class="string">'0'</span>;
-                        j++;
-                }
-                j++;
-                <span class="keyword">if</span> (a &gt; b) <span class="keyword">return</span> <span class="number">1</span>;
-                <span class="keyword">if</span> (a &lt; b) <span class="keyword">return</span> -<span class="number">1</span>;
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">bulbSwitch</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="keyword">boolean</span>[] bulb = <span class="keyword">new</span> <span class="keyword">boolean</span>[n];
+        <span class="keyword">int</span> count = <span class="number">0</span>;
+        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++){
+            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n-j;i++){
+                bulb[i+j] = !bulb[i+j];
+                i += j;
+            }
         }
-            <span class="keyword">return</span> <span class="number">0</span>;
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++){
+            <span class="keyword">if</span>(bulb[i])
+                count++;
+        }
+        <span class="keyword">return</span> count;
+    }
+}
+</code></pre>
+<p><strong>思路：</strong><br>返回值其实就是n开方后向下取整的得数。</p>
+<p>下面我来解释一下。<strong>对于每个数字来说，除了平方数，都有偶数个因数</strong>。</p>
+<pre><code>如6有4个因数：1×6=6，2×3=6
+
+如60有个因数：1×60=60，2×30=60，3×20=60，4×15=60，5×12=60，6×10=60
+</code></pre><p>可以看出，非平方数的因数总是成对出现的，只有平方数的因数才是奇数，因为平方数除平方根外，其他的因数都是成对出现的！<br>对于当前的开关灯泡问题，可知到最后处在平方数位置的灯泡一定是开启的，其他位置的灯泡一定是关闭的。<br>而要计算<strong>一个数之下有多少小于或等于它的平方数</strong>，使用一个开平方用的函数就可以了。</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">bulbSwitch</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="keyword">return</span> (<span class="keyword">int</span>)Math.sqrt(n);
+    }
+}
+</code></pre>
+<p>或者：</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">bulbSwitch</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="keyword">int</span> on = <span class="number">0</span>;
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i * i &lt;= n; i++)    {
+            on++;
+        }
+        <span class="keyword">return</span> on;
     }
 }
 </code></pre>
@@ -351,13 +373,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/11/28/Compare Version Numbers/">Compare Version Numbers.java</a></p>
+        <p><span>Title:</span><a href="/2016/11/30/Bulb Switcher/">第100题Bulb Switcher.java</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-11-28, 21:18:40</p>
-        <p><span>Updated:</span>2016-11-28, 21:20:14</p>
+        <p><span>Created:</span>2016-11-30, 21:29:54</p>
+        <p><span>Updated:</span>2016-11-30, 21:35:44</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/11/28/Compare Version Numbers/" title="Compare Version Numbers.java">http://pangbo.space/2016/11/28/Compare Version Numbers/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/11/28/Compare Version Numbers/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/11/30/Bulb Switcher/" title="第100题Bulb Switcher.java">http://pangbo.space/2016/11/30/Bulb Switcher/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/11/30/Bulb Switcher/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -369,16 +391,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/29/Decode Ways/">
-                    Decode Ways.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/28/Longest Substring Without Repeating Characters/">
-                    Longest Substring Without Repeating Characters.java
+                <a href="/2016/11/30/Integer Break/">
+                    Integer Break.java
                 </a>
             </div>
         
@@ -426,7 +442,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Compare Version Numbers.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"第100题Bulb Switcher.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -444,7 +460,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/28/Compare Version Numbers/" data-title="Compare Version Numbers.java" data-url="http://pangbo.space/2016/11/28/Compare Version Numbers/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/30/Bulb Switcher/" data-title="第100题Bulb Switcher.java" data-url="http://pangbo.space/2016/11/30/Bulb Switcher/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -467,15 +483,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/29/Decode Ways/" title="Pre: Decode Ways.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/28/Longest Substring Without Repeating Characters/" title="Next: Longest Substring Without Repeating Characters.java">
+            <a href="/2016/11/30/Integer Break/" title="Next: Integer Break.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
