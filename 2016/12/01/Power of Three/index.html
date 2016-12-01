@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://pangbo.space/2016/12/01/Power of Three/index.html">
 <meta property="og:site_name" content="Bo`s blog">
 <meta property="og:description" content="Given an integer, write a function to determine if it is a power of three.Follow up:Could you do it without using any loop / recursion?">
-<meta property="og:updated_time" content="2016-12-01T08:08:03.264Z">
+<meta property="og:updated_time" content="2016-12-01T10:00:10.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Power of Three.java">
 <meta name="twitter:description" content="Given an integer, write a function to determine if it is a power of three.Follow up:Could you do it without using any loop / recursion?">
@@ -318,7 +318,26 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given an integer, write a function to determine if it is a power of three.<br>Follow up:<br>Could you do it without using any loop / recursion?<br><a id="more"></a><br><strong>思路1：</strong><br>不让用循环或递归；<br>那么有一个投机取巧的方法，由于输入是int，正数范围是0-231，在此范围中允许的最大的3的次方数为3^19=1162261467，那么我们只要看这个数能否被n整除即可<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> (n&gt;<span class="number">0</span> &amp;&amp; <span class="number">1162261467</span> % n == <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">``` </div><div class="line">**思路<span class="number">2</span>：**</div><div class="line">最后还有一种巧妙的方法，利用**对数的换底公式**来做，高中学过的换底公式为logab = logcb / logca，</div><div class="line">那么如果n是<span class="number">3</span>的倍数，则log3n一定是整数，我们利用换底公式可以写为log3n = ln(n) / ln(<span class="number">3</span>)，</div><div class="line">注意这里一定要用<span class="number">10</span>为底数，不能用自然数或者<span class="number">2</span>为底数，否则当n=<span class="number">243</span>时会出错，原因请看这个帖子。</div><div class="line">现在问题就变成了判断log10n / log103是否为整数;</div><div class="line"></div><div class="line">**判断数字a是否为整数**，我们可以用 **a - <span class="keyword">int</span>(a) == <span class="number">0</span> **来判断；</div><div class="line"></div><div class="line">Sun的J2SE提供了一个单一的Java对数方法——<span class="keyword">double</span> java.lang.Math.log(<span class="keyword">double</span>)，这很轻易使用。请看如下代码：</div><div class="line"></div><div class="line">　　<span class="keyword">double</span> x = Math.log(<span class="number">5</span>);</div><div class="line"></div><div class="line">　　等价于：x = ln <span class="number">5</span> 或 x = loge5，即以**e为底**的自然对数。</div><div class="line">``` java</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> maxPow = (<span class="keyword">int</span>)(Math.pow(<span class="number">3</span>, (<span class="keyword">int</span>)(Math.log(Integer.MAX_VALUE) / Math.log(<span class="number">3</span>))));</div><div class="line">        <span class="keyword">return</span> (n &gt; <span class="number">0</span> &amp;&amp; maxPow % n == <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Given an integer, write a function to determine if it is a power of three.<br>Follow up:<br>Could you do it without using any loop / recursion?<br><a id="more"></a><br><strong>思路1：</strong><br>不让用循环或递归；<br>那么有一个投机取巧的方法，由于输入是int，正数范围是0-231，在此范围中允许的最大的3的次方数为3^19=1162261467，那么我们只要看这个数能否被n整除即可</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+
+        <span class="keyword">return</span> (n&gt;<span class="number">0</span> &amp;&amp; <span class="number">1162261467</span> % n == <span class="number">0</span>);
+    }
+}
+</code></pre>
+<p><strong>思路2：</strong><br>最后还有一种巧妙的方法，利用<strong>对数的换底公式</strong>来做，高中学过的换底公式为logab = logcb / logca，<br>那么如果n是3的倍数，则log3n一定是整数，我们利用换底公式可以写为log3n = ln(n) / ln(3)，<br>注意这里一定要用10为底数，不能用自然数或者2为底数，否则当n=243时会出错，原因请看这个帖子。<br>现在问题就变成了判断log10n / log103是否为整数;</p>
+<p><strong>判断数字a是否为整数</strong>，我们可以用 <strong>a - int(a) == 0 </strong>来判断；</p>
+<p>Sun的J2SE提供了一个单一的Java对数方法——double java.lang.Math.log(double)，这很轻易使用。请看如下代码：</p>
+<p>　　double x = Math.log(5);</p>
+<p>　　等价于：x = ln 5 或 x = loge5，即以<strong>e为底</strong>的自然对数。</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="keyword">int</span> maxPow = (<span class="keyword">int</span>)(Math.pow(<span class="number">3</span>, (<span class="keyword">int</span>)(Math.log(Integer.MAX_VALUE) / Math.log(<span class="number">3</span>))));
+        <span class="keyword">return</span> (n &gt; <span class="number">0</span> &amp;&amp; maxPow % n == <span class="number">0</span>);
+    }
+}
+</code></pre>
 
       
     </div>
@@ -330,7 +349,7 @@
         <p><span>本文标题:</span><a href="/2016/12/01/Power of Three/">Power of Three.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
         <p><span>发布时间:</span>2016-12-01, 15:58:45</p>
-        <p><span>最后更新:</span>2016-12-01, 16:08:03</p>
+        <p><span>最后更新:</span>2016-12-01, 18:00:10</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/12/01/Power of Three/" title="Power of Three.java">http://pangbo.space/2016/12/01/Power of Three/</a>
             <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/01/Power of Three/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
