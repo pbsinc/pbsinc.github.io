@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Write a program to find the nth super ugly number.Super ugly numbers are positive numbers whose all prime factors are in the given prime list primes of size k.For example, [1, 2, 4, 7, 8, 13, 14, 16,">
+<meta name="description" content="You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.Given n, find the total number of full staircase rows that can be formed.n is a n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Super Ugly Number.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/02/Super Ugly Number/index.html">
+<meta property="og:title" content="Arranging Coins.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/02/Arranging Coins/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Write a program to find the nth super ugly number.Super ugly numbers are positive numbers whose all prime factors are in the given prime list primes of size k.For example, [1, 2, 4, 7, 8, 13, 14, 16,">
-<meta property="og:updated_time" content="2016-12-02T08:44:32.853Z">
+<meta property="og:description" content="You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.Given n, find the total number of full staircase rows that can be formed.n is a n">
+<meta property="og:updated_time" content="2016-12-02T09:20:31.206Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Super Ugly Number.java">
-<meta name="twitter:description" content="Write a program to find the nth super ugly number.Super ugly numbers are positive numbers whose all prime factors are in the given prime list primes of size k.For example, [1, 2, 4, 7, 8, 13, 14, 16,">
+<meta name="twitter:title" content="Arranging Coins.java">
+<meta name="twitter:description" content="You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.Given n, find the total number of full staircase rows that can be formed.n is a n">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Super Ugly Number.java | Bo`s blog</title>
+<title>Arranging Coins.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Super Ugly Number" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Arranging Coins" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/02/Super Ugly Number/" class="article-date">
-      <time datetime="2016-12-02T07:46:33.431Z" itemprop="datePublished">2016-12-02</time>
+      <a href="/2016/12/02/Arranging Coins/" class="article-date">
+      <time datetime="2016-12-02T09:18:46.848Z" itemprop="datePublished">2016-12-02</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Super Ugly Number.java
+      Arranging Coins.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,83 +318,35 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Write a program to find the nth super ugly number.<br>Super ugly numbers are positive numbers whose all prime factors are in the given prime list primes of size k.<br>For example, [1, 2, 4, 7, 8, 13, 14, 16, 19, 26, 28, 32] is the sequence of the first 12 super ugly numbers given primes = [2, 7, 13, 19] of size 4.<br>Note:</p>
-<pre><code>(1) 1 is a super ugly number for any given primes.
-(2) The given numbers in primes are in ascending order.
-(3) 0 &lt; k ≤ 100, 0 &lt; n ≤ 106, 0 &lt; primes[i] &lt; 1000.
+        <p>You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.<br>Given n, find the total number of full staircase rows that can be formed.<br>n is a non-negative integer and fits within the range of a 32-bit signed integer.</p>
+<p>Example 1:</p>
+<pre><code>n = 5
+
+The coins can form the following rows:
+¤
+¤ ¤
+¤ ¤
+
+Because the 3rd row is incomplete, we return 2.
+</code></pre><p>Example 2:</p>
+<pre><code>n = 8
+
+The coins can form the following rows:
+¤
+¤ ¤
+¤ ¤ ¤
+¤ ¤
+
+Because the 4th row is incomplete, we return 3.
 </code></pre><a id="more"></a>
-<p><strong>思路1：</strong><br>仿照Ugly Number II 的用List的思路，超时；</p>
+<p><strong>思路：</strong><br>转化成求一元二次方程的解；</p>
 <pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nthSuperUglyNumber</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[] primes)</span> </span>{
-        <span class="keyword">int</span> ans = Integer.MAX_VALUE, len = primes.length;
-        List&lt;List&lt;Integer&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt; ();
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">arrangeCoins</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="keyword">double</span> del = Math.sqrt(<span class="number">1.0</span>+<span class="number">8.0</span>*(<span class="keyword">double</span>)n); <span class="comment">// 注意这里不转double的话，int会越界！</span>
 
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++){
-            List&lt;Integer&gt; temp = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();
-            list.add(temp);
-        }
-
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++){
-
-            list.get(i).add(<span class="number">1</span>);
-        }
-
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++){
-            ans = list.get(<span class="number">0</span>).get(<span class="number">0</span>);
-            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len-<span class="number">1</span>;j++){
-                ans = Math.min(ans,list.get(j+<span class="number">1</span>).get(<span class="number">0</span>));
-            }
-
-            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len;j++){
-                 <span class="keyword">if</span>(ans == list.get(j).get(<span class="number">0</span>)) 
-                    list.get(j).remove(<span class="number">0</span>);
-            }
-
-            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len;j++){
-                 list.get(j).add(ans*primes[j]);
-            }
-
-        }   
-        <span class="keyword">return</span> ans;
+        <span class="keyword">int</span> ans = (<span class="keyword">int</span>)((del-<span class="number">1.0</span>)/<span class="number">2.0</span>);
+        <span class="keyword">return</span> ans; 
     }
-}
-</code></pre>
-<p><strong>思路2：</strong><br>仿照Ugly Number II 的用数组，三个指针的思路</p>
-<pre><code class="java">ugly number II：
-<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nthUglyNumber</span><span class="params">(<span class="keyword">int</span> n)</span></span>{
-    <span class="keyword">int</span> i2=<span class="number">0</span>, i3=<span class="number">0</span>, i5=<span class="number">0</span>;
-    <span class="keyword">int</span>[] k = <span class="keyword">new</span> <span class="keyword">int</span>[n];
-    k[<span class="number">0</span>] = <span class="number">1</span>;
-    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;n; i++) {
-        k[i] = Math.min(k[i2]*<span class="number">2</span>, Math.min(k[i3]*<span class="number">3</span>, k[i5]*<span class="number">5</span>));
-        <span class="keyword">if</span> (k[i]%<span class="number">2</span> == <span class="number">0</span>) i2++;
-        <span class="keyword">if</span> (k[i]%<span class="number">3</span> == <span class="number">0</span>) i3++;
-        <span class="keyword">if</span> (k[i]%<span class="number">5</span> == <span class="number">0</span>) i5++;
-    }
-
-    <span class="keyword">return</span> k[n-<span class="number">1</span>];
-}
-
-Similarly, <span class="keyword">for</span> <span class="keyword">this</span> problem, just use loop to replace above i2, i3, i5.
-
-<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nthSuperUglyNumber</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[] primes)</span> </span>{
-    <span class="keyword">int</span> len = primes.length;
-    <span class="keyword">int</span>[] index = <span class="keyword">new</span> <span class="keyword">int</span>[len]; <span class="comment">//index[0]==0, ... index[len-1]==0</span>
-    <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[n];
-    res[<span class="number">0</span>] = <span class="number">1</span>;
-    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;n; i++) {
-        <span class="keyword">int</span> min = Integer.MAX_VALUE;
-        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;len; j++){
-            min = Math.min(res[index[j]]*primes[j], min);
-        }
-        res[i] = min;
-        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;len; j++) {
-            <span class="keyword">if</span>(res[i]%primes[j]==<span class="number">0</span>) index[j]++;
-        }
-
-    }
-
-    <span class="keyword">return</span> res[n-<span class="number">1</span>];
 }
 </code></pre>
 
@@ -405,13 +357,13 @@ Similarly, <span class="keyword">for</span> <span class="keyword">this</span> pr
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/02/Super Ugly Number/">Super Ugly Number.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/02/Arranging Coins/">Arranging Coins.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-02, 15:46:33</p>
-        <p><span>最后更新:</span>2016-12-02, 16:44:32</p>
+        <p><span>发布时间:</span>2016-12-02, 17:18:46</p>
+        <p><span>最后更新:</span>2016-12-02, 17:20:31</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/02/Super Ugly Number/" title="Super Ugly Number.java">http://pangbo.space/2016/12/02/Super Ugly Number/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/02/Super Ugly Number/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/02/Arranging Coins/" title="Arranging Coins.java">http://pangbo.space/2016/12/02/Arranging Coins/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/02/Arranging Coins/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -423,16 +375,10 @@ Similarly, <span class="keyword">for</span> <span class="keyword">this</span> pr
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/02/Arranging Coins/">
-                    Arranging Coins.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/02/Valid Perfect Square/">
-                    Valid Perfect Square.java
+                <a href="/2016/12/02/Super Ugly Number/">
+                    Super Ugly Number.java
                 </a>
             </div>
         
@@ -480,7 +426,7 @@ Similarly, <span class="keyword">for</span> <span class="keyword">this</span> pr
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Super Ugly Number.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Arranging Coins.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -498,7 +444,7 @@ Similarly, <span class="keyword">for</span> <span class="keyword">this</span> pr
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/02/Super Ugly Number/" data-title="Super Ugly Number.java" data-url="http://pangbo.space/2016/12/02/Super Ugly Number/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/02/Arranging Coins/" data-title="Arranging Coins.java" data-url="http://pangbo.space/2016/12/02/Arranging Coins/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -521,15 +467,13 @@ Similarly, <span class="keyword">for</span> <span class="keyword">this</span> pr
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/02/Arranging Coins/" title="上一篇: Arranging Coins.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/02/Valid Perfect Square/" title="下一篇: Valid Perfect Square.java">
+            <a href="/2016/12/02/Super Ugly Number/" title="下一篇: Super Ugly Number.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
