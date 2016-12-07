@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Bo Pang" />
+
+
+
+<meta name="description" content="转来一篇Java中各种类型之间的互相转换;java类型：Integer, String, Long, Float, Double, Date, char[]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java各种类型互相转换">
+<meta property="og:url" content="http://pangbo.space/2016/12/07/Java各种类型互相转换/index.html">
+<meta property="og:site_name" content="Bo`s blog">
+<meta property="og:description" content="转来一篇Java中各种类型之间的互相转换;java类型：Integer, String, Long, Float, Double, Date, char[]">
+<meta property="og:updated_time" content="2016-12-07T06:40:32.018Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java各种类型互相转换">
+<meta name="twitter:description" content="转来一篇Java中各种类型之间的互相转换;java类型：Integer, String, Long, Float, Double, Date, char[]">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Bo`s blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Java各种类型互相转换 | Bo`s blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57ea7c0bb6e3347f"></script>
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Bo Pang</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Good good study , day day up!</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/pbs@bupt.edu.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/1648836177/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" href="http://music.163.com/#/user/home?id=38418826" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" href="https://www.facebook.com/bo.pang.73" title="Facebook"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arrays-sort-的用法/">Arrays.sort()的用法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigDecimal/">BigDecimal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigInteger/">BigInteger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Character-isDigit-chr-方法/">Character.isDigit(chr)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Character-isLetter-chr-方法/">Character.isLetter(chr)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections工具类/">Collections工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy/">Easy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Happy-Number-快乐数/">Happy Number 快乐数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hard/">Hard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integer内3的次方最大为3-19-1162261467/">Integer内3的次方最大为3^19=1162261467</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java中StringBuilder的用法/">Java中StringBuilder的用法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java各种类型互相转换/">Java各种类型互相转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java：String、StringBuffer和StringBuilder的区别/">Java：String、StringBuffer和StringBuilder的区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List-Set-Map-数组间的相互转换/">List,Set,Map,数组间的相互转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List要remove一个int对象/">List要remove一个int对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Medium/">Medium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/N-末尾零的个数/">N!末尾零的个数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Roman-Numeral/">Roman Numeral</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set、List、Map的详解与区别/">Set、List、Map的详解与区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set、List、Map的遍历/">Set、List、Map的遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String-equals-str-方法/">String.equals(str)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String-substring-方法/">String.substring( )方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String-trim-方法/">String.trim()方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String的分割str-split-正则-方法/">String的分割str.split(正则)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String转char/">String转char</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/break跳出多层for循环/">break跳出多层for循环</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/char和Character/">char和Character</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java中length-length-size-区别/">java中length,length(),size()区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java判断字符串String是否相等/">java判断字符串String是否相等</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java堆栈Stack类简介/">java堆栈Stack类简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java统一字符串大小写/">java统一字符串大小写</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long与Long/">long与Long</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long加不加L的区别/">long加不加L的区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/str-toLowerCase-方法/">str.toLowerCase()方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/str-toUpperCase-方法/">str.toUpperCase()方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/switch/">switch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一个或者多个空格的正则/">一个或者多个空格的正则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中序遍历/">中序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二叉树：先序遍历、中序遍历、后序遍历/">二叉树：先序遍历、中序遍历、后序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/值传递-引用传递/">值传递&引用传递</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/先序遍历/">先序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/判断String是否相等要用str-equals-xxx/">判断String是否相等要用str.equals("xxx")</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/判断是否为质数/">判断是否为质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡特兰数/">卡特兰数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后序遍历/">后序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/四平方和定理/">四平方和定理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名/">域名</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆和栈的区别/">堆和栈的区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多数投票算法/">多数投票算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对String排序/">对String排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/平方数-1-3-5-7/">平方数=1+3+5+7+...</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据类型的范围/">数据类型的范围</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数根问题/">数根问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/没做/">没做</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛顿迭代法求平方根/">牛顿迭代法求平方根</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重做/">重做</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">大隐隐于市</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Bo Pang</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Bo Pang</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Good good study , day day up!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/pbs@bupt.edu.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/1648836177/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="http://music.163.com/#/user/home?id=38418826" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" target="_blank" href="https://www.facebook.com/bo.pang.73" title="Facebook"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Java各种类型互相转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/07/Java各种类型互相转换/" class="article-date">
+      <time datetime="2016-12-07T06:40:32.018Z" itemprop="datePublished">2016-12-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java各种类型互相转换
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java各种类型互相转换/">Java各种类型互相转换</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>转来一篇Java中各种类型之间的互相转换;<br>java类型：Integer, String, Long, Float, Double, Date, char[]<br><a id="more"></a><br><strong>1. String 转 int</strong><br>A. 有两个方法:</p>
+<pre><code>1. int i = Integer.parseInt([String]); 或 i = Integer.parseInt([String],[int radix]);
+2. int i = Integer.valueOf(my_str).intValue();
+</code></pre><p>注: 字串转成 Double, Float, Long 的方法大同小异.<br><strong>2. int 转 String </strong><br>A. 有三种方法:</p>
+<pre><code>1. String s = String.valueOf(i);
+2. String s = Integer.toString(i);
+3. String s = &quot;&quot; + i;
+</code></pre><p>注: Double, Float, Long 转成字串的方法大同小异.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">  <span class="comment">//String to Float </span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">float</span> <span class="title">stringToFloat</span><span class="params">(String floatstr)</span> </span></div><div class="line">  &#123; </div><div class="line">   Float floatee; </div><div class="line">   floatee = Float.valueOf(floatstr); </div><div class="line">   <span class="keyword">return</span> floatee.floatValue(); </div><div class="line">  &#125; </div><div class="line">  </div><div class="line">  <span class="comment">//Float to String</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">floatToString</span><span class="params">(<span class="keyword">float</span> value)</span> </span></div><div class="line">  &#123; </div><div class="line">   Float floatee = <span class="keyword">new</span> Float(value); </div><div class="line">   <span class="keyword">return</span> floatee.toString(); </div><div class="line">  &#125; </div><div class="line">  </div><div class="line">  <span class="comment">//String to sqlDate </span></div><div class="line">  <span class="keyword">public</span> <span class="keyword">static</span> java.sql.<span class="function">Date <span class="title">stringToDate</span><span class="params">(String dateStr)</span> </span></div><div class="line">  &#123; </div><div class="line">   <span class="keyword">return</span>  java.sql.Date.valueOf(dateStr); </div><div class="line">  &#125; </div><div class="line">  </div><div class="line">  <span class="comment">//sqlDate to String</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">dateToString</span><span class="params">(java.sql.Date datee)</span> </span></div><div class="line">  &#123; </div><div class="line">   <span class="keyword">return</span> datee.toString(); </div><div class="line">  &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>3. String 转 char[]</strong></p>
+<pre><code>1.char[] arr = s.toCharArray();
+</code></pre><p><strong>4. char[] 转 String</strong></p>
+<pre><code>1.String res = new String(arr);
+2.String res = String.valueOf(arr);
+</code></pre><p><strong>JAVA中常用数据类型转换函数</strong><br>虽然都能在JAVA API中找到，整理一下做个备份。</p>
+<pre><code class="java">string-&gt;<span class="function"><span class="keyword">byte</span> 
+Byte <span class="keyword">static</span> <span class="keyword">byte</span> <span class="title">parseByte</span><span class="params">(String s)</span>  
+<span class="keyword">byte</span>-&gt;string 
+Byte <span class="keyword">static</span> String <span class="title">toString</span><span class="params">(<span class="keyword">byte</span> b)</span> 
+<span class="keyword">char</span>-&gt;string 
+Character <span class="keyword">static</span> String to <span class="title">String</span> <span class="params">(<span class="keyword">char</span> c)</span> 
+string-&gt;Short 
+Short <span class="keyword">static</span> Short <span class="title">parseShort</span><span class="params">(String s)</span> 
+Short-&gt;String 
+Short <span class="keyword">static</span> String <span class="title">toString</span><span class="params">(Short s)</span> 
+String-&gt;Integer 
+Integer <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">parseInt</span><span class="params">(String s)</span> 
+Integer-&gt;String 
+Integer <span class="keyword">static</span> String <span class="title">tostring</span><span class="params">(<span class="keyword">int</span> i)</span> 
+String-&gt;Long 
+Long <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">parseLong</span><span class="params">(String s)</span> 
+Long-&gt;String 
+Long <span class="keyword">static</span> String <span class="title">toString</span><span class="params">(Long i)</span> 
+String-&gt;Float 
+Float <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">parseFloat</span><span class="params">(String s)</span> 
+Float-&gt;String 
+Float <span class="keyword">static</span> String <span class="title">toString</span><span class="params">(<span class="keyword">float</span> f)</span> 
+String-&gt;Double 
+Double <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">parseDouble</span><span class="params">(String s)</span> 
+Double-&gt;String 
+Double <span class="keyword">static</span> String <span class="title">toString</span><span class="params">(Double)</span></span>
+</code></pre>
+<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++ </p>
+<p><strong>转换原则</strong><br><strong>从低精度向高精度转换</strong><br>byte 、short、int、long、float、double、char<br>注：两个char型运算时，自动转换为int型；当char与别的类型运算时，也会先自动转换为int型的，再做其它类型的自动转换<br>++++++++++++++++++++++++++++++++++++++++++++++++++++++ </p>
+<p><strong>基本类型向类类型转换</strong><br>正向转换：通过类包装器来new出一个新的类类型的变量<br>Integer a= new Integer(2);<br>反向转换：通过类包装器来转换<br>int b=a.intValue();<br>++++++++++++++++++++++++++++++++++++++++++++++++++++++ </p>
+<p><strong>类类型向字符串转换</strong><br>正向转换：因为每个类都是object类的子类，而所有的object类都有一个toString()函数，所以通过toString()函数来转换即可<br>反向转换：通过类包装器new出一个新的类类型的变量<br>eg1: int i=Integer.valueOf(“123”).intValue()<br>说明：上例是将一个字符串转化成一个Integer对象，然后再调用这个对象的intValue()方法返回其对应的int数值。<br>eg2: float f=Float.valueOf(“123”).floatValue()<br>说明：上例是将一个字符串转化成一个Float对象，然后再调用这个对象的floatValue()方法返回其对应的float数值。<br>eg3: boolean b=Boolean.valueOf(“123”).booleanValue()<br>说明：上例是将一个字符串转化成一个Boolean对象，然后再调用这个对象的booleanValue()方法返回其对应的boolean数值。<br>eg4:double d=Double.valueOf(“123”).doublue()<br>说明：上例是将一个字符串转化成一个Double对象，然后再调用这个对象的doublue()方法返回其对应的double数值。<br>eg5: long l=Long.valueOf(“123”).longValue()<br>说明：上例是将一个字符串转化成一个Long对象，然后再调用这个对象的longValue()方法返回其对应的long数值。<br>eg6: char=Character.valueOf(“123”).charValue()<br>说明：上例是将一个字符串转化成一个Character对象，然后再调用这个对象的charValue()方法返回其对应的char数值。<br>++++++++++++++++++++++++++++++++++++++++++++++++++++++ </p>
+<p><strong>基本类型向字符串的转换</strong><br>正向转换：<br>如：int a=12;<br>String b;b=a+””;<br>反向转换：<br>通过类包装器<br>eg1:int i=Integer.parseInt(“123”)<br>说明：此方法只能适用于字符串转化成整型变量<br>eg2: float f=Float.valueOf(“123”).floatValue()<br>说明：上例是将一个字符串转化成一个Float对象，然后再调用这个对象的floatValue()方法返回其对应的float数值。<br>eg3: boolean b=Boolean.valueOf(“123”).booleanValue()<br>说明：上例是将一个字符串转化成一个Boolean对象，然后再调用这个对象的booleanValue()方法返回其对应的boolean数值。<br>eg4:double d=Double.valueOf(“123”).doublue()<br>说明：上例是将一个字符串转化成一个Double对象，然后再调用这个对象的doublue()方法返回其对应的double数值。<br>eg5: long l=Long.valueOf(“123”).longValue()<br>说明：上例是将一个字符串转化成一个Long对象，然后再调用这个对象的longValue()方法返回其对应的long数值。<br>eg6: char=Character.valueOf(“123”).charValue()<br>说明：上例是将一个字符串转化成一个Character对象</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/12/07/Java各种类型互相转换/">Java各种类型互相转换</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
+        <p><span>发布时间:</span>2016-12-07, 14:40:32</p>
+        <p><span>最后更新:</span>2016-12-07, 14:40:32</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/07/Java各种类型互相转换/" title="Java各种类型互相转换">http://pangbo.space/2016/12/07/Java各种类型互相转换/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/Java各种类型互相转换/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/12/07/Java：String、StringBuffer和StringBuilder的区别/">
+                    Java：String、StringBuffer和StringBuilder的区别
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/12/07/Java中StringBuilder的用法/">
+                    Java中StringBuilder的用法
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Java各种类型互相转换　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/Java各种类型互相转换/" data-title="Java各种类型互相转换" data-url="http://pangbo.space/2016/12/07/Java各种类型互相转换/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"pbsinc"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/12/07/Java：String、StringBuffer和StringBuilder的区别/" title="上一篇: Java：String、StringBuffer和StringBuilder的区别">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/12/07/Java中StringBuilder的用法/" title="下一篇: Java中StringBuilder的用法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/集合Collections工具类用法/">集合Collections工具类用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/堆和栈的区别/">堆和栈的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java堆栈Stack类简介/">java堆栈Stack类简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/long与Long的区别，long型最后有无L的区别/">long与Long的区别，long型最后有无L的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/二叉树：先序遍历、中序遍历、后序遍历/">二叉树：先序遍历、中序遍历、后序遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/动态规划算法 Dynamic Programming/">动态规划算法 Dynamic Programming</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java各数据类型的范围/">java各数据类型的范围</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java判断字符串String是否相等/">java判断字符串String是否相等</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java值传递&引用传递/">java值传递&引用传递</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java中大数的表示BigInteger和BigDecimal/">java中大数的表示BigInteger和BigDecimal</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java中length,length(),size()区别/">java中length,length(),size()区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/hexo 绑定域名/">hexo 绑定域名</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Word Search/">Word Search.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Valid Perfect Square/">Valid Perfect Square.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/ZigZag Conversion/">ZigZag Conversion.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Valid Palindrome/">Valid Palindrome.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Valid Parentheses/">Valid Parentheses.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Unique Paths/">Unique Paths.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Unique Paths II/">Unique Paths II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Ugly Number/">Ugly Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Ugly Number II/">Ugly Number II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Two Sum/">Two Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Third Maximum Number/">Third Maximum Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Triangle/">Triangle.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Two Sum II - Input array is sorted/">Two Sum II - Input array is sorted.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Sum of Two Integers/">Sum of Two Integers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Super Ugly Number/">Super Ugly Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Summary Ranges/">Summary Ranges.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Subsets/">Subsets.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Subsets II/">Subsets II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/String to Integer (atoi)/">String to Integer (atoi).java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Spiral Matrix/">Spiral Matrix.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Spiral Matrix II/">Spiral Matrix II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Sort Colors/">Sort Colors.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Single Number/">Single Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Simplify Path/">Simplify Path.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Set、List、Map的遍历/">Set、List、Map的遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search in Rotated Sorted Array/">Search in Rotated Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Set Matrix Zeroes/">Set Matrix Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search for a Range/">Search for a Range.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search in Rotated Sorted Array II/">Search in Rotated Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search a 2D Matrix/">Search a 2D Matrix.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Rotate Image/">Rotate Image.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Rotate Array/">Rotate Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search Insert Position/">Search Insert Position.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Roman to Integer/">Roman to Integer.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Reverse Words in a String/">Reverse Words in a String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Reverse Vowels of a String/">Reverse Vowels of a String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Reverse String/">Reverse String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Repeated Substring Pattern/">Repeated Substring Pattern.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Remove Element/">Remove Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Restore IP Addresses/">Restore IP Addresses.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Remove Duplicates from Sorted Array II/">Remove Duplicates from Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Reconstruct Original Digits from English/">Reconstruct Original Digits from English.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Remove Duplicates from Sorted Array/">Remove Duplicates from Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Ransom Note/">Ransom Note.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Product of Array Except Self/">Product of Array Except Self.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Power of Two/">Power of Two.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Power of Three/">Power of Three.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Plus One/">Plus One.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Pow(x, n)/">Pow(x, n).java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Perfect Squares/">Perfect Squares.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Nim Game/">Nim Game.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Pascal's Triangle II/">Pascal's Triangle II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Pascal's Triangle/">Pascal's Triangle.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Move Zeroes/">Move Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Multiply Strings/">Multiply Strings.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Next Permutation/">Next Permutation.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Minimum Path Sum/">Minimum Path Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Minimum Size Subarray Sum/">Minimum Size Subarray Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Missing Number/">Missing Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Minimum Moves to Equal Array Elements/">Minimum Moves to Equal Array Elements.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Minimum Moves to Equal Array Elements II/">Minimum Moves to Equal Array Elements II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Maximum Product Subarray/">Maximum Product Subarray.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Merge Sorted Array/">Merge Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Maximum Subarray/">Maximum Subarray.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Mini Parser/">Mini Parser.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Majority Element/">Majority Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Majority Element II/">Majority Element II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Maximum Depth of Binary Tree/">Maximum Depth of Binary Tree.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Longest Substring Without Repeating Characters/">Longest Substring Without Repeating Characters.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Longest Common Prefix/">Longest Common Prefix.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Longest Palindromic Substring/">Longest Palindromic Substring.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Length of Last Word/">Length of Last Word.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/List,Set,Map,数组间的相互转换/">List,Set,Map,数组间的相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Letter Combinations of a Phone Number/">Letter Combinations of a Phone Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Jump Game/">Jump Game.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java：String、StringBuffer和StringBuilder的区别/">Java：String、StringBuffer和StringBuilder的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java各种类型互相转换/">Java各种类型互相转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java中StringBuilder的用法/">Java中StringBuilder的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java接口Set用法/">Java接口Set用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java中List集合的常用操作/">Java中List集合的常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java Map 集合类简介/">Java Map 集合类简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Happy Number/">Happy Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Integer to Roman/">Integer to Roman.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Implement strStr()/">Implement strStr().java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Integer Break/">Integer Break.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Group Anagrams/">Group Anagrams.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Game of Life/">Game of Life.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Generate Parentheses/">Generate Parentheses.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find Peak Element/">Find Peak Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Fizz Buzz/">Fizz Buzz.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find Minimum in Rotated Sorted Array/">Find Minimum in Rotated Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find All Numbers Disappeared in an Array/">Find All Numbers Disappeared in an Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find Minimum in Rotated Sorted Array II/">Find Minimum in Rotated Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Factorial Trailing Zeroes/">Factorial Trailing Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Excel Sheet Column Title/">Excel Sheet Column Title.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find All Duplicates in an Array/">Find All Duplicates in an Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Excel Sheet Column Number/">Excel Sheet Column Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Count and Say/">Count and Say.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Decode Ways/">Decode Ways.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Count Numbers with Unique Digits/">Count Numbers with Unique Digits.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Contains Duplicate/">Contains Duplicate.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Contains Duplicate II/">Contains Duplicate II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Container With Most Water/">Container With Most Water.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Construct Binary Tree from Preorder and Inorder Traversal/">Construct Binary Tree from Preorder and Inorder Traversal.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Compare Version Numbers/">Compare Version Numbers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Construct Binary Tree from Inorder and Postorder Traversal/">Construct Binary Tree from Inorder and Postorder Traversal.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Combination Sum III/">Combination Sum III.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Combination Sum II/">Combination Sum II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Combination Sum/">Combination Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Bulb Switcher/">第100题Bulb Switcher.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Best Time to Buy and Sell Stock II/">Best Time to Buy and Sell Stock II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Best Time to Buy and Sell Stock/">Best Time to Buy and Sell Stock.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Basic Calculator II/">Basic Calculator II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Arrays.sort()的用法/">Arrays.sort()的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Arranging Coins/">Arranging Coins.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Arithmetic Slices/">Arithmetic Slices.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Add Strings/">Add Strings.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Add Binary/">Add Binary.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/3Sum/">3Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/4Sum/">4Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Add Digits/">Add Digits.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/3Sum Closest/">3Sum Closest.java</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Bo Pang
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
