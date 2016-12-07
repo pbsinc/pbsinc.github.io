@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Bo Pang" />
+
+
+
+<meta name="description" content="了解最常用的集合类型之一 Map 的基础知识以及如何针对您应用程序特有的数据优化 Map。java.util 中的集合类包含 Java 中某些最常用的类。最常用的集合类是 List 和 Map。List 的具体实现包括 ArrayList 和 Vector，它们是可变大小的列表，比较适合构建、存储和操作任何类型对象元素列表。List 适用于按数值索引访问元素的情形。Map 提供了一个更通用的元素存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Map 集合类简介">
+<meta property="og:url" content="http://pangbo.space/2016/12/06/Java Map 集合类简介/index.html">
+<meta property="og:site_name" content="Bo`s blog">
+<meta property="og:description" content="了解最常用的集合类型之一 Map 的基础知识以及如何针对您应用程序特有的数据优化 Map。java.util 中的集合类包含 Java 中某些最常用的类。最常用的集合类是 List 和 Map。List 的具体实现包括 ArrayList 和 Vector，它们是可变大小的列表，比较适合构建、存储和操作任何类型对象元素列表。List 适用于按数值索引访问元素的情形。Map 提供了一个更通用的元素存">
+<meta property="og:updated_time" content="2016-10-25T01:58:57.688Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java Map 集合类简介">
+<meta name="twitter:description" content="了解最常用的集合类型之一 Map 的基础知识以及如何针对您应用程序特有的数据优化 Map。java.util 中的集合类包含 Java 中某些最常用的类。最常用的集合类是 List 和 Map。List 的具体实现包括 ArrayList 和 Vector，它们是可变大小的列表，比较适合构建、存储和操作任何类型对象元素列表。List 适用于按数值索引访问元素的情形。Map 提供了一个更通用的元素存">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Bo`s blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Java Map 集合类简介 | Bo`s blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57ea7c0bb6e3347f"></script>
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Bo Pang</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Good good study , day day up!</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/pbs@bupt.edu.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/1648836177/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" href="http://music.163.com/#/user/home?id=38418826" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" href="https://www.facebook.com/bo.pang.73" title="Facebook"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arrays-sort-的用法/">Arrays.sort()的用法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigDecimal/">BigDecimal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigInteger/">BigInteger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Character-isDigit-chr-方法/">Character.isDigit(chr)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Character-isLetter-chr-方法/">Character.isLetter(chr)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections工具类/">Collections工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy/">Easy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Happy-Number-快乐数/">Happy Number 快乐数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hard/">Hard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integer内3的次方最大为3-19-1162261467/">Integer内3的次方最大为3^19=1162261467</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java中StringBuilder的用法/">Java中StringBuilder的用法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java各种类型互相转换/">Java各种类型互相转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java：String、StringBuffer和StringBuilder的区别/">Java：String、StringBuffer和StringBuilder的区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List-Set-Map-数组间的相互转换/">List,Set,Map,数组间的相互转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List要remove一个int对象/">List要remove一个int对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Medium/">Medium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/N-末尾零的个数/">N!末尾零的个数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Roman-Numeral/">Roman Numeral</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set、List、Map的详解与区别/">Set、List、Map的详解与区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set、List、Map的遍历/">Set、List、Map的遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String-equals-str-方法/">String.equals(str)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String-substring-方法/">String.substring( )方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String-trim-方法/">String.trim()方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String的分割str-split-正则-方法/">String的分割str.split(正则)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String转char/">String转char</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/break跳出多层for循环/">break跳出多层for循环</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/char和Character/">char和Character</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java中length-length-size-区别/">java中length,length(),size()区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java判断字符串String是否相等/">java判断字符串String是否相等</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java堆栈Stack类简介/">java堆栈Stack类简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java统一字符串大小写/">java统一字符串大小写</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long与Long/">long与Long</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long加不加L的区别/">long加不加L的区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/str-toLowerCase-方法/">str.toLowerCase()方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/str-toUpperCase-方法/">str.toUpperCase()方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/switch/">switch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一个或者多个空格的正则/">一个或者多个空格的正则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中序遍历/">中序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二叉树：先序遍历、中序遍历、后序遍历/">二叉树：先序遍历、中序遍历、后序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/值传递-引用传递/">值传递&引用传递</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/先序遍历/">先序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/判断String是否相等要用str-equals-xxx/">判断String是否相等要用str.equals("xxx")</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/判断是否为质数/">判断是否为质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡特兰数/">卡特兰数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后序遍历/">后序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/四平方和定理/">四平方和定理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名/">域名</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆和栈的区别/">堆和栈的区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多数投票算法/">多数投票算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对String排序/">对String排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/平方数-1-3-5-7/">平方数=1+3+5+7+...</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据类型的范围/">数据类型的范围</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数根问题/">数根问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/没做/">没做</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛顿迭代法求平方根/">牛顿迭代法求平方根</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重做/">重做</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">大隐隐于市</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Bo Pang</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Bo Pang</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Good good study , day day up!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/pbs@bupt.edu.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/1648836177/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="http://music.163.com/#/user/home?id=38418826" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" target="_blank" href="https://www.facebook.com/bo.pang.73" title="Facebook"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Java Map 集合类简介" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/06/Java Map 集合类简介/" class="article-date">
+      <time datetime="2016-12-06T09:19:34.081Z" itemprop="datePublished">2016-12-06</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java Map 集合类简介
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Map/">Map</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>了解最常用的集合类型之一 Map 的基础知识以及如何针对您应用程序特有的数据优化 Map。<br>java.util 中的集合类包含 Java 中某些最常用的类。最常用的集合类是 List 和 Map。List 的具体实现包括 ArrayList 和 Vector，它们是可变大小的列表，比较适合构建、存储和操作任何类型对象元素列表。List 适用于按数值索引访问元素的情形。<br>Map 提供了一个更通用的元素存储方法。Map 集合类用于存储元素对（称作“键”和“值”），其中每个键映射到一个值。从概念上而言，您可以将 List 看作是具有数值键的 Map。而实际上，除了 List 和 Map 都在定义 java.util 中外，两者并没有直接的联系。本文将着重介绍核心 Java 发行套件中附带的 Map，同时还将介绍如何采用或实现更适用于您应用程序特定数据的专用 Map。<br><a id="more"></a><br><strong>1.Map 接口和方法</strong><br>Java 核心类中有很多预定义的 Map 类。在介绍具体实现之前，我们先介绍一下 Map 接口本身，以便了解所有实现的共同点。Map 接口定义了四种类型的方法，每个 Map 都包含这些方法。下面，我们从两个普通的方法（表 1 ）开始对这些方法加以介绍。<br>表 1：覆盖的方法。我们将这 Object 的这两个方法覆盖，以正确比较 Map 对象的等价性。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">equals(Object o)	比较指定对象与此 Map 的等价性</div><div class="line">hashCode()	返回此 Map 的哈希码</div></pre></td></tr></table></figure></p>
+<p><strong>2.Map 构建</strong><br>Map 定义了几个用于插入和删除元素的变换方法（表 2 ）。<br>表 2：Map 更新方法： 可以更改 Map 内容。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">clear()	从 Map 中删除所有映射</div><div class="line">remove(Object key)	从 Map 中删除键和关联的值</div><div class="line">put(Object key, Object value)	将指定值与指定键相关联</div><div class="line">clear()	从 Map 中删除所有映射</div><div class="line">putAll(Map t)	将指定 Map 中的所有映射复制到此 map</div></pre></td></tr></table></figure></p>
+<p>尽管您可能注意到，纵然假设忽略构建一个需要传递给 putAll() 的 Map 的开销，使用 putAll() 通常也并不比使用大量的 put() 调用更有效率，但 putAll() 的存在一点也不稀奇。这是因为，putAll() 除了迭代 put() 所执行的将每个键值对添加到 Map 的算法以外，还需要迭代所传递的 Map 的元素。但应注意，putAll() 在添加所有元素之前可以正确调整 Map 的大小，因此如果您未亲自调整 Map 的大小（我们将对此进行简单介绍），则 putAll() 可能比预期的更有效。<br><strong>3.查看 Map</strong><br>表 3：返回视图的 Map 方法： 使用这些方法返回的对象，您可以遍历 Map 的元素，还可以删除 Map 中的元素。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">entrySet()	返回 Map 中所包含映射的 Set 视图。Set 中的每个元素都是一个 Map.Entry 对象，可以使用 getKey() 和 getValue() 方法（还有一个 setValue() 方法）访问后者的键元素和值元素</div><div class="line">keySet()	返回 Map 中所包含键的 Set 视图。删除 Set 中的元素还将删除 Map 中相应的映射（键和值）</div><div class="line">values()	返回 map 中所包含值的 Collection 视图。删除 Collection 中的元素还将删除 Map 中相应的映射（键和值）</div></pre></td></tr></table></figure></p>
+<p><strong>4.访问元素</strong><br>表 4 中列出了 Map 访问方法。Map 通常适合按键（而非按值）进行访问。Map 定义中没有规定这肯定是真的，但通常您可以期望这是真的。例如，您可以期望 containsKey() 方法与 get() 方法一样快。另一方面，containsValue() 方法很可能需要扫描 Map 中的值，因此它的速度可能比较慢。<br>表 4：Map 访问和测试方法： 这些方法检索有关 Map 内容的信息但不更改 Map 内容。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">get(Object key)	返回与指定键关联的值</div><div class="line">containsKey(Object key)	如果 Map 包含指定键的映射，则返回 <span class="function"><span class="keyword">true</span></span></div><div class="line"><span class="title">containsValue</span><span class="params">(Object value)</span>	如果此 Map 将一个或多个键映射到指定值，则返回 <span class="keyword">true</span></div><div class="line"><span class="title">isEmpty</span><span class="params">()</span>	如果 Map 不包含键-值映射，则返回 <span class="keyword">true</span></div><div class="line"><span class="title">size</span><span class="params">()</span>	返回 Map 中的键-值映射的数目</div></pre></td></tr></table></figure></p>
+<p>对使用 containsKey() 和 containsValue() 遍历 HashMap 中所有元素所需时间的测试表明，containsValue() 所需的时间要长很多。实际上要长几个数量级！（参见图 1 和图 2 ，以及随附文件中的 。因此，如果 containsValue() 是应用程序中的性能问题，它将很快显现出来，并可以通过监测您的应用程序轻松地将其识别。这种情况下，我相信您能够想出一个有效的替换方法来实现 containsValue() 提供的等效功能。但如果想不出办法，则一个可行的解决方案是再创建一个 Map，并将第一个 Map 的所有值作为键。这样，第一个 Map 上的 containsValue() 将成为第二个 Map 上更有效的 containsKey()。</p>
+<p><strong>5.核心 Map</strong><br>Java 自带了各种 Map 类。这些 Map 类可归为三种类型：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>.通用 Map，用于在应用程序中管理映射，通常在 java.util 程序包中实现</div><div class="line">	HashMap</div><div class="line">	Hashtable</div><div class="line">	Properties</div><div class="line">	LinkedHashMap</div><div class="line">	IdentityHashMap</div><div class="line">	TreeMap</div><div class="line">	WeakHashMap</div><div class="line">	ConcurrentHashMap</div><div class="line"><span class="number">2</span>.专用 Map，您通常不必亲自创建此类 Map，而是通过某些其他类对其进行访问</div><div class="line">	java.util.jar.Attributes</div><div class="line">	javax.print.attribute.standard.PrinterStateReasons</div><div class="line">	java.security.Provider</div><div class="line">	java.awt.RenderingHints</div><div class="line">	javax.swing.UIDefaults</div><div class="line"><span class="number">3</span>.一个用于帮助实现您自己的 Map 类的抽象类</div><div class="line">	AbstractMap</div></pre></td></tr></table></figure></p>
+<p><strong>6.选择适当的 Map</strong><br>应使用哪种 Map？ 它是否需要同步？ 要获得应用程序的最佳性能，这可能是所面临的两个最重要的问题。当使用通用 Map 时，调整 Map 大小和选择负载因子涵盖了 Map 调整选项。<br>以下是一个用于获得最佳 Map 性能的简单方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>.将您的所有 Map 变量声明为 Map，而不是任何具体实现，即不要声明为 HashMap 或 Hashtable，或任何其他 Map 类实现。</div><div class="line">	Map criticalMap = <span class="keyword">new</span> HashMap(); <span class="comment">//好</span></div><div class="line">	HashMap criticalMap = <span class="keyword">new</span> HashMap(); <span class="comment">//差</span></div><div class="line"> </div><div class="line"><span class="number">2</span>.这使您能够只更改一行代码即可非常轻松地替换任何特定的 Map 实例。</div><div class="line"></div><div class="line"><span class="number">3</span>.下载 Doug Lea 的 util.concurrent 程序包 (http:<span class="comment">//gee.cs.oswego.edu/dl/classes/EDU/oswego/cs/dl/util/concurrent/intro.html)。将 ConcurrentHashMap 用作默认 Map。当移植到 1.5 版时，将 java.util.concurrent.ConcurrentHashMap 用作您的默认 Map。不要将 ConcurrentHashMap 包装在同步的包装器中，即使它将用于多个线程。使用默认大小和负载因子。</span></div><div class="line">监测您的应用程序。如果发现某个 Map 造成瓶颈，则分析造成瓶颈的原因，并部分或全部更改该 Map 的以下内容：Map 类；Map 大小；负载因子；关键对象 equals() 方法实现。专用的 Map 的基本上都需要特殊用途的定制 Map 实现，否则通用 Map 将实现您所需的性能目标。</div></pre></td></tr></table></figure></p>
+<p>不要为您的设计选择任何特定的 Map，除非实际的设计需要指定一个特殊类型的 Map。设计时通常不需要选择具体的 Map 实现。您可能知道自己需要一个 Map，但不知道使用哪种。而这恰恰就是使用 Map 接口的意义所在。直到需要时再选择 Map 实现 — 如果随处使用“Map”声明的变量，则更改应用程序中任何特殊 Map 的 Map 实现只需要更改一行，这是一种开销很少的调整选择。</p>
+<p><strong>最后，更多内容，内部哈希： 哈希映射技术，优化 Hasmap，调整 Map 实现的大小，使用负载因子，同步 Map，本文转自：</strong><br><a href="http://www.oracle.com/technetwork/cn/articles/maps1-100947-zhs.html" target="_blank" rel="external">http://www.oracle.com/technetwork/cn/articles/maps1-100947-zhs.html</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/12/06/Java Map 集合类简介/">Java Map 集合类简介</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
+        <p><span>发布时间:</span>2016-12-06, 17:19:34</p>
+        <p><span>最后更新:</span>2016-10-25, 09:58:57</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/06/Java Map 集合类简介/" title="Java Map 集合类简介">http://pangbo.space/2016/12/06/Java Map 集合类简介/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/06/Java Map 集合类简介/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/12/06/Find Peak Element/">
+                    Find Peak Element.java
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/12/06/Find Minimum in Rotated Sorted Array II/">
+                    Find Minimum in Rotated Sorted Array II.java
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Java Map 集合类简介　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/06/Java Map 集合类简介/" data-title="Java Map 集合类简介" data-url="http://pangbo.space/2016/12/06/Java Map 集合类简介/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"pbsinc"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/12/06/Find Peak Element/" title="上一篇: Find Peak Element.java">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/12/06/Find Minimum in Rotated Sorted Array II/" title="下一篇: Find Minimum in Rotated Sorted Array II.java">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/ssssssssssssss/">ssssss.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/集合Collections工具类用法/">集合Collections工具类用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/二叉树：先序遍历、中序遍历、后序遍历/">二叉树：先序遍历、中序遍历、后序遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/动态规划算法 Dynamic Programming/">动态规划算法 Dynamic Programming</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Word Search/">Word Search.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/ZigZag Conversion/">ZigZag Conversion.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/堆和栈的区别/">堆和栈的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Valid Parentheses/">Valid Parentheses.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Valid Perfect Square/">Valid Perfect Square.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Valid Palindrome/">Valid Palindrome.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Unique Paths/">Unique Paths.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Unique Paths II/">Unique Paths II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Two Sum II - Input array is sorted/">Two Sum II - Input array is sorted.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Ugly Number/">Ugly Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Ugly Number II/">Ugly Number II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Two Sum/">Two Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Triangle/">Triangle.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Third Maximum Number/">Third Maximum Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Super Ugly Number/">Super Ugly Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Sum of Two Integers/">Sum of Two Integers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Summary Ranges/">Summary Ranges.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Subsets/">Subsets.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Subsets II/">Subsets II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/String to Integer (atoi)/">String to Integer (atoi).java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Search Insert Position/">Search Insert Position.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Spiral Matrix/">Spiral Matrix.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Sort Colors/">Sort Colors.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Single Number/">Single Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Set Matrix Zeroes/">Set Matrix Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Simplify Path/">Simplify Path.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Set、List、Map的遍历/">Set、List、Map的遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Search in Rotated Sorted Array/">Search in Rotated Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Search in Rotated Sorted Array II/">Search in Rotated Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Spiral Matrix II/">Spiral Matrix II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Search for a Range/">Search for a Range.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Search a 2D Matrix/">Search a 2D Matrix.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Rotate Image/">Rotate Image.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Rotate Array/">Rotate Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Roman to Integer/">Roman to Integer.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Reverse Words in a String/">Reverse Words in a String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Reverse Vowels of a String/">Reverse Vowels of a String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Reverse String/">Reverse String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Restore IP Addresses/">Restore IP Addresses.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Repeated Substring Pattern/">Repeated Substring Pattern.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Remove Element/">Remove Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Remove Duplicates from Sorted Array/">Remove Duplicates from Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Remove Duplicates from Sorted Array II/">Remove Duplicates from Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Nim Game/">Nim Game.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Product of Array Except Self/">Product of Array Except Self.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Ransom Note/">Ransom Note.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Reconstruct Original Digits from English/">Reconstruct Original Digits from English.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Power of Three/">Power of Three.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Power of Two/">Power of Two.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Pow(x, n)/">Pow(x, n).java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Plus One/">Plus One.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Multiply Strings/">Multiply Strings.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Pascal's Triangle/">Pascal's Triangle.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Perfect Squares/">Perfect Squares.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Pascal's Triangle II/">Pascal's Triangle II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Next Permutation/">Next Permutation.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Move Zeroes/">Move Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Missing Number/">Missing Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Minimum Moves to Equal Array Elements/">Minimum Moves to Equal Array Elements.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Minimum Moves to Equal Array Elements II/">Minimum Moves to Equal Array Elements II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Mini Parser/">Mini Parser.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Merge Sorted Array/">Merge Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Minimum Path Sum/">Minimum Path Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Maximum Subarray/">Maximum Subarray.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Minimum Size Subarray Sum/">Minimum Size Subarray Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Maximum Product Subarray/">Maximum Product Subarray.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Maximum Depth of Binary Tree/">Maximum Depth of Binary Tree.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Majority Element/">Majority Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Majority Element II/">Majority Element II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/long与Long的区别，long型最后有无L的区别/">long与Long的区别，long型最后有无L的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Longest Substring Without Repeating Characters/">Longest Substring Without Repeating Characters.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Longest Palindromic Substring/">Longest Palindromic Substring.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Longest Common Prefix/">Longest Common Prefix.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/List,Set,Map,数组间的相互转换/">List,Set,Map,数组间的相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Letter Combinations of a Phone Number/">Letter Combinations of a Phone Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Length of Last Word/">Length of Last Word.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Jump Game/">Jump Game.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Java：String、StringBuffer和StringBuilder的区别/">Java：String、StringBuffer和StringBuilder的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Java接口Set用法/">Java接口Set用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/java堆栈Stack类简介/">java堆栈Stack类简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Java各种类型互相转换/">Java各种类型互相转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/java各数据类型的范围/">java各数据类型的范围</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/java判断字符串String是否相等/">java判断字符串String是否相等</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/java值传递&引用传递/">java值传递&引用传递</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Java中List集合的常用操作/">Java中List集合的常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Java中StringBuilder的用法/">Java中StringBuilder的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/java中大数的表示BigInteger和BigDecimal/">java中大数的表示BigInteger和BigDecimal</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Group Anagrams/">Group Anagrams.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Game of Life/">Game of Life.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Fizz Buzz/">Fizz Buzz.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Find Peak Element/">Find Peak Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Java Map 集合类简介/">Java Map 集合类简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Find Minimum in Rotated Sorted Array II/">Find Minimum in Rotated Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Integer to Roman/">Integer to Roman.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/hexo 绑定域名/">hexo 绑定域名</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Integer Break/">Integer Break.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Implement strStr()/">Implement strStr().java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Happy Number/">Happy Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Generate Parentheses/">Generate Parentheses.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/java中length,length(),size()区别/">java中length,length(),size()区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Find Minimum in Rotated Sorted Array/">Find Minimum in Rotated Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Find All Numbers Disappeared in an Array/">Find All Numbers Disappeared in an Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Count Numbers with Unique Digits/">Count Numbers with Unique Digits.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Contains Duplicate/">Contains Duplicate.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Excel Sheet Column Title/">Excel Sheet Column Title.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Factorial Trailing Zeroes/">Factorial Trailing Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Excel Sheet Column Number/">Excel Sheet Column Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Decode Ways/">Decode Ways.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Count and Say/">Count and Say.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Find All Duplicates in an Array/">Find All Duplicates in an Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Construct Binary Tree from Inorder and Postorder Traversal/">Construct Binary Tree from Inorder and Postorder Traversal.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Combination Sum II/">Combination Sum II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Compare Version Numbers/">Compare Version Numbers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Combination Sum/">Combination Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Combination Sum III/">Combination Sum III.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Construct Binary Tree from Preorder and Inorder Traversal/">Construct Binary Tree from Preorder and Inorder Traversal.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Container With Most Water/">Container With Most Water.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Contains Duplicate II/">Contains Duplicate II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Basic Calculator II/">Basic Calculator II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Best Time to Buy and Sell Stock/">Best Time to Buy and Sell Stock.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Bulb Switcher/">第100题Bulb Switcher.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Arrays.sort()的用法/">Arrays.sort()的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Arranging Coins/">Arranging Coins.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Add Binary/">Add Binary.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Arithmetic Slices/">Arithmetic Slices.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Best Time to Buy and Sell Stock II/">Best Time to Buy and Sell Stock II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/3Sum/">3Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Add Strings/">Add Strings.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/Add Digits/">Add Digits.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/4Sum/">4Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/06/3Sum Closest/">3Sum Closest.java</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Bo Pang
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
