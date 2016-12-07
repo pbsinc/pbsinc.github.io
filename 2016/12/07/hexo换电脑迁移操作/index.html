@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given an array of non-negative integers, you are initially positioned at the first index of the array.Each element in the array represents your maximum jump length at that position.Determine if you ar">
+<meta name="description" content="实验室要换新电脑，尴尬了，一直拖着没学的hexo迁移问题不得不解决了…下面就是用的教程：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jump Game.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/Jump Game/index.html">
+<meta property="og:title" content="hexo换电脑迁移操作">
+<meta property="og:url" content="http://pangbo.space/2016/12/07/hexo换电脑迁移操作/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given an array of non-negative integers, you are initially positioned at the first index of the array.Each element in the array represents your maximum jump length at that position.Determine if you ar">
-<meta property="og:updated_time" content="2016-12-07T06:40:32.019Z">
+<meta property="og:description" content="实验室要换新电脑，尴尬了，一直拖着没学的hexo迁移问题不得不解决了…下面就是用的教程：">
+<meta property="og:updated_time" content="2016-12-07T09:36:21.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jump Game.java">
-<meta name="twitter:description" content="Given an array of non-negative integers, you are initially positioned at the first index of the array.Each element in the array represents your maximum jump length at that position.Determine if you ar">
+<meta name="twitter:title" content="hexo换电脑迁移操作">
+<meta name="twitter:description" content="实验室要换新电脑，尴尬了，一直拖着没学的hexo迁移问题不得不解决了…下面就是用的教程：">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Jump Game.java | Bo`s blog</title>
+<title>hexo换电脑迁移操作 | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Jump Game" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-hexo换电脑迁移操作" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Jump Game/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.019Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/07/hexo换电脑迁移操作/" class="article-date">
+      <time datetime="2016-12-07T07:40:29.017Z" itemprop="datePublished">2016-12-07</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Jump Game.java
+      hexo换电脑迁移操作
     </h1>
   
 
@@ -302,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+    <a class="article-category-link" href="/categories/教程/">教程</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo迁移/">hexo迁移</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,7 +318,35 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given an array of non-negative integers, you are initially positioned at the first index of the array.<br>Each element in the array represents your maximum jump length at that position.<br>Determine if you are able to reach the last index.<br>For example:<br>A = [2,3,1,1,4], return true.<br>A = [3,2,1,0,4], return false.<br><a id="more"></a><br><strong>思路：</strong><br>取到每次跳动可以最远的位置作为新的起点，变量变化比较多，注意。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canJump</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> end = nums.length-<span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span> start = <span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span> jump = nums[<span class="number">0</span>];</div><div class="line">		<span class="keyword">if</span>(end == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">while</span>(start&lt;=end)&#123;</div><div class="line">			<span class="keyword">int</span> temp = start;		</div><div class="line">			<span class="keyword">int</span> max=<span class="number">0</span>;		</div><div class="line">			start += jump;</div><div class="line">			<span class="keyword">if</span>(start &gt;= end)</div><div class="line">				<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">			<span class="keyword">int</span> temp2 = start;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=temp+<span class="number">1</span>;i&lt;=temp2;i++)&#123;</div><div class="line">				<span class="keyword">if</span>(nums[i]+i &gt;= max)&#123;</div><div class="line">					max = nums[i]+i;</div><div class="line">					jump = nums[i];</div><div class="line">					start = i;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(jump == <span class="number">0</span>)</div><div class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>实验室要换新电脑，尴尬了，一直拖着没学的hexo迁移问题不得不解决了…下面就是用的教程：<br><a id="more"></a><br><strong>github上创建source仓库：</strong><br>把所有post的md放到github上，备份了；<br><a href="http://nodlee.com/2015/06/07/how-to-porting-hexo/#more" target="_blank" rel="external">http://nodlee.com/2015/06/07/how-to-porting-hexo/#more</a></p>
+<p>注：我把hexo的文件夹压缩后保存在百度云，每次下下来解压就好，网站的主题样式等配置全都备份了相当于；</p>
+<p><strong>在新电脑上：</strong><br><strong>1.配置hexo：</strong><br>Hexo安装和搭建依赖Nodejs(<a href="https://nodejs.org/en/)和Git(https://git-scm.com/),可自行下载。" target="_blank" rel="external">https://nodejs.org/en/)和Git(https://git-scm.com/),可自行下载。</a><br>然后在桌面运行Git bash;<br>使用以下命令安装hexo到全局</p>
+<pre><code>$ npm install -g hexo
+</code></pre><p>然后输入命令hexo -v输入hexo的版本号即为安装成功。</p>
+<p>除此之外，相信大多数人都知道，要想使用git命令来和github进行提交部署等操作，需要进行一些配置，大概就是下面一些命令，如不明白请自行搜索。</p>
+<pre><code>git config --global user.email xxx@163.com
+git config --global user.name xxx
+ssh-keygen -t rsa -C xxx@163.com(邮箱地址)      // 生成ssh
+找到.ssh文件夹打开，使用cat id_rsa.pub    //打开公钥ssh串
+登陆github，settings － SSH keys  － add ssh keys（把上面的内容全部添加进去即可）    
+</code></pre><p><strong>2.获取源文件source文件夹:</strong><br>先从百度云把hexo压缩包下下来解压，网站主题这些都不用变；<br>接下来是将Github中的源文件抓取到新设备的Hexo目录中，具体操作如下：</p>
+<p>进入hexo初始化目录，删除source文件夹(如果新设备中已经有文章数据，建议先备份，等抓取完成后，再拷贝到source文件夹中)，避免和远程仓库名字冲突。<br>右键，选择 git bash。<br>输入命令 git clone <a href="http://github.com/" target="_blank" rel="external">http://github.com/</a><username>/source.git克隆Github上的源文件到当前目录。<br>现在博客的源文件已经更新到新设备上了，我们测试一下，重新生成(hexo generate)、发布(hexo deploy),然后在网页端检查是否发布成功。    </username></p>
+<p><strong>3.部署到github:    </strong><br>上面所有的操作完成之后，你就可以将你的Blog项目部署到github上了。</p>
+<p>然后像往常一样，进入folder运行Git bash，然后使用以下命令进行部署。</p>
+<pre><code>$ hexo deploy
+</code></pre><p>备注：如果执行上述命令报错，你可以试试下面这个命令再试。</p>
+<pre><code>$ npm install hexo-deployer-git --save
+</code></pre><p>第一次部署的时候会提示输入github的账号和密码。<br><a href="http://luckykun.com/work/2016-04-23/heoll-hexo.html" target="_blank" rel="external">http://luckykun.com/work/2016-04-23/heoll-hexo.html</a></p>
+<p><strong>每次写新文章后更新源文件source：</strong><br>如新文章为abc.md</p>
+<pre><code>1.也可输入命令 hexo new post &quot;abc&quot;创建文章。(直接复制方便)
+2.进入 source 文件夹，右键，选择 Git bash.
+3.输入命令 git status，查看本地仓库状态。
+(在状态报告中可以看到新建的 abc.md 文件出现在“Untracked files”下面。未跟踪的文件意味着Git在之前的提交中没有这些文件。)
+4.输入命令 **git add . **添加新文章到暂存区域。
+5.输入命令 **git commit -m &quot;备注信息&quot; **提交新添加的文章至本地仓库。
+6.输入命令 **git push -f **强行提交至远程仓库。
+</code></pre><p>回到Github检查新添加的文章是否添加成功。到目前为止，博客移植的主要三个操作已经介绍完毕。简单回顾下整个流程：第一步是上传旧设备中的源文件到Github中。第二步是获取Github上源文件。第三步开始写作，撰写文章，生成站点文件然后发布，更新源文件到Github。</p>
+<p>不论是在旧设备还是新设备，每次在写作前记得先抓取远程数据更新到本地，写作完成后更新新内容到远程，慢慢的养成更新习惯。</p>
 
       
     </div>
@@ -327,13 +355,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/07/Jump Game/">Jump Game.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/07/hexo换电脑迁移操作/">hexo换电脑迁移操作</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-07, 14:40:32</p>
-        <p><span>最后更新:</span>2016-12-07, 14:40:32</p>
+        <p><span>发布时间:</span>2016-12-07, 15:40:29</p>
+        <p><span>最后更新:</span>2016-12-07, 17:36:21</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/07/Jump Game/" title="Jump Game.java">http://pangbo.space/2016/12/07/Jump Game/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/Jump Game/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/07/hexo换电脑迁移操作/" title="hexo换电脑迁移操作">http://pangbo.space/2016/12/07/hexo换电脑迁移操作/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/hexo换电脑迁移操作/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +373,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/Length of Last Word/">
-                    Length of Last Word.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/Java：String、StringBuffer和StringBuilder的区别/">
-                    Java：String、StringBuffer和StringBuilder的区别
+                <a href="/2016/12/07/堆和栈的区别/">
+                    堆和栈的区别
                 </a>
             </div>
         
@@ -402,7 +424,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Jump Game.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"hexo换电脑迁移操作　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +442,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/Jump Game/" data-title="Jump Game.java" data-url="http://pangbo.space/2016/12/07/Jump Game/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/hexo换电脑迁移操作/" data-title="hexo换电脑迁移操作" data-url="http://pangbo.space/2016/12/07/hexo换电脑迁移操作/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -443,15 +465,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/Length of Last Word/" title="上一篇: Length of Last Word.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/Java：String、StringBuffer和StringBuilder的区别/" title="下一篇: Java：String、StringBuffer和StringBuilder的区别">
+            <a href="/2016/12/07/堆和栈的区别/" title="下一篇: 堆和栈的区别">
                 <i class="fa fa-angle-right"></i>
             </a>
         
