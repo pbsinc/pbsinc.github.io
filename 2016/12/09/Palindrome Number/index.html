@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.For example, given n = 3, a solution set is:1234567[  &quot;((()))&quot;,  &quot;(()())&quot;,  &quot;(())()&quot;,  &quot;()(())&quot;,">
+<meta name="description" content="Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, …) which sum to n.For example, given n = 12, return 3 because 12 = 4 + 4 + 4; given n = 13, retur">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Generate Parentheses.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/Generate Parentheses/index.html">
+<meta property="og:title" content="Palindrome Number.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/09/Palindrome Number/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.For example, given n = 3, a solution set is:1234567[  &quot;((()))&quot;,  &quot;(()())&quot;,  &quot;(())()&quot;,  &quot;()(())&quot;,">
-<meta property="og:updated_time" content="2016-11-22T09:11:50.000Z">
+<meta property="og:description" content="Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, …) which sum to n.For example, given n = 12, return 3 because 12 = 4 + 4 + 4; given n = 13, retur">
+<meta property="og:updated_time" content="2016-12-09T01:50:39.964Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Generate Parentheses.java">
-<meta name="twitter:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.For example, given n = 3, a solution set is:1234567[  &quot;((()))&quot;,  &quot;(()())&quot;,  &quot;(())()&quot;,  &quot;()(())&quot;,">
+<meta name="twitter:title" content="Palindrome Number.java">
+<meta name="twitter:description" content="Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, …) which sum to n.For example, given n = 12, return 3 because 12 = 4 + 4 + 4; given n = 13, retur">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Generate Parentheses.java | Bo`s blog</title>
+<title>Palindrome Number.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Generate Parentheses" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Palindrome Number" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Generate Parentheses/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.015Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/09/Palindrome Number/" class="article-date">
+      <time datetime="2016-12-09T01:34:10.812Z" itemprop="datePublished">2016-12-09</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Generate Parentheses.java
+      Palindrome Number.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/卡特兰数/">卡特兰数</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,15 +318,56 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.<br>For example, given n = 3, a solution set is:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  <span class="string">"((()))"</span>,</div><div class="line">  <span class="string">"(()())"</span>,</div><div class="line">  <span class="string">"(())()"</span>,</div><div class="line">  <span class="string">"()(())"</span>,</div><div class="line">  <span class="string">"()()()"</span></div><div class="line">]</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p><strong>思路：</strong><br>这道题按照DFS那种递归想法解决。<br>给定的n为括号对，所以就是有n个左括号和n个右括号的组合。</p>
-<pre><code>1. 如果左括号数还没有用完，那么我们能继续放置左括号
-2. 如果已经放置的左括号数大于已经放置的右括号数，那么我们可以放置右括号 （如果放置的右括号数大于放置的左括号数，会出现不合法组合，也就是剩余的左括号大于有括号的时候，类似“)(” 这种解是不合法的。）
-</code></pre><p>所以，运用dfs在每一层递归中，如果满足条件先放置左括号，如果满足条件再放置右括号</p>
-<p>直接把str ＋（添加的字符）当参数传入下一层调用函数，这样返回后在上一层是之前传入的参数，不用删字符<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        ArrayList&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">		<span class="keyword">int</span> left = n, right = n;</div><div class="line">		String str = <span class="keyword">new</span> String();</div><div class="line">		dfs(res,str,left,right);</div><div class="line">		<span class="keyword">return</span> res;</div><div class="line">		</div><div class="line">    &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(ArrayList&lt;String&gt; res,String str,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(left &gt; right) <span class="keyword">return</span>;             <span class="comment">//left:可用左括号数；right：可用右括号数</span></div><div class="line">		<span class="keyword">if</span>(left==<span class="number">0</span> &amp;&amp; right==<span class="number">0</span>) &#123;</div><div class="line">			res.add(str);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(left &gt; <span class="number">0</span>)&#123;</div><div class="line">			dfs(res,str+<span class="string">"("</span>,left-<span class="number">1</span>,right);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(right &gt; <span class="number">0</span>)&#123;</div><div class="line">			dfs(res,str+<span class="string">")"</span>,left,right-<span class="number">1</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>卡特兰数：</strong><br>这道题其实是关于卡特兰数的，如果只是要输出结果有多少组，那么直接用卡特兰数的公式就可以。</p>
-<p>“从《编程之美》买票找零问题说起，娓娓道来卡特兰数——兼爬坑指南”<br><a href="http://www.cnblogs.com/wuyuegb2312/p/3016878.html" target="_blank" rel="external">http://www.cnblogs.com/wuyuegb2312/p/3016878.html</a></p>
+        <p>Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, …) which sum to n.<br>For example, given n = 12, return 3 because 12 = 4 + 4 + 4; given n = 13, return 2 because 13 = 4 + 9.<br><a id="more"></a><br><strong>思路：</strong><br>转成string,前后比较；</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{
+        String strx = String.valueOf(x);
+        <span class="keyword">if</span>(strx.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;
+        <span class="keyword">if</span>(strx.length() == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">true</span>;
+        <span class="keyword">boolean</span> res = <span class="keyword">true</span>;
+        <span class="keyword">int</span> left = <span class="number">0</span>, right = strx.length()-<span class="number">1</span>;
+        <span class="keyword">while</span>(left&lt;=right){
+            <span class="keyword">if</span>(strx.charAt(left) == strx.charAt(right)){
+                left++;
+                right--;
+            }<span class="keyword">else</span>{
+                res = <span class="keyword">false</span>;
+                <span class="keyword">break</span>;
+            }
+
+        }
+        <span class="keyword">return</span> res;
+    }
+}
+</code></pre>
+<p><strong>思路2：</strong><br>每次取第一个数和最后一个数比较；</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{
+        <span class="comment">//negative numbers are not palindrome</span>
+        <span class="keyword">if</span> (x &lt; <span class="number">0</span>)
+            <span class="keyword">return</span> <span class="keyword">false</span>;
+
+        <span class="comment">// initialize how many zeros</span>
+        <span class="keyword">int</span> div = <span class="number">1</span>;
+        <span class="keyword">while</span> (x / div &gt;= <span class="number">10</span>) {
+            div *= <span class="number">10</span>;
+        }
+
+        <span class="keyword">while</span> (x != <span class="number">0</span>) {
+            <span class="keyword">int</span> left = x / div;
+            <span class="keyword">int</span> right = x % <span class="number">10</span>;
+
+            <span class="keyword">if</span> (left != right)
+                <span class="keyword">return</span> <span class="keyword">false</span>;
+
+            x = (x % div) / <span class="number">10</span>;
+            div /= <span class="number">100</span>;
+        }
+
+        <span class="keyword">return</span> <span class="keyword">true</span>;
+    }
+}
+</code></pre>
 
       
     </div>
@@ -335,13 +376,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/07/Generate Parentheses/">Generate Parentheses.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/09/Palindrome Number/">Palindrome Number.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-07, 14:40:32</p>
-        <p><span>最后更新:</span>2016-11-22, 17:11:50</p>
+        <p><span>发布时间:</span>2016-12-09, 09:34:10</p>
+        <p><span>最后更新:</span>2016-12-09, 09:50:39</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/07/Generate Parentheses/" title="Generate Parentheses.java">http://pangbo.space/2016/12/07/Generate Parentheses/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/Generate Parentheses/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/09/Palindrome Number/" title="Palindrome Number.java">http://pangbo.space/2016/12/09/Palindrome Number/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/09/Palindrome Number/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -353,16 +394,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/Group Anagrams/">
-                    Group Anagrams.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/Game of Life/">
-                    Game of Life.java
+                <a href="/2016/12/07/hexo换电脑迁移操作/">
+                    hexo换电脑迁移操作
                 </a>
             </div>
         
@@ -410,7 +445,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Generate Parentheses.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Palindrome Number.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -428,7 +463,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/Generate Parentheses/" data-title="Generate Parentheses.java" data-url="http://pangbo.space/2016/12/07/Generate Parentheses/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/09/Palindrome Number/" data-title="Palindrome Number.java" data-url="http://pangbo.space/2016/12/09/Palindrome Number/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -451,15 +486,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/Group Anagrams/" title="上一篇: Group Anagrams.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/Game of Life/" title="下一篇: Game of Life.java">
+            <a href="/2016/12/07/hexo换电脑迁移操作/" title="下一篇: hexo换电脑迁移操作">
                 <i class="fa fa-angle-right"></i>
             </a>
         
