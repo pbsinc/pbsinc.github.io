@@ -280,11 +280,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-java各数据类型的范围" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-二叉树：先序遍历、中序遍历、后序遍历" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/java各数据类型的范围/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.047Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/07/二叉树：先序遍历、中序遍历、后序遍历/" class="article-date">
+      <time datetime="2016-12-07T06:40:32.048Z" itemprop="datePublished">2016-12-07</time>
 </a>
 
 
@@ -299,7 +299,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/07/java各数据类型的范围/">java各数据类型的范围</a>
+      <a class="article-title" href="/2016/12/07/二叉树：先序遍历、中序遍历、后序遍历/">二叉树：先序遍历、中序遍历、后序遍历</a>
     </h1>
   
 
@@ -309,70 +309,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Boolean ：<span class="keyword">true</span>、<span class="keyword">false</span></div><div class="line">Char 	<span class="number">2</span>个字节Byte (<span class="number">16</span>bit) </div><div class="line"><span class="keyword">byte</span>    <span class="number">1</span>个字节Byte (<span class="number">8</span>bit)     -<span class="number">2</span>^<span class="number">7</span>~<span class="number">2</span>^<span class="number">7</span>-<span class="number">1</span>      -<span class="number">128</span> ~ <span class="number">127</span></div><div class="line"><span class="keyword">short</span>   <span class="number">2</span>个字节Byte (<span class="number">16</span>bit)    -<span class="number">2</span>^<span class="number">16</span>~<span class="number">2</span>^<span class="number">16</span>-<span class="number">1</span>    -<span class="number">32768</span> ~ <span class="number">32767</span>			</div><div class="line"><span class="keyword">int</span>     <span class="number">4</span>个字节Byte (<span class="number">32</span>bit)    -<span class="number">2</span>^<span class="number">31</span>~<span class="number">2</span>^<span class="number">31</span>-<span class="number">1</span>    -<span class="number">2147483648</span> ~ <span class="number">2147483647</span>    Integer.MIN_VALUE ~ Integer.MAX_VALUE</div><div class="line"><span class="keyword">long</span>    <span class="number">8</span>个字节Byte (<span class="number">64</span>bit)    -<span class="number">2</span>^<span class="number">63</span>~<span class="number">2</span>^<span class="number">63</span>-<span class="number">1</span>    -<span class="number">9223372036854775808</span> ~ <span class="number">9223372036854775807</span></div><div class="line"><span class="keyword">float</span>   <span class="number">4</span>个字节Byte (<span class="number">32</span>bit)    <span class="number">1.17549435E-38</span> ~ <span class="number">1.4E-45</span></div><div class="line"><span class="keyword">double</span>  <span class="number">8</span>个字节Byte (<span class="number">64</span>bit)    <span class="number">4.9E-324</span> ~ <span class="number">1.7976931348623157E308</span></div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据类型的范围/">数据类型的范围</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java判断字符串String是否相等" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/07/java判断字符串String是否相等/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.047Z" itemprop="datePublished">2016-12-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/07/java判断字符串String是否相等/">java判断字符串String是否相等</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>String 的.equals(“xxx”) 方法用于比较两个字符串是否相等。<br>由于字符串是对象类型，所以不能用简单的“==”判断。而使用equals比较两个对象的内容是否相等。<br>注意：<br>.equals(“xxx”)比较的是对象的内容（区分字母的大小写格式），但是如果使用“==”比较两个对象时，比较的是两个对象的内存地址，所以不相等。<br>即使它们内容相等，但是不同对象的内存地址也是不相同的。<br>
+              <p>本文实例讲述了二叉树的先序遍历、中序遍历、后序遍历的特点:<br>
           
       
     </div>
@@ -387,12 +324,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java判断字符串String是否相等/">java判断字符串String是否相等</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二叉树：先序遍历、中序遍历、后序遍历/">二叉树：先序遍历、中序遍历、后序遍历</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2016/12/07/java判断字符串String是否相等/#more">more >></a>
+          <a href="/2016/12/07/二叉树：先序遍历、中序遍历、后序遍历/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -479,11 +416,11 @@
 
 
   
-    <article id="post-java中length,length(),size()区别" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java判断字符串String是否相等" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/java中length,length(),size()区别/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.046Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/07/java判断字符串String是否相等/" class="article-date">
+      <time datetime="2016-12-07T06:40:32.047Z" itemprop="datePublished">2016-12-07</time>
 </a>
 
 
@@ -498,7 +435,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/07/java中length,length(),size()区别/">java中length,length(),size()区别</a>
+      <a class="article-title" href="/2016/12/07/java判断字符串String是否相等/">java判断字符串String是否相等</a>
     </h1>
   
 
@@ -508,12 +445,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <ol>
-<li><p>Java中的<strong>length</strong>属性是针对数组说的,比如说你声明了一个数组,想知道这个数组的长度则用到了length这个属性.</p>
-</li>
-<li><p>java中的<strong>length()</strong>方法是针对字符串String说的,如果想看这个字符串的长度则用到length()这个方法.</p>
-</li>
-<li><p>java中的<strong>size()</strong>方法是针对泛型集合说的,如果想看这个泛型有多少个元素,就调用此方法来查看!</p>
+              <p>String 的.equals(“xxx”) 方法用于比较两个字符串是否相等。<br>由于字符串是对象类型，所以不能用简单的“==”判断。而使用equals比较两个对象的内容是否相等。<br>注意：<br>.equals(“xxx”)比较的是对象的内容（区分字母的大小写格式），但是如果使用“==”比较两个对象时，比较的是两个对象的内存地址，所以不相等。<br>即使它们内容相等，但是不同对象的内存地址也是不相同的。<br>
           
       
     </div>
@@ -528,13 +460,76 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java中length-length-size-区别/">java中length,length(),size()区别</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java判断字符串String是否相等/">java判断字符串String是否相等</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2016/12/07/java中length,length(),size()区别/#more">more >></a>
+          <a href="/2016/12/07/java判断字符串String是否相等/#more">more >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java各数据类型的范围" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/07/java各数据类型的范围/" class="article-date">
+      <time datetime="2016-12-07T06:40:32.047Z" itemprop="datePublished">2016-12-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/07/java各数据类型的范围/">java各数据类型的范围</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Boolean ：<span class="keyword">true</span>、<span class="keyword">false</span></div><div class="line">Char 	<span class="number">2</span>个字节Byte (<span class="number">16</span>bit) </div><div class="line"><span class="keyword">byte</span>    <span class="number">1</span>个字节Byte (<span class="number">8</span>bit)     -<span class="number">2</span>^<span class="number">7</span>~<span class="number">2</span>^<span class="number">7</span>-<span class="number">1</span>      -<span class="number">128</span> ~ <span class="number">127</span></div><div class="line"><span class="keyword">short</span>   <span class="number">2</span>个字节Byte (<span class="number">16</span>bit)    -<span class="number">2</span>^<span class="number">16</span>~<span class="number">2</span>^<span class="number">16</span>-<span class="number">1</span>    -<span class="number">32768</span> ~ <span class="number">32767</span>			</div><div class="line"><span class="keyword">int</span>     <span class="number">4</span>个字节Byte (<span class="number">32</span>bit)    -<span class="number">2</span>^<span class="number">31</span>~<span class="number">2</span>^<span class="number">31</span>-<span class="number">1</span>    -<span class="number">2147483648</span> ~ <span class="number">2147483647</span>    Integer.MIN_VALUE ~ Integer.MAX_VALUE</div><div class="line"><span class="keyword">long</span>    <span class="number">8</span>个字节Byte (<span class="number">64</span>bit)    -<span class="number">2</span>^<span class="number">63</span>~<span class="number">2</span>^<span class="number">63</span>-<span class="number">1</span>    -<span class="number">9223372036854775808</span> ~ <span class="number">9223372036854775807</span></div><div class="line"><span class="keyword">float</span>   <span class="number">4</span>个字节Byte (<span class="number">32</span>bit)    <span class="number">1.17549435E-38</span> ~ <span class="number">1.4E-45</span></div><div class="line"><span class="keyword">double</span>  <span class="number">8</span>个字节Byte (<span class="number">64</span>bit)    <span class="number">4.9E-324</span> ~ <span class="number">1.7976931348623157E308</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据类型的范围/">数据类型的范围</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -602,6 +597,79 @@
       
         <p class="article-more-link">
           <a href="/2016/12/07/hexo 绑定域名/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java中length,length(),size()区别" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/07/java中length,length(),size()区别/" class="article-date">
+      <time datetime="2016-12-07T06:40:32.046Z" itemprop="datePublished">2016-12-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/07/java中length,length(),size()区别/">java中length,length(),size()区别</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <ol>
+<li><p>Java中的<strong>length</strong>属性是针对数组说的,比如说你声明了一个数组,想知道这个数组的长度则用到了length这个属性.</p>
+</li>
+<li><p>java中的<strong>length()</strong>方法是针对字符串String说的,如果想看这个字符串的长度则用到length()这个方法.</p>
+</li>
+<li><p>java中的<strong>size()</strong>方法是针对泛型集合说的,如果想看这个泛型有多少个元素,就调用此方法来查看!</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java中length-length-size-区别/">java中length,length(),size()区别</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/12/07/java中length,length(),size()区别/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -757,6 +825,67 @@
 
 
   
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/07/hello-world/" class="article-date">
+      <time datetime="2016-12-07T06:40:32.045Z" itemprop="datePublished">2016-12-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/07/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p><Excerpt in index | 首页摘要><br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/12/07/hello-world/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Word Search" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -807,141 +936,6 @@
       
         <p class="article-more-link">
           <a href="/2016/12/07/Word Search/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Valid Perfect Square" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/07/Valid Perfect Square/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.045Z" itemprop="datePublished">2016-12-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/07/Valid Perfect Square/">Valid Perfect Square.java</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>Given a positive integer num, write a function which returns True if num is a perfect square else False.<br>Note: Do not use any built-in library function such as sqrt.<br>Example 1:</p>
-<pre><code>Input: 16
-Returns: True
-</code></pre><p>Example 2:</p>
-<pre><code>Input: 14
-Returns: False
-</code></pre>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/平方数-1-3-5-7/">平方数=1+3+5+7+...</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/牛顿迭代法求平方根/">牛顿迭代法求平方根</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/12/07/Valid Perfect Square/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/07/hello-world/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.045Z" itemprop="datePublished">2016-12-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/07/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p><Excerpt in index | 首页摘要><br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/12/07/hello-world/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
