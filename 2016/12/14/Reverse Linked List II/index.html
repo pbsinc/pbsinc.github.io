@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Follow up for “Search in Rotated Sorted Array”:What if duplicates are allowed?Would this affect the run-time complexity? How and why?Write a function to determine if a given target is in the array.">
+<meta name="description" content="Reverse a linked list from position m to n. Do it in-place and in one-pass.For example:Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2 and n = 4,return 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL.Note:Given m,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Search in Rotated Sorted Array II.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/Search in Rotated Sorted Array II/index.html">
+<meta property="og:title" content="Reverse Linked List II.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/14/Reverse Linked List II/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Follow up for “Search in Rotated Sorted Array”:What if duplicates are allowed?Would this affect the run-time complexity? How and why?Write a function to determine if a given target is in the array.">
-<meta property="og:updated_time" content="2016-11-16T14:22:44.000Z">
+<meta property="og:description" content="Reverse a linked list from position m to n. Do it in-place and in one-pass.For example:Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2 and n = 4,return 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL.Note:Given m,">
+<meta property="og:updated_time" content="2016-12-14T10:17:20.859Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Search in Rotated Sorted Array II.java">
-<meta name="twitter:description" content="Follow up for “Search in Rotated Sorted Array”:What if duplicates are allowed?Would this affect the run-time complexity? How and why?Write a function to determine if a given target is in the array.">
+<meta name="twitter:title" content="Reverse Linked List II.java">
+<meta name="twitter:description" content="Reverse a linked list from position m to n. Do it in-place and in one-pass.For example:Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2 and n = 4,return 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL.Note:Given m,">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Search in Rotated Sorted Array II.java | Bo`s blog</title>
+<title>Reverse Linked List II.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Search in Rotated Sorted Array II" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Reverse Linked List II" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Search in Rotated Sorted Array II/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.036Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/14/Reverse Linked List II/" class="article-date">
+      <time datetime="2016-12-14T10:13:35.770Z" itemprop="datePublished">2016-12-14</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Search in Rotated Sorted Array II.java
+      Reverse Linked List II.java
     </h1>
   
 
@@ -318,7 +318,51 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Follow up for “Search in Rotated Sorted Array”:<br>What if duplicates are allowed?<br>Would this affect the run-time complexity? How and why?<br>Write a function to determine if a given target is in the array.<br><a id="more"></a><br><strong>思路：</strong><br>在上一题的基础上加入Arrays.sort(nums)即可；<br>或以下思路：<br>这道题与之前Search in Rotated Sorted Array类似，问题只在于存在dupilcate。那么和之前那道题的解法区别就是，不能通过比较A[mid]和边缘值来确定哪边是有序的，会出现A[mid]与边缘值相等的状态。所以，解决方法就是对于A[mid]==A[low]和A[mid]==A[high]单独处理。<br>当中间值与边缘值相等时，让指向边缘值的指针分别往前移动，忽略掉这个相同点，再用之前的方法判断即可。<br>这一改变增加了时间复杂度，试想一个数组有同一数字组成{1，1，1，1，1}，target=2, 那么这个算法就会将整个数组遍历，时间复杂度由O(logn)升到O(n)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> [] A,<span class="keyword">int</span> target)</span></span>&#123;</div><div class="line">       <span class="keyword">if</span>(A==<span class="keyword">null</span>||A.length==<span class="number">0</span>)</div><div class="line">         <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        </div><div class="line">       <span class="keyword">int</span> low = <span class="number">0</span>;</div><div class="line">       <span class="keyword">int</span> high = A.length-<span class="number">1</span>;</div><div class="line">      </div><div class="line">       <span class="keyword">while</span>(low &lt;= high)&#123;</div><div class="line">           <span class="keyword">int</span> mid = (low + high)/<span class="number">2</span>;</div><div class="line">           <span class="keyword">if</span>(target &lt; A[mid])&#123;</div><div class="line">               <span class="keyword">if</span>(A[mid]&lt;A[high])<span class="comment">//right side is sorted</span></div><div class="line">                 high = mid - <span class="number">1</span>;<span class="comment">//target must in left side</span></div><div class="line">               <span class="keyword">else</span> <span class="keyword">if</span>(A[mid]==A[high])<span class="comment">//cannot tell right is sorted, move pointer high</span></div><div class="line">                 high--;</div><div class="line">               <span class="keyword">else</span><span class="comment">//left side is sorted</span></div><div class="line">                 <span class="keyword">if</span>(target&lt;A[low])</div><div class="line">                    low = mid + <span class="number">1</span>;</div><div class="line">                 <span class="keyword">else</span> </div><div class="line">                    high = mid - <span class="number">1</span>;</div><div class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &gt; A[mid])&#123;</div><div class="line">               <span class="keyword">if</span>(A[low]&lt;A[mid])<span class="comment">//left side is sorted</span></div><div class="line">                 low = mid + <span class="number">1</span>;<span class="comment">//target must in right side</span></div><div class="line">               <span class="keyword">else</span> <span class="keyword">if</span>(A[low]==A[mid])<span class="comment">//cannot tell left is sorted, move pointer low</span></div><div class="line">                 low++;</div><div class="line">               <span class="keyword">else</span><span class="comment">//right side is sorted</span></div><div class="line">                 <span class="keyword">if</span>(target&gt;A[high])</div><div class="line">                    high = mid - <span class="number">1</span>;</div><div class="line">                 <span class="keyword">else</span></div><div class="line">                    low = mid + <span class="number">1</span>;</div><div class="line">           &#125;<span class="keyword">else</span></div><div class="line">             <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">       &#125;</div><div class="line">       </div><div class="line">       <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Reverse a linked list from position m to n. Do it in-place and in one-pass.<br>For example:<br>Given 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2 and n = 4,<br>return 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL.<br>Note:<br>Given m, n satisfy the following condition:<br>1 ≤ m ≤ n ≤ length of list.<br><a id="more"></a><br><strong>思路：</strong><br>就我目前学习到的，有用指向指针的指针的，有插入，有逆转的。<br>但是所有方法的核心，都其实是一个算法，就是利用3个指针修改区间内的节点的next值，且要保证已修改的链表是可以被找到的，即可以连入原链表中。</p>
+<p>假设有一个链表有1,2,3,4,5,6，6个节点。m=2，n=5。</p>
+<p>我们添加一个dummy节点，方便操作第一个节点。<br>！<a href="http://images.cnitblog.com/i/546654/201404/072244468407048.jpg" target="_blank" rel="external">.</a><br>首先让pre指向第m个节点前面那个，cur指向第m个节点，p1指向m的下一个节点，因为p1有可能是NULL，所以当p1不是NULL的时候，p2指向p1的下一个节点。</p>
+<p>上图画出了这几个指针指向情况的开始状态和我们希望的终止状态。</p>
+<p>在最终状态下，再通过其中方框中的两步就可以我们需要的链表了。</p>
+<p>而cur，p1，p2三个指针在区间内向前移动并且将p1的next指向cur的过程则包含在一个for循环内部。如下：<br>！<a href="http://images.cnitblog.com/i/546654/201404/072249466684683.jpg" target="_blank" rel="external">.</a></p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseBetween</span><span class="params">(ListNode head, <span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>{
+
+        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);
+        dummy.next = head;
+        ListNode pre = dummy, cur = head;
+        <span class="comment">//保证起始时，cur在起点处,pre是它的上一个节点，因此需要虚构一个dummy节点；</span>
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;m;i++){
+            pre = cur;
+            cur = cur.next;
+        }
+        <span class="comment">//制作p1始终是cur的next，p2始终是p1的next；</span>
+        ListNode p1 = cur.next;
+        ListNode p2 = <span class="keyword">null</span>;
+        <span class="keyword">if</span>(p1 != <span class="keyword">null</span>) p2 = p1.next;
+        <span class="comment">//至此，cur指到了m节点处，pre始终保持在m节点的上一位，以下是对m到n节点转向；</span>
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=m;i&lt;n;i++){
+            p1.next = cur;
+            cur = p1;
+            p1 = p2;
+            <span class="keyword">if</span>(p2!= <span class="keyword">null</span>) p2 = p2.next;
+        }
+        <span class="comment">//将三部分连接起来</span>
+        pre.next.next = p1;
+        pre.next = cur;
+
+        <span class="keyword">return</span> dummy.next;<span class="comment">//直接返回pre是错误的，因为m=1时，pre在虚构的节点dummy处！</span>
+    }
+}
+</code></pre>
+<p>转自：<br><a href="http://www.cnblogs.com/4everlove/p/3651002.html" target="_blank" rel="external">http://www.cnblogs.com/4everlove/p/3651002.html</a></p>
 
       
     </div>
@@ -327,13 +371,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/07/Search in Rotated Sorted Array II/">Search in Rotated Sorted Array II.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/14/Reverse Linked List II/">Reverse Linked List II.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-07, 14:40:32</p>
-        <p><span>最后更新:</span>2016-11-16, 22:22:44</p>
+        <p><span>发布时间:</span>2016-12-14, 18:13:35</p>
+        <p><span>最后更新:</span>2016-12-14, 18:17:20</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/07/Search in Rotated Sorted Array II/" title="Search in Rotated Sorted Array II.java">http://pangbo.space/2016/12/07/Search in Rotated Sorted Array II/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/Search in Rotated Sorted Array II/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/14/Reverse Linked List II/" title="Reverse Linked List II.java">http://pangbo.space/2016/12/14/Reverse Linked List II/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/14/Reverse Linked List II/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +389,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/Search for a Range/">
-                    Search for a Range.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/Rotate Array/">
-                    Rotate Array.java
+                <a href="/2016/12/14/Reverse Linked List/">
+                    Reverse Linked List.java
                 </a>
             </div>
         
@@ -402,7 +440,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Search in Rotated Sorted Array II.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Reverse Linked List II.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +458,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/Search in Rotated Sorted Array II/" data-title="Search in Rotated Sorted Array II.java" data-url="http://pangbo.space/2016/12/07/Search in Rotated Sorted Array II/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/14/Reverse Linked List II/" data-title="Reverse Linked List II.java" data-url="http://pangbo.space/2016/12/14/Reverse Linked List II/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -443,15 +481,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/Search for a Range/" title="上一篇: Search for a Range.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/Rotate Array/" title="下一篇: Rotate Array.java">
+            <a href="/2016/12/14/Reverse Linked List/" title="下一篇: Reverse Linked List.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
