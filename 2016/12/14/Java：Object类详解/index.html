@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Bo Pang" />
+
+
+
+<meta name="description" content="转：Java 问答：终极父类Java的一些特性会让初学者感到困惑，但在有经验的开发者眼中，却是合情合理的。例如，新手可能不会理解Object类。这篇文章分成三个部分讲跟Object类及其方法有关的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java：Object类详解">
+<meta property="og:url" content="http://pangbo.space/2016/12/14/Java：Object类详解/index.html">
+<meta property="og:site_name" content="Bo`s blog">
+<meta property="og:description" content="转：Java 问答：终极父类Java的一些特性会让初学者感到困惑，但在有经验的开发者眼中，却是合情合理的。例如，新手可能不会理解Object类。这篇文章分成三个部分讲跟Object类及其方法有关的问题。">
+<meta property="og:updated_time" content="2016-12-14T02:18:18.531Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java：Object类详解">
+<meta name="twitter:description" content="转：Java 问答：终极父类Java的一些特性会让初学者感到困惑，但在有经验的开发者眼中，却是合情合理的。例如，新手可能不会理解Object类。这篇文章分成三个部分讲跟Object类及其方法有关的问题。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Bo`s blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Java：Object类详解 | Bo`s blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57ea7c0bb6e3347f"></script>
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Bo Pang</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Good good study , day day up!</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜單</li>
+                        <li>標籤</li>
+                        
+                        <li>友情鏈接</li>
+                        
+                        
+                        <li>關於我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/pbs@bupt.edu.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/1648836177/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" href="http://music.163.com/#/user/home?id=38418826" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" href="https://www.facebook.com/bo.pang.73" title="Facebook"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arrays-sort-的用法/">Arrays.sort()的用法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigDecimal/">BigDecimal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigInteger/">BigInteger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Character-getNumericValue-char/">Character.getNumericValue(char)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Character-isDigit-chr-方法/">Character.isDigit(chr)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Character-isLetter-chr-方法/">Character.isLetter(chr)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections工具类/">Collections工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy/">Easy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Happy-Number-快乐数/">Happy Number 快乐数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hard/">Hard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integer内3的次方最大为3-19-1162261467/">Integer内3的次方最大为3^19=1162261467</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java中StringBuilder的用法/">Java中StringBuilder的用法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java各种类型互相转换/">Java各种类型互相转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java：Object类详解/">Java：Object类详解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java：String、StringBuffer和StringBuilder的区别/">Java：String、StringBuffer和StringBuilder的区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List-Set-Map-数组间的相互转换/">List,Set,Map,数组间的相互转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List要remove一个int对象/">List要remove一个int对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Medium/">Medium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/N-末尾零的个数/">N!末尾零的个数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Roman-Numeral/">Roman Numeral</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set、List、Map的详解与区别/">Set、List、Map的详解与区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set、List、Map的遍历/">Set、List、Map的遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String-equals-str-方法/">String.equals(str)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String-substring-方法/">String.substring( )方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String-trim-方法/">String.trim()方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String的分割str-split-正则-方法/">String的分割str.split(正则)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String转char/">String转char</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/break跳出多层for循环/">break跳出多层for循环</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/char和Character/">char和Character</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo迁移/">hexo迁移</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java中length-length-size-区别/">java中length,length(),size()区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java判断字符串String是否相等/">java判断字符串String是否相等</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java堆栈Stack类简介/">java堆栈Stack类简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java统一字符串大小写/">java统一字符串大小写</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java：LinkedList基本用法/">java：LinkedList基本用法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long与Long/">long与Long</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long加不加L的区别/">long加不加L的区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/str-toLowerCase-方法/">str.toLowerCase()方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/str-toUpperCase-方法/">str.toUpperCase()方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/switch/">switch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一个或者多个空格的正则/">一个或者多个空格的正则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中序遍历/">中序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二叉树：先序遍历、中序遍历、后序遍历/">二叉树：先序遍历、中序遍历、后序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/值传递-引用传递/">值传递&引用传递</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/先序遍历/">先序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/判断String是否相等要用str-equals-xxx/">判断String是否相等要用str.equals("xxx")</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/判断是否为质数/">判断是否为质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡特兰数/">卡特兰数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后序遍历/">后序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/四平方和定理/">四平方和定理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名/">域名</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆和栈的区别/">堆和栈的区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多数投票算法/">多数投票算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对String排序/">对String排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/平方数-1-3-5-7/">平方数=1+3+5+7+...</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快速求幂算法/">快速求幂算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据类型的范围/">数据类型的范围</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数根问题/">数根问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求两个数的最大公约数/">求两个数的最大公约数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/没做/">没做</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛顿迭代法求平方根/">牛顿迭代法求平方根</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/裴蜀定理/">裴蜀定理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重做/">重做</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">大隐隐于市</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Bo Pang</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Bo Pang</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Good good study , day day up!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/pbs@bupt.edu.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/1648836177/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="http://music.163.com/#/user/home?id=38418826" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" target="_blank" href="https://www.facebook.com/bo.pang.73" title="Facebook"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Java：Object类详解" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/14/Java：Object类详解/" class="article-date">
+      <time datetime="2016-12-14T01:58:41.833Z" itemprop="datePublished">2016-12-14</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java：Object类详解
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java：Object类详解/">Java：Object类详解</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>转：Java 问答：终极父类<br>Java的一些特性会让初学者感到困惑，但在有经验的开发者眼中，却是合情合理的。<br>例如，新手可能不会理解Object类。这篇文章分成三个部分讲跟Object类及其方法有关的问题。<br><a id="more"></a><br><strong>上帝类</strong><br><strong>问：什么是Object类？</strong><br>答：Object类存储在java.lang包中，是所有java类(Object类除外)的终极父类。当然，数组也继承了Object类。然而，接口是不继承Object类的，原因在这里指出：Section 9.6.3.4 of the Java Language Specification:“Object类不作为接口的父类”。<br>Object类中声明了以下函数，我会在下文中作详细说明。</p>
+<pre><code class="java"><span class="function"><span class="keyword">protected</span> Object <span class="title">clone</span><span class="params">()</span>
+<span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span>
+<span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span>
+Class&lt; &gt; <span class="title">getClass</span><span class="params">()</span>
+<span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span>
+<span class="keyword">void</span> <span class="title">notify</span><span class="params">()</span>
+<span class="keyword">void</span> <span class="title">notifyAll</span><span class="params">()</span>
+String <span class="title">toString</span><span class="params">()</span>
+<span class="keyword">void</span> <span class="title">wait</span><span class="params">()</span>
+<span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout)</span>
+<span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout, <span class="keyword">int</span> nanos)</span></span>
+</code></pre>
+<p>java的任何类都继承了这些函数，并且可以覆盖不被final修饰的函数。例如，没有final修饰的toString()函数可以被覆盖，但是final wait()函数就不行。</p>
+<p><strong>问：可以声明要“继承Object类”吗？</strong><br>答：可以。在代码中明确地写出继承Object类没有语法错误。参考代码清单1。<br>代码清单1:明确的继承Object类</p>
+<pre><code class="java">importjava.lang.Object;
+publicclassEmployee extendsObject {
+privateString name;
+publicEmployee(String name) {
+<span class="keyword">this</span>.name = name;
+}
+<span class="function">publicString <span class="title">getName</span><span class="params">()</span> </span>{
+returnname;
+}
+publicstaticvoidmain(String[] args) {
+Employee emp = newEmployee(<span class="string">"John Doe"</span>);
+System.out.println(emp.getName());
+}
+}
+</code></pre>
+<p>你可以试着编译代码1(javac Employee.java)，然后运行Employee.class(java Employee)，可以看到John Doe 成功的输出了。</p>
+<p>因为编译器会自动引入java.lang包中的类型，即 import java.lang.Object； 没必要声明出来。Java也没有强制声明“继承Object类”。</p>
+<p>如果这样的话，就不能继承除Object类之外别的类了，因为java不支持多继承。然而，即使不声明出来，也会默认继承了Object类，参考代码清单2。<br>代码清单2:默认继承Object类</p>
+<pre><code class="java">publicclassEmployee
+{
+privateString name;
+publicEmployee(String name)
+{
+<span class="keyword">this</span>.name = name;
+}
+<span class="function">publicString <span class="title">getName</span><span class="params">()</span>
+</span>{
+returnname;
+}
+publicstaticvoidmain(String[] args)
+{
+Employee emp = newEmployee(<span class="string">"John Doe"</span>);
+System.out.println(emp.getName());
+}
+}
+</code></pre>
+<p>就像代码清单1一样，这里的Employee类继承了Object，所以可以使用它的函数。</p>
+<p><strong>克隆Object类</strong><br><strong>问：clone()函数是用来做什么的？</strong><br>答：clone()可以产生一个相同的类并且返回给调用者。<br><strong>问：clone()是如何工作的？</strong><br>答：Object将clone()作为一个本地方法来实现，这意味着它的代码存放在本地的库中。当代码执行的时候，将会检查调用对象的类(或者父类)是否实现了java.lang.Cloneable接口(Object类不实现Cloneable)。如果没有实现这个接口，clone()将会抛出一个检查异常()——java.lang.CloneNotSupportedException,如果实现了这个接口，clone()会创建一个新的对象，并将原来对象的内容复制到新对象，最后返回这个新对象的引用。<br><strong>问：怎样调用clone()来克隆一个对象？</strong><br>答：用想要克隆的对象来调用clone()，将返回的对象从Object类转换到克隆的对象所属的类，赋给对象的引用。这里用代码清单3作一个示例。<br>代码清单3:克隆一个对象</p>
+<pre><code class="java">publicclassCloneDemo implementsCloneable {
+intx;
+publicstaticvoidmain(String[] args) throwsCloneNotSupportedException {
+CloneDemo cd = newCloneDemo();
+cd.x = <span class="number">5</span>;
+System.out.printf(<span class="string">"cd.x = %d%n"</span>, cd.x);
+CloneDemo cd2 = (CloneDemo) cd.clone();
+System.out.printf(<span class="string">"cd2.x = %d%n"</span>, cd2.x);
+}
+}
+</code></pre>
+<p>代码清单3声明了一个继承Cloneable接口的CloneDemo类。这个接口必须实现，否则，调用Object的clone()时将会导致抛出异常CloneNotSupportedException。</p>
+<p>CloneDemo声明了一个int型变量x和主函数main()来演示这个类。其中，main()声明可能会向外抛出CloneNotSupportedException异常。</p>
+<p>Main()先实例化CloneDemo并将x的值初始化为5。然后输出x的值，紧接着调用clone() ，将克隆的对象传回CloneDemo。最后，输出了克隆的x的值。</p>
+<p>编译代码清单3(javac CloneDemo.java)然后运行(java CloneDemo)。你可以看到以下运行结果：</p>
+<pre><code>1
+2
+cd.x = 5
+cd2.x = 5
+</code></pre><p><strong>问：什么情况下需要覆盖clone()方法呢？</strong><br>答：上面的例子中，调用clone()的代码是位于被克隆的类(即CloneDemo类)里面的，所以就不需要覆盖clone()了。</p>
+<p>但是，如果调用别的类中的clone()，就需要覆盖clone()了。否则，将会看到“clone在Object中是被保护的”提示，<br>因为clone()在Object中的权限是protected。(译者注：protected权限的成员在不同的包中，只有子类对象可以访问。</p>
+<p>代码清单3的CloneDemo类和代码清单4的Data类是Object类的子类，所以可以调用clone()，但是代码清单4中的CloneDemo类就不能直接调用Data父类的clone())。</p>
+<p>代码清单4在代码清单3上稍作修改来演示覆盖clone()。</p>
+<p>代码清单4:从别的类中克隆对象</p>
+<pre><code class="java">classData implementsCloneable {
+intx;
+<span class="meta">@Override</span>
+<span class="function">publicObject <span class="title">clone</span><span class="params">()</span> throwsCloneNotSupportedException </span>{
+returnsuper.clone();
+}
+}
+publicclassCloneDemo {
+publicstaticvoidmain(String[] args) throwsCloneNotSupportedException {
+Data data = newData();
+data.x = <span class="number">5</span>;
+System.out.printf(<span class="string">"data.x = %d%n"</span>, data.x);
+Data data2 = (Data) data.clone();
+System.out.printf(<span class="string">"data2.x = %d%n"</span>, data2.x);
+}
+}
+</code></pre>
+<p>代码清单4声明了一个待克隆的Data类。<br>这个类实现了Cloneable接口来防止调用clone()的时候抛出异常CloneNotSupportedException，声明了int型变量x，覆盖了clone()方法。</p>
+<p>这个方法通过执行super.clone()来调用父类的clone()(这个例子中是Object的)。通过覆盖来避免抛出CloneNotSupportedException异常。</p>
+<p>代码清单4也声明了一个CloneDemo类来实例化Data，并将其初始化，输出示例的值。然后克隆Data的对象，同样将其值输出。</p>
+<p>编译代码清单4(javac CloneDemo.java)并运行(java CloneDemo)，你将看到以下运行结果：</p>
+<pre><code>1
+2
+data.x = 5
+data2.x = 5
+</code></pre><p><strong>问：什么是浅克隆？</strong><br>A:浅克隆(也叫做浅拷贝)仅仅复制了这个对象本身的成员变量，该对象如果引用了其他对象的话，也不对其复制。</p>
+<p>代码清单3和代码清单4演示了浅克隆。新的对象中的数据包含在了这个对象本身中，不涉及对别的对象的引用。</p>
+<p>如果一个对象中的所有成员变量都是原始类型，并且其引用了的对象都是不可改变的(大多情况下都是)时，使用浅克隆效果很好！</p>
+<p>但是，如果其引用了可变的对象，那么这些变化将会影响到该对象和它克隆出的所有对象！代码清单5给出一个示例。</p>
+<p>代码清单5：演示浅克隆在复制引用了可变对象的对象时存在的问题</p>
+<pre><code class="java">classEmployee implementsCloneable {
+privateString name;
+privateintage;
+privateAddress address;
+Employee(String name, intage, Address address) {
+<span class="keyword">this</span>.name = name;
+<span class="keyword">this</span>.age = age;
+<span class="keyword">this</span>.address = address;
+}
+<span class="meta">@Override</span>
+<span class="function">publicObject <span class="title">clone</span><span class="params">()</span> throwsCloneNotSupportedException </span>{
+returnsuper.clone();
+}
+<span class="function">Address <span class="title">getAddress</span><span class="params">()</span> </span>{
+returnaddress;
+}
+<span class="function">String <span class="title">getName</span><span class="params">()</span> </span>{
+returnname;
+}
+intgetAge() {
+returnage;
+}
+}
+classAddress {
+privateString city;
+Address(String city) {
+<span class="keyword">this</span>.city = city;
+}
+<span class="function">String <span class="title">getCity</span><span class="params">()</span> </span>{
+returncity;
+}
+voidsetCity(String city) {
+<span class="keyword">this</span>.city = city;
+}
+}
+publicclassCloneDemo {
+publicstaticvoidmain(String[] args) throwsCloneNotSupportedException {
+Employee e = newEmployee(<span class="string">"John Doe"</span>, <span class="number">49</span>, newAddress(<span class="string">"Denver"</span>));
+System.out.printf(<span class="string">"%s: %d: %s%n"</span>, e.getName(), e.getAge(),
+e.getAddress().getCity());
+Employee e2 = (Employee) e.clone();
+System.out.printf(<span class="string">"%s: %d: %s%n"</span>, e2.getName(), e2.getAge(),
+e2.getAddress().getCity());
+e.getAddress().setCity(<span class="string">"Chicago"</span>);
+System.out.printf(<span class="string">"%s: %d: %s%n"</span>, e.getName(), e.getAge(),
+e.getAddress().getCity());
+System.out.printf(<span class="string">"%s: %d: %s%n"</span>, e2.getName(), e2.getAge(),
+e2.getAddress().getCity());
+}
+}
+</code></pre>
+<p>代码清单5给出了Employee、Address和CloneDemo类。</p>
+<p>Employee声明了name、age、address成员变量，是可以被克隆的类；Address声明了一个城市的地址并且其值是可变的。CloneDemo类驱动这个程序。</p>
+<p>CloneDemo的主函数main()创建了一个Employee对象并且对其进行克隆，然后，改变了原来的Employee对象中address值城市的名字。</p>
+<p>因为原来的Employee对象和其克隆出来的对象引用了相同的Address对象，所以两者都会提现出这个变化。</p>
+<p>编译 (javac CloneDemo.java) 并运行 (java CloneDemo)代码清单5，你将会看到如下输出结果：</p>
+<pre><code>John Doe: 49: Denver
+John Doe: 49: Denver
+John Doe: 49: Chicago
+John Doe: 49: Chicago
+</code></pre><p><strong>问：什么是深克隆？</strong></p>
+<p>答：深克隆(也叫做深复制)会复制这个对象和它所引用的对象的成员变量，如果该对象引用了其他对象，深克隆也会对其复制。</p>
+<p>例如，代码清单6在代码清单5上稍作修改演示深克隆。同时，这段代码也演示了协变返回类型和一种更为灵活的克隆方式。</p>
+<p>代码清单6：深克隆成员变量address</p>
+<pre><code class="java">classEmployee implementsCloneable
+{
+privateStringname;
+privateintage;
+privateAddress address;
+Employee(Stringname, intage, Address address)
+{
+<span class="keyword">this</span>.name = name;
+<span class="keyword">this</span>.age = age;
+<span class="keyword">this</span>.address = address;
+}
+<span class="meta">@Override</span>
+<span class="function">publicEmployee <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException
+</span>{
+Employee e = (Employee) <span class="keyword">super</span>.clone();
+e.address = address.clone();
+returne;
+}
+<span class="function">Address <span class="title">getAddress</span><span class="params">()</span>
+</span>{
+returnaddress;
+}
+StringgetName()
+{
+returnname;
+}
+intgetAge()
+{
+returnage;
+}
+}
+classAddress
+{
+privateStringcity;
+Address(Stringcity)
+{
+<span class="keyword">this</span>.city = city;
+}
+<span class="meta">@Override</span>
+<span class="function">publicAddress <span class="title">clone</span><span class="params">()</span>
+</span>{
+returnnewAddress(newString(city));
+}
+StringgetCity()
+{
+returncity;
+}
+voidsetCity(Stringcity)
+{
+<span class="keyword">this</span>.city = city;
+}
+}
+publicclassCloneDemo
+{
+publicstaticvoidmain(String[] args) <span class="keyword">throws</span> CloneNotSupportedException
+{
+Employee e = newEmployee(<span class="string">"John Doe"</span>, <span class="number">49</span>, newAddress(<span class="string">"Denver"</span>));
+System.out.printf(<span class="string">"%s: %d: %s%n"</span>, e.getName(), e.getAge(),
+e.getAddress().getCity());
+Employee e2 = (Employee) e.clone();
+System.out.printf(<span class="string">"%s: %d: %s%n"</span>, e2.getName(), e2.getAge(),
+e2.getAddress().getCity());
+e.getAddress().setCity(<span class="string">"Chicago"</span>);
+System.out.printf(<span class="string">"%s: %d: %s%n"</span>, e.getName(), e.getAge(),
+e.getAddress().getCity());
+System.out.printf(<span class="string">"%s: %d: %s%n"</span>, e2.getName(), e2.getAge(),
+e2.getAddress().getCity());
+}
+}
+</code></pre>
+<p>Java支持协变返回类型，代码清单6利用这个特性，在Employee类中覆盖父类clone()方法时，将返回类型从Object类的对象改为Employee类型。</p>
+<p>这样做的好处就是，Employee类之外的代码可以不用将这个类转换为Employee类型就可以对其进行复制。</p>
+<p>Employee类的clone()方法首先调用super().clone()，对name,age,address这些成员变量进行浅克隆。</p>
+<p>然后，调用成员变量Address对象的clone()来对其引用Address对象进行克隆。</p>
+<p>从Address类中的clone()函数可以看出，这个clone()和我们之前写的clone()有些不同：</p>
+<p>Address类没有实现Cloneable接口。因为只有在Object类中的clone()被调用时才需要实现，而Address是不会调用clone()的，所以没有实现Cloneable()的必要。</p>
+<p>这个clone()函数没有声明抛出CloneNotSupportedException。这个检查异常只可能在调用Object类clone()的时候抛出。clone()是不会被调用的，因此这个异常也就没有被处理或者传回调用处的必要了。</p>
+<p>Object类的clone()没有被调用(这里没有调用super.clone())。因为这不是对Address的对象进行浅克隆——只是一个成员变量复制而已。</p>
+<p>为了克隆Address的对象，需要创建一个新的Address对象并对其成员进行初始化操作。最后将新创建的Address对象返回。</p>
+<p>编译(javac CloneDemo.java)代码清单6并且运行这个程序，你将会看到如下输出结果(java CloneDemo)：</p>
+<pre><code>John Doe: 49: Denver
+John Doe: 49: Denver
+John Doe: 49: Chicago
+John Doe: 49: Denver
+</code></pre><p><strong>Q:如何克隆一个数组？</strong></p>
+<p>A:对数组类型进行浅克隆可以利用clone()方法。对数组使用clone()时，不必将clone()的返回值类型转换为数组类型，代码清单7示范了数组克隆。</p>
+<p>代码清单7：对两个数组进行浅克隆</p>
+<pre><code class="java">classCity {
+privateString name;
+City(String name) {
+<span class="keyword">this</span>.name = name;
+}
+<span class="function">String <span class="title">getName</span><span class="params">()</span> </span>{
+returnname;
+}
+voidsetName(String name) {
+<span class="keyword">this</span>.name = name;
+}
+}
+publicclassCloneDemo {
+publicstaticvoidmain(String[] args) {
+<span class="keyword">double</span>[] temps = { <span class="number">98.6</span>, <span class="number">32.0</span>, <span class="number">100.0</span>, <span class="number">212.0</span>, <span class="number">53.5</span>};
+<span class="keyword">for</span>(doubletemp : temps)
+System.out.printf(<span class="string">"%.1f "</span>, temp);
+System.out.println();
+<span class="keyword">double</span>[] temps2 = temps.clone();
+<span class="keyword">for</span>(doubletemp : temps2)
+System.out.printf(<span class="string">"%.1f "</span>, temp);
+System.out.println();
+System.out.println();
+City[] cities = { newCity(<span class="string">"Denver"</span>), newCity(<span class="string">"Chicago"</span>) };
+<span class="keyword">for</span>(City city : cities)
+System.out.printf(<span class="string">"%s "</span>, city.getName());
+System.out.println();
+City[] cities2 = cities.clone();
+<span class="keyword">for</span>(City city : cities2)
+System.out.printf(<span class="string">"%s "</span>, city.getName());
+System.out.println();
+cities[<span class="number">0</span>].setName(<span class="string">"Dallas"</span>);
+<span class="keyword">for</span>(City city : cities2)
+System.out.printf(<span class="string">"%s "</span>, city.getName());
+System.out.println();
+}
+}
+</code></pre>
+<p>代码清单7声明了一个City类存储名字，还有一些有关城市的数据(比如人口)。CloneDemo类提供了主函数main()来演示数组克隆。</p>
+<p>main()函数首先声明了一个双精度浮点型数组来表示温度。在输出数组的值之后，克隆这个数组——注意没有运算符。之后，输出克隆的完全相同的数据。</p>
+<p>紧接着，main()声明了一个City对象的数组，输出城市的名字，克隆这个数组，输出克隆的这个数组中城市的名字。为了证明浅克隆完成(比如，这两个数组引用了相同的City对象)，main()最后改变了原来的数组中第一个城市的名字，输出第二个数组中所有城市的名字。我们马上就可以看到，第二个数组中的名字也改变了。</p>
+<p>编译 (javac CloneDemo.java)并运行 (java CloneDemo)代码清单7，你将会看到如下输出结果：</p>
+<pre><code>98.6 32.0 100.0 212.0 53.5
+98.6 32.0 100.0 212.0 53.5
+Denver Chicago
+Denver Chicago
+Dallas Chicago
+</code></pre><p><strong>Equality</strong><br><strong>问：euqals()函数是用来做什么的？</strong><br>答：equals()函数可以用来检查一个对象与调用这个equals()的这个对象是否相等。<br><strong>问：为什么不用“==”运算符来判断两个对象是否相等呢？</strong><br>答：虽然“==”运算符可以比较两个数据是否相等，但是要来比较对象的话，恐怕达不到预期的结果。就是说，“==”通过是否引用了同一个对象来判断两个对象是否相等，这被称为“引用相等”。这个运算符不能通过比较两个对象的内容来判断它们是不是逻辑上的相等。<br><strong>问：使用Object类的equals()方法可以用来做什么样的对比？</strong><br>答：Object类默认的eqauls()函数进行比较的依据是：调用它的对象和传入的对象的引用是否相等。也就是说，默认的equals()进行的是引用比较。如果两个引用是相同的，equals()函数返回true；否则，返回false.<br><strong>问：覆盖equals()函数的时候要遵守那些规则？</strong><br>答：覆盖equals()函数的时候需要遵守的规则在Oracle官方的文档中都有申明：<br><strong>自反性：</strong>对于任意非空的引用值x，x.equals(x)返回值为真。<br><strong>对称性：</strong>对于任意非空的引用值x和y，x.equals(y)必须和y.equals(x)返回相同的结果。<br><strong>传递性：</strong>对于任意的非空引用值x,y和z,如果x.equals(y)返回真，y.equals(z)返回真，那么x.equals(z)也必须返回真。<br><strong>一致性：</strong>对于任意非空的引用值x和y，无论调用x.equals(y)多少次，都要返回相同的结果。在比较的过程中，对象中的数据不能被修改。<br>对于任意的非空引用值x，x.equals(null)必须返回假。<br><strong>问：能提供一个正确覆盖equals()的示例吗？</strong><br>答：当然，请看代码清单8。<br>代码清单8：对两个对象进行逻辑比较</p>
+<pre><code class="java">classEmployee
+{
+privateString name;
+privateintage;
+Employee(String name, intage)
+{
+<span class="keyword">this</span>.name = name;
+<span class="keyword">this</span>.age = age;
+}
+<span class="meta">@Override</span>
+publicbooleanequals(Object o)
+{
+<span class="keyword">if</span>(!(o instanceofEmployee))
+returnfalse;
+Employee e = (Employee) o;
+returne.getName().equals(name) &amp;&amp; e.getAge() == age;
+}
+<span class="function">String <span class="title">getName</span><span class="params">()</span>
+</span>{
+returnname;
+}
+intgetAge()
+{
+returnage;
+}
+}
+publicclassEqualityDemo
+{
+publicstaticvoidmain(String[] args)
+{
+Employee e1 = newEmployee(<span class="string">"John Doe"</span>, <span class="number">29</span>);
+Employee e2 = newEmployee(<span class="string">"Jane Doe"</span>, <span class="number">33</span>);
+Employee e3 = newEmployee(<span class="string">"John Doe"</span>, <span class="number">29</span>);
+Employee e4 = newEmployee(<span class="string">"John Doe"</span>, <span class="number">27</span>+<span class="number">2</span>);
+<span class="comment">// 验证自反性。</span>
+System.out.printf(<span class="string">"Demonstrating reflexivity...%n%n"</span>);
+System.out.printf(<span class="string">"e1.equals(e1): %b%n"</span>, e1.equals(e1));
+<span class="comment">// 验证对称性。</span>
+System.out.printf(<span class="string">"%nDemonstrating symmetry...%n%n"</span>);
+System.out.printf(<span class="string">"e1.equals(e2): %b%n"</span>, e1.equals(e2));
+System.out.printf(<span class="string">"e2.equals(e1): %b%n"</span>, e2.equals(e1));
+System.out.printf(<span class="string">"e1.equals(e3): %b%n"</span>, e1.equals(e3));
+System.out.printf(<span class="string">"e3.equals(e1): %b%n"</span>, e3.equals(e1));
+System.out.printf(<span class="string">"e2.equals(e3): %b%n"</span>, e2.equals(e3));
+System.out.printf(<span class="string">"e3.equals(e2): %b%n"</span>, e3.equals(e2));
+<span class="comment">// 验证传递性。</span>
+System.out.printf(<span class="string">"%nDemonstrating transitivity...%n%n"</span>);
+System.out.printf(<span class="string">"e1.equals(e3): %b%n"</span>, e1.equals(e3));
+System.out.printf(<span class="string">"e3.equals(e4): %b%n"</span>, e3.equals(e4));
+System.out.printf(<span class="string">"e1.equals(e4): %b%n"</span>, e1.equals(e4));
+<span class="comment">// 验证一致性。</span>
+System.out.printf(<span class="string">"%nDemonstrating consistency...%n%n"</span>);
+<span class="keyword">for</span>(inti = <span class="number">0</span>; i &lt; code&gt;<span class="number">5</span>; i++)
+{
+System.out.printf(<span class="string">"e1.equals(e2): %b%n"</span>, e1.equals(e2));
+System.out.printf(<span class="string">"e1.equals(e3): %b%n"</span>, e1.equals(e3));
+}
+<span class="comment">// 验证传入非空集合时，返回值为false。</span>
+System.out.printf(<span class="string">"%nDemonstrating null check...%n%n"</span>);
+System.out.printf(<span class="string">"e1.equals(null): %b%n"</span>, e1.equals(<span class="keyword">null</span>));
+}
+}
+</code></pre>
+<p>代码清单8声明了一个包含名字、年龄成员变量的Employee对象。这个对象覆盖了equals()函数来对Employee对象进行适当的对比。<br>ps：覆盖hashCode()函数<br>当覆盖equals()函数的时候，就相当于覆盖了hashCode()函数，我将在下篇文章讨论hashCode()的时候详细说明。</p>
+<p>equals()函数首先要检查传入的确实是一个Employee对象。如果不是，返回false。这个检查是靠instanceof运算来判断的，当传入null值的时候，同样也返回false。</p>
+<p>因此，遵守了“对于任意的非空引用值x，x.equals(null)必须返回假”这个规则。</p>
+<p>这样，我们就保证了传入的对象是Employee类型。因为之前的instanceof判断保证了传入值必须是Employee类型的对象，所以在这里我们就不必担心抛出ClassCastException异常了。</p>
+<p>接下来，equals()方法对两个对象的name和age的值进行了比较。</p>
+<p>编译(javac EqualityDemo.java)并运行(Java EqualityDemo)代码清单8，你可以看到以下输出结果：</p>
+<pre><code>Demonstrating reflexivity...
+e1.equals(e1): true
+Demonstrating symmetry...
+e1.equals(e2): false
+e2.equals(e1): false
+e1.equals(e3): true
+e3.equals(e1): true
+e2.equals(e3): false
+e3.equals(e2): false
+Demonstrating transitivity...
+e1.equals(e3): true
+e3.equals(e4): true
+e1.equals(e4): true
+Demonstrating consistency...
+e1.equals(e2): false
+e1.equals(e3): true
+e1.equals(e2): false
+e1.equals(e3): true
+e1.equals(e2): false
+e1.equals(e3): true
+e1.equals(e2): false
+e1.equals(e3): true
+e1.equals(e2): false
+e1.equals(e3): true
+Demonstrating null check...
+e1.equals(null): false
+</code></pre><p><strong>equals()和继承</strong><br>当Employee类被继承的时候，代码清单8就存在一些问题。例如，SaleRep类继承了Employee类，这个类中也有基于字符串类型的变量，equals()可以对其进行比较。</p>
+<p>假设你创建的Employee对象和SaleRep对象都有相同的“名字”和“年龄”。但是，SaleRep中还是添加了一些内容。<br>假设你在Employee对象中调用equals()方法并且传入了一个SaleRep对象。</p>
+<p>由于SaleRep对象继承了Employee，也是一种Employee的对象，instanceof判断会通过，并且执行equals()方法来判断名字和年龄。因为这两个对象有完全相同的名字和年龄，所以equals()方法返回true。</p>
+<p>如果拿SaleRep对象中Employee的部分来和Employee比较的话，返回true值是正确的，但是，如果拿整个SaleRep对象来和Employee对象比较，返回true值就不妥了。</p>
+<p>现在假设在SaleRep对象中调用equals()方法并将Employee传入。</p>
+<p>因为Employee不是SaleRep类型的对象（否则的话，你可以访问Employee对象中不存在的Region域，这会导致虚拟机崩溃），无法通过instanceof判断，equals()方法返回false。</p>
+<p>综上，equals()在一种判断中为true却在另一判断中为false，违背了“对称性原则”。</p>
+<p>Joshua Bloch在《Effective Java Programming Language Guide》第七版中指出：我们无法扩展可被实例化的类（例如Employee）并向其中增加一个域（如Region域），而同时维持equals()方法的对称性。</p>
+<p>尽管也有办法来维持对称性，但代价是破坏传递性。Bloch指出解决这个问题需要在继承上支持组合：不是让SaleRep来扩展Employee，SaleRep应该引用一个私有的Employee值。</p>
+<p>获得更多信息可以参考Bloch的书。</p>
+<p><strong>问：可以使用equals()函数来判断两个数组是否相等吗？</strong><br>答：可以调用equals()函数来比较数组的引用是否相等。但是，由于在数组对象中无法覆盖equals()，所以只能对数组的引用进行比较，因为不是很常用。参见代码清单9。</p>
+<p>代码清单9：尝试通过equals()函数来比较两个数组</p>
+<pre><code class="java">publicclassEqualityDemo
+{
+publicstaticvoidmain(String[] args)
+{
+intx[] = { <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>};
+inty[] = { <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>};
+System.out.printf(<span class="string">"x.equals(x): %b%n"</span>, x.equals(x));
+System.out.printf(<span class="string">"x.equals(y): %b%n"</span>, x.equals(y));
+}
+}
+</code></pre>
+<p>代码清单9的main()函数中声明了一对类型与内容完全相等的数组。然后尝试对第一个数组和它自己、第一个数组和第二个数组分别进行比较。</p>
+<p>由于equals()对数组来说比较的仅仅是引用，而不比较内容，所以x.equals(x)返回true（因为自反性——一个对象与它自己相等），但是x.equals(y)返回false。</p>
+<p>编译(javac EqualityDemo.java) 并运行(java EqualityDemo)代码清单9，你将会看到以下输出结果：</p>
+<pre><code>1
+2
+x.equals(x): true
+x.equals(y): false
+</code></pre><p>如果你想要比较的是两个数组的内容，也不要绝望。</p>
+<p>可以使用java.util.Arrays 类中声明的 static boolean deepEquals(Object[] a1, Object[] a2) 方法来实现。代码清单10演示了这个方法。</p>
+<p>代码清单10：通过deepEquals()函数来比较两个数组</p>
+<pre><code class="java">importjava.util.Arrays;
+publicclassEqualityDemo
+{
+publicstaticvoidmain(String[] args)
+{
+Integer x[] = { <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>};
+Integer y[] = { <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>};
+Integer z[] = { <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>};
+System.out.printf(<span class="string">"x.equals(x): %b%n"</span>, Arrays.deepEquals(x, x));
+System.out.printf(<span class="string">"x.equals(y): %b%n"</span>, Arrays.deepEquals(x, y));
+System.out.printf(<span class="string">"x.equals(z): %b%n"</span>, Arrays.deepEquals(x, z));
+}
+}
+</code></pre>
+<p>由于deepEquals()方法要求传入的数组元素必须是对象，所以之前在代码清单9中的元素类型要从int[]改为Integer[]。</p>
+<p>Java语言的自动封装特性会把integer常量转换成Integer对象存放在数组中。接下来要将数组传入到deepEquals()就是小事一桩了。</p>
+<p>编译(javac EqualityDemo.java)并运行(java EqualityDemo)代码清单10，你将看到以下输出结果。</p>
+<pre><code>x.equals(x): true
+x.equals(y): true
+x.equals(z): false
+</code></pre><p>用deepEquals()方法比较的相等是“深度”的相等：这要求每个元素对象所包含的的成员、对象相等。</p>
+<p>成员对象如果还包含了对象，也要相等，以此类推，才算是“相等”（另外，两个空的数组引用也是“深度”的相等，因此Arrays.deepEquals(null, null)返回true）。</p>
+<p><strong>终止</strong><br><strong>问：finalize()方法是用来做什么的？</strong><br>答：finalize()方法可以被子类对象所覆盖，然后作为一个终结者，当GC被调用的时候完成最后的清理工作（例如释放系统资源之类）。这就是终止。默认的finalize()方法什么也不做，当被调用时直接返回。<br>对于任何一个对象，它的finalize()方法都不会被JVM执行两次。如果你想让一个对象能够被再次调用的话（例如，分配它的引用给一个静态变量），注意当这个对象已经被GC回收的时候，finalize()方法不会被调用第二次。<br><strong>问： 有人说要避免使用finalize()方法，这是真的吗？</strong><br>答： 通常来讲，你应该尽量避免使用finalize()。相对于其他JVM实现，终结器被调用的情况较少——可能是因为终结器线程的优先级别较低的原因。如果你依靠终结器来关闭文件或者其他系统资源，可能会将资源耗尽，当程序试图打开一个新的文件或者新的系统资源的时候可能会崩溃，就因为这个缓慢的终结器。<br><strong>问： 应该使用什么来替代终结器？</strong><br>答： 提供一个明确的用来销毁这个对象的方法（例如，java.io.FileInputStream的void close()方法），并且在代码中使用try - finally结构来调用这个方法，以确保无论有没有异常从try中抛出，都会销毁这个对象。参考下面释放锁的代码：</p>
+<pre><code class="java">Lock l = ...; <span class="comment">// ... is a placeholder for the actual lock-acquisition code</span>
+l.lock();
+<span class="keyword">try</span>
+{
+<span class="comment">// access the resource protected by this lock</span>
+}
+<span class="keyword">finally</span>
+{
+l.unlock();
+}
+这段代码保证了无论<span class="keyword">try</span>是正常结束还是抛出异常都会释放锁。
+**问： 什么情况下适合使用终结器？**
+答： 终结器可以作为一个安全保障，以防止声明的终结方法（像是java.io.FileOutputStream对象的close()方法或者java.util.concurrent.Lock对象的Lock()方法）没有被调用。万一这种情况出现，终结器可以在最后被调用，释放临街资源。
+**问： 怎么写finalize()？**
+答： 可以遵循下面这个模式写finalize()方法：
+``` java
+<span class="meta">@Override</span>
+protectedvoidfinalize() throwsThrowable
+{
+<span class="keyword">try</span>
+{
+<span class="comment">// Finalize the subclass state.</span>
+<span class="comment">// ...</span>
+}
+<span class="keyword">finally</span>
+{
+<span class="keyword">super</span>.finalize();
+}
+}
+</code></pre>
+<p>子类终结器一般会通过调用父类的终结器来实现。当被调用时，先执行try模块，然后再在对应的finally中调用super.finalize()；这就保证了无论try会不会抛出异常父类都会被销毁。<br><strong>问： 如果finalize()抛出异常会怎样？</strong><br>答： 当finalize()抛出异常的时候会被忽略。而且，对象的终结将在此停止，导致对象处在一种不确定的状态。如果另一个进程试图使用这个对象的话，将产生不确定的结果。通常抛出异常将会导致线程终止并产生一个提示信息，但是从finalize()中抛出异常就不会。<br><strong>问： 我想实践一下finalize()方法，能提供一个范例吗？</strong><br>答： 参考代码清单1.</p>
+<pre><code class="java">classLargeObject
+{
+<span class="keyword">byte</span>[] memory = newbyte[<span class="number">1024</span>*<span class="number">1024</span>*<span class="number">4</span>];
+<span class="meta">@Override</span>
+protectedvoidfinalize() throwsException
+{
+System.out.println(<span class="string">"finalized"</span>);
+}
+}
+publicclassFinalizeDemo
+{
+publicstaticvoidmain(String[] args)
+{
+<span class="keyword">while</span>(<span class="keyword">true</span>)
+newLargeObject();
+}
+}
+</code></pre>
+<p>代码清单1:实践finalize()</p>
+<p>代码清单1中的代码写了一个FinalizeDemo程序，重复地对largeObject类实例化。每一个Largeobject对象将产生4M的数组。</p>
+<p>在这种情况下，由于没有指向该对象的引用，所以LargeObject对象将被GC回收。</p>
+<p>GC会调用对象的finalize()方法来回收对象。LargeObject重载的finalize()方法被调用的时候会想标准输出流打印一条信息。它没有调用父类的finalize()方法，因为它的父类是Object，即父类的finalize()方法什么也不做。</p>
+<p>编译(javac FinalizeDemo.java)并运行(java FinalizeDemo)代码清单1.当我在我的环境下（64位win7平台）使用JDK7u6来编译运行的时候，我看到一列finalized的信息。</p>
+<p>但是在JDK8的环境下时，在几行finalized之后抛出了java.lang.OutOfMemoryError。</p>
+<p>因为finalize()方法对于虚拟机来说不是轻量级的程序，所以不能保证你一定会在你的环境下观察到输出信息。</p>
+<p><strong>得到对象的类</strong></p>
+<p><strong>问：gerClass()方法是用来做什么的？</strong></p>
+<p>答： 通过gerClass()方法可以得到一个和这个类有关的java.lang.Class对象。返回的Class对象是一个被static synchronized方法封装的代表这个类的对象；例如，static sychronized void foo(){}。这也是指向反射API。因为调用gerClass()的对象的类是在内存中的，保证了类型安全。</p>
+<p><strong>问： 还有其他方法得到Class对象吗？</strong></p>
+<p>答： 获取Class对象的方法有两种。可以使用类字面常量，它的名字和类型相同，后缀位.class；例如，Account.class。另外一种就是调用Class的foeName()方法。类字面常量更加简洁，并且编译器强制类型安全；如果找不到指定的类编译就不会通过。通过forname()可以动态地通过指定包名载入任意类型地引用。但是，不能保证类型安全，可能会导致Runtime异常。</p>
+<p><strong>问： 实现equals()方法的时候，getClass()和instanceof哪一个更好？</strong></p>
+<p>答： 使用getClass()还是instanceof的话题一直都是Java社区争论的热点，Angelika Langer的Secrets of equals – Part 1这片文章可以帮助你做出选择。关于正确覆盖equals()方法（例如保证对称性）的讨论，Lang的这篇文章可以作为一个很好的参考手册。</p>
+<p><strong>哈希码</strong></p>
+<p><strong>问：hashCode()方法是用来做什么的？</strong></p>
+<p>答：hashCode()方法返回给调用者此对象的哈希码（其值由一个hash函数计算得来）。这个方法通常用在基于hash的集合类中，像java.util.HashMap,java.until.HashSet和java.util.Hashtable.</p>
+<p><strong>问： 在类中覆盖equals()的时候，为什么要同时覆盖hashCode()？</strong></p>
+<p>答： 在覆盖equals()的时候同时覆盖hashCode()可以保证对象的功能兼容于hash集合。这是一个好习惯，即使这些对象不会被存储在hash集合中。</p>
+<p><strong>问：hashCode()有什么一般规则？</strong></p>
+<p>答：hashCode()的一般规则如下：</p>
+<p>在同一个Java程序中，对一个相同的对象，无论调用多少次hashCode()，hashCode()返回的整数必须相同，因此必须保证equals()方法比较的内容不会更改。但不必在另一个相同的Java程序中也保证返回值相同。</p>
+<p>如果两个对象用equals()方法比较的结果是相同的，那么这两个对象调用hashCode()应该返回相同的整数值。</p>
+<p>当两个对象使用equals()方法比较的结果是不同的，hashCode()返回的整数值可以不同。然而，hashCode()的返回值不同可以提高哈希表的性能。</p>
+<p><strong>问： 如果覆盖了equals()却不覆盖hashCode()会有什么后果？</strong></p>
+<p>答： 当覆盖equals()却不覆盖hashCode()的时候，在hash集合中存储对象时就会出现问题。例如，参考代码清单2.</p>
+<p>代码清单2：当hash集合只覆盖equals()时的问题</p>
+<pre><code class="java">importjava.util.HashMap;
+importjava.util.Map;
+finalclassEmployee
+{
+privateString name;
+privateintage;
+Employee(String name, intage)
+{
+<span class="keyword">this</span>.name = name;
+<span class="keyword">this</span>.age = age;
+}
+<span class="meta">@Override</span>
+publicbooleanequals(Object o)
+{
+<span class="keyword">if</span>(!(o instanceofEmployee))
+returnfalse;
+Employee e = (Employee) o;
+returne.getName().equals(name) &amp;&amp; e.getAge() == age;
+}
+<span class="function">String <span class="title">getName</span><span class="params">()</span>
+</span>{
+returnname;
+}
+intgetAge()
+{
+returnage;
+}
+}
+publicclassHashDemo
+{
+publicstaticvoidmain(String[] args)
+{
+Map map = newHashMap&lt;&gt;();
+Employee emp = newEmployee(<span class="string">"John Doe"</span>, <span class="number">29</span>);
+map.put(emp, <span class="string">"first employee"</span>);
+System.out.println(map.get(emp));
+System.out.println(map.get(newEmployee(<span class="string">"John Doe"</span>, <span class="number">29</span>)));
+}
+}
+</code></pre>
+<p>代码清单2声明了一个Employee类，覆盖了equals()方法但是没有覆盖hashCode()。同时声明了一个一个HashDemo类，来演示将Employee作为键存储时时产生的问题。</p>
+<p>main()函数首先在实例化Employee之后创建了一个hashmap，将Employee对象作为键，将一个字符串作为值来存储。然后它将这个对象作为键来检索这个集合并输出结果。</p>
+<p>同样地，再通过新建一个具有相同内容的Employee对象作为键来检索集合，输出信息。</p>
+<p>编译(javac HashDemo.java)并运行(java HashDemo)代码清单2，你将看到如下输出结果：</p>
+<pre><code>first employee
+null
+</code></pre><p>如果hashCode()方法被正确的覆盖，你将在第二行看到first employee而不是null，因为这两个对象根据equals()方法比较的结果是相同的，根据上文中提到的规则2：如果两个对象用equals()方法比较的结果是相同的，那么这两个对象调用hashCode()应该返回相同的整数值。</p>
+<p><strong>问： 如何正确的覆盖hashCode()？</strong></p>
+<p>答： Joshua Bloch的《Effective Java》第八版中给出了一个四步法来正确的覆盖hashCode()。下面的步骤和Bloch的方法类似。</p>
+<p>声明一个int型的变量，命名为result（或者其他你喜欢的名字），然后初始化为一个不为零的常量（比如31）。使用一个不为零的常量会影响到所有的初始的哈希值（步骤2.1的结果）为零的值。<br>【A nonzero value is used so that it will be affected by any initial fields whose hash value (computed in Step 2.1) is zero. 】如果初始的result为0的话，最后的哈希值不会被它影响到，所以冲突的几率会增加。这个非零result值是任意的。<br>对每一个对象中有意义的具体值（在equals（）中所涉及的值），f，进行以下步骤的处理：</p>
+<p>按照以下步骤计算f的基于int型的哈希值hc：<br>对于一个boolean型变量，hc = f？ 0 ： 1；。<br>对于一个byte,char,short,或者int型变量,hc = (int)f;.<br>对于一个long型变量，hc = (int) (f ^ (f &lt;&lt;&lt; 32));.这个表达式是将long型变量作为32位（long型最多有32位）来计算的；<br>对于一个float型变量，hc = Float.floatToIntBits(f);.<br>对于一个double型变量，long l = Double.doubleToLongBits(f); hc = (int) (l ^ (l &lt;&lt;&lt; 32));.<br>对于引用类型的变量，如果类中的equals()方法递归的调用equals()类比较成员变量，那么就递归调用hashCode()；如果需要更复杂的比较，就计算这个值的“标准表示”来脚酸标准的哈希值；如果引用类型的值为null，f = 0.<br>对于一个数组类型的引用，将每一个元素视为单独的变量，对于每一个有意义的值，调用对应的方法计算其哈希值，最后如步骤2.2的描述那样将所有的哈希值合并。</p>
+<p>计算result = 37*result+hc，将所有的hc合并到哈希值中。乘法使哈希值取决于它的值的规则，当一个类中存在多种相似的值时，就增加了哈希表的离散性。<br>返回result。</p>
+<p>完成hashCode()之后，要确保相同的对象调用hashCode()得到相同的哈希值。</p>
+<p>举例说明上面这个方法，代码清单3是代码清单2的第二个版本，它的Employee类重写了hashCode()。</p>
+<p>代码清单3：正确地覆盖hashCode()</p>
+<pre><code class="java">importjava.util.HashMap;
+importjava.util.Map;
+finalclassEmployee
+{
+privateString name;
+privateintage;
+Employee(String name, intage)
+{
+<span class="keyword">this</span>.name = name;
+<span class="keyword">this</span>.age = age;
+}
+<span class="meta">@Override</span>
+publicbooleanequals(Object o)
+{
+<span class="keyword">if</span>(!(o instanceofEmployee))
+returnfalse;
+Employee e = (Employee) o;
+returne.getName().equals(name) &amp;&amp; e.getAge() == age;
+}
+<span class="function">String <span class="title">getName</span><span class="params">()</span>
+</span>{
+returnname;
+}
+intgetAge()
+{
+returnage;
+}
+<span class="meta">@Override</span>
+publicinthashCode()
+{
+intresult = <span class="number">31</span>;
+result = <span class="number">37</span>*result+name.hashCode();
+result = <span class="number">37</span>*result+age;
+returnresult;
+}
+}
+publicclassHashDemo
+{
+publicstaticvoidmain(String[] args)
+{
+Map map = newHashMap&lt;&gt;();
+Employee emp = newEmployee(<span class="string">"John Doe"</span>, <span class="number">29</span>);
+map.put(emp, <span class="string">"first employee"</span>);
+System.out.println(map.get(emp));
+System.out.println(map.get(newEmployee(<span class="string">"John Doe"</span>, <span class="number">29</span>)));
+}
+}
+</code></pre>
+<p>代码清单3的Employee类中声明了两个在hashCode()都涉及到的值。覆盖的hashCode()方法首先初始化result为31，然后将String类型的name变量和int型的age变量的哈希值合并到result中，随后返回result。</p>
+<p>编译(javac HashDemo.java)并运行(java HashDemo)代码清单3，你将看到如下输出结果：</p>
+<pre><code>first employee
+first employee
+</code></pre><p><strong>字符串形式的表现</strong><br><strong>Q1：toString() 方法实现了什么功能？</strong><br>A1：toString() 方法将根据调用它的对象返回其对象的字符串形式，通常用于debug。<br><strong>Q2：当 toString() 方法没有被覆盖的时候，返回的字符串通常是什么样子的？</strong><br>A2：当 toString() 没有被覆盖的时候，返回的字符串格式是 类名@哈希值，哈希值是十六进制的。举例说，假设有一个 Employee 类，toString() 方法返回的结果可能是 Empoyee@1c7b0f4d。<br><strong>Q3：能提供一个正确覆盖 toString() 方法的例子吗？</strong><br>A3：见代码清单1：</p>
+<pre><code class="java">publicclassEmployee
+{
+privateString name;
+privateintage;
+publicEmployee(String name, intage)
+{
+<span class="keyword">this</span>.name = name;
+<span class="keyword">this</span>.age = age;
+}
+<span class="meta">@Override</span>
+<span class="function">publicString <span class="title">toString</span><span class="params">()</span>
+</span>{
+returnname + <span class="string">": "</span>+ age;
+}
+}
+</code></pre>
+<p>代码清单1：返回一个非默认的字符串形式<br>代码清单1声明了 Employee 类，被私有修饰符修饰的 name 和 age 变量，构造器将其初始化。该类覆盖了 toString() 方法，并返回一个包含对象值和一个冒号的 String 对象。<br>字符串和 StringBuilder<br>当编译器遇到 name + “: “ + age 的表达时，会生成一个 java.lang.StringBuilder 对象，并调用 append() 方法来对字符串添加变量值和分隔符。最后调用 toString() 方法返回一个包含各个元素的字符串对象。<br><strong>Q4：如何得到字符串的表达形式？</strong><br>A4：根据对象的引用，调用引用的 toString() 。例如，假设 emp 包含了一个 Employee 引用，调用 emp.toString() 就会得到这个对象的字符串形式。<br><strong>Q5：System.out.println(o.toString()); 和 System.out.println(o) 的区别是什么？</strong><br>A5：System.out.println(o.toString()); 和 System.out.println(o) 两者的输出结果中都包含了对象的字符串形式。区别是，System.out.println(o.toString()); 直接调用toString() 方法，而System.out.println(o) 则是隐式调用了 toString()。<br>等待和唤醒<br><strong>Q6：wait()，notify() 和 notifyAll() 是用来干什么的？</strong><br>A6：wait()，notify() 和 notifyAll() 可以让线程协调完成一项任务。例如，一个线程生产，另一个线程消费。生产线程不能在前一产品被消费之前运行，而应该等待前一个被生产出来的产品被消费之后才被唤醒，进行生产。同理，消费线程也不能在生产线程之前运行，即不能消费不存在的产品。所以，应该等待生产线程执行一个之后才执行。利用这些方法，就可以实现这些线程之间的协调。从本质上说，一个线程等待某种状态（例如一个产品被生产），另一个线程正在执行，知道产生了某种状态（例如生产了一个产品）。<br><strong>Q7：不同的 wait() 方法之间有什么区别？</strong><br>A7：没有参数的 wait() 方法被调用之后，线程就会一直处于睡眠状态，直到本对象（就是 wait() 被调用的那个对象）调用 notify() 或 notifyAll() 方法。相应的wait(long timeout)和wait(long timeout, int nanos)方法中，当等待时间结束或者被唤醒时（无论哪一个先发生）将会结束等待。<br><strong>Q8：notify() 和 notifyAll() 方法有什么区别？</strong><br>A8：notify() 方法随机唤醒一个等待的线程，而 notifyAll() 方法将唤醒所有在等待的线程。<br><strong>Q9：线程被唤醒之后会发生什么？</strong><br>A9：当一个线程被唤醒之后，除非本对象（调用 notify() 或 notifyAll() 的对象）的同步锁被释放，否则不会立即执行。唤醒的线程会按照规则和其他线程竞争同步锁，得到锁的线程将执行。所以notifyAll()方法执行之后，可能会有一个线程立即运行，也可能所有的线程都没运行。<br><strong>Q10：为什么在使用等待、唤醒方法时，要放在同步代码中？</strong><br>A10:：将等待和唤醒方法放在同步代码中是非常必要的，这样做是为了避免竞争条件。鉴于要等待的线程通常在调用wait()之前会确认一种情况存在与否（通常是检查某一变量的值），而另一线程在调用notify()`之前通常会设置某种情况（通常是通过设置一个变量的值）。以下这种情况引发了竞争条件：<br>线程一检查了情况和变量，发现需要等待。<br>线程二设置了变量。<br>线程二调用了notify()。此时，线程一还没有等待，所以这次调用什么用都没有。<br>线程一调用了wait()。这下它永远不会被唤醒了。<br><strong>Q11：如果在同步代码之外使用这些方法会怎么样呢？</strong><br>A11：如果在同步代码之外使用了这些情况，就会抛出java.lang.IllegalMonitorStateException异常。<br><strong>Q12：如果在同步代码中调用这些方法呢？</strong><br>A12：当 wait() 方法在同步代码中被调用时，会根据同步代码中方法的优先级先后执行。在wait()方法返回值之前，该同步代码一直持有锁，这样就不会出现竞争条件了。在wait()方法可以接受唤醒之前，锁一直不会释放。<br><strong>Q13：为什么要把wait()调用放在while循环中，而不是if判断中呢？</strong><br>A13：为了防止假唤醒，可以在 stackoverflow上了解有关这类现象的更多信息——假唤醒真的会发生吗？。<br><strong>Q14：能提供一个使用等待与唤醒方法的范例吗？</strong><br>A14：见代码清单2：</p>
+<pre><code class="java">publicclassWaitNotifyDemo
+{
+publicstaticvoidmain(String[] args)
+{
+classShared
+{
+privateString msg;
+synchronizedvoidsend(String msg)
+{
+<span class="keyword">while</span>(<span class="keyword">this</span>.msg != <span class="keyword">null</span>)
+<span class="keyword">try</span>
+{
+wait();
+}
+<span class="keyword">catch</span>(InterruptedException ie)
+{
+}
+<span class="keyword">this</span>.msg = msg;
+notify();
+}
+<span class="function">synchronizedString <span class="title">receive</span><span class="params">()</span>
+</span>{
+<span class="keyword">while</span>(msg == <span class="keyword">null</span>)
+<span class="keyword">try</span>
+{
+wait();
+}
+<span class="keyword">catch</span>(InterruptedException ie)
+{
+}
+String temp = msg;
+msg = <span class="keyword">null</span>;
+notify();
+returntemp;
+}
+}
+finalShared shared = newShared();
+Runnable rsender;
+rsender = newRunnable()
+{
+<span class="meta">@Override</span>
+publicvoidrun()
+{
+<span class="keyword">for</span>(inti = <span class="number">0</span>; i &lt; code&gt;<span class="number">10</span>; i++)
+{
+shared.send(<span class="string">"A"</span>+i);
+<span class="keyword">try</span>
+{
+Thread.sleep((<span class="keyword">int</span>)(Math.random()*<span class="number">200</span>));
+}
+<span class="keyword">catch</span>(InterruptedException ie)
+{
+}
+}
+shared.send(<span class="string">"done"</span>);
+}
+};
+Thread sender = newThread(rsender);
+Runnable rreceiver;
+rreceiver = newRunnable()
+{
+<span class="meta">@Override</span>
+publicvoidrun()
+{
+String msg;
+<span class="keyword">while</span>(!(msg = shared.receive()).equals(<span class="string">"done"</span>))
+{
+System.out.println(msg);
+<span class="keyword">try</span>
+{
+Thread.sleep((<span class="keyword">int</span>)(Math.random()*<span class="number">200</span>));
+}
+<span class="keyword">catch</span>(InterruptedException ie)
+{
+}
+}
+}
+};
+Thread receiver = newThread(rreceiver);
+sender.start();
+receiver.start();    
+}
+}
+</code></pre>
+<p>代码清单2：发送与接收信息</p>
+<p>代码清单2声明了一个WaitNotifyDemo类。其中，main()方法有一对发送和接收信息的线程。</p>
+<p>main()方法首先声明了Shard本地类，包含接收和发送信息的任务。Share声明了一个String类型的smg私有成员变量来存储要发送的信息，同时声明了同步的 send()和receive()方法来执行接收和发送动作。</p>
+<p>发送线程调用的是send()。因为上一次调用send()的信息可能还没有被接收到，所以这个方法首先要通过计算this.msg != null的值来判断信息发送状态。</p>
+<p>如果返回值为true，那么信息处于被等待发送的状态，就会调用 wait() 。一旦信息被接收到，接受的线程就会给msg赋值为null并存储新信息，调用notify()唤醒等待的线程。</p>
+<p>接收线程调用的是receive()因为可能没有信息处于被接收状态，这个方法首先会通过计算mas == null的值来验证信息有没有等待被接收的状态。如果表达式返回值为true，就表示没有信息等待被接收，此线程就要调用 wait() 方法。</p>
+<p>如果有信息发送，发送线程就会给 msg 分配值并且调用notify()唤醒接收线程。</p>
+<p>编译（javac WaitNotifyDemo.java）并运行（java WaitNotifyDemo）源代码，将会看到以下输出结果：</p>
+<pre><code>A0
+A1
+A2
+A3
+A4
+A5
+A6
+A7
+A8
+A9
+</code></pre><p><strong>Q15：我想更加深入的学习等待和唤醒的机制，能提供一些资源吗？</strong><br>A15：可以在artima参考Bill Venners的书《Inside the Java Virtual Machine（深入理解 Java 虚拟机）》中第20章 Chapter 20: Thread Synchronization。<br>Object接口和Java8<br><strong>Q16：在第一部分中提到过接口是不继承Object的。然而，我发现有些接口中声明了Object中的方法。比如java.util.Comparator接口有boolean.equals(Object.obj)。为什么呢？</strong><br>A16：Java语言规范的9.6.3.4部分中清楚说明了，接口有相当于 Object 中成员那样的公共抽象成员。此外，如果接口中声明了Object中的成员函数（例如，声明的函数相当于覆盖 Object中的public方法），则认为是接口覆盖了他们，可以用 @Override注释。<br>为什么要在接口中声明非final的publicObject方法（可能还带有 @Override）呢？举例来说，Comparator接口中就有boolean equals(Object obj)声明，这个方法在接口中声明就是为了此接口的特殊情况。<br>此外，这个方法只有在传入的类是一个比较规则相同的比较器的时候，才能返回 true。<br>因为这种情况是可选的，所以并不强制实现 Comparator。这取决于有没有equals，只有在遇到一个比较规则相同的比较器的时候才返回true的需求。尽管类并不要求覆盖equals，但是文档中却支持这样做来提高性能。<br>注意，不覆盖 Object.equals(Object)是安全的。但是，覆盖这个方发可能在一些情况下提高性能，比如让程序判断两个不同的比较器是不是用的相同规则。<br><strong>Q17：哪一个Employee方法被覆盖了？是Object中的，还是接口中的？</strong><br>A17：更早的文档中说，被覆盖的方法是在Object中的。<br><strong>Q18:Java 8支持接口中的默认方法。可以在接口中默认实现Employee方法或者Object中的其他方法吗？</strong><br>A18：不可以。Object中的任何public的非final方法都是不允许在接口中默认实现的。这个限制的基本原理在Brian Goetz的允许默认方法覆盖Object中的方法一文中有说明。<br><strong>Q19：能提供更多关于接口中 Object 方法的学习资源吗？</strong><br>A19：可以参考这篇接口继承了Object类吗？。</p>
+<p>原文链接： Javaworld 翻译： ImportNew.com - 赖 信涛<br>译文链接： <a href="http://www.importnew.com/10304.html" target="_blank" rel="external">http://www.importnew.com/10304.html</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2016/12/14/Java：Object类详解/">Java：Object类详解</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主頁">Bo Pang</a></p>
+        <p><span>發布時間:</span>2016-12-14, 09:58:41</p>
+        <p><span>最後更新:</span>2016-12-14, 10:18:18</p>
+        <p>
+            <span>原始鏈接:</span><a class="post-url" href="/2016/12/14/Java：Object类详解/" title="Java：Object类详解">http://pangbo.space/2016/12/14/Java：Object类详解/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/14/Java：Object类详解/　　作者: Bo Pang" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/12/14/java：LinkedList基本用法/">
+                    java：LinkedList基本用法
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/12/13/Divide Two Integers/">
+                    Divide Two Integers.java
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目錄</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+    <script>
+        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Java：Object类详解　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/14/Java：Object类详解/" data-title="Java：Object类详解" data-url="http://pangbo.space/2016/12/14/Java：Object类详解/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"pbsinc"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/12/14/java：LinkedList基本用法/" title="上一篇: java：LinkedList基本用法">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/12/13/Divide Two Integers/" title="下一篇: Divide Two Integers.java">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/14/java：LinkedList基本用法/">java：LinkedList基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/14/Java：Object类详解/">Java：Object类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Divide Two Integers/">Divide Two Integers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Fraction to Recurring Decimal/">Fraction to Recurring Decimal.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Reverse Integer/">Reverse Integer.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Water and Jug Problem/">Water and Jug Problem.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Add Two Numbers/">Add Two Numbers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/Count Primes/">Count Primes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/Sqrt(x)/">Sqrt(x).java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/Permutation Sequence/">Permutation Sequence.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/Integer Replacement/">Integer Replacement.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/Rotate Function/">Rotate Function.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/Nth Digit/">Nth Digit.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/10/Rectangle Area/">Rectangle Area.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/10/Largest Divisible Subset/">Largest Divisible Subset.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/09/Super Pow/">Super Pow.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/09/Palindrome Number/">Palindrome Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/hexo换电脑迁移操作/">hexo换电脑迁移操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/堆和栈的区别/">堆和栈的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/集合Collections工具类用法/">集合Collections工具类用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/二叉树：先序遍历、中序遍历、后序遍历/">二叉树：先序遍历、中序遍历、后序遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java堆栈Stack类简介/">java堆栈Stack类简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/long与Long的区别，long型最后有无L的区别/">long与Long的区别，long型最后有无L的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/动态规划算法 Dynamic Programming/">动态规划算法 Dynamic Programming</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java值传递&引用传递/">java值传递&引用传递</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java各数据类型的范围/">java各数据类型的范围</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java判断字符串String是否相等/">java判断字符串String是否相等</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/hexo 绑定域名/">hexo 绑定域名</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java中length,length(),size()区别/">java中length,length(),size()区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java中大数的表示BigInteger和BigDecimal/">java中大数的表示BigInteger和BigDecimal</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Word Search/">Word Search.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Valid Perfect Square/">Valid Perfect Square.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/ZigZag Conversion/">ZigZag Conversion.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Unique Paths/">Unique Paths.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Valid Palindrome/">Valid Palindrome.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Valid Parentheses/">Valid Parentheses.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Ugly Number II/">Ugly Number II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Unique Paths II/">Unique Paths II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Ugly Number/">Ugly Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Two Sum/">Two Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Two Sum II - Input array is sorted/">Two Sum II - Input array is sorted.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Triangle/">Triangle.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Third Maximum Number/">Third Maximum Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Summary Ranges/">Summary Ranges.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Sum of Two Integers/">Sum of Two Integers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Super Ugly Number/">Super Ugly Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/String to Integer (atoi)/">String to Integer (atoi).java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Subsets/">Subsets.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Subsets II/">Subsets II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Sort Colors/">Sort Colors.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Spiral Matrix II/">Spiral Matrix II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Spiral Matrix/">Spiral Matrix.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Single Number/">Single Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Simplify Path/">Simplify Path.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Set、List、Map的遍历/">Set、List、Map的遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search in Rotated Sorted Array/">Search in Rotated Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Set Matrix Zeroes/">Set Matrix Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search for a Range/">Search for a Range.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search in Rotated Sorted Array II/">Search in Rotated Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search a 2D Matrix/">Search a 2D Matrix.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Rotate Array/">Rotate Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Rotate Image/">Rotate Image.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search Insert Position/">Search Insert Position.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Reverse Words in a String/">Reverse Words in a String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Roman to Integer/">Roman to Integer.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Reverse String/">Reverse String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Reverse Vowels of a String/">Reverse Vowels of a String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Remove Element/">Remove Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Repeated Substring Pattern/">Repeated Substring Pattern.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Restore IP Addresses/">Restore IP Addresses.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Remove Duplicates from Sorted Array II/">Remove Duplicates from Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Remove Duplicates from Sorted Array/">Remove Duplicates from Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Reconstruct Original Digits from English/">Reconstruct Original Digits from English.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Ransom Note/">Ransom Note.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Power of Two/">Power of Two.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Product of Array Except Self/">Product of Array Except Self.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Plus One/">Plus One.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Pow(x, n)/">Pow(x, n).java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Power of Three/">Power of Three.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Pascal's Triangle/">Pascal's Triangle.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Perfect Squares/">Perfect Squares.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Nim Game/">Nim Game.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Pascal's Triangle II/">Pascal's Triangle II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Move Zeroes/">Move Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Multiply Strings/">Multiply Strings.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Next Permutation/">Next Permutation.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Minimum Size Subarray Sum/">Minimum Size Subarray Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Missing Number/">Missing Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Minimum Path Sum/">Minimum Path Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Minimum Moves to Equal Array Elements II/">Minimum Moves to Equal Array Elements II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Minimum Moves to Equal Array Elements/">Minimum Moves to Equal Array Elements.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Mini Parser/">Mini Parser.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Maximum Subarray/">Maximum Subarray.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Merge Sorted Array/">Merge Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Maximum Product Subarray/">Maximum Product Subarray.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Majority Element/">Majority Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Maximum Depth of Binary Tree/">Maximum Depth of Binary Tree.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Majority Element II/">Majority Element II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Longest Palindromic Substring/">Longest Palindromic Substring.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Longest Substring Without Repeating Characters/">Longest Substring Without Repeating Characters.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Longest Common Prefix/">Longest Common Prefix.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Letter Combinations of a Phone Number/">Letter Combinations of a Phone Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Length of Last Word/">Length of Last Word.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/List,Set,Map,数组间的相互转换/">List,Set,Map,数组间的相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java：String、StringBuffer和StringBuilder的区别/">Java：String、StringBuffer和StringBuilder的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Jump Game/">Jump Game.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java中StringBuilder的用法/">Java中StringBuilder的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java接口Set用法/">Java接口Set用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java各种类型互相转换/">Java各种类型互相转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java Map 集合类简介/">Java Map 集合类简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java中List集合的常用操作/">Java中List集合的常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Integer to Roman/">Integer to Roman.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Happy Number/">Happy Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Integer Break/">Integer Break.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Implement strStr()/">Implement strStr().java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Generate Parentheses/">Generate Parentheses.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Game of Life/">Game of Life.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Group Anagrams/">Group Anagrams.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find Peak Element/">Find Peak Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find Minimum in Rotated Sorted Array/">Find Minimum in Rotated Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Fizz Buzz/">Fizz Buzz.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find Minimum in Rotated Sorted Array II/">Find Minimum in Rotated Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find All Numbers Disappeared in an Array/">Find All Numbers Disappeared in an Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Excel Sheet Column Title/">Excel Sheet Column Title.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find All Duplicates in an Array/">Find All Duplicates in an Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Factorial Trailing Zeroes/">Factorial Trailing Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Count and Say/">Count and Say.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Count Numbers with Unique Digits/">Count Numbers with Unique Digits.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Excel Sheet Column Number/">Excel Sheet Column Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Decode Ways/">Decode Ways.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Contains Duplicate/">Contains Duplicate.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Contains Duplicate II/">Contains Duplicate II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Container With Most Water/">Container With Most Water.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Construct Binary Tree from Inorder and Postorder Traversal/">Construct Binary Tree from Inorder and Postorder Traversal.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Compare Version Numbers/">Compare Version Numbers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Construct Binary Tree from Preorder and Inorder Traversal/">Construct Binary Tree from Preorder and Inorder Traversal.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Combination Sum III/">Combination Sum III.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Combination Sum II/">Combination Sum II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Combination Sum/">Combination Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Best Time to Buy and Sell Stock II/">Best Time to Buy and Sell Stock II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Best Time to Buy and Sell Stock/">Best Time to Buy and Sell Stock.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Bulb Switcher/">第100题Bulb Switcher.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Arrays.sort()的用法/">Arrays.sort()的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Arranging Coins/">Arranging Coins.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Basic Calculator II/">Basic Calculator II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Arithmetic Slices/">Arithmetic Slices.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Add Strings/">Add Strings.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Add Digits/">Add Digits.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Add Binary/">Add Binary.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/4Sum/">4Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/3Sum/">3Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/3Sum Closest/">3Sum Closest.java</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Bo Pang
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、簡潔且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄博客主題  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到訪數"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本頁閱讀量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看評論"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
