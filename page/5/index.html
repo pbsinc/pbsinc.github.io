@@ -280,6 +280,79 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Ugly Number II" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/07/Ugly Number II/" class="article-date">
+      <time datetime="2016-12-07T06:40:32.043Z" itemprop="datePublished">2016-12-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/07/Ugly Number II/">Ugly Number II.java</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>Write a program to find the n-th ugly number.<br>Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly numbers.<br>Note that 1 is typically treated as an ugly number.<br>Hint:</p>
+<pre><code>The naive approach is to call isUgly for every number until you reach the nth one. Most numbers are not ugly. Try to focus your effort on generating only the ugly ones.
+An ugly number must be multiplied by either 2, 3, or 5 from a smaller ugly number.
+The key is how to maintain the order of the ugly numbers. Try a similar approach of merging from three sorted lists: L1, L2, and L3.
+Assume you have Uk, the kth ugly number. Then Uk+1 must be Min(L1 * 2, L2 * 3, L3 * 5).
+</code></pre>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/12/07/Ugly Number II/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Ugly Number" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -484,10 +557,10 @@
 
 
   
-    <article id="post-Third Maximum Number" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Triangle" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Third Maximum Number/" class="article-date">
+      <a href="/2016/12/07/Triangle/" class="article-date">
       <time datetime="2016-12-07T06:40:32.042Z" itemprop="datePublished">2016-12-07</time>
 </a>
 
@@ -503,7 +576,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/07/Third Maximum Number/">Third Maximum Number.java</a>
+      <a class="article-title" href="/2016/12/07/Triangle/">Triangle.java</a>
     </h1>
   
 
@@ -513,7 +586,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).<br>
+              <p>Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.<br>For example, given the following triangle<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">     [<span class="number">2</span>],</div><div class="line">    [<span class="number">3</span>,<span class="number">4</span>],</div><div class="line">   [<span class="number">6</span>,<span class="number">5</span>,<span class="number">7</span>],</div><div class="line">  [<span class="number">4</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">3</span>]</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).<br>Note:<br>Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.<br>
           
       
     </div>
@@ -528,12 +602,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态规划/">动态规划</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2016/12/07/Third Maximum Number/#more">more >></a>
+          <a href="/2016/12/07/Triangle/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -620,10 +694,10 @@
 
 
   
-    <article id="post-Triangle" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Third Maximum Number" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Triangle/" class="article-date">
+      <a href="/2016/12/07/Third Maximum Number/" class="article-date">
       <time datetime="2016-12-07T06:40:32.042Z" itemprop="datePublished">2016-12-07</time>
 </a>
 
@@ -639,7 +713,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/07/Triangle/">Triangle.java</a>
+      <a class="article-title" href="/2016/12/07/Third Maximum Number/">Third Maximum Number.java</a>
     </h1>
   
 
@@ -649,8 +723,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.<br>For example, given the following triangle<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">     [<span class="number">2</span>],</div><div class="line">    [<span class="number">3</span>,<span class="number">4</span>],</div><div class="line">   [<span class="number">6</span>,<span class="number">5</span>,<span class="number">7</span>],</div><div class="line">  [<span class="number">4</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">3</span>]</div><div class="line">]</div></pre></td></tr></table></figure></p>
-<p>The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).<br>Note:<br>Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.<br>
+              <p>Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).<br>
           
       
     </div>
@@ -665,12 +738,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态规划/">动态规划</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2016/12/07/Triangle/#more">more >></a>
+          <a href="/2016/12/07/Third Maximum Number/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -879,74 +952,6 @@
       
         <p class="article-more-link">
           <a href="/2016/12/07/Sum of Two Integers/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Subsets II" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/07/Subsets II/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.040Z" itemprop="datePublished">2016-12-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/07/Subsets II/">Subsets II.java</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>Given a collection of integers that might contain duplicates, nums, return all possible subsets.<br>Note: The solution set must not contain duplicate subsets.<br>For example,If nums = [1,2,2], a solution is:<br>[[2],[1],[1,2,2],[2,2],[1,2],[]]<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/12/07/Subsets II/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

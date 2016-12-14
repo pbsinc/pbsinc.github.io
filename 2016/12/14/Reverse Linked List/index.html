@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; ot">
+<meta name="description" content="Reverse a singly linked list.Hint:A linked list can be reversed either iteratively or recursively. Could you implement both?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ransom Note.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/Ransom Note/index.html">
+<meta property="og:title" content="Reverse Linked List.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/14/Reverse Linked List/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; ot">
-<meta property="og:updated_time" content="2016-11-22T03:45:44.000Z">
+<meta property="og:description" content="Reverse a singly linked list.Hint:A linked list can be reversed either iteratively or recursively. Could you implement both?">
+<meta property="og:updated_time" content="2016-12-14T07:23:10.963Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ransom Note.java">
-<meta name="twitter:description" content="Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; ot">
+<meta name="twitter:title" content="Reverse Linked List.java">
+<meta name="twitter:description" content="Reverse a singly linked list.Hint:A linked list can be reversed either iteratively or recursively. Could you implement both?">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Ransom Note.java | Bo`s blog</title>
+<title>Reverse Linked List.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Ransom Note" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Reverse Linked List" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Ransom Note/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.030Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/14/Reverse Linked List/" class="article-date">
+      <time datetime="2016-12-14T07:22:19.414Z" itemprop="datePublished">2016-12-14</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Ransom Note.java
+      Reverse Linked List.java
     </h1>
   
 
@@ -318,9 +318,34 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.<br>Each letter in the magazine string can only be used once in your ransom note.<br>Note:<br>You may assume that both strings contain only lowercase letters.<br>canConstruct(“a”, “b”) -&gt; false<br>canConstruct(“aa”, “ab”) -&gt; false<br>canConstruct(“aa”, “aab”) -&gt; true<br><a id="more"></a><br><strong>思路1：</strong><br>这种解法比较简单，就是将ransomNote的字符串挨个遍历，每个字符再从magazine里遍历匹配，只是再创建了个数组，数组每个元素的索引表示magazine字符串的位置，元素值表示是否被校验过，0表示还未被校验过，非0就表示该位置已经被校验过。<br>不过这种做法效率不高。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canConstruct</span><span class="params">(String ransomNote, String magazine)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = magazine.length();</div><div class="line">        <span class="keyword">if</span>(ransomNote==<span class="keyword">null</span>|| ransomNote.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		<span class="keyword">if</span>(magazine == <span class="keyword">null</span> || len == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		<span class="keyword">int</span>[] flag = <span class="keyword">new</span> <span class="keyword">int</span>[len];</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ransomNote.length();i++)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len;j++)&#123;</div><div class="line">				<span class="keyword">if</span>(flag[j] == <span class="number">0</span> &amp;&amp; ransomNote.charAt(i) == magazine.charAt(j))&#123;</div><div class="line">					flag[j] = <span class="number">1</span>;</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span>(j == len-<span class="number">1</span>)</div><div class="line">					<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>思路2：</strong><br>这是LeetCode Discuss中的最热代码，它的原理就是列出了magazine的字母表，然后算出了出现个数，然后遍历ransomNote，保证有足够的字母可用，代码非常清晰。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canConstruct</span><span class="params">(String ransomNote, String magazine)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; magazine.length(); i++) &#123;</div><div class="line">            arr[magazine.charAt(i) - <span class="string">'a'</span>]++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ransomNote.length(); i++) &#123;</div><div class="line">            <span class="keyword">if</span>(--arr[ransomNote.charAt(i)-<span class="string">'a'</span>] &lt; <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>思路3：</strong><br>将ransomNote和magazine都从小到大排序，然后对ransomNote遍历，同时在magazine中匹配，如果匹配到了，则记住此时magazine中字符的索引，便于下次操作，因为都是排序的。如果直到magazine中字符已经大于ransomNote中字符了，就说明就再也匹配不到了，则表示匹配失败。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canConstruct</span><span class="params">(String ransomNote, String magazine)</span> </span>&#123;</div><div class="line">        <span class="keyword">boolean</span> ret = <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">char</span>[] ra = ransomNote.toCharArray();</div><div class="line">        Arrays.sort(ra);</div><div class="line">        <span class="keyword">char</span>[] ma = magazine.toCharArray();</div><div class="line">        Arrays.sort(ma);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line">        <span class="keyword">boolean</span> found = <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ra.length &amp;&amp; ret; i++) &#123;</div><div class="line">            <span class="keyword">char</span> ri = ra[i];</div><div class="line">            found = <span class="keyword">false</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = index; j &lt; ma.length; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (ma[j] &gt; ri) &#123;</div><div class="line">                    ret = <span class="keyword">false</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ma[j] == ri) &#123;</div><div class="line">                    index++;</div><div class="line">                    found = <span class="keyword">true</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    index++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (!found) &#123;</div><div class="line">                ret = <span class="keyword">false</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Reverse a singly linked list.<br>Hint:<br>A linked list can be reversed either iteratively or recursively. Could you implement both?<br><a id="more"></a><br><strong>思路：</strong><br>直接反向再构建一个list就好；</p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>{
+        <span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;
+        ListNode res = <span class="keyword">new</span> ListNode(<span class="number">0</span>);
+
+        <span class="keyword">while</span>(head != <span class="keyword">null</span>){
+
+            res.val = head.val;
+            ListNode upper = <span class="keyword">new</span> ListNode(<span class="number">0</span>);
+            upper.next = res;
+            res = upper;
+            head = head.next;
+
+        }
+
+        <span class="keyword">return</span> res.val == <span class="number">0</span> ?res.next : res;
+    }
+}
+</code></pre>
 
       
     </div>
@@ -329,13 +354,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/07/Ransom Note/">Ransom Note.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/14/Reverse Linked List/">Reverse Linked List.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-07, 14:40:32</p>
-        <p><span>最后更新:</span>2016-11-22, 11:45:44</p>
+        <p><span>发布时间:</span>2016-12-14, 15:22:19</p>
+        <p><span>最后更新:</span>2016-12-14, 15:23:10</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/07/Ransom Note/" title="Ransom Note.java">http://pangbo.space/2016/12/07/Ransom Note/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/Ransom Note/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/14/Reverse Linked List/" title="Reverse Linked List.java">http://pangbo.space/2016/12/14/Reverse Linked List/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/14/Reverse Linked List/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -347,16 +372,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/Reconstruct Original Digits from English/">
-                    Reconstruct Original Digits from English.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/Product of Array Except Self/">
-                    Product of Array Except Self.java
+                <a href="/2016/12/14/Add Two Numbers II/">
+                    Add Two Numbers II.java
                 </a>
             </div>
         
@@ -404,7 +423,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Ransom Note.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Reverse Linked List.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,7 +441,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/Ransom Note/" data-title="Ransom Note.java" data-url="http://pangbo.space/2016/12/07/Ransom Note/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/14/Reverse Linked List/" data-title="Reverse Linked List.java" data-url="http://pangbo.space/2016/12/14/Reverse Linked List/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -445,15 +464,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/Reconstruct Original Digits from English/" title="上一篇: Reconstruct Original Digits from English.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/Product of Array Except Self/" title="下一篇: Product of Array Except Self.java">
+            <a href="/2016/12/14/Add Two Numbers II/" title="下一篇: Add Two Numbers II.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
