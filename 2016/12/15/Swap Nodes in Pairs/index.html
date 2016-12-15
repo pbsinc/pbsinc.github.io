@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given an index k, return the kth row of the Pascal’s triangle.For example, given k = 3,Return [1,3,3,1].Note:Could you optimize your algorithm to use only O(k) extra space?">
+<meta name="description" content="Given a linked list, swap every two adjacent nodes and return its head.For example,Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4, you should return the list as 2-&amp;gt;1-&amp;gt;4-&amp;gt;3.Your algorithm should use only constant">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pascal's Triangle II.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/Pascal's Triangle II/index.html">
+<meta property="og:title" content="Swap Nodes in Pairs.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/15/Swap Nodes in Pairs/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given an index k, return the kth row of the Pascal’s triangle.For example, given k = 3,Return [1,3,3,1].Note:Could you optimize your algorithm to use only O(k) extra space?">
-<meta property="og:updated_time" content="2016-10-23T10:36:00.000Z">
+<meta property="og:description" content="Given a linked list, swap every two adjacent nodes and return its head.For example,Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4, you should return the list as 2-&amp;gt;1-&amp;gt;4-&amp;gt;3.Your algorithm should use only constant">
+<meta property="og:updated_time" content="2016-12-15T08:23:55.392Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pascal's Triangle II.java">
-<meta name="twitter:description" content="Given an index k, return the kth row of the Pascal’s triangle.For example, given k = 3,Return [1,3,3,1].Note:Could you optimize your algorithm to use only O(k) extra space?">
+<meta name="twitter:title" content="Swap Nodes in Pairs.java">
+<meta name="twitter:description" content="Given a linked list, swap every two adjacent nodes and return its head.For example,Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4, you should return the list as 2-&amp;gt;1-&amp;gt;4-&amp;gt;3.Your algorithm should use only constant">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Pascal&#39;s Triangle II.java | Bo`s blog</title>
+<title>Swap Nodes in Pairs.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Pascal&#39;s Triangle II" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Swap Nodes in Pairs" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Pascal's Triangle II/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.027Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/15/Swap Nodes in Pairs/" class="article-date">
+      <time datetime="2016-12-15T08:19:29.109Z" itemprop="datePublished">2016-12-15</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Pascal&#39;s Triangle II.java
+      Swap Nodes in Pairs.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,8 +318,38 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given an index k, return the kth row of the Pascal’s triangle.<br>For example, given k = 3,Return [1,3,3,1].<br>Note:<br>Could you optimize your algorithm to use only O(k) extra space?<br><a id="more"></a><br><strong>我的思路：</strong><br>杨辉三角，百度百科 ： <a href="http://baike.baidu.com/link?url=tDS0pG6dVFeF5Wu2bej3iTV7uT6zCM6j_qPBG-NwWkp5vfHz1u1DCyTd-_7P5h-4PmVuM2BuE8TttuUDRygTG_" target="_blank" rel="external">http://baike.baidu.com/link?url=tDS0pG6dVFeF5Wu2bej3iTV7uT6zCM6j_qPBG-NwWkp5vfHz1u1DCyTd-_7P5h-4PmVuM2BuE8TttuUDRygTG_</a><br>第n行第m个值为C(n-1,m-1)，所以我的做法是实现这个算法，但不知为何n大于14开始，最后几位出错。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">getRow</span><span class="params">(<span class="keyword">int</span> rowIndex)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; out = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        out.add(<span class="number">1</span>);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=rowIndex;i++)&#123;</div><div class="line">            <span class="keyword">int</span> temp1 = rowIndex,ta=<span class="number">1</span>,tb=<span class="number">1</span>,temp2=<span class="number">1</span>,time = i;</div><div class="line">            <span class="keyword">while</span>(time&gt;<span class="number">0</span>)&#123;</div><div class="line">                ta = ta * (temp1--);</div><div class="line">                time--;</div><div class="line">                tb = tb * (temp2++);</div><div class="line">            &#125;</div><div class="line">            out.add(ta/tb);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> out;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>答案思路:</strong><br>这里只需要求出某一行的结果。Pascal’s Triangle中因为是求出全部结果，所以我们需要上一行的数据就很自然的可以去取。而这里我们只需要一行数据，就得考虑一下是不是能只用一行的空间来存储结果而不需要额外的来存储上一行呢？这里确实是可以实现的。对于每一行我们知道如果从前往后扫，第i个元素的值等于上一行的res[i]+res[i+1]，可以看到数据是往前看的，如果我们只用一行空间，那么需要的数据就会被覆盖掉。所以这里采取的方法是从后往前扫，这样每次需要的数据就是res[i]+res[i-1]，我们需要的数据不会被覆盖，因为需要的res[i]只在当前步用，下一步就不需要了。这个技巧在动态规划省空间时也经常使用，主要就是看我们需要的数据是原来的数据还是新的数据来决定我们遍历的方向。时间复杂度还是O(n^2)，而空间这里是O(k)来存储结果，仍然不需要额外空间。代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">getRow</span><span class="params">(<span class="keyword">int</span> rowIndex)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; out = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        out.add(<span class="number">1</span>);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=rowIndex;i++)&#123;      <span class="comment">//这里一定要倒叙，因为是前项相加，顺序的话，上一行的值已经被覆盖了</span></div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=out.size()-<span class="number">1</span>;j&gt;<span class="number">0</span>;j--)</div><div class="line">                out.set(j,out.get(j)+out.get(j-<span class="number">1</span>));</div><div class="line">            out.add(<span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> out;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Given a linked list, swap every two adjacent nodes and return its head.<br>For example,<br>Given 1-&gt;2-&gt;3-&gt;4, you should return the list as 2-&gt;1-&gt;4-&gt;3.<br>Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.<br><a id="more"></a><br><strong>思路：</strong><br>保存一下head.next.next;<br><strong>head = temp这种肯定是错误的</strong>；<br><strong>只能通过.next来连接node</strong>;</p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">swapPairs</span><span class="params">(ListNode head)</span> </span>{
+      <span class="keyword">if</span>(head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>)
+        <span class="keyword">return</span> head;
+
+      ListNode res = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);
+      ListNode ans = res;
+
+      <span class="keyword">while</span>(head!=<span class="keyword">null</span> &amp;&amp; head.next!=<span class="keyword">null</span>){
+          ListNode temp = head.next.next;
+
+          res.next = head.next;
+          res = res.next;
+          res.next = head;
+          res = res.next;
+
+          head.next = temp;
+          head = head.next; 
+      }
+    <span class="keyword">return</span> ans.next;
+  }
+}
+</code></pre>
 
       
     </div>
@@ -328,13 +358,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/07/Pascal's Triangle II/">Pascal&#39;s Triangle II.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/15/Swap Nodes in Pairs/">Swap Nodes in Pairs.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-07, 14:40:32</p>
-        <p><span>最后更新:</span>2016-10-23, 18:36:00</p>
+        <p><span>发布时间:</span>2016-12-15, 16:19:29</p>
+        <p><span>最后更新:</span>2016-12-15, 16:23:55</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/07/Pascal's Triangle II/" title="Pascal&#39;s Triangle II.java">http://pangbo.space/2016/12/07/Pascal&#39;s Triangle II/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/Pascal&#39;s Triangle II/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/15/Swap Nodes in Pairs/" title="Swap Nodes in Pairs.java">http://pangbo.space/2016/12/15/Swap Nodes in Pairs/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/15/Swap Nodes in Pairs/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -346,16 +376,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/Nim Game/">
-                    Nim Game.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/Next Permutation/">
-                    Next Permutation.java
+                <a href="/2016/12/15/Merge Two Sorted Lists/">
+                    Merge Two Sorted Lists.java
                 </a>
             </div>
         
@@ -403,7 +427,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Pascal's Triangle II.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Swap Nodes in Pairs.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -421,7 +445,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/Pascal&#39;s Triangle II/" data-title="Pascal&#39;s Triangle II.java" data-url="http://pangbo.space/2016/12/07/Pascal&#39;s Triangle II/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/15/Swap Nodes in Pairs/" data-title="Swap Nodes in Pairs.java" data-url="http://pangbo.space/2016/12/15/Swap Nodes in Pairs/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -444,15 +468,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/Nim Game/" title="上一篇: Nim Game.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/Next Permutation/" title="下一篇: Next Permutation.java">
+            <a href="/2016/12/15/Merge Two Sorted Lists/" title="下一篇: Merge Two Sorted Lists.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
