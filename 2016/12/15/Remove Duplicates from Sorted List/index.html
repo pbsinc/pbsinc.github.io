@@ -15,16 +15,22 @@
 
 
 
-<meta name="description" content="Write a function that takes a string as input and reverse only the vowels of a string.Example 1:Given s = “hello”, return “holle”.Example 2:Given s = “leetcode”, return “leotcede”.Note:The vowels does">
+<meta name="description" content="Given a sorted linked list, delete all duplicates such that each element appear only once.For example:
+Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2.
+Given 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;3, return 1-&amp;gt;2-&amp;gt;3.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Reverse Vowels of a String.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/Reverse Vowels of a String/index.html">
+<meta property="og:title" content="Remove Duplicates from Sorted List.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/15/Remove Duplicates from Sorted List/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Write a function that takes a string as input and reverse only the vowels of a string.Example 1:Given s = “hello”, return “holle”.Example 2:Given s = “leetcode”, return “leotcede”.Note:The vowels does">
-<meta property="og:updated_time" content="2016-11-30T11:58:34.000Z">
+<meta property="og:description" content="Given a sorted linked list, delete all duplicates such that each element appear only once.For example:
+Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2.
+Given 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;3, return 1-&amp;gt;2-&amp;gt;3.">
+<meta property="og:updated_time" content="2016-12-15T02:16:32.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reverse Vowels of a String.java">
-<meta name="twitter:description" content="Write a function that takes a string as input and reverse only the vowels of a string.Example 1:Given s = “hello”, return “holle”.Example 2:Given s = “leetcode”, return “leotcede”.Note:The vowels does">
+<meta name="twitter:title" content="Remove Duplicates from Sorted List.java">
+<meta name="twitter:description" content="Given a sorted linked list, delete all duplicates such that each element appear only once.For example:
+Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2.
+Given 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;3, return 1-&amp;gt;2-&amp;gt;3.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +62,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Reverse Vowels of a String.java | Bo`s blog</title>
+<title>Remove Duplicates from Sorted List.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +280,11 @@
     </div>
     <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Reverse Vowels of a String" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Remove Duplicates from Sorted List" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Reverse Vowels of a String/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.033Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/15/Remove Duplicates from Sorted List/" class="article-date">
+      <time datetime="2016-12-15T02:15:29.067Z" itemprop="datePublished">2016-12-15</time>
 </a>
 
 
@@ -293,7 +299,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Reverse Vowels of a String.java
+      Remove Duplicates from Sorted List.java
     </h1>
   
 
@@ -318,8 +324,40 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Write a function that takes a string as input and reverse only the vowels of a string.<br>Example 1:<br>Given s = “hello”, return “holle”.<br>Example 2:<br>Given s = “leetcode”, return “leotcede”.<br>Note:<br>The vowels does not include the letter “y”.<br><a id="more"></a><br><strong>思路：</strong><br>左右分别靠拢，遇到元音交换即可；<br>比较坑爹的是这个题的意思是左右换，而不是相邻换：aao答案是oaa，而不是aoa。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseVowels</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">		ArrayList&lt;Character&gt; vowList = <span class="keyword">new</span> ArrayList&lt;Character&gt;();</div><div class="line">		vowList.add(<span class="string">'a'</span>);</div><div class="line">		vowList.add(<span class="string">'e'</span>);</div><div class="line">		vowList.add(<span class="string">'i'</span>);</div><div class="line">		vowList.add(<span class="string">'o'</span>);</div><div class="line">		vowList.add(<span class="string">'u'</span>);</div><div class="line">		vowList.add(<span class="string">'A'</span>);</div><div class="line">		vowList.add(<span class="string">'E'</span>);</div><div class="line">		vowList.add(<span class="string">'I'</span>);</div><div class="line">		vowList.add(<span class="string">'O'</span>);</div><div class="line">		vowList.add(<span class="string">'U'</span>);</div><div class="line"> </div><div class="line">		<span class="keyword">char</span>[] arr = s.toCharArray();</div><div class="line">	 </div><div class="line">		<span class="keyword">int</span> i=<span class="number">0</span>; </div><div class="line">		<span class="keyword">int</span> j=s.length()-<span class="number">1</span>;</div><div class="line">	 </div><div class="line">		<span class="keyword">while</span>(i&lt;j)&#123;</div><div class="line">			<span class="keyword">if</span>(!vowList.contains(arr[i]))&#123;</div><div class="line">				i++;</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			&#125;</div><div class="line">	 </div><div class="line">			<span class="keyword">if</span>(!vowList.contains(arr[j]))&#123;</div><div class="line">				j--;</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			&#125;</div><div class="line">	 </div><div class="line">			<span class="keyword">char</span> t = arr[i];</div><div class="line">			arr[i]=arr[j];</div><div class="line">			arr[j]=t;</div><div class="line">	 </div><div class="line">			i++;</div><div class="line">			j--; </div><div class="line">		&#125;</div><div class="line">	 </div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> String(arr); <span class="comment">// char[] 转 String: 1.String res = new String(arr);2.String res = String.valueOf(arr);</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Given a sorted linked list, delete all duplicates such that each element appear only once.<br>For example:</p>
+<pre><code>Given 1-&gt;1-&gt;2, return 1-&gt;2.
+Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3.
+</code></pre><a id="more"></a>
+<p><strong>思路：</strong><br>遇到跟上一个相同的跳过就好；</p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>{
+        <span class="keyword">if</span>(head == <span class="keyword">null</span>) <span class="keyword">return</span> head;
+        ListNode res = head;
+
+        <span class="keyword">int</span> temp = head.val;
+
+        <span class="keyword">while</span>(head.next != <span class="keyword">null</span>){
+
+            <span class="keyword">if</span>(temp == head.next.val){
+                head.next = head.next.next;
+            }<span class="keyword">else</span>{
+                head = head.next;
+                temp = head.val;
+            }
+        }
+        <span class="keyword">return</span> res;
+    }
+}
+</code></pre>
+
       
     </div>
     
@@ -327,13 +365,13 @@
   
     
     <div class="copyright">
-        <p><span>本文標題:</span><a href="/2016/12/07/Reverse Vowels of a String/">Reverse Vowels of a String.java</a></p>
+        <p><span>本文標題:</span><a href="/2016/12/15/Remove Duplicates from Sorted List/">Remove Duplicates from Sorted List.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主頁">Bo Pang</a></p>
-        <p><span>發布時間:</span>2016-12-07, 14:40:32</p>
-        <p><span>最後更新:</span>2016-11-30, 19:58:34</p>
+        <p><span>發布時間:</span>2016-12-15, 10:15:29</p>
+        <p><span>最後更新:</span>2016-12-15, 10:16:32</p>
         <p>
-            <span>原始鏈接:</span><a class="post-url" href="/2016/12/07/Reverse Vowels of a String/" title="Reverse Vowels of a String.java">http://pangbo.space/2016/12/07/Reverse Vowels of a String/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/Reverse Vowels of a String/　　作者: Bo Pang" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
+            <span>原始鏈接:</span><a class="post-url" href="/2016/12/15/Remove Duplicates from Sorted List/" title="Remove Duplicates from Sorted List.java">http://pangbo.space/2016/12/15/Remove Duplicates from Sorted List/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/15/Remove Duplicates from Sorted List/　　作者: Bo Pang" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +383,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/Reverse String/">
-                    Reverse String.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/Repeated Substring Pattern/">
-                    Repeated Substring Pattern.java
+                <a href="/2016/12/14/Odd Even Linked List/">
+                    Odd Even Linked List.java
                 </a>
             </div>
         
@@ -402,7 +434,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Reverse Vowels of a String.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Remove Duplicates from Sorted List.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +452,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/Reverse Vowels of a String/" data-title="Reverse Vowels of a String.java" data-url="http://pangbo.space/2016/12/07/Reverse Vowels of a String/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/15/Remove Duplicates from Sorted List/" data-title="Remove Duplicates from Sorted List.java" data-url="http://pangbo.space/2016/12/15/Remove Duplicates from Sorted List/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -443,15 +475,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/Reverse String/" title="上一篇: Reverse String.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主頁"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/Repeated Substring Pattern/" title="下一篇: Repeated Substring Pattern.java">
+            <a href="/2016/12/14/Odd Even Linked List/" title="下一篇: Odd Even Linked List.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
