@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.Given n, find the total number of full staircase rows that can be formed.n is a n">
+<meta name="description" content="Sort a linked list using insertion sort.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Arranging Coins.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/Arranging Coins/index.html">
+<meta property="og:title" content="Insertion Sort List.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/16/Insertion Sort List/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.Given n, find the total number of full staircase rows that can be formed.n is a n">
-<meta property="og:updated_time" content="2016-12-02T09:20:32.000Z">
+<meta property="og:description" content="Sort a linked list using insertion sort.">
+<meta property="og:updated_time" content="2016-12-16T09:37:51.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Arranging Coins.java">
-<meta name="twitter:description" content="You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.Given n, find the total number of full staircase rows that can be formed.n is a n">
+<meta name="twitter:title" content="Insertion Sort List.java">
+<meta name="twitter:description" content="Sort a linked list using insertion sort.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Arranging Coins.java | Bo`s blog</title>
+<title>Insertion Sort List.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Arranging Coins" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Insertion Sort List" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Arranging Coins/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.006Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/16/Insertion Sort List/" class="article-date">
+      <time datetime="2016-12-16T09:32:28.745Z" itemprop="datePublished">2016-12-16</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Arranging Coins.java
+      Insertion Sort List.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,34 +318,48 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.<br>Given n, find the total number of full staircase rows that can be formed.<br>n is a non-negative integer and fits within the range of a 32-bit signed integer.</p>
-<p>Example 1:</p>
-<pre><code>n = 5
+        <p>Sort a linked list using insertion sort.<br><a id="more"></a><br><strong>思路：</strong><br>制作两个dummy节点；<br>每次找出值最小的节点，作为答案的next;<br>保存值最小的节点的左右节点：left,right；<br>每次找出最小的以后，left.next = right;<br>使剩余的节点跳过已经找出的节点；<br>剩余节点为空时，说明都找完了，跳出循环。<br>不过89ms，有点慢…</p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">insertionSortList</span><span class="params">(ListNode head)</span> </span>{
+        <span class="keyword">if</span>(head == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;
 
-The coins can form the following rows:
-¤
-¤ ¤
-¤ ¤
+        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);
+        dummy.next = head;
+        ListNode res = dummy;
+        ListNode dummy2 = <span class="keyword">new</span> ListNode(<span class="number">0</span>);
+        dummy2.next = head;
 
-Because the 3rd row is incomplete, we return 2.
-</code></pre><p>Example 2:</p>
-<pre><code>n = 8
+        <span class="keyword">while</span>(<span class="keyword">true</span>){
 
-The coins can form the following rows:
-¤
-¤ ¤
-¤ ¤ ¤
-¤ ¤
+            ListNode temp = dummy2;
+            <span class="keyword">int</span> flag = Integer.MAX_VALUE;
 
-Because the 4th row is incomplete, we return 3.
-</code></pre><a id="more"></a>
-<p><strong>思路：</strong><br>转化成求一元二次方程的解；</p>
-<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">arrangeCoins</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
-        <span class="keyword">double</span> del = Math.sqrt(<span class="number">1.0</span>+<span class="number">8.0</span>*(<span class="keyword">double</span>)n); <span class="comment">// 注意这里不转double的话，int会越界！</span>
+            ListNode left = <span class="keyword">null</span>, right = <span class="keyword">null</span>;
 
-        <span class="keyword">int</span> ans = (<span class="keyword">int</span>)((del-<span class="number">1.0</span>)/<span class="number">2.0</span>);
-        <span class="keyword">return</span> ans; 
+            <span class="keyword">while</span>(temp.next != <span class="keyword">null</span>){
+
+                <span class="keyword">if</span>(temp.next.val &lt;= flag){
+                    dummy.next = temp.next;
+                    flag = temp.next.val;
+                    left = temp;
+                    right = temp.next.next;
+                }
+                temp = temp.next;
+            }
+            left.next = right;
+            dummy = dummy.next;
+
+            <span class="keyword">if</span>(dummy2.next == <span class="keyword">null</span>) <span class="keyword">break</span>;
+        }
+        <span class="keyword">return</span> res.next;
     }
 }
 </code></pre>
@@ -357,13 +371,13 @@ Because the 4th row is incomplete, we return 3.
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/07/Arranging Coins/">Arranging Coins.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/16/Insertion Sort List/">Insertion Sort List.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-07, 14:40:32</p>
-        <p><span>最后更新:</span>2016-12-02, 17:20:32</p>
+        <p><span>发布时间:</span>2016-12-16, 17:32:28</p>
+        <p><span>最后更新:</span>2016-12-16, 17:37:51</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/07/Arranging Coins/" title="Arranging Coins.java">http://pangbo.space/2016/12/07/Arranging Coins/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/Arranging Coins/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/16/Insertion Sort List/" title="Insertion Sort List.java">http://pangbo.space/2016/12/16/Insertion Sort List/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/16/Insertion Sort List/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -375,16 +389,10 @@ Because the 4th row is incomplete, we return 3.
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/Basic Calculator II/">
-                    Basic Calculator II.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/Add Strings/">
-                    Add Strings.java
+                <a href="/2016/12/16/Remove Nth Node From End of List/">
+                    Linked List Cycle.java
                 </a>
             </div>
         
@@ -432,7 +440,7 @@ Because the 4th row is incomplete, we return 3.
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Arranging Coins.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Insertion Sort List.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -450,7 +458,7 @@ Because the 4th row is incomplete, we return 3.
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/Arranging Coins/" data-title="Arranging Coins.java" data-url="http://pangbo.space/2016/12/07/Arranging Coins/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/16/Insertion Sort List/" data-title="Insertion Sort List.java" data-url="http://pangbo.space/2016/12/16/Insertion Sort List/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -473,15 +481,13 @@ Because the 4th row is incomplete, we return 3.
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/Basic Calculator II/" title="上一篇: Basic Calculator II.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/Add Strings/" title="下一篇: Add Strings.java">
+            <a href="/2016/12/16/Remove Nth Node From End of List/" title="下一篇: Linked List Cycle.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
