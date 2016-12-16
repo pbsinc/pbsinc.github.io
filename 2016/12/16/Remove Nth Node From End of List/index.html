@@ -15,16 +15,22 @@
 
 
 
-<meta name="description" content="Given a positive integer n and you can do operations as follow:If n is even, replace n with n/2.If n is odd, you can replace n with either n + 1 or n - 1.What is the minimum number of replacements nee">
+<meta name="description" content="Given a linked list, remove the nth node from the end of list and return its head.For example,
+Given linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n = 2.
+After removing the second node from the end, the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Integer Replacement.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/12/Integer Replacement/index.html">
+<meta property="og:title" content="Linked List Cycle.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/16/Remove Nth Node From End of List/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given a positive integer n and you can do operations as follow:If n is even, replace n with n/2.If n is odd, you can replace n with either n + 1 or n - 1.What is the minimum number of replacements nee">
-<meta property="og:updated_time" content="2016-12-12T06:55:45.614Z">
+<meta property="og:description" content="Given a linked list, remove the nth node from the end of list and return its head.For example,
+Given linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n = 2.
+After removing the second node from the end, the">
+<meta property="og:updated_time" content="2016-12-16T08:15:43.523Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Integer Replacement.java">
-<meta name="twitter:description" content="Given a positive integer n and you can do operations as follow:If n is even, replace n with n/2.If n is odd, you can replace n with either n + 1 or n - 1.What is the minimum number of replacements nee">
+<meta name="twitter:title" content="Linked List Cycle.java">
+<meta name="twitter:description" content="Given a linked list, remove the nth node from the end of list and return its head.For example,
+Given linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n = 2.
+After removing the second node from the end, the">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +62,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Integer Replacement.java | Bo`s blog</title>
+<title>Linked List Cycle.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +280,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Integer Replacement" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Remove Nth Node From End of List" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/12/Integer Replacement/" class="article-date">
-      <time datetime="2016-12-12T06:49:48.789Z" itemprop="datePublished">2016-12-12</time>
+      <a href="/2016/12/16/Remove Nth Node From End of List/" class="article-date">
+      <time datetime="2016-12-16T08:11:38.267Z" itemprop="datePublished">2016-12-16</time>
 </a>
 
 
@@ -293,7 +299,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Integer Replacement.java
+      Linked List Cycle.java
     </h1>
   
 
@@ -308,7 +314,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,36 +324,43 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given a positive integer n and you can do operations as follow:<br>If n is even, replace n with n/2.<br>If n is odd, you can replace n with either n + 1 or n - 1.<br>What is the minimum number of replacements needed for n to become 1?</p>
-<p>Example 1:</p>
-<pre><code>Input:8
-Output:3
-Explanation:8 -&gt; 4 -&gt; 2 -&gt; 1
-</code></pre><p>Example 2:</p>
-<pre><code>Input:7
-Output:4
-Explanation:7 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1
-         or:7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
+        <p>Given a linked list, remove the nth node from the end of list and return its head.<br>For example,</p>
+<pre><code>Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.
+After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5.
+</code></pre><p>Note:</p>
+<pre><code>Given n will always be valid.
+Try to do this in one pass.
 </code></pre><a id="more"></a>
-<p><strong>思路：</strong><br>对于是奇数的时候；<br>选择n+1还是n-1得看n+1或n-1的一半是否能被2整除；<br>对于2147483647时，2147483648更好，然而Int溢出了，<br>所以一开始转换成long型。</p>
-<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">integerReplacement</span><span class="params">(<span class="keyword">int</span> newn)</span> </span>{
-        <span class="keyword">int</span> count = <span class="number">0</span>;
-        <span class="keyword">long</span> n = (<span class="keyword">long</span>)newn;
-        <span class="keyword">while</span>(n!=<span class="number">1</span>){
-            <span class="keyword">if</span>(n%<span class="number">2</span> == <span class="number">0</span>){
-                n /=<span class="number">2</span>;
-            }<span class="keyword">else</span>{
-                <span class="keyword">if</span>(n==<span class="number">3</span>)
-                    n--;
-                <span class="keyword">else</span> <span class="keyword">if</span>((n-<span class="number">1</span>)/<span class="number">2</span> %<span class="number">2</span> == <span class="number">0</span>)
-                    n--;
-                <span class="keyword">else</span>
-                    n++;
+<p><strong>思路：</strong><br>一遍往后走，对当前node往后走n次；<br>如果到头了；说明此node就是需要被删除的node；<br>加入dummy节点，因为表头可能成为被删除的节点；</p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>{
+        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);
+        ListNode res = dummy;
+        dummy.next = head;
+
+        <span class="keyword">while</span>(<span class="keyword">true</span>){
+            ListNode temp = head;
+
+            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++){
+                temp = temp.next;<span class="comment">//对当前node往后走n次，判断是否到头</span>
             }
-            count++;    
+
+            <span class="keyword">if</span>(temp == <span class="keyword">null</span>){<span class="comment">//如果到头了；说明此node就是需要被删除的node；</span>
+                dummy.next = dummy.next.next;
+                <span class="keyword">break</span>;
+            }
+            head = head.next;
+            dummy = dummy.next;
         }
-        <span class="keyword">return</span> count;
+        <span class="keyword">return</span> res.next;
     }
 }
 </code></pre>
@@ -359,13 +372,13 @@ Explanation:7 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/12/Integer Replacement/">Integer Replacement.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/16/Remove Nth Node From End of List/">Linked List Cycle.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-12, 14:49:48</p>
-        <p><span>最后更新:</span>2016-12-12, 14:55:45</p>
+        <p><span>发布时间:</span>2016-12-16, 16:11:38</p>
+        <p><span>最后更新:</span>2016-12-16, 16:15:43</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/12/Integer Replacement/" title="Integer Replacement.java">http://pangbo.space/2016/12/12/Integer Replacement/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/12/Integer Replacement/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/16/Remove Nth Node From End of List/" title="Linked List Cycle.java">http://pangbo.space/2016/12/16/Remove Nth Node From End of List/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/16/Remove Nth Node From End of List/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -377,16 +390,10 @@ Explanation:7 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/12/Permutation Sequence/">
-                    Permutation Sequence.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/12/Rotate Function/">
-                    Rotate Function.java
+                <a href="/2016/12/16/Convert Sorted List to Binary Search Tree/">
+                    Convert Sorted List to Binary Search Tree.java
                 </a>
             </div>
         
@@ -434,7 +441,7 @@ Explanation:7 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Integer Replacement.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Linked List Cycle.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -452,7 +459,7 @@ Explanation:7 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/12/Integer Replacement/" data-title="Integer Replacement.java" data-url="http://pangbo.space/2016/12/12/Integer Replacement/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/16/Remove Nth Node From End of List/" data-title="Linked List Cycle.java" data-url="http://pangbo.space/2016/12/16/Remove Nth Node From End of List/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -475,15 +482,13 @@ Explanation:7 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/12/Permutation Sequence/" title="上一篇: Permutation Sequence.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/12/Rotate Function/" title="下一篇: Rotate Function.java">
+            <a href="/2016/12/16/Convert Sorted List to Binary Search Tree/" title="下一篇: Convert Sorted List to Binary Search Tree.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
