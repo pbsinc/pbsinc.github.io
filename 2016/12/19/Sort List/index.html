@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.Example:Given a = 1 and b = 2, return 3.">
+<meta name="description" content="Sort a linked list in O(n log n) time using constant space complexity.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sum of Two Integers.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/Sum of Two Integers/index.html">
+<meta property="og:title" content="Sort List.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/19/Sort List/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.Example:Given a = 1 and b = 2, return 3.">
-<meta property="og:updated_time" content="2016-10-18T10:02:34.000Z">
+<meta property="og:description" content="Sort a linked list in O(n log n) time using constant space complexity.">
+<meta property="og:updated_time" content="2016-12-19T09:07:20.414Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sum of Two Integers.java">
-<meta name="twitter:description" content="Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.Example:Given a = 1 and b = 2, return 3.">
+<meta name="twitter:title" content="Sort List.java">
+<meta name="twitter:description" content="Sort a linked list in O(n log n) time using constant space complexity.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Sum of Two Integers.java | Bo`s blog</title>
+<title>Sort List.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Sum of Two Integers" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Sort List" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Sum of Two Integers/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.041Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/19/Sort List/" class="article-date">
+      <time datetime="2016-12-19T09:05:52.541Z" itemprop="datePublished">2016-12-19</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Sum of Two Integers.java
+      Sort List.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,28 +318,63 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.<br>Example:<br>Given a = 1 and b = 2, return 3.<br><a id="more"></a><br><strong>关键:</strong><br>1.用BigInteger 的 biga.add(bigb)方法；<br>2.BigInteger 转 int 用 bigc.intValue()方法;<br>这是我的做法</p>
-<pre><code class="java"><span class="keyword">import</span> java.math.BigInteger;
+        <p>Sort a linked list in O(n log n) time using constant space complexity.<br><a id="more"></a><br><strong>思路：</strong><br>考虑到要求用O(nlogn)的时间复杂度和constant space complexity来sort list，自然而然想到了merge sort方法。同时我们还已经做过了merge k sorted list和merge 2 sorted list。这样这个问题就比较容易了。</p>
+<p>不过这道题要找linkedlist中点，那当然就要用最经典的faster和slower方法，faster速度是slower的两倍，当faster到链尾时，slower就是中点，slower的next是下一半的开始点。</p>
+<p>解决了这些问题，题目就很容易解出了。</p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */</span>
 <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>{
-        BigInteger biga = BigInteger.valueOf(a);
-        BigInteger bigb = BigInteger.valueOf(b);
-        BigInteger bigc = biga.add(bigb);
-        <span class="keyword">int</span> ans = bigc.intValue();
-        <span class="keyword">return</span> ans;
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">sortList</span><span class="params">(ListNode head)</span> </span>{
+        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>)
+            <span class="keyword">return</span> head;
+
+        ListNode fast = head;
+        ListNode slow = head;
+
+        <span class="keyword">while</span> (fast.next != <span class="keyword">null</span> &amp;&amp; fast.next.next != <span class="keyword">null</span>) {
+            slow = slow.next;
+            fast =  fast.next.next;
+        }
+
+        ListNode newh = slow.next;
+        slow.next = <span class="keyword">null</span>;<span class="comment">//断开，分割为两个list</span>
+
+        <span class="comment">//继续递归分割，无限分割；</span>
+        ListNode l1 = sortList(head);
+        ListNode l2 = sortList(newh);
+
+        <span class="comment">//合并两个list，并排序好；</span>
+        <span class="keyword">return</span> merge(l1, l2);
     }
-}
-</code></pre>
-<p><strong>标准答案:</strong><br>首先，先对数据a，b进行&amp;（与）运算，原因是下面用^（异或）的方法来进行加法会漏掉进位，所以，先对数据进行&amp;运算得到carry，carry中为1的位是会进行进位的位，接下来对数据进行^运算，结果记为add1，实现伪加法，之所以是伪加法，是因为它漏掉了进位。那漏掉的进位怎么办呢？对carry进行左移得到C，C+add1就是两个数据的真正的和。那怎么实现C+add1呢？将add1赋予a，C赋予b,重复以上的操作，直到b等于0.</p>
-<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{  
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>{  
-        <span class="keyword">while</span> (b != <span class="number">0</span>) {  
-            <span class="keyword">int</span> carry = (a &amp; b) &lt;&lt; <span class="number">1</span>;  
-            a = a ^ b;  
-            b = carry;  
-        }  
-        <span class="keyword">return</span> a;  
-    }  
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">merge</span><span class="params">(ListNode h1, ListNode h2)</span> </span>{
+        ListNode res = <span class="keyword">new</span> ListNode(<span class="number">0</span>), dummy = res;
+
+        <span class="keyword">while</span>(h1 != <span class="keyword">null</span> &amp;&amp; h2 != <span class="keyword">null</span>){
+            <span class="keyword">if</span>(h1.val &lt; h2.val){
+                res.next = h1;
+                h1 = h1.next;
+            }<span class="keyword">else</span>{
+                res.next = h2;
+                h2 = h2.next;
+            }
+            res = res.next;            
+        }
+        <span class="keyword">if</span>(h1 != <span class="keyword">null</span>)
+            res.next = h1;
+        <span class="keyword">if</span>(h2 != <span class="keyword">null</span>)
+            res.next = h2;
+
+        <span class="keyword">return</span> dummy.next;
+    }
 }
 </code></pre>
 
@@ -350,13 +385,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/07/Sum of Two Integers/">Sum of Two Integers.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/19/Sort List/">Sort List.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-07, 14:40:32</p>
-        <p><span>最后更新:</span>2016-10-18, 18:02:34</p>
+        <p><span>发布时间:</span>2016-12-19, 17:05:52</p>
+        <p><span>最后更新:</span>2016-12-19, 17:07:20</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/07/Sum of Two Integers/" title="Sum of Two Integers.java">http://pangbo.space/2016/12/07/Sum of Two Integers/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/Sum of Two Integers/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/19/Sort List/" title="Sort List.java">http://pangbo.space/2016/12/19/Sort List/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/19/Sort List/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -368,16 +403,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/Summary Ranges/">
-                    Summary Ranges.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/Subsets II/">
-                    Subsets II.java
+                <a href="/2016/12/19/Intersection of Two Linked Lists/">
+                    Intersection of Two Linked Lists.java
                 </a>
             </div>
         
@@ -425,7 +454,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Sum of Two Integers.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Sort List.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -443,7 +472,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/Sum of Two Integers/" data-title="Sum of Two Integers.java" data-url="http://pangbo.space/2016/12/07/Sum of Two Integers/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/19/Sort List/" data-title="Sort List.java" data-url="http://pangbo.space/2016/12/19/Sort List/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -466,15 +495,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/Summary Ranges/" title="上一篇: Summary Ranges.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/Subsets II/" title="下一篇: Subsets II.java">
+            <a href="/2016/12/19/Intersection of Two Linked Lists/" title="下一篇: Intersection of Two Linked Lists.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
