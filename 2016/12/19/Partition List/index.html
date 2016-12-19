@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Stack是一个后进先出（last in first out，LIFO）的堆栈，在Vector类的基础上扩展5个方法而来Deque（双端队列）比起Stack具有更好的完整性和一致性，应该被优先使用！">
+<meta name="description" content="Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.You should preserve the original relative order of the nodes in each of the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java堆栈Stack类简介">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/java堆栈Stack类简介/index.html">
+<meta property="og:title" content="Partition List.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/19/Partition List/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Stack是一个后进先出（last in first out，LIFO）的堆栈，在Vector类的基础上扩展5个方法而来Deque（双端队列）比起Stack具有更好的完整性和一致性，应该被优先使用！">
-<meta property="og:updated_time" content="2016-11-26T09:03:20.000Z">
+<meta property="og:description" content="Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.You should preserve the original relative order of the nodes in each of the">
+<meta property="og:updated_time" content="2016-12-19T07:33:10.226Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java堆栈Stack类简介">
-<meta name="twitter:description" content="Stack是一个后进先出（last in first out，LIFO）的堆栈，在Vector类的基础上扩展5个方法而来Deque（双端队列）比起Stack具有更好的完整性和一致性，应该被优先使用！">
+<meta name="twitter:title" content="Partition List.java">
+<meta name="twitter:description" content="Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.You should preserve the original relative order of the nodes in each of the">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>java堆栈Stack类简介 | Bo`s blog</title>
+<title>Partition List.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-java堆栈Stack类简介" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Partition List" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/java堆栈Stack类简介/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.048Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/19/Partition List/" class="article-date">
+      <time datetime="2016-12-19T07:29:14.473Z" itemprop="datePublished">2016-12-19</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      java堆栈Stack类简介
+      Partition List.java
     </h1>
   
 
@@ -302,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java堆栈Stack类简介/">java堆栈Stack类简介</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,18 +318,49 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Stack是一个后进先出（last in first out，LIFO）的堆栈，在Vector类的基础上扩展5个方法而来<br>Deque（双端队列）比起Stack具有更好的完整性和一致性，应该被优先使用<br>！<a href="http://img.blog.csdn.net/20130722161253281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTE5ODgxMDI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" target="_blank" rel="external"></a><br><a id="more"></a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function">E <span class="title">push</span><span class="params">(E item)</span>   </span></div><div class="line">         把项压入堆栈顶部。   </div><div class="line">E <span class="title">pop</span><span class="params">()</span>   </div><div class="line">         移除堆栈顶部的对象，并作为此函数的值返回该对象。   </div><div class="line">E <span class="title">peek</span><span class="params">()</span>   </div><div class="line">         查看堆栈顶部的对象，但不从堆栈中移除它。   </div><div class="line"><span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span>   </div><div class="line">         测试堆栈是否为空。    </div><div class="line"><span class="keyword">int</span> <span class="title">search</span><span class="params">(Object o)</span>   </div><div class="line">         返回对象在堆栈中的位置，以 1 为基数。</div></pre></td></tr></table></figure>
-<p>Stack本身通过扩展Vector而来，而Vector本身是一个可增长的对象数组（ a growable array of objects）那么这个数组的哪里作为Stack的栈顶，哪里作为Stack的栈底？</p>
-<p>答案只能从源代码中寻找，jdk1.6：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Vector</span>&lt;<span class="title">E</span>&gt; </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Creates an empty Stack.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stack</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Pushes an item onto the top of this stack. This has exactly</div><div class="line">     * the same effect as:</div><div class="line">     * &lt;blockquote&gt;&lt;pre&gt;</div><div class="line">     * addElement(item)&lt;/pre&gt;&lt;/blockquote&gt;</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span>   item   the item to be pushed onto this stack.</div><div class="line">     * <span class="doctag">@return</span>  the &lt;code&gt;item&lt;/code&gt; argument.</div><div class="line">     * <span class="doctag">@see</span>     java.util.Vector#addElement</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">push</span><span class="params">(E item)</span> </span>&#123;</div><div class="line">	addElement(item);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> item;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Removes the object at the top of this stack and returns that</div><div class="line">     * object as the value of this function.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@return</span>     The object at the top of this stack (the last item</div><div class="line">     *             of the &lt;tt&gt;Vector&lt;/tt&gt; object).</div><div class="line">     * <span class="doctag">@exception</span>  EmptyStackException  if this stack is empty.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> E <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">	E	obj;</div><div class="line">	<span class="keyword">int</span>	len = size();</div><div class="line"></div><div class="line">	obj = peek();</div><div class="line">	removeElementAt(len - <span class="number">1</span>);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> obj;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Looks at the object at the top of this stack without removing it</div><div class="line">     * from the stack.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@return</span>     the object at the top of this stack (the last item</div><div class="line">     *             of the &lt;tt&gt;Vector&lt;/tt&gt; object).</div><div class="line">     * <span class="doctag">@exception</span>  EmptyStackException  if this stack is empty.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> E <span class="title">peek</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span>	len = size();</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (len == <span class="number">0</span>)</div><div class="line">	    <span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();</div><div class="line">	<span class="keyword">return</span> elementAt(len - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Tests if this stack is empty.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@return</span>  &lt;code&gt;true&lt;/code&gt; if and only if this stack contains</div><div class="line">     *          no items; &lt;code&gt;false&lt;/code&gt; otherwise.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> size() == <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Returns the 1-based position where an object is on this stack.</div><div class="line">     * If the object &lt;tt&gt;o&lt;/tt&gt; occurs as an item in this stack, this</div><div class="line">     * method returns the distance from the top of the stack of the</div><div class="line">     * occurrence nearest the top of the stack; the topmost item on the</div><div class="line">     * stack is considered to be at distance &lt;tt&gt;1&lt;/tt&gt;. The &lt;tt&gt;equals&lt;/tt&gt;</div><div class="line">     * method is used to compare &lt;tt&gt;o&lt;/tt&gt; to the</div><div class="line">     * items in this stack.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span>   o   the desired object.</div><div class="line">     * <span class="doctag">@return</span>  the 1-based position from the top of the stack where</div><div class="line">     *          the object is located; the return value &lt;code&gt;-1&lt;/code&gt;</div><div class="line">     *          indicates that the object is not on the stack.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(Object o)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> i = lastIndexOf(o);</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (i &gt;= <span class="number">0</span>) &#123;</div><div class="line">	    <span class="keyword">return</span> size() - i;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/** use serialVersionUID from JDK 1.0.2 for interoperability */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1224463164541339165L</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>通过peek()方法注释The object at the top of this stack (the last item of the Vector object，可以发现数组（Vector）的最后一位即为Stack的栈顶</p>
-<p>pop、peek以及search方法本身进行了同步</p>
-<p>push方法调用了父类的addElement方法</p>
-<p>empty方法调用了父类的size方法</p>
-<p>Vector类为线程安全类</p>
-<p>综上，Stack类为线程安全类(多个方法调用而产生的数据不一致问题属于原子性问题的范畴)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </div><div class="line">        Stack&lt;String&gt; s = <span class="keyword">new</span> Stack&lt;String&gt;();  </div><div class="line">        System.out.println(<span class="string">"------isEmpty"</span>);  </div><div class="line">        System.out.println(s.isEmpty());  </div><div class="line">        System.out.println(<span class="string">"------push"</span>);  </div><div class="line">        s.push(<span class="string">"1"</span>);  </div><div class="line">        s.push(<span class="string">"2"</span>);  </div><div class="line">        s.push(<span class="string">"3"</span>);  </div><div class="line">        Test.it(s);  </div><div class="line">        System.out.println(<span class="string">"------pop"</span>);  </div><div class="line">        String str = s.pop();  </div><div class="line">        System.out.println(str);  </div><div class="line">        Test.it(s);  </div><div class="line">        System.out.println(<span class="string">"------peek"</span>);  </div><div class="line">        str = s.peek();  </div><div class="line">        System.out.println(str);  </div><div class="line">        Test.it(s);  </div><div class="line">        System.out.println(<span class="string">"------search"</span>);  </div><div class="line">        <span class="keyword">int</span> i = s.search(<span class="string">"2"</span>);  </div><div class="line">        System.out.println(i);  </div><div class="line">        i = s.search(<span class="string">"1"</span>);  </div><div class="line">        System.out.println(i);  </div><div class="line">        i = s.search(<span class="string">"none"</span>);  </div><div class="line">        System.out.println(i);  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">it</span><span class="params">(Stack&lt;String&gt; s)</span></span>&#123;  </div><div class="line">        System.out.print(<span class="string">"iterator:"</span>);  </div><div class="line">        Iterator&lt;String&gt; it = s.iterator();  </div><div class="line">        <span class="keyword">while</span>(it.hasNext())&#123;  </div><div class="line">            System.out.print(it.next()+<span class="string">";"</span>);  </div><div class="line">        &#125;  </div><div class="line">        System.out.print(<span class="string">"\n"</span>);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">------isEmpty  </div><div class="line"><span class="keyword">true</span>            </div><div class="line">------push  </div><div class="line">iterator:<span class="number">1</span>;<span class="number">2</span>;<span class="number">3</span>;    </div><div class="line">------pop  </div><div class="line"><span class="number">3</span>       --栈顶是数组最后一个  </div><div class="line">iterator:<span class="number">1</span>;<span class="number">2</span>;  </div><div class="line">------peek  </div><div class="line"><span class="number">2</span>       --pop取后删掉，peek只取不删  </div><div class="line">iterator:<span class="number">1</span>;<span class="number">2</span>;  </div><div class="line">------search      </div><div class="line"><span class="number">1</span>       --以<span class="number">1</span>为基数，即栈顶为<span class="number">1</span>  </div><div class="line"><span class="number">2</span>       --和栈顶见的距离为<span class="number">2</span>-<span class="number">1</span>=<span class="number">1</span>  </div><div class="line">-<span class="number">1</span>      --不存在于栈中</div></pre></td></tr></table></figure></p>
-<p>Stack并不要求其中保存数据的唯一性，当Stack中有多个相同的item时，调用search方法，<br>只返回与查找对象equal并且离栈顶最近的item与栈顶间距离（见源码中search方法说明）</p>
+        <p>Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.<br>You should preserve the original relative order of the nodes in each of the two partitions.<br>For example,</p>
+<pre><code>Given 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2 and x = 3,
+return 1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5.
+</code></pre><a id="more"></a>
+<p><strong>思路：</strong><br>与Insertion Sort List思路类似，制作两个dummy节点；<br>每次找出值小于x的节点，作为答案的next，保存此节点的左右节点：left,right；<br>每次找出值小于x的节点以后，left.next = right，使剩余的节点跳过已经找出的节点；<br>最后将剩余节点连在答案最后。</p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">partition</span><span class="params">(ListNode head, <span class="keyword">int</span> x)</span> </span>{
+        <span class="keyword">if</span>(head == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;
+
+        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);
+        dummy.next = head;
+        ListNode res = dummy;
+
+        ListNode dummy2 = <span class="keyword">new</span> ListNode(<span class="number">0</span>);
+        dummy2.next = head;
+
+        ListNode left = dummy2, right = dummy2.next.next;
+
+        <span class="keyword">while</span>(left.next != <span class="keyword">null</span>){
+            <span class="keyword">if</span>(left.next.val &lt; x){
+                dummy.next = left.next;
+                left.next = right;
+                dummy = dummy.next;
+            }<span class="keyword">else</span>{
+                left = left.next;
+            }
+            <span class="keyword">if</span>(right != <span class="keyword">null</span>){
+                right = right.next;
+            }
+        }
+        dummy.next = dummy2.next;
+        <span class="keyword">return</span> res.next;
+    }
+}
+</code></pre>
 
       
     </div>
@@ -338,13 +369,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/07/java堆栈Stack类简介/">java堆栈Stack类简介</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/19/Partition List/">Partition List.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-07, 14:40:32</p>
-        <p><span>最后更新:</span>2016-11-26, 17:03:20</p>
+        <p><span>发布时间:</span>2016-12-19, 15:29:14</p>
+        <p><span>最后更新:</span>2016-12-19, 15:33:10</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/07/java堆栈Stack类简介/" title="java堆栈Stack类简介">http://pangbo.space/2016/12/07/java堆栈Stack类简介/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/java堆栈Stack类简介/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/19/Partition List/" title="Partition List.java">http://pangbo.space/2016/12/19/Partition List/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/19/Partition List/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -356,16 +387,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/二叉树：先序遍历、中序遍历、后序遍历/">
-                    二叉树：先序遍历、中序遍历、后序遍历
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/动态规划算法 Dynamic Programming/">
-                    动态规划算法 Dynamic Programming
+                <a href="/2016/12/19/Palindrome Linked List/">
+                    Palindrome Linked List.java
                 </a>
             </div>
         
@@ -413,7 +438,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"java堆栈Stack类简介　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Partition List.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -431,7 +456,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/java堆栈Stack类简介/" data-title="java堆栈Stack类简介" data-url="http://pangbo.space/2016/12/07/java堆栈Stack类简介/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/19/Partition List/" data-title="Partition List.java" data-url="http://pangbo.space/2016/12/19/Partition List/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -454,15 +479,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/二叉树：先序遍历、中序遍历、后序遍历/" title="上一篇: 二叉树：先序遍历、中序遍历、后序遍历">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/动态规划算法 Dynamic Programming/" title="下一篇: 动态规划算法 Dynamic Programming">
+            <a href="/2016/12/19/Palindrome Linked List/" title="下一篇: Palindrome Linked List.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
