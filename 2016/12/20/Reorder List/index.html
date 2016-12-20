@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.Note:You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional">
+<meta name="description" content="Given a singly linked list L: L0→L1→…→Ln-1→Ln,reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…You must do this in-place without altering the nodes’ values.For example,Given {1,2,3,4}, reorder it to {1,4,2,3}.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Merge Sorted Array.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/Merge Sorted Array/index.html">
+<meta property="og:title" content="Reorder List.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/20/Reorder List/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.Note:You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional">
-<meta property="og:updated_time" content="2016-10-21T03:48:36.000Z">
+<meta property="og:description" content="Given a singly linked list L: L0→L1→…→Ln-1→Ln,reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…You must do this in-place without altering the nodes’ values.For example,Given {1,2,3,4}, reorder it to {1,4,2,3}.">
+<meta property="og:updated_time" content="2016-12-20T02:35:49.288Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Merge Sorted Array.java">
-<meta name="twitter:description" content="Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.Note:You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional">
+<meta name="twitter:title" content="Reorder List.java">
+<meta name="twitter:description" content="Given a singly linked list L: L0→L1→…→Ln-1→Ln,reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…You must do this in-place without altering the nodes’ values.For example,Given {1,2,3,4}, reorder it to {1,4,2,3}.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Merge Sorted Array.java | Bo`s blog</title>
+<title>Reorder List.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-Merge Sorted Array" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Reorder List" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Merge Sorted Array/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.023Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/20/Reorder List/" class="article-date">
+      <time datetime="2016-12-20T02:33:05.603Z" itemprop="datePublished">2016-12-20</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Merge Sorted Array.java
+      Reorder List.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,8 +318,57 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.<br>Note:<br>You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.<br><a id="more"></a><br><strong>思路：</strong><br>从后往前比较；<br>对每个数组维护一个指针，然后比较指针所指的值，将大的放入新数组的最后中，然后比较为大的数组和新数组指针都左移一位（index-1） ，另一个不动。这里从后往前扫是因为这个题目中结果仍然放在A中，如果从前扫会有覆盖掉未检查的元素的可能性。<br><strong>从小到大排序一般都是从后往前比较，结果从后往前放，后面的不管怎么比都比前面的大，不会影响到前面的数。反之，如果从前往后比较，得出的较大的那个值，还要判断它跟后面的数的大小！</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span> m, <span class="keyword">int</span>[] nums2, <span class="keyword">int</span> n)</span> </span>&#123;  </div><div class="line">        <span class="keyword">int</span> a_index = m - <span class="number">1</span>;  </div><div class="line">        <span class="keyword">int</span> b_index = n - <span class="number">1</span>;  </div><div class="line">        <span class="keyword">int</span> a_cur = m + n - <span class="number">1</span>;  </div><div class="line">        <span class="keyword">while</span>(a_index &gt;= <span class="number">0</span> &amp;&amp; b_index &gt;= <span class="number">0</span>)&#123;  </div><div class="line">            <span class="keyword">if</span>(nums1[a_index] &gt;= nums2[b_index])&#123;  </div><div class="line">                nums1[a_cur] = nums1[a_index];  </div><div class="line">                a_cur--;  </div><div class="line">                a_index--;  </div><div class="line">            &#125;<span class="keyword">else</span>&#123;  </div><div class="line">                nums1[a_cur] = nums2[b_index];  </div><div class="line">                a_cur--;  </div><div class="line">                b_index--;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">while</span>(b_index &gt;= <span class="number">0</span>)&#123;  </div><div class="line">            nums1[a_cur] = nums2[b_index];  </div><div class="line">            a_cur--;  </div><div class="line">            b_index--;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Given a singly linked list L: L0→L1→…→Ln-1→Ln,<br>reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…<br>You must do this in-place without altering the nodes’ values.<br>For example,<br>Given {1,2,3,4}, reorder it to {1,4,2,3}.<br><a id="more"></a><br><strong>思路：</strong><br>找到链表的中点，将后半部分反转，然后将两部分一个一个连接起来；<br>注意端点处断开操作，和循环判断条件。</p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reorderList</span><span class="params">(ListNode head)</span> </span>{
+        <span class="keyword">if</span>(head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span> || head.next.next == <span class="keyword">null</span>) <span class="keyword">return</span> ;
+
+        ListNode slow = head, fast = head;
+
+        <span class="keyword">while</span>(fast.next != <span class="keyword">null</span> &amp;&amp; fast.next.next != <span class="keyword">null</span>){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode newhead = slow.next;<span class="comment">//后半部分起点</span>
+        slow.next = <span class="keyword">null</span>;<span class="comment">//前后半部分断开</span>
+        ListNode p1 = newhead, p2 = p1.next, temp = p2;
+
+        <span class="keyword">while</span>(temp != <span class="keyword">null</span>){<span class="comment">//反转后半部分的顺序</span>
+            temp = temp.next;
+            p2.next = p1;
+            p1 = p2;
+            p2 = temp;
+        }
+        newhead.next = <span class="keyword">null</span>;<span class="comment">//要断开，否则就是死循环</span>
+        ListNode temphead = head.next;
+
+        <span class="keyword">while</span>(p1 != <span class="keyword">null</span>){
+
+            temphead = head.next;
+
+            head.next = p1;
+
+            p1 = p1.next;
+
+            head = head.next;
+
+            head.next = temphead;
+
+            head = head.next;
+        }
+    }
+}
+</code></pre>
+
       
     </div>
     
@@ -327,13 +376,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/12/07/Merge Sorted Array/">Merge Sorted Array.java</a></p>
+        <p><span>Title:</span><a href="/2016/12/20/Reorder List/">Reorder List.java</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Bo Pang</a></p>
-        <p><span>Created:</span>2016-12-07, 14:40:32</p>
-        <p><span>Updated:</span>2016-10-21, 11:48:36</p>
+        <p><span>Created:</span>2016-12-20, 10:33:05</p>
+        <p><span>Updated:</span>2016-12-20, 10:35:49</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/12/07/Merge Sorted Array/" title="Merge Sorted Array.java">http://pangbo.space/2016/12/07/Merge Sorted Array/</a>
-            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/12/07/Merge Sorted Array/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/12/20/Reorder List/" title="Reorder List.java">http://pangbo.space/2016/12/20/Reorder List/</a>
+            <span class="copy-path" data-clipboard-text="From http://pangbo.space/2016/12/20/Reorder List/　　By Bo Pang" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +394,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/Maximum Product Subarray/">
-                    Maximum Product Subarray.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/Mini Parser/">
-                    Mini Parser.java
+                <a href="/2016/12/19/Sort List/">
+                    Sort List.java
                 </a>
             </div>
         
@@ -402,7 +445,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Merge Sorted Array.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Reorder List.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +463,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/Merge Sorted Array/" data-title="Merge Sorted Array.java" data-url="http://pangbo.space/2016/12/07/Merge Sorted Array/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/20/Reorder List/" data-title="Reorder List.java" data-url="http://pangbo.space/2016/12/20/Reorder List/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -443,15 +486,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/Maximum Product Subarray/" title="Pre: Maximum Product Subarray.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/Mini Parser/" title="Next: Mini Parser.java">
+            <a href="/2016/12/19/Sort List/" title="Next: Sort List.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
