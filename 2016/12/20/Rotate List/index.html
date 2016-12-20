@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="最优化原理(principle of optimality)：把多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解，创立了解决这类过程优化问题的新方法——动态规划。">
+<meta name="description" content="Given a list, rotate the list to the right by k places, where k is non-negative.For example:Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL and k = 2,return 4-&amp;gt;5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;NULL.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划算法 Dynamic Programming">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/动态规划算法 Dynamic Programming/index.html">
+<meta property="og:title" content="Rotate List.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/20/Rotate List/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="最优化原理(principle of optimality)：把多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解，创立了解决这类过程优化问题的新方法——动态规划。">
-<meta property="og:updated_time" content="2016-11-18T07:48:46.000Z">
+<meta property="og:description" content="Given a list, rotate the list to the right by k places, where k is non-negative.For example:Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL and k = 2,return 4-&amp;gt;5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;NULL.">
+<meta property="og:updated_time" content="2016-12-20T02:54:29.262Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态规划算法 Dynamic Programming">
-<meta name="twitter:description" content="最优化原理(principle of optimality)：把多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解，创立了解决这类过程优化问题的新方法——动态规划。">
+<meta name="twitter:title" content="Rotate List.java">
+<meta name="twitter:description" content="Given a list, rotate the list to the right by k places, where k is non-negative.For example:Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL and k = 2,return 4-&amp;gt;5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;NULL.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>动态规划算法 Dynamic Programming | Bo`s blog</title>
+<title>Rotate List.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-动态规划算法 Dynamic Programming" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Rotate List" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/动态规划算法 Dynamic Programming/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.048Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/20/Rotate List/" class="article-date">
+      <time datetime="2016-12-20T02:52:20.848Z" itemprop="datePublished">2016-12-20</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      动态规划算法 Dynamic Programming
+      Rotate List.java
     </h1>
   
 
@@ -302,13 +302,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态规划/">动态规划</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,18 +318,42 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>最优化原理(principle of optimality)：把多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解，创立了解决这类过程优化问题的新方法——动态规划。</p>
-<a id="more"></a>
-<p>动态规划一般可<strong>分为</strong>线性动规，区域动规，树形动规，背包动规四类。<br>举例：<br>线性动规：拦截导弹，合唱队形，挖地雷，建学校，剑客决斗等；<br>区域动规：石子合并， 加分二叉树，统计单词个数，炮兵布阵等；<br>树形动规：贪吃的九头龙，二分查找树，聚会的欢乐，数字三角形等；<br>背包问题：01背包问题，完全背包问题，分组背包问题，二维背包，装箱问题，挤牛奶（同济ACM第1132题）等；</p>
-<p><strong>基本思想：</strong><br>动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。与分治法不同的是，适合于用动态规划求解的问题，经分解得到子问题往往不是互相独立的。若用分治法来解这类问题，则分解得到的子问题数目太多，有些子问题被重复计算了很多次。如果我们能够保存已解决的子问题的答案，而在需要时再找出已求得的答案，这样就可以避免大量的重复计算，节省时间。我们可以用一个表来记录所有已解的子问题的答案。不管该子问题以后是否被用到，只要它被计算过，就将其结果填入表中。这就是动态规划法的基本思路。具体的动态规划算法多种多样，但它们具有相同的填表格式。</p>
-<p>与分治法最大的差别是：<strong>适合于用动态规划法求解的问题，经分解后得到的子问题往往不是互相独立的</strong>（即下一个子阶段的求解是建立在上一个子阶段的解的基础上，进行进一步的求解）</p>
-<p><strong>应用场景：</strong><br>适用动态规划的问题必须满足最优化原理、无后效性和重叠性。<br>1.<strong>最优化原理（最优子结构性质）</strong> 最优化原理可这样阐述：一个最优化策略具有这样的性质，不论过去状态和决策如何，对前面的决策所形成的状态而言，余下的诸决策必须构成最优策略。简而言之，一个最优化策略的子策略总是最优的。一个问题满足最优化原理又称其具有最优子结构性质。</p>
-<p>2.<strong>无后效性</strong>  将各阶段按照一定的次序排列好之后，对于某个给定的阶段状态，它以前各阶段的状态无法直接影响它未来的决策，而只能通过当前的这个状态。换句话说，每个状态都是过去历史的一个完整总结。这就是无后向性，又称为无后效性。</p>
-<p>3.<strong>子问题的重叠性</strong>  动态规划将原来具有指数级时间复杂度的搜索算法改进成了具有多项式时间复杂度的算法。其中的关键在于解决冗余，这是动态规划算法的根本目的。动态规划实质上是一种以空间换时间的技术，它在实现的过程中，不得不存储产生过程中的各种状态，所以它的空间复杂度要大于其它的算法。</p>
-<p>求全路径<strong>最短路径的Floyd算法</strong>就是漂亮地运用了动态规划思想。</p>
-<p><strong>总结：</strong><br>当阅读一个题目并且开始尝试解决它时，首先看一下它的限制。 如果要求在多项式时间内解决，那么该问题就很可能要用DP来解。遇到这种情况， 最重要的就是找到问题的“状态”和“状态转移方程”。(状态不是随便定义的， 一般定义完状态，你要找到当前状态是如何从前面的状态得到的， 即找到状态转移方程)如果看起来是个DP问题，但你却无法定义出状态， 那么试着将问题规约到一个已知的DP问题(正如“高级”一节中的例子一样)。</p>
-<p><a href="http://baike.baidu.com/link?url=vA6mmn7PJIx7JjqCHZp7P6B7gcGHABSgTbW9L5HeFKiJSvTcOZYvoaoeaPyORFkG8LhbM0XDNPGkSnM3Q7Wpre8D3SGOpLHokw25Rqyf01cFr8OgL0j_ZaklfVh4FjRt" target="_blank" rel="external">http://baike.baidu.com/link?url=vA6mmn7PJIx7JjqCHZp7P6B7gcGHABSgTbW9L5HeFKiJSvTcOZYvoaoeaPyORFkG8LhbM0XDNPGkSnM3Q7Wpre8D3SGOpLHokw25Rqyf01cFr8OgL0j_ZaklfVh4FjRt</a></p>
-<p>动态规划：从新手到专家<br><a href="http://www.hawstein.com/posts/dp-novice-to-advanced.html" target="_blank" rel="external">http://www.hawstein.com/posts/dp-novice-to-advanced.html</a></p>
+        <p>Given a list, rotate the list to the right by k places, where k is non-negative.<br>For example:<br>Given 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL and k = 2,<br>return 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL.<br><a id="more"></a><br><strong>思路：</strong><br>先算出链表的总长度，减去k为n，head走n步就是断点的位置。</p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }  123
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> ListNode <span class="title">rotateRight</span><span class="params">(ListNode head, <span class="keyword">int</span> k)</span> </span>{
+        <span class="keyword">if</span>(head == <span class="keyword">null</span> || k == <span class="number">0</span>) <span class="keyword">return</span> head;
+
+        ListNode copy = head;
+        <span class="keyword">int</span> count =<span class="number">1</span>;
+        <span class="keyword">while</span>(copy.next != <span class="keyword">null</span>){
+            copy = copy.next;
+            count++;
+        }
+        <span class="keyword">if</span>(k % count == <span class="number">0</span>)<span class="keyword">return</span> head;
+        count -= k%count;
+
+        ListNode tail = head;
+        <span class="keyword">while</span>(count&gt;<span class="number">1</span>){
+            tail = tail.next;
+            count--;
+        }
+
+        ListNode res = tail.next;
+        tail.next = <span class="keyword">null</span>;
+        copy.next = head;
+
+        <span class="keyword">return</span> res;
+    }
+}
+</code></pre>
 
       
     </div>
@@ -338,13 +362,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/07/动态规划算法 Dynamic Programming/">动态规划算法 Dynamic Programming</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/20/Rotate List/">Rotate List.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-07, 14:40:32</p>
-        <p><span>最后更新:</span>2016-11-18, 15:48:46</p>
+        <p><span>发布时间:</span>2016-12-20, 10:52:20</p>
+        <p><span>最后更新:</span>2016-12-20, 10:54:29</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/07/动态规划算法 Dynamic Programming/" title="动态规划算法 Dynamic Programming">http://pangbo.space/2016/12/07/动态规划算法 Dynamic Programming/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/动态规划算法 Dynamic Programming/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/20/Rotate List/" title="Rotate List.java">http://pangbo.space/2016/12/20/Rotate List/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/20/Rotate List/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -356,16 +380,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/堆和栈的区别/">
-                    堆和栈的区别
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/java堆栈Stack类简介/">
-                    java堆栈Stack类简介
+                <a href="/2016/12/20/Reorder List/">
+                    Reorder List.java
                 </a>
             </div>
         
@@ -413,7 +431,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"动态规划算法 Dynamic Programming　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Rotate List.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -431,7 +449,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/动态规划算法 Dynamic Programming/" data-title="动态规划算法 Dynamic Programming" data-url="http://pangbo.space/2016/12/07/动态规划算法 Dynamic Programming/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/20/Rotate List/" data-title="Rotate List.java" data-url="http://pangbo.space/2016/12/20/Rotate List/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -454,15 +472,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/堆和栈的区别/" title="上一篇: 堆和栈的区别">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/java堆栈Stack类简介/" title="下一篇: java堆栈Stack类简介">
+            <a href="/2016/12/20/Reorder List/" title="下一篇: Reorder List.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
