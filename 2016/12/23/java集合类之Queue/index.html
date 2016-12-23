@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Bo Pang" />
+
+
+
+<meta name="description" content="Queue是一种很常见的数据结构类型，在Java里面Queue是一个接口，它只是定义了一个基本的Queue应该有哪些功能规约。实际上有多个Queue的实现，有的是采用线性表实现，有的基于链表实现。还有的适用于多线程的环境。Java中具有Queue功能的类主要有如下几个：
+AbstractQueue, ArrayBlockingQueue, ConcurrentLinkedQueue, Linked">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java集合类之Queue">
+<meta property="og:url" content="http://pangbo.space/2016/12/23/java集合类之Queue/index.html">
+<meta property="og:site_name" content="Bo`s blog">
+<meta property="og:description" content="Queue是一种很常见的数据结构类型，在Java里面Queue是一个接口，它只是定义了一个基本的Queue应该有哪些功能规约。实际上有多个Queue的实现，有的是采用线性表实现，有的基于链表实现。还有的适用于多线程的环境。Java中具有Queue功能的类主要有如下几个：
+AbstractQueue, ArrayBlockingQueue, ConcurrentLinkedQueue, Linked">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0081/3338/30179b73-4b08-34cb-9caf-02c058bf2b6b.jpg">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/0081/3334/0fb2f639-61f2-3ad8-81cc-589e459ad02c.jpg">
+<meta property="og:updated_time" content="2016-12-23T03:04:21.163Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java集合类之Queue">
+<meta name="twitter:description" content="Queue是一种很常见的数据结构类型，在Java里面Queue是一个接口，它只是定义了一个基本的Queue应该有哪些功能规约。实际上有多个Queue的实现，有的是采用线性表实现，有的基于链表实现。还有的适用于多线程的环境。Java中具有Queue功能的类主要有如下几个：
+AbstractQueue, ArrayBlockingQueue, ConcurrentLinkedQueue, Linked">
+<meta name="twitter:image" content="http://dl.iteye.com/upload/attachment/0081/3338/30179b73-4b08-34cb-9caf-02c058bf2b6b.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Bo`s blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>java集合类之Queue | Bo`s blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57ea7c0bb6e3347f"></script>
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Bo Pang</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Good good study , day day up!</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/pbs@bupt.edu.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/1648836177/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" href="http://music.163.com/#/user/home?id=38418826" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" href="https://www.facebook.com/bo.pang.73" title="Facebook"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arrays-sort-的用法/">Arrays.sort()的用法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigDecimal/">BigDecimal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigInteger/">BigInteger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Character-getNumericValue-char/">Character.getNumericValue(char)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Character-isDigit-chr-方法/">Character.isDigit(chr)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Character-isLetter-chr-方法/">Character.isLetter(chr)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections工具类/">Collections工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy/">Easy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Happy-Number-快乐数/">Happy Number 快乐数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hard/">Hard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integer内3的次方最大为3-19-1162261467/">Integer内3的次方最大为3^19=1162261467</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java中StringBuilder的用法/">Java中StringBuilder的用法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java各种类型互相转换/">Java各种类型互相转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java：Object类详解/">Java：Object类详解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java：String、StringBuffer和StringBuilder的区别/">Java：String、StringBuffer和StringBuilder的区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List-Set-Map-数组间的相互转换/">List,Set,Map,数组间的相互转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List要remove一个int对象/">List要remove一个int对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Medium/">Medium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/N-末尾零的个数/">N!末尾零的个数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Roman-Numeral/">Roman Numeral</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set、List、Map的详解与区别/">Set、List、Map的详解与区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set、List、Map的遍历/">Set、List、Map的遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String-equals-str-方法/">String.equals(str)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String-substring-方法/">String.substring( )方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String-trim-方法/">String.trim()方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String的分割str-split-正则-方法/">String的分割str.split(正则)方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String转char/">String转char</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/break跳出多层for循环/">break跳出多层for循环</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/char和Character/">char和Character</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo迁移/">hexo迁移</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java中length-length-size-区别/">java中length,length(),size()区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java判断字符串String是否相等/">java判断字符串String是否相等</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java堆栈Stack类简介/">java堆栈Stack类简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java统一字符串大小写/">java统一字符串大小写</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java集合类之Queue/">java集合类之Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java：LinkedList基本用法/">java：LinkedList基本用法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long与Long/">long与Long</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long加不加L的区别/">long加不加L的区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/str-toLowerCase-方法/">str.toLowerCase()方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/str-toUpperCase-方法/">str.toUpperCase()方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/switch/">switch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一个或者多个空格的正则/">一个或者多个空格的正则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中序遍历/">中序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二叉查找树/">二叉查找树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二叉树：先序遍历、中序遍历、后序遍历/">二叉树：先序遍历、中序遍历、后序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/值传递-引用传递/">值传递&引用传递</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/先序遍历/">先序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/判断String是否相等要用str-equals-xxx/">判断String是否相等要用str.equals("xxx")</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/判断是否为质数/">判断是否为质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡特兰数/">卡特兰数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后序遍历/">后序遍历</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/四平方和定理/">四平方和定理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名/">域名</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆和栈的区别/">堆和栈的区别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多数投票算法/">多数投票算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对String排序/">对String排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/平方数-1-3-5-7/">平方数=1+3+5+7+...</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/广度遍历二叉树BFS/">广度遍历二叉树BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快慢遍历的思路判断链表是否有环/">快慢遍历的思路判断链表是否有环</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快速求幂算法/">快速求幂算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据类型的范围/">数据类型的范围</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数根问题/">数根问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求两个数的最大公约数/">求两个数的最大公约数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求单链表环的起点、环的长度、解除环、两个单链表的交点问题/">求单链表环的起点、环的长度、解除环、两个单链表的交点问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/没做/">没做</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深度遍历二叉树DFS/">深度遍历二叉树DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛顿迭代法求平方根/">牛顿迭代法求平方根</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/裴蜀定理/">裴蜀定理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重做/">重做</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">大隐隐于市</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Bo Pang</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Bo Pang</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Good good study , day day up!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/pbs@bupt.edu.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/1648836177/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="http://music.163.com/#/user/home?id=38418826" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" target="_blank" href="https://www.facebook.com/bo.pang.73" title="Facebook"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-java集合类之Queue" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/23/java集合类之Queue/" class="article-date">
+      <time datetime="2016-12-23T02:49:56.417Z" itemprop="datePublished">2016-12-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java集合类之Queue
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java总结/">java总结</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java集合类之Queue/">java集合类之Queue</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Queue是一种很常见的数据结构类型，在Java里面Queue是一个接口，它只是定义了一个基本的Queue应该有哪些功能规约。<br>实际上有多个Queue的实现，有的是采用线性表实现，有的基于链表实现。还有的适用于多线程的环境。<br>Java中具有Queue功能的类主要有如下几个：</p>
+<pre><code>AbstractQueue, ArrayBlockingQueue, ConcurrentLinkedQueue, LinkedBlockingQueue, DelayQueue, LinkedList, PriorityBlockingQueue, PriorityQueue和ArrayDqueue。
+</code></pre><p>在本文中，我们主要讨论常用的两种实现：LinkedList和ArrayDeque。<br><a id="more"></a><br><strong>Queue</strong><br>     Queue本身是一种先入先出的模型(FIFO)，和我们日常生活中的排队模型很类似。根据不同的实现，他们主要有数组和链表两种实现形式。如下图：<br><img src="http://dl.iteye.com/upload/attachment/0081/3338/30179b73-4b08-34cb-9caf-02c058bf2b6b.jpg" alt="."><br> 因为在队列里和我们日常的模型很近似，每次如果要出队的话，都是从队头移除。而如果每次要加入新的元素，则要在队尾加。所以我们要在队列里保存队头和队尾。<br>    在jdk里几个常用队列实现之间的类关系图如下：<br>    <img src="http://dl.iteye.com/upload/attachment/0081/3334/0fb2f639-61f2-3ad8-81cc-589e459ad02c.jpg" alt="."><br>我们可以看到，Deque也是一个接口，它继承了Queue的接口规范。我们要讨论的LinkedList和ArrayDeque都是实现Deque接口，所以，可以说他们俩都是双向队列。具体的实现我们会在后面讨论。<br>Queue作为一个接口，它声明的几个基本操作无非就是入队和出队的操作，具体定义如下：    </p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; </span>{  
+
+    <span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>; <span class="comment">// 添加元素到队列中，相当于进入队尾排队。  </span>
+
+    <span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span></span>;  <span class="comment">//添加元素到队列中，相当于进入队尾排队.  </span>
+
+    <span class="function">E <span class="title">remove</span><span class="params">()</span></span>; <span class="comment">//移除队头元素  </span>
+
+    <span class="function">E <span class="title">poll</span><span class="params">()</span></span>;  <span class="comment">//移除队头元素  </span>
+
+    <span class="function">E <span class="title">element</span><span class="params">()</span></span>; <span class="comment">//获取但不移除队列头的元素  </span>
+
+    <span class="function">E <span class="title">peek</span><span class="params">()</span></span>;  <span class="comment">//获取但不移除队列头的元素  </span>
+}
+</code></pre>
+<p> 有了这些接口定义的规约，我们就可以很容易的在后续的详细实现里察看具体细节。<br><strong>Deque</strong><br>    按照我们一般的理解，Deque是一个双向队列，这将意味着它不过是对Queue接口的增强。<br>如果仔细分析Deque接口代码的话，我们会发现它里面主要包含有4个部分的功能定义。</p>
+<pre><code>1. 双向队列特定方法定义。
+2. Queue方法定义。
+3. Stack方法定义。
+4. Collection方法定义。
+</code></pre><p>第3，4部分的方法相当于告诉我们，具体实现Deque的类我们也可以把他们当成Stack和普通的Collection来使用。这也是接口定义规约带来的好处。这里我们就不再赘述。<br>    我们重点来对Queue相关的定义方法做一下概括：<br><strong>add相关</strong>的方法有如下几个：</p>
+<pre><code class="java"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;  
+
+<span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span></span>;  
+
+<span class="function"><span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(E e)</span></span>;  
+
+<span class="function"><span class="keyword">void</span> <span class="title">addLast</span><span class="params">(E e)</span></span>;  
+
+<span class="function"><span class="keyword">boolean</span> <span class="title">offerFirst</span><span class="params">(E e)</span></span>;  
+
+<span class="function"><span class="keyword">boolean</span> <span class="title">offerLast</span><span class="params">(E e)</span></span>;
+</code></pre>
+<pre><code>这里定义了add, offer两个方法，从doc说明上来看，两者的基本上没什么区别。
+</code></pre><p>之所以定义了这两个方法是因为Deque继承了Collection, Queue两个接口，而这两个接口中都定义了增加元素的方法声明。<br>他们本身的目的是一样的，只是在队列里头，添加元素肯定只是限于在队列的头或者尾添加。<br>而offer作为一个更加适用于队列场景中的方法，也有存在的意义。<br>他们的实现基本上一样，只是名字不同罢了。<br><strong>remove相关</strong>的方法：</p>
+<pre><code class="java"><span class="function">E <span class="title">removeFirst</span><span class="params">()</span></span>;  
+
+<span class="function">E <span class="title">removeLast</span><span class="params">()</span></span>;  
+
+<span class="function">E <span class="title">pollFirst</span><span class="params">()</span></span>;  
+
+<span class="function">E <span class="title">pollLast</span><span class="params">()</span></span>;  
+
+<span class="function">E <span class="title">remove</span><span class="params">()</span></span>;  
+
+<span class="function">E <span class="title">poll</span><span class="params">()</span></span>;
+</code></pre>
+<pre><code>这里remove相关的方法poll和remove也很类似，他们存在的原因也和前面一样。
+</code></pre><p><strong>get元素相关</strong>的方法：</p>
+<pre><code class="java"><span class="function">E <span class="title">getFirst</span><span class="params">()</span></span>;  
+
+<span class="function">E <span class="title">getLast</span><span class="params">()</span></span>;  
+
+<span class="function">E <span class="title">peekFirst</span><span class="params">()</span></span>;  
+
+<span class="function">E <span class="title">peekLast</span><span class="params">()</span></span>;  
+
+<span class="function">E <span class="title">element</span><span class="params">()</span></span>;  
+
+<span class="function">E <span class="title">peek</span><span class="params">()</span></span>;
+</code></pre>
+<pre><code>peek和element方法和前面提到的差别有点不一样，element方法是在队列为空的时候抛异常，而peek则是返回null。
+ok，有了前面这些对方法操作的分门别类，我们后面分析起具体实现就更方便了。
+</code></pre><p><strong>ArrayDeque</strong><br>    有了我们前面几篇分析的基础，我们可以很容易猜到ArrayDeque的内部实现机制。<br>    它的内部使用一个数组来保存具体的元素，然后分别使用head, tail来指示队列的头和尾。<br>    他们的定义如下：</p>
+<pre><code class="java"><span class="keyword">private</span> <span class="keyword">transient</span> E[] elements;  
+
+<span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">int</span> head;  
+
+<span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">int</span> tail;  
+
+<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MIN_INITIAL_CAPACITY = <span class="number">8</span>;
+</code></pre>
+<pre><code>ArrayDeque的默认长度为8，这么定义成2的指数值也是有一定好处的。在后面调整数组长度的时候我们会看到。关于tail需要注意的一点是tail所在的索引位置是null值，在它前面的元素才是队列中排在最后的元素。
+</code></pre><p>调整元素长度<br>    在调整元素长度部分，ArrayDeque采用了两个方法来分配。一个是allocateElements，还有一个是doubleCapacity。allocateElements方法用于构造函数中根据指定的参数设置初始数组的大小。而doubleCapacity则用于当数组元素不够用了扩展数组长度。<br>下面是allocateElements方法的实现：</p>
+<pre><code class="java"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">allocateElements</span><span class="params">(<span class="keyword">int</span> numElements)</span> </span>{  
+    <span class="keyword">int</span> initialCapacity = MIN_INITIAL_CAPACITY;  
+    <span class="comment">// Find the best power of two to hold elements.  </span>
+    <span class="comment">// Tests "&lt;=" because arrays aren't kept full.  </span>
+    <span class="keyword">if</span> (numElements &gt;= initialCapacity) {  
+        initialCapacity = numElements;  
+        initialCapacity |= (initialCapacity &gt;&gt;&gt;  <span class="number">1</span>);  
+        initialCapacity |= (initialCapacity &gt;&gt;&gt;  <span class="number">2</span>);  
+        initialCapacity |= (initialCapacity &gt;&gt;&gt;  <span class="number">4</span>);  
+        initialCapacity |= (initialCapacity &gt;&gt;&gt;  <span class="number">8</span>);  
+        initialCapacity |= (initialCapacity &gt;&gt;&gt; <span class="number">16</span>);  
+        initialCapacity++;  
+
+        <span class="keyword">if</span> (initialCapacity &lt; <span class="number">0</span>)   <span class="comment">// Too many elements, must back off  </span>
+            initialCapacity &gt;&gt;&gt;= <span class="number">1</span>;<span class="comment">// Good luck allocating 2 ^ 30 elements  </span>
+    }  
+    elements = (E[]) <span class="keyword">new</span> Object[initialCapacity];  
+}
+</code></pre>
+<pre><code>这部分代码里最让人困惑的地方就是对initialCapacity做的这一大堆移位和或运算。
+</code></pre><p>首先通过无符号右移1位，再与原来的数字做或运算，然后再右移2、4、8、16位。这么做的目的是使得最后生成的数字尽可能每一位都是1。<br>而且很显然，如果这个数字是每一位都为1，后面再对这个数字加1的话，则生成的数字肯定为2的若干次方。<br><strong>而且这个数字也肯定是大于我们的numElements值的最小2的指数值。</strong>这么说来有点绕。<br>我们前面折腾了大半天，就为了求一个2的若干次方的数字，使得它要大于我们指定的数字，而且是最接近这个数字的数。<br>这样子到底是为什么呢？<br>因为我们后面要扩展数组长度的话，有了它这个基础我们就可以判断这个数字是不是到了2的多少多少次方，它增长下去最大的极限也不过是2的31次方。这样他每次的增长刚好可以把数组可以允许的长度给覆盖了，不会出现空间的浪费。<br>比如说，我正好有一个数组，它的长度比Integer.MAX_VALUE的一半要大几个元素，如果我们这个时候设置的值不是让它为2的整数次方，那么直接对它空间翻倍就导致空间不够了，但是我们完全可以设置足够空间来容纳的。<br>    我们现在再来看doubleCapacity方法：</p>
+<pre><code class="java"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doubleCapacity</span><span class="params">()</span> </span>{  
+    <span class="keyword">assert</span> head == tail;  
+    <span class="keyword">int</span> p = head;  
+    <span class="keyword">int</span> n = elements.length;  
+    <span class="keyword">int</span> r = n - p; <span class="comment">// number of elements to the right of p  </span>
+    <span class="keyword">int</span> newCapacity = n &lt;&lt; <span class="number">1</span>;  
+    <span class="keyword">if</span> (newCapacity &lt; <span class="number">0</span>)  
+        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"Sorry, deque too big"</span>);  
+    Object[] a = <span class="keyword">new</span> Object[newCapacity];  
+    System.arraycopy(elements, p, a, <span class="number">0</span>, r);  
+    System.arraycopy(elements, <span class="number">0</span>, a, r, p);  
+    elements = (E[])a;  
+    head = <span class="number">0</span>;  
+    tail = n;  
+}
+</code></pre>
+<pre><code>有了前面的讨论，它只要扩展空间容量的时候左移一位，这就相当于空间翻倍了。如果长度超出了允许的范围，就会发生溢出，返回的结果就会成为一个负数。这就是为什么有 if (newCapacity &lt; 0)这一句来抛异常。
+</code></pre><p><strong>添加元素</strong><br>    我们先看看两个主要添加元素的方法add和offer:</p>
+<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>{  
+    addLast(e);  
+    <span class="keyword">return</span> <span class="keyword">true</span>;  
+}  
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(E e)</span> </span>{  
+    <span class="keyword">if</span> (e == <span class="keyword">null</span>)  
+        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();  
+    elements[tail] = e;  
+    <span class="keyword">if</span> ( (tail = (tail + <span class="number">1</span>) &amp; (elements.length - <span class="number">1</span>)) == head)  
+        doubleCapacity();  
+}  
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span> </span>{  
+    <span class="keyword">return</span> offerLast(e);  
+}  
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">offerLast</span><span class="params">(E e)</span> </span>{  
+    addLast(e);  
+    <span class="keyword">return</span> <span class="keyword">true</span>;  
+}
+</code></pre>
+<pre><code>很显然，他们两个方法的底层实现实际上是一样的。这里要注意的一个地方就是我们由于不断的入队和出队，可能head和tail都会移动到超过数组的末尾。
+这个时候如果有空闲的空间，我们会把头或者尾跳到数组的头开始继续移动。所以添加元素并确定元素的下标是一个将元素下标值和数组长度进行求模运算的过程。
+addLast方法通过和当前数组长度减1求与运算来得到最新的下标值。它的效果相当于tail = (tail + 1) % elements.length;
+</code></pre><pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(E e)</span> </span>{  
+    <span class="keyword">if</span> (e == <span class="keyword">null</span>)  
+        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();  
+    elements[head = (head - <span class="number">1</span>) &amp; (elements.length - <span class="number">1</span>)] = e;  
+    <span class="keyword">if</span> (head == tail)  
+        doubleCapacity();  
+}  
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">offerFirst</span><span class="params">(E e)</span> </span>{  
+    addFirst(e);  
+    <span class="keyword">return</span> <span class="keyword">true</span>;  
+}
+</code></pre>
+<pre><code>addFirst和offerFirst是在head元素的之前插入元素，所以他们的位置为 (head - 1) &amp; (elements.length - 1)。
+</code></pre><p><strong>取元素</strong><br>     获取元素主要包括如下几个方法：</p>
+<pre><code class="java"><span class="function"><span class="keyword">public</span> E <span class="title">element</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> getFirst();  
+}  
+
+<span class="function"><span class="keyword">public</span> E <span class="title">getFirst</span><span class="params">()</span> </span>{  
+    E x = elements[head];  
+    <span class="keyword">if</span> (x == <span class="keyword">null</span>)  
+        <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();  
+    <span class="keyword">return</span> x;  
+}  
+
+<span class="function"><span class="keyword">public</span> E <span class="title">peek</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> peekFirst();  
+}  
+
+<span class="function"><span class="keyword">public</span> E <span class="title">peekFirst</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> elements[head]; <span class="comment">// elements[head] is null if deque empty  </span>
+}  
+
+<span class="function"><span class="keyword">public</span> E <span class="title">getLast</span><span class="params">()</span> </span>{  
+    E x = elements[(tail - <span class="number">1</span>) &amp; (elements.length - <span class="number">1</span>)];  
+    <span class="keyword">if</span> (x == <span class="keyword">null</span>)  
+        <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();  
+    <span class="keyword">return</span> x;  
+}  
+
+<span class="function"><span class="keyword">public</span> E <span class="title">peekLast</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> elements[(tail - <span class="number">1</span>) &amp; (elements.length - <span class="number">1</span>)];  
+}
+</code></pre>
+<pre><code>这部分代码算是最简单的，无非就是取tail元素或者head元素的值。
+关于队列的几种运算方法定义的特别杂乱，很容易让人搞混。如果从一个最简单的单向队列角度来看的话，我们可以把Queue中的enqueue方法对应到addLast方法，因为我们每次添加元素就是在队尾增加。deque方法则对应到removeFirst方法。虽然也可以用其他的方法来实现，不过具体的实现细节和他们基本上是一样的。
+</code></pre><p>LinkedList<br>    现在，我们在来看看<strong>LinkedList</strong>对应Queue的实现部分。在前面一篇文章中，已经讨论过LinkedList里面Node的结构。它本身包含元素值，prev、next两个引用。对链表的增加和删除元素的操作不像数组，不存在要考虑下标的问题，也不需要扩展数组空间，因此就简单了很多。先看查找元素部分：</p>
+<pre><code class="java"><span class="function"><span class="keyword">public</span> E <span class="title">getFirst</span><span class="params">()</span> </span>{  
+    <span class="keyword">final</span> Node&lt;E&gt; f = first;  
+    <span class="keyword">if</span> (f == <span class="keyword">null</span>)  
+        <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();  
+    <span class="keyword">return</span> f.item;  
+}  
+
+<span class="function"><span class="keyword">public</span> E <span class="title">getLast</span><span class="params">()</span> </span>{  
+    <span class="keyword">final</span> Node&lt;E&gt; l = last;  
+    <span class="keyword">if</span> (l == <span class="keyword">null</span>)  
+        <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();  
+    <span class="keyword">return</span> l.item;  
+}
+</code></pre>
+<pre><code>这里唯一值得注意的一点就是last引用是指向队列最末尾和元素，和前面ArrayDeque的情况不一样。
+**添加元素**的方法如下：
+</code></pre><pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>{  
+    linkLast(e);  
+    <span class="keyword">return</span> <span class="keyword">true</span>;  
+}  
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span> </span>{  
+    <span class="keyword">return</span> add(e);  
+}  
+
+<span class="function"><span class="keyword">void</span> <span class="title">linkLast</span><span class="params">(E e)</span> </span>{  
+    <span class="keyword">final</span> Node&lt;E&gt; l = last;  
+    <span class="keyword">final</span> Node&lt;E&gt; newNode = <span class="keyword">new</span> Node&lt;&gt;(l, e, <span class="keyword">null</span>);  
+    last = newNode;  
+    <span class="keyword">if</span> (l == <span class="keyword">null</span>)  
+        first = newNode;  
+    <span class="keyword">else</span>  
+        l.next = newNode;  
+    size++;  
+    modCount++;  
+}
+</code></pre>
+<pre><code>linkLast的方法在前一篇文章里已经分析过，就不再重复。
+**删除元素**的方法主要有remove():
+</code></pre><pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span> </span>{  
+    <span class="keyword">if</span> (o == <span class="keyword">null</span>) {  
+        <span class="keyword">for</span> (Node&lt;E&gt; x = first; x != <span class="keyword">null</span>; x = x.next) {  
+            <span class="keyword">if</span> (x.item == <span class="keyword">null</span>) {  
+                unlink(x);  
+                <span class="keyword">return</span> <span class="keyword">true</span>;  
+            }  
+        }  
+    } <span class="keyword">else</span> {  
+        <span class="keyword">for</span> (Node&lt;E&gt; x = first; x != <span class="keyword">null</span>; x = x.next) {  
+            <span class="keyword">if</span> (o.equals(x.item)) {  
+                unlink(x);  
+                <span class="keyword">return</span> <span class="keyword">true</span>;  
+            }  
+        }  
+    }  
+    <span class="keyword">return</span> <span class="keyword">false</span>;  
+}  
+
+<span class="function">E <span class="title">unlink</span><span class="params">(Node&lt;E&gt; x)</span> </span>{  
+    <span class="comment">// assert x != null;  </span>
+    <span class="keyword">final</span> E element = x.item;  
+    <span class="keyword">final</span> Node&lt;E&gt; next = x.next;  
+    <span class="keyword">final</span> Node&lt;E&gt; prev = x.prev;  
+
+    <span class="keyword">if</span> (prev == <span class="keyword">null</span>) {  
+        first = next;  
+    } <span class="keyword">else</span> {  
+        prev.next = next;  
+        x.prev = <span class="keyword">null</span>;  
+    }  
+
+    <span class="keyword">if</span> (next == <span class="keyword">null</span>) {  
+        last = prev;  
+    } <span class="keyword">else</span> {  
+        next.prev = prev;  
+        x.next = <span class="keyword">null</span>;  
+    }  
+
+    x.item = <span class="keyword">null</span>;  
+    size--;  
+    modCount++;  
+    <span class="keyword">return</span> element;  
+}
+</code></pre>
+<pre><code>这部分的代码看似比较长，实际上是遍历整个链表，如果找到要删除的元素，则移除该元素。这部分的难点在unlink方法里面。我们分别用要删除元素的前面和后面的引用来判断各种当prev和next为null时的各种情况。虽然不是很复杂，但是很繁琐。
+</code></pre><p>总结<br>    从我们实际中的考量来看，Queue和Deque他们本身不仅定义了作为一个队列需要的基本功能。同时因为队列也是属于整个集合类这一个大族里面的，所以他们也必须要具备集合类的一些常用功能，比如元素查找，删除，迭代器等。我们读一些集合类的代码时，尤其是一些接口的定义，会发现一个比较有意思的事情。就是通常一些子接口把父接口的方法又重新定义了一遍。这样似乎违背了面向对象里继承的原则。后来经过一些讨论，发现主要原因是一些jdk版本的更新，有的新类是后面新增加的。这些新的接口有的是为了保持兼容，有的是为了保证后续生成文档里方便用户知道它也有同样的功能而不需要再去查它的父类，就直接把父类的东西给搬过来了。比较有意思，读代码还读出点历史感了。<br>参考资料<br><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Queue.html" target="_blank" rel="external">http://docs.oracle.com/javase/7/docs/api/java/util/Queue.html</a><br><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Deque.html" target="_blank" rel="external">http://docs.oracle.com/javase/7/docs/api/java/util/Deque.html</a><br><a href="http://blog.donews.com/maverick/archive/2005/08/31/534269.aspx" target="_blank" rel="external">http://blog.donews.com/maverick/archive/2005/08/31/534269.aspx</a></p>
+<p>原文地址：<a href="http://shmilyaw-hotmail-com.iteye.com/blog/1700599" target="_blank" rel="external">http://shmilyaw-hotmail-com.iteye.com/blog/1700599</a></p>
+<p>1、获取链表的第一个和最后一个元素</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedListTest</span></span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{  
+    LinkedList&lt;String&gt; lList = <span class="keyword">new</span> LinkedList&lt;String&gt;();  
+    lList.add(<span class="string">"1"</span>);  
+    lList.add(<span class="string">"2"</span>);  
+    lList.add(<span class="string">"3"</span>);  
+    lList.add(<span class="string">"4"</span>);  
+    lList.add(<span class="string">"5"</span>);  
+
+
+    System.out.println(<span class="string">"链表的第一个元素是 : "</span> + lList.getFirst());  
+    System.out.println(<span class="string">"链表最后一个元素是 : "</span> + lList.getLast());  
+  }  
+}
+</code></pre>
+<p>2、获取链表元素  </p>
+<pre><code class="java"><span class="keyword">for</span> (String str: lList) {  
+      System.out.println(str);  
+    }
+</code></pre>
+<p>3、从链表生成子表</p>
+<pre><code class="java">List subl = lList.subList(<span class="number">1</span>, <span class="number">4</span>);  
+    System.out.println(subl);  
+    lst.remove(<span class="number">2</span>);  
+    System.out.println(lst);  
+    System.out.println(lList);
+</code></pre>
+<p>4、添加元素：添加单个元素<br> 如果不指定索引的话，元素将被添加到链表的最后.<br>public boolean add(Object element)<br>public boolean add(int index, Object element)<br>也可以把链表当初栈或者队列来处理:<br>public boolean addFirst(Object element)<br>public boolean addLast(Object element)<br>addLast()方法和不带索引的add()方法实现的效果一样.</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedListTest</span></span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] a)</span> </span>{  
+    LinkedList list = <span class="keyword">new</span> LinkedList();  
+    list.add(<span class="string">"A"</span>);  
+    list.add(<span class="string">"B"</span>);  
+    list.add(<span class="string">"C"</span>);  
+    list.add(<span class="string">"D"</span>);  
+    list.addFirst(<span class="string">"X"</span>);  
+    list.addLast(<span class="string">"Z"</span>);  
+    System.out.println(list);  
+  }  
+}
+</code></pre>
+<p>5、删除元素</p>
+<pre><code class="java"><span class="function"><span class="keyword">public</span> Object <span class="title">removeFirst</span><span class="params">()</span>  
+<span class="keyword">public</span> Object <span class="title">removeLast</span><span class="params">()</span>  
+<span class="keyword">import</span> java.util.LinkedList</span>;  
+
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] a)</span> </span>{  
+
+
+    LinkedList list = <span class="keyword">new</span> LinkedList();  
+    list.add(<span class="string">"A"</span>);  
+    list.add(<span class="string">"B"</span>);  
+    list.add(<span class="string">"C"</span>);  
+    list.add(<span class="string">"D"</span>);  
+    list.removeFirst();  
+    list.removeLast();  
+    System.out.println(list);  
+  }  
+}
+</code></pre>
+<p>6、使用链表实现栈效果</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{  
+    StackL stack = <span class="keyword">new</span> StackL();  
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)  
+      stack.push(i);  
+    System.out.println(stack.top());  
+    System.out.println(stack.top());  
+    System.out.println(stack.pop());  
+    System.out.println(stack.pop());  
+    System.out.println(stack.pop());  
+  }  
+}  
+<span class="class"><span class="keyword">class</span> <span class="title">StackL</span> </span>{  
+  <span class="keyword">private</span> LinkedList list = <span class="keyword">new</span> LinkedList();  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Object v)</span> </span>{  
+    list.addFirst(v);  
+  }  
+  <span class="function"><span class="keyword">public</span> Object <span class="title">top</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> list.getFirst();  
+  }  
+  <span class="function"><span class="keyword">public</span> Object <span class="title">pop</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> list.removeFirst();  
+  }  
+}
+</code></pre>
+<p>7、使用链表来实现队列效果</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{  
+    Queue queue = <span class="keyword">new</span> Queue();  
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)  
+      queue.put(Integer.toString(i));  
+    <span class="keyword">while</span> (!queue.isEmpty())  
+      System.out.println(queue.get());  
+  }  
+}  
+<span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>{  
+  <span class="keyword">private</span> LinkedList list = <span class="keyword">new</span> LinkedList();  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(Object v)</span> </span>{  
+    list.addFirst(v);  
+  }  
+  <span class="function"><span class="keyword">public</span> Object <span class="title">get</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> list.removeLast();  
+  }  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> list.isEmpty();  
+  }  
+}
+</code></pre>
+<p>8、将LinkedList转换成ArrayList</p>
+<pre><code class="java">ArrayList&lt;String&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;String&gt;(linkedList);  
+    <span class="keyword">for</span> (String s : arrayList) {  
+      System.out.println(<span class="string">"s = "</span> + s);  
+    }
+</code></pre>
+<p>9、删掉所有元素：清空LinkedList</p>
+<pre><code>lList.clear();
+</code></pre><p>10、删除列表的首位元素</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{  
+    LinkedList&lt;String&gt; lList = <span class="keyword">new</span> LinkedList&lt;String&gt;();  
+    lList.add(<span class="string">"1"</span>);  
+    lList.add(<span class="string">"2"</span>);  
+    lList.add(<span class="string">"3"</span>);  
+    lList.add(<span class="string">"4"</span>);  
+    lList.add(<span class="string">"5"</span>);  
+    System.out.println(lList);  
+        <span class="comment">//元素在删除的时候，仍然可以获取到元素  </span>
+    Object object = lList.removeFirst();  
+    System.out.println(object + <span class="string">" has been removed"</span>);  
+    System.out.println(lList);  
+    object = lList.removeLast();  
+    System.out.println(object + <span class="string">" has been removed"</span>);  
+    System.out.println(lList);  
+  }  
+}
+</code></pre>
+<p>11、根据范围删除列表元素</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{  
+    LinkedList&lt;String&gt; lList = <span class="keyword">new</span> LinkedList&lt;String&gt;();  
+    lList.add(<span class="string">"1"</span>);  
+    lList.add(<span class="string">"2"</span>);  
+    lList.add(<span class="string">"3"</span>);  
+    lList.add(<span class="string">"4"</span>);  
+    lList.add(<span class="string">"5"</span>);  
+    System.out.println(lList);  
+    lList.subList(<span class="number">2</span>, <span class="number">5</span>).clear();  
+    System.out.println(lList);  
+  }  
+}
+</code></pre>
+<p>12、删除链表的特定元素</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{  
+    LinkedList&lt;String&gt; lList = <span class="keyword">new</span> LinkedList&lt;String&gt;();  
+    lList.add(<span class="string">"1"</span>);  
+    lList.add(<span class="string">"2"</span>);  
+    lList.add(<span class="string">"3"</span>);  
+    lList.add(<span class="string">"4"</span>);  
+    lList.add(<span class="string">"5"</span>);  
+    System.out.println(lList);  
+    System.out.println(lList.remove(<span class="string">"2"</span>));<span class="comment">//删除元素值=2的元素  </span>
+    System.out.println(lList);  
+    Object obj = lList.remove(<span class="number">2</span>);  <span class="comment">//删除第二个元素  </span>
+    System.out.println(obj + <span class="string">" 已经从链表删除"</span>);  
+    System.out.println(lList);  
+  }  
+}
+</code></pre>
+<p>13、将LinkedList转换为数组，数组长度为0</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">import</span> java.util.List;  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{  
+    List&lt;String&gt; theList = <span class="keyword">new</span> LinkedList&lt;String&gt;();  
+    theList.add(<span class="string">"A"</span>);  
+    theList.add(<span class="string">"B"</span>);  
+    theList.add(<span class="string">"C"</span>);  
+    theList.add(<span class="string">"D"</span>);  
+    String[] my = theList.toArray(<span class="keyword">new</span> String[<span class="number">0</span>]);  
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; my.length; i++) {  
+      System.out.println(my[i]);  
+    }  
+  }  
+}
+</code></pre>
+<p>14、将LinkedList转换为数组，数组长度为链表长度</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">import</span> java.util.List;  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{  
+    List&lt;String&gt; theList = <span class="keyword">new</span> LinkedList&lt;String&gt;();  
+    theList.add(<span class="string">"A"</span>);  
+    theList.add(<span class="string">"B"</span>);  
+    theList.add(<span class="string">"C"</span>);  
+    theList.add(<span class="string">"D"</span>);  
+    String[] my = theList.toArray(<span class="keyword">new</span> String[theList.size()]);  
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; my.length; i++) {  
+      System.out.println(my[i]);  
+    }  
+  }  
+}
+</code></pre>
+<p>15、将LinkedList转换成ArrayList</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.ArrayList;  
+<span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">import</span> java.util.List;  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{  
+    LinkedList&lt;String&gt; myQueue = <span class="keyword">new</span> LinkedList&lt;String&gt;();  
+    myQueue.add(<span class="string">"A"</span>);  
+    myQueue.add(<span class="string">"B"</span>);  
+    myQueue.add(<span class="string">"C"</span>);  
+    myQueue.add(<span class="string">"D"</span>);  
+    List&lt;String&gt; myList = <span class="keyword">new</span> ArrayList&lt;String&gt;(myQueue);  
+    <span class="keyword">for</span> (Object theFruit : myList)  
+      System.out.println(theFruit);  
+  }  
+}
+</code></pre>
+<p>16、实现栈</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.Collections;  
+<span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] argv)</span> <span class="keyword">throws</span> Exception </span>{  
+    LinkedList stack = <span class="keyword">new</span> LinkedList();  
+    Object object = <span class="string">""</span>;  
+    stack.addFirst(object);  
+    Object o = stack.getFirst();  
+    stack = (LinkedList) Collections.synchronizedList(stack);  
+  }  
+}
+</code></pre>
+<p>17、实现队列</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] argv)</span> <span class="keyword">throws</span> Exception </span>{  
+    LinkedList queue = <span class="keyword">new</span> LinkedList();  
+    Object object = <span class="string">""</span>;  
+    <span class="comment">// Add to end of queue  </span>
+    queue.add(object);  
+    <span class="comment">// Get head of queue  </span>
+    Object o = queue.removeFirst();  
+  }  
+}
+</code></pre>
+<p>18 、同步方法</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.Collections;  
+<span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] argv)</span> <span class="keyword">throws</span> Exception </span>{  
+    LinkedList queue = <span class="keyword">new</span> LinkedList();  
+    Object object = <span class="string">""</span>;  
+    queue.add(object);  
+    Object o = queue.removeFirst();  
+    queue = (LinkedList) Collections.synchronizedList(queue);  
+  }  
+}
+</code></pre>
+<p>19、查找元素位置</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{  
+    LinkedList&lt;String&gt; lList = <span class="keyword">new</span> LinkedList&lt;String&gt;();  
+    lList.add(<span class="string">"1"</span>);  
+    lList.add(<span class="string">"2"</span>);  
+    lList.add(<span class="string">"3"</span>);  
+    lList.add(<span class="string">"4"</span>);  
+    lList.add(<span class="string">"5"</span>);  
+    lList.add(<span class="string">"2"</span>);  
+    System.out.println(lList.indexOf(<span class="string">"2"</span>));  
+    System.out.println(lList.lastIndexOf(<span class="string">"2"</span>));  
+  }  
+}
+</code></pre>
+<p>20、替换元素</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{  
+    LinkedList&lt;String&gt; lList = <span class="keyword">new</span> LinkedList&lt;String&gt;();  
+    lList.add(<span class="string">"1"</span>);  
+    lList.add(<span class="string">"2"</span>);  
+    lList.add(<span class="string">"3"</span>);  
+    lList.add(<span class="string">"4"</span>);  
+    lList.add(<span class="string">"5"</span>);  
+    System.out.println(lList);  
+    lList.set(<span class="number">3</span>, <span class="string">"Replaced"</span>);<span class="comment">//使用set方法替换元素，方法的第一个参数是元素索引，后一个是替换值  </span>
+    System.out.println(lList);  
+  }  
+}
+</code></pre>
+<p>21、链表添加对象</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+<span class="class"><span class="keyword">class</span> <span class="title">Address</span> </span>{  
+  <span class="keyword">private</span> String name;  
+  <span class="keyword">private</span> String street;  
+  <span class="keyword">private</span> String city;  
+  <span class="keyword">private</span> String state;  
+  <span class="keyword">private</span> String code;  
+  Address(String n, String s, String c, String st, String cd) {  
+    name = n;  
+    street = s;  
+    city = c;  
+    state = st;  
+    code = cd;  
+  }  
+  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> name + <span class="string">" "</span> + street + <span class="string">" "</span> + city + <span class="string">" "</span> + state + <span class="string">" "</span> + code;  
+  }  
+}  
+
+
+<span class="class"><span class="keyword">class</span> <span class="title">MailList</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>{  
+    LinkedList&lt;Address&gt; ml = <span class="keyword">new</span> LinkedList&lt;Address&gt;();  
+    ml.add(<span class="keyword">new</span> Address(<span class="string">"A"</span>, <span class="string">"11 Ave"</span>, <span class="string">"U"</span>, <span class="string">"IL"</span>, <span class="string">"11111"</span>));  
+    ml.add(<span class="keyword">new</span> Address(<span class="string">"R"</span>, <span class="string">"11 Lane"</span>, <span class="string">"M"</span>, <span class="string">"IL"</span>, <span class="string">"22222"</span>));  
+    ml.add(<span class="keyword">new</span> Address(<span class="string">"T"</span>, <span class="string">"8 St"</span>, <span class="string">"C"</span>, <span class="string">"IL"</span>, <span class="string">"33333"</span>));  
+    <span class="keyword">for</span> (Address element : ml)  
+      System.out.println(element + <span class="string">"\n"</span>);  
+  }  
+}
+</code></pre>
+<p>22、确认链表是否存在特定元素</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.LinkedList;  
+
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{  
+    LinkedList&lt;String&gt; lList = <span class="keyword">new</span> LinkedList&lt;String&gt;();  
+    lList.add(<span class="string">"1"</span>);  
+    lList.add(<span class="string">"2"</span>);  
+    lList.add(<span class="string">"3"</span>);  
+    lList.add(<span class="string">"4"</span>);  
+    lList.add(<span class="string">"5"</span>);  
+    <span class="keyword">if</span> (lList.contains(<span class="string">"4"</span>)) {  
+      System.out.println(<span class="string">"LinkedList contains 4"</span>);  
+    } <span class="keyword">else</span> {  
+      System.out.println(<span class="string">"LinkedList does not contain 4"</span>);  
+    }  
+  }  
+}
+</code></pre>
+<p>23、根据链表元素生成对象数组</p>
+<pre><code class="java">Object[] objArray = lList.toArray();  
+<span class="keyword">for</span> (Object obj: objArray) {  
+   System.out.println(obj);  
+}
+</code></pre>
+<p>24、链表多线程</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.Collections;  
+<span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">import</span> java.util.List;  
+<span class="class"><span class="keyword">class</span> <span class="title">PrepareProduction</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>{  
+  <span class="keyword">private</span> <span class="keyword">final</span> List&lt;String&gt; queue;  
+  PrepareProduction(List&lt;String&gt; q) {  
+    queue = q;  
+  }  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{  
+    queue.add(<span class="string">"1"</span>);  
+    queue.add(<span class="string">"done"</span>);  
+  }  
+}  
+<span class="class"><span class="keyword">class</span> <span class="title">DoProduction</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>{  
+  <span class="keyword">private</span> <span class="keyword">final</span> List&lt;String&gt; queue;  
+  DoProduction(List&lt;String&gt; q) {  
+    queue = q;  
+  }  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{  
+    String value = queue.remove(<span class="number">0</span>);  
+    <span class="keyword">while</span> (!value.equals(<span class="string">"*"</span>)) {  
+      System.out.println(value);  
+      value = queue.remove(<span class="number">0</span>);  
+    }  
+  }  
+}  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>{  
+    List q = Collections.synchronizedList(<span class="keyword">new</span> LinkedList&lt;String&gt;());  
+    Thread p1 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> PrepareProduction(q));  
+    Thread c1 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> DoProduction(q));  
+    p1.start();  
+    c1.start();  
+    p1.join();  
+    c1.join();  
+  }  
+}
+</code></pre>
+<p>25、优先级链表（来自JBOSS）</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.ArrayList;  
+<span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">import</span> java.util.List;  
+<span class="keyword">import</span> java.util.ListIterator;  
+<span class="keyword">import</span> java.util.NoSuchElementException;  
+
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BasicPriorityLinkedList</span> </span>{  
+
+
+  <span class="keyword">protected</span> LinkedList[] linkedLists;  
+  <span class="keyword">protected</span> <span class="keyword">int</span> priorities;  
+  <span class="keyword">protected</span> <span class="keyword">int</span> size;  
+
+
+  <span class="function"><span class="keyword">public</span> <span class="title">BasicPriorityLinkedList</span><span class="params">(<span class="keyword">int</span> priorities)</span> </span>{  
+    <span class="keyword">this</span>.priorities = priorities;  
+    initDeques();  
+  }  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(Object obj, <span class="keyword">int</span> priority)</span> </span>{  
+    linkedLists[priority].addFirst(obj);  
+    size++;  
+  }  
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Object obj, <span class="keyword">int</span> priority)</span> </span>{  
+    linkedLists[priority].addLast(obj);  
+    size++;  
+  }  
+  <span class="function"><span class="keyword">public</span> Object <span class="title">removeFirst</span><span class="params">()</span> </span>{  
+    Object obj = <span class="keyword">null</span>;  
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = priorities - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) {  
+      LinkedList ll = linkedLists[i];  
+      <span class="keyword">if</span> (!ll.isEmpty()) {  
+        obj = ll.removeFirst();  
+        <span class="keyword">break</span>;  
+      }  
+    }  
+    <span class="keyword">if</span> (obj != <span class="keyword">null</span>) {  
+      size--;  
+    }  
+    <span class="keyword">return</span> obj;  
+  }  
+  <span class="function"><span class="keyword">public</span> Object <span class="title">removeLast</span><span class="params">()</span> </span>{  
+    Object obj = <span class="keyword">null</span>;  
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; priorities; i++) {  
+      LinkedList ll = linkedLists[i];  
+      <span class="keyword">if</span> (!ll.isEmpty()) {  
+        obj = ll.removeLast();  
+      }  
+      <span class="keyword">if</span> (obj != <span class="keyword">null</span>) {  
+        <span class="keyword">break</span>;  
+      }  
+    }  
+    <span class="keyword">if</span> (obj != <span class="keyword">null</span>) {  
+      size--;  
+    }  
+    <span class="keyword">return</span> obj;  
+  }  
+
+
+  <span class="function"><span class="keyword">public</span> Object <span class="title">peekFirst</span><span class="params">()</span> </span>{  
+    Object obj = <span class="keyword">null</span>;  
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = priorities - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) {  
+      LinkedList ll = linkedLists[i];  
+      <span class="keyword">if</span> (!ll.isEmpty()) {  
+        obj = ll.getFirst();  
+      }  
+      <span class="keyword">if</span> (obj != <span class="keyword">null</span>) {  
+        <span class="keyword">break</span>;  
+      }  
+    }  
+    <span class="keyword">return</span> obj;  
+  }  
+
+
+  <span class="function"><span class="keyword">public</span> List <span class="title">getAll</span><span class="params">()</span> </span>{  
+    List all = <span class="keyword">new</span> ArrayList();  
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = priorities - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) {  
+      LinkedList deque = linkedLists[i];  
+      all.addAll(deque);  
+    }  
+    <span class="keyword">return</span> all;  
+  }  
+
+
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span> </span>{  
+    initDeques();  
+  }  
+
+
+  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> size;  
+  }  
+
+
+  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> size == <span class="number">0</span>;  
+  }  
+
+
+  <span class="function"><span class="keyword">public</span> ListIterator <span class="title">iterator</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> <span class="keyword">new</span> PriorityLinkedListIterator(linkedLists);  
+  }  
+
+
+  <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initDeques</span><span class="params">()</span> </span>{  
+    linkedLists = <span class="keyword">new</span> LinkedList[priorities];  
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; priorities; i++) {  
+      linkedLists[i] = <span class="keyword">new</span> LinkedList();  
+    }  
+    size = <span class="number">0</span>;  
+  }  
+
+
+  <span class="class"><span class="keyword">class</span> <span class="title">PriorityLinkedListIterator</span> <span class="keyword">implements</span> <span class="title">ListIterator</span> </span>{  
+    <span class="keyword">private</span> LinkedList[] lists;  
+    <span class="keyword">private</span> <span class="keyword">int</span> index;  
+    <span class="keyword">private</span> ListIterator currentIter;  
+    PriorityLinkedListIterator(LinkedList[] lists) {  
+      <span class="keyword">this</span>.lists = lists;  
+      index = lists.length - <span class="number">1</span>;  
+      currentIter = lists[index].listIterator();  
+    }  
+
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Object arg0)</span> </span>{  
+      <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();  
+    }  
+
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>{  
+      <span class="keyword">if</span> (currentIter.hasNext()) {  
+        <span class="keyword">return</span> <span class="keyword">true</span>;  
+      }  
+      <span class="keyword">while</span> (index &gt;= <span class="number">0</span>) {  
+        <span class="keyword">if</span> (index == <span class="number">0</span> || currentIter.hasNext()) {  
+          <span class="keyword">break</span>;  
+        }  
+        index--;  
+        currentIter = lists[index].listIterator();  
+      }  
+      <span class="keyword">return</span> currentIter.hasNext();  
+    }  
+
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPrevious</span><span class="params">()</span> </span>{  
+      <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();  
+    }  
+
+
+    <span class="function"><span class="keyword">public</span> Object <span class="title">next</span><span class="params">()</span> </span>{  
+      <span class="keyword">if</span> (!hasNext()) {  
+        <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();  
+      }  
+      <span class="keyword">return</span> currentIter.next();  
+    }  
+
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nextIndex</span><span class="params">()</span> </span>{  
+      <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();  
+    }  
+
+
+    <span class="function"><span class="keyword">public</span> Object <span class="title">previous</span><span class="params">()</span> </span>{  
+      <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();  
+    }  
+
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">previousIndex</span><span class="params">()</span> </span>{  
+      <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();  
+    }  
+
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>{  
+      currentIter.remove();  
+      size--;  
+    }  
+
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(Object obj)</span> </span>{  
+      <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();  
+    }  
+  }  
+}
+</code></pre>
+<p>26、生成list的帮助类（来自google）</p>
+<pre><code class="java"><span class="keyword">import</span> java.util.ArrayList;  
+<span class="keyword">import</span> java.util.Collections;  
+<span class="keyword">import</span> java.util.LinkedList;  
+<span class="keyword">import</span> java.util.List;  
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Lists</span> </span>{  
+  <span class="function"><span class="keyword">private</span> <span class="title">Lists</span><span class="params">()</span> </span>{ }  
+  <span class="keyword">public</span> <span class="keyword">static</span> &lt;E&gt; <span class="function">ArrayList&lt;E&gt; <span class="title">newArrayList</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;E&gt;();  
+  }  
+  <span class="keyword">public</span> <span class="keyword">static</span> &lt;E&gt; <span class="function">ArrayList&lt;E&gt; <span class="title">newArrayListWithCapacity</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>{  
+    <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;E&gt;(initialCapacity);  
+  }  
+  <span class="keyword">public</span> <span class="keyword">static</span> &lt;E&gt; <span class="function">ArrayList&lt;E&gt; <span class="title">newArrayList</span><span class="params">(E... elements)</span> </span>{  
+    ArrayList&lt;E&gt; set = newArrayList();  
+    Collections.addAll(set, elements);  
+    <span class="keyword">return</span> set;  
+  }  
+  <span class="keyword">public</span> <span class="keyword">static</span> &lt;E&gt; <span class="function">ArrayList&lt;E&gt; <span class="title">newArrayList</span><span class="params">(Iterable&lt;? extends E&gt; elements)</span> </span>{  
+    ArrayList&lt;E&gt; list = newArrayList();  
+    <span class="keyword">for</span>(E e : elements) {  
+      list.add(e);  
+    }  
+    <span class="keyword">return</span> list;  
+  }  
+  <span class="keyword">public</span> <span class="keyword">static</span> &lt;E&gt; <span class="function">LinkedList&lt;E&gt; <span class="title">newLinkedList</span><span class="params">()</span> </span>{  
+    <span class="keyword">return</span> <span class="keyword">new</span> LinkedList&lt;E&gt;();  
+  }  
+}
+</code></pre>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/12/23/java集合类之Queue/">java集合类之Queue</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
+        <p><span>发布时间:</span>2016-12-23, 10:49:56</p>
+        <p><span>最后更新:</span>2016-12-23, 11:04:21</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/23/java集合类之Queue/" title="java集合类之Queue">http://pangbo.space/2016/12/23/java集合类之Queue/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/23/java集合类之Queue/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/12/23/Binary Tree Level Order Traversal/">
+                    Binary Tree Level Order Traversal.java
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/12/22/Minimum Depth of Binary Tree/">
+                    Minimum Depth of Binary Tree.java
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"java集合类之Queue　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/23/java集合类之Queue/" data-title="java集合类之Queue" data-url="http://pangbo.space/2016/12/23/java集合类之Queue/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"pbsinc"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/12/23/Binary Tree Level Order Traversal/" title="上一篇: Binary Tree Level Order Traversal.java">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/12/22/Minimum Depth of Binary Tree/" title="下一篇: Minimum Depth of Binary Tree.java">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/23/Binary Tree Level Order Traversal/">Binary Tree Level Order Traversal.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/23/java集合类之Queue/">java集合类之Queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/22/Minimum Depth of Binary Tree/">Minimum Depth of Binary Tree.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/Invert Binary Tree/">Invert Binary Tree.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/Rotate List/">Rotate List.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/Reorder List/">Reorder List.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/19/Sort List/">Sort List.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/19/Intersection of Two Linked Lists/">Intersection of Two Linked Lists.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/19/Remove Linked List Elements/">Remove Linked List Elements.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/19/Partition List/">Partition List.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/19/Palindrome Linked List/">Palindrome Linked List.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/16/Insertion Sort List/">Insertion Sort List.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/16/Remove Nth Node From End of List/">Linked List Cycle.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/16/Convert Sorted List to Binary Search Tree/">Convert Sorted List to Binary Search Tree.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/16/Linked List Cycle II/">Linked List Cycle II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/Linked List Cycle/">Linked List Cycle.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/Swap Nodes in Pairs/">Swap Nodes in Pairs.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/Merge Two Sorted Lists/">Merge Two Sorted Lists.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/Remove Duplicates from Sorted List II/">Remove Duplicates from Sorted List II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/Remove Duplicates from Sorted List/">Remove Duplicates from Sorted List.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/14/Odd Even Linked List/">Odd Even Linked List.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/14/Reverse Linked List II/">Reverse Linked List II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/14/Reverse Linked List/">Reverse Linked List.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/14/Add Two Numbers II/">Add Two Numbers II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/14/Delete Node in a Linked List/">Delete Node in a Linked List.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/14/java：LinkedList基本用法/">java：LinkedList基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/14/Java：Object类详解/">Java：Object类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Divide Two Integers/">Divide Two Integers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Fraction to Recurring Decimal/">Fraction to Recurring Decimal.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Reverse Integer/">Reverse Integer.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Water and Jug Problem/">Water and Jug Problem.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Add Two Numbers/">Add Two Numbers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/Count Primes/">Count Primes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/Sqrt(x)/">Sqrt(x).java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/Permutation Sequence/">Permutation Sequence.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/Integer Replacement/">Integer Replacement.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/Rotate Function/">Rotate Function.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/Nth Digit/">Nth Digit.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/10/Rectangle Area/">Rectangle Area.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/10/Largest Divisible Subset/">Largest Divisible Subset.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/09/Super Pow/">Super Pow.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/09/Palindrome Number/">Palindrome Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/hexo换电脑迁移操作/">hexo换电脑迁移操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/集合Collections工具类用法/">集合Collections工具类用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/堆和栈的区别/">堆和栈的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/动态规划算法 Dynamic Programming/">动态规划算法 Dynamic Programming</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/long与Long的区别，long型最后有无L的区别/">long与Long的区别，long型最后有无L的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/二叉树：先序遍历、中序遍历、后序遍历/">二叉树：先序遍历、中序遍历、后序遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java堆栈Stack类简介/">java堆栈Stack类简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java各数据类型的范围/">java各数据类型的范围</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java值传递&引用传递/">java值传递&引用传递</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java判断字符串String是否相等/">java判断字符串String是否相等</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java中length,length(),size()区别/">java中length,length(),size()区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/java中大数的表示BigInteger和BigDecimal/">java中大数的表示BigInteger和BigDecimal</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/hexo 绑定域名/">hexo 绑定域名</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Valid Perfect Square/">Valid Perfect Square.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Word Search/">Word Search.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/ZigZag Conversion/">ZigZag Conversion.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Valid Palindrome/">Valid Palindrome.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Unique Paths/">Unique Paths.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Valid Parentheses/">Valid Parentheses.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Ugly Number/">Ugly Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Ugly Number II/">Ugly Number II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Unique Paths II/">Unique Paths II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Two Sum II - Input array is sorted/">Two Sum II - Input array is sorted.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Two Sum/">Two Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Third Maximum Number/">Third Maximum Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Triangle/">Triangle.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Summary Ranges/">Summary Ranges.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Super Ugly Number/">Super Ugly Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Sum of Two Integers/">Sum of Two Integers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Subsets II/">Subsets II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/String to Integer (atoi)/">String to Integer (atoi).java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Subsets/">Subsets.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Spiral Matrix II/">Spiral Matrix II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Sort Colors/">Sort Colors.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Spiral Matrix/">Spiral Matrix.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Single Number/">Single Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Simplify Path/">Simplify Path.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search in Rotated Sorted Array/">Search in Rotated Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Set、List、Map的遍历/">Set、List、Map的遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Set Matrix Zeroes/">Set Matrix Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search for a Range/">Search for a Range.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search in Rotated Sorted Array II/">Search in Rotated Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Rotate Image/">Rotate Image.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search Insert Position/">Search Insert Position.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Search a 2D Matrix/">Search a 2D Matrix.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Rotate Array/">Rotate Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Roman to Integer/">Roman to Integer.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Reverse Words in a String/">Reverse Words in a String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Reverse Vowels of a String/">Reverse Vowels of a String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Reverse String/">Reverse String.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Restore IP Addresses/">Restore IP Addresses.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Repeated Substring Pattern/">Repeated Substring Pattern.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Remove Element/">Remove Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Remove Duplicates from Sorted Array/">Remove Duplicates from Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Remove Duplicates from Sorted Array II/">Remove Duplicates from Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Reconstruct Original Digits from English/">Reconstruct Original Digits from English.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Ransom Note/">Ransom Note.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Product of Array Except Self/">Product of Array Except Self.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Power of Two/">Power of Two.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Plus One/">Plus One.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Pow(x, n)/">Pow(x, n).java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Power of Three/">Power of Three.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Nim Game/">Nim Game.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Pascal's Triangle/">Pascal's Triangle.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Pascal's Triangle II/">Pascal's Triangle II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Perfect Squares/">Perfect Squares.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Move Zeroes/">Move Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Multiply Strings/">Multiply Strings.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Next Permutation/">Next Permutation.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Missing Number/">Missing Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Minimum Size Subarray Sum/">Minimum Size Subarray Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Minimum Path Sum/">Minimum Path Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Minimum Moves to Equal Array Elements II/">Minimum Moves to Equal Array Elements II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Minimum Moves to Equal Array Elements/">Minimum Moves to Equal Array Elements.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Maximum Product Subarray/">Maximum Product Subarray.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Merge Sorted Array/">Merge Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Maximum Subarray/">Maximum Subarray.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Mini Parser/">Mini Parser.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Majority Element/">Majority Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Majority Element II/">Majority Element II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Maximum Depth of Binary Tree/">Maximum Depth of Binary Tree.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Longest Substring Without Repeating Characters/">Longest Substring Without Repeating Characters.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Longest Palindromic Substring/">Longest Palindromic Substring.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Longest Common Prefix/">Longest Common Prefix.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/List,Set,Map,数组间的相互转换/">List,Set,Map,数组间的相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Letter Combinations of a Phone Number/">Letter Combinations of a Phone Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Length of Last Word/">Length of Last Word.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java：String、StringBuffer和StringBuilder的区别/">Java：String、StringBuffer和StringBuilder的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Jump Game/">Jump Game.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java中StringBuilder的用法/">Java中StringBuilder的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java接口Set用法/">Java接口Set用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java各种类型互相转换/">Java各种类型互相转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java Map 集合类简介/">Java Map 集合类简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Java中List集合的常用操作/">Java中List集合的常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Implement strStr()/">Implement strStr().java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Integer Break/">Integer Break.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Integer to Roman/">Integer to Roman.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Happy Number/">Happy Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Group Anagrams/">Group Anagrams.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Game of Life/">Game of Life.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Generate Parentheses/">Generate Parentheses.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Fizz Buzz/">Fizz Buzz.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find Minimum in Rotated Sorted Array/">Find Minimum in Rotated Sorted Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find Peak Element/">Find Peak Element.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find Minimum in Rotated Sorted Array II/">Find Minimum in Rotated Sorted Array II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find All Numbers Disappeared in an Array/">Find All Numbers Disappeared in an Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Factorial Trailing Zeroes/">Factorial Trailing Zeroes.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Excel Sheet Column Title/">Excel Sheet Column Title.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Find All Duplicates in an Array/">Find All Duplicates in an Array.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Count Numbers with Unique Digits/">Count Numbers with Unique Digits.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Decode Ways/">Decode Ways.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Count and Say/">Count and Say.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Excel Sheet Column Number/">Excel Sheet Column Number.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Contains Duplicate II/">Contains Duplicate II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Contains Duplicate/">Contains Duplicate.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Container With Most Water/">Container With Most Water.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Compare Version Numbers/">Compare Version Numbers.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Construct Binary Tree from Preorder and Inorder Traversal/">Construct Binary Tree from Preorder and Inorder Traversal.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Construct Binary Tree from Inorder and Postorder Traversal/">Construct Binary Tree from Inorder and Postorder Traversal.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Combination Sum/">Combination Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Combination Sum III/">Combination Sum III.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Combination Sum II/">Combination Sum II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Best Time to Buy and Sell Stock/">Best Time to Buy and Sell Stock.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Best Time to Buy and Sell Stock II/">Best Time to Buy and Sell Stock II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Bulb Switcher/">第100题Bulb Switcher.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Basic Calculator II/">Basic Calculator II.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Arrays.sort()的用法/">Arrays.sort()的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Arranging Coins/">Arranging Coins.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Add Strings/">Add Strings.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Arithmetic Slices/">Arithmetic Slices.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Add Digits/">Add Digits.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/Add Binary/">Add Binary.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/4Sum/">4Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/3Sum/">3Sum.java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/3Sum Closest/">3Sum Closest.java</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Bo Pang
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
