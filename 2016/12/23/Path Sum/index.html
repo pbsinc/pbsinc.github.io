@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.For example,“A man, a plan, a canal: Panama” is a palindrome.“race a car” is not a palindro">
+<meta name="description" content="Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.For example:Given the below binary tree and sum = 22">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Valid Palindrome.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/Valid Palindrome/index.html">
+<meta property="og:title" content="Path Sum.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/23/Path Sum/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.For example,“A man, a plan, a canal: Panama” is a palindrome.“race a car” is not a palindro">
-<meta property="og:updated_time" content="2016-11-28T07:29:54.000Z">
+<meta property="og:description" content="Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.For example:Given the below binary tree and sum = 22">
+<meta property="og:updated_time" content="2016-12-23T09:02:02.300Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Valid Palindrome.java">
-<meta name="twitter:description" content="Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.For example,“A man, a plan, a canal: Panama” is a palindrome.“race a car” is not a palindro">
+<meta name="twitter:title" content="Path Sum.java">
+<meta name="twitter:description" content="Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.For example:Given the below binary tree and sum = 22">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Valid Palindrome.java | Bo`s blog</title>
+<title>Path Sum.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +274,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Valid Palindrome" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Path Sum" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Valid Palindrome/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.044Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/23/Path Sum/" class="article-date">
+      <time datetime="2016-12-23T09:00:23.750Z" itemprop="datePublished">2016-12-23</time>
 </a>
 
 
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Valid Palindrome.java
+      Path Sum.java
     </h1>
   
 
@@ -308,7 +308,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Character-isDigit-chr-方法/">Character.isDigit(chr)方法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Character-isLetter-chr-方法/">Character.isLetter(chr)方法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java统一字符串大小写/">java统一字符串大小写</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/str-toLowerCase-方法/">str.toLowerCase()方法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/str-toUpperCase-方法/">str.toUpperCase()方法</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,41 +318,51 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.<br>For example,<br>“A man, a plan, a canal: Panama” is a palindrome.<br>“race a car” is not a palindrome.<br>Note:<br>Have you consider that the string might be empty? This is a good question to ask during an interview.<br>For the purpose of this problem, we define empty string as valid palindrome.<br><a id="more"></a><br><strong>思路：</strong><br>从前后同时两个指针开始比较即可；<br>先统一大小写：</p>
-<pre><code>**str.toLowerCase()**转化成小写;
-**str.toUpperCase()**转化成大写。
-注意，这是它们的返回值变成小写或大写！
-必须要写成：str = str.toLowerCase();
-这种时候，str才统一变成小写！
-</code></pre><p>跳过空格，符号；<br>数字不能跳过；</p>
-<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>{
-        <span class="keyword">if</span>(s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;
-        <span class="keyword">int</span> start = <span class="number">0</span>, end = s.length()-<span class="number">1</span>;
-        <span class="keyword">boolean</span> res = <span class="keyword">true</span>;
-        s=s.toLowerCase();
-        <span class="keyword">while</span>(start &lt;= end){
-            <span class="keyword">while</span>(start &lt; end &amp;&amp; !Character.isLetter(s.charAt(start)) &amp;&amp; !Character.isDigit(s.charAt(start))){
-                start++;
-            }
-            <span class="keyword">while</span>(start &lt; end &amp;&amp; !Character.isLetter(s.charAt(end)) &amp;&amp; !Character.isDigit(s.charAt(end))){
-                end--;
-            }
-            <span class="keyword">if</span>(s.charAt(start) != s.charAt(end)){
-                res = <span class="keyword">false</span>;
-                <span class="keyword">break</span>;
-            }<span class="keyword">else</span>{
-                start++;
-                end--;
+        <p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.<br>For example:<br>Given the below binary tree and sum = 22,</p>
+<pre><code>      5
+     / \
+    4   8
+   /   / \
+  11  13  4
+ /  \      \
+7    2      1
+</code></pre><p>return true, as there exist a root-to-leaf path 5-&gt;4-&gt;11-&gt;2 which sum is 22.<br><a id="more"></a><br><strong>递归思路：</strong><br>计算所有路径的和；</p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="keyword">boolean</span> res = <span class="keyword">false</span>;
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>{
+        <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;
+        calcu(root,sum,root.val);
+        <span class="keyword">return</span> res;
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calcu</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum, <span class="keyword">int</span> count)</span></span>{
+        <span class="keyword">if</span>(root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>){
+            <span class="keyword">if</span>(count == sum){
+                res = <span class="keyword">true</span>;
             }
         }
-        <span class="keyword">return</span> res;
+        <span class="keyword">if</span>(root.left != <span class="keyword">null</span>){
+            count += root.left.val;
+            calcu(root.left, sum, count);
+        }
+        <span class="keyword">if</span>(root.right != <span class="keyword">null</span>){
+            <span class="keyword">if</span>(root.left != <span class="keyword">null</span>){
+                count -= root.left.val;
+            }
+            count += root.right.val;
+            calcu(root.right, sum, count);
+        }
     }
 }
 </code></pre>
-<p><strong>附注：</strong></p>
-<p>Character.isLetter(chr)方法：判断字符chr是否是字母</p>
-<p>Character.isDigit(chr)方法：判断字符chr是否是数字</p>
 
       
     </div>
@@ -361,13 +371,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/07/Valid Palindrome/">Valid Palindrome.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/23/Path Sum/">Path Sum.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-07, 14:40:32</p>
-        <p><span>最后更新:</span>2016-11-28, 15:29:54</p>
+        <p><span>发布时间:</span>2016-12-23, 17:00:23</p>
+        <p><span>最后更新:</span>2016-12-23, 17:02:02</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/07/Valid Palindrome/" title="Valid Palindrome.java">http://pangbo.space/2016/12/07/Valid Palindrome/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/Valid Palindrome/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/23/Path Sum/" title="Path Sum.java">http://pangbo.space/2016/12/23/Path Sum/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/23/Path Sum/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -379,16 +389,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/Valid Parentheses/">
-                    Valid Parentheses.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/Unique Paths/">
-                    Unique Paths.java
+                <a href="/2016/12/23/Balanced Binary Tree/">
+                    Balanced Binary Tree.java
                 </a>
             </div>
         
@@ -436,7 +440,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Valid Palindrome.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Path Sum.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -454,7 +458,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/Valid Palindrome/" data-title="Valid Palindrome.java" data-url="http://pangbo.space/2016/12/07/Valid Palindrome/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/23/Path Sum/" data-title="Path Sum.java" data-url="http://pangbo.space/2016/12/23/Path Sum/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -477,15 +481,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/Valid Parentheses/" title="上一篇: Valid Parentheses.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/Unique Paths/" title="下一篇: Unique Paths.java">
+            <a href="/2016/12/23/Balanced Binary Tree/" title="下一篇: Balanced Binary Tree.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
