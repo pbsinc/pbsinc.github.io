@@ -15,16 +15,34 @@
 
 
 
-<meta name="description" content="Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.If the fractional part is repeating, enclose the repeating part in parentheses.For exa">
+<meta name="description" content="Find the sum of all left leaves in a given binary tree.Example:
+  3
+ / \
+9  20
+  /  \
+ 15   7
+There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fraction to Recurring Decimal.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/13/Fraction to Recurring Decimal/index.html">
+<meta property="og:title" content="Sum of Left Leaves.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/26/Sum of Left Leaves/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.If the fractional part is repeating, enclose the repeating part in parentheses.For exa">
-<meta property="og:updated_time" content="2016-12-13T09:04:15.404Z">
+<meta property="og:description" content="Find the sum of all left leaves in a given binary tree.Example:
+  3
+ / \
+9  20
+  /  \
+ 15   7
+There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.">
+<meta property="og:updated_time" content="2016-12-26T02:57:14.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fraction to Recurring Decimal.java">
-<meta name="twitter:description" content="Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.If the fractional part is repeating, enclose the repeating part in parentheses.For exa">
+<meta name="twitter:title" content="Sum of Left Leaves.java">
+<meta name="twitter:description" content="Find the sum of all left leaves in a given binary tree.Example:
+  3
+ / \
+9  20
+  /  \
+ 15   7
+There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +74,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Fraction to Recurring Decimal.java | Bo`s blog</title>
+<title>Sum of Left Leaves.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +292,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Fraction to Recurring Decimal" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Sum of Left Leaves" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/13/Fraction to Recurring Decimal/" class="article-date">
-      <time datetime="2016-12-13T08:59:04.114Z" itemprop="datePublished">2016-12-13</time>
+      <a href="/2016/12/26/Sum of Left Leaves/" class="article-date">
+      <time datetime="2016-12-26T02:56:10.214Z" itemprop="datePublished">2016-12-26</time>
 </a>
 
 
@@ -293,7 +311,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Fraction to Recurring Decimal.java
+      Sum of Left Leaves.java
     </h1>
   
 
@@ -308,7 +326,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,83 +336,43 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.<br>If the fractional part is repeating, enclose the repeating part in parentheses.<br>For example,</p>
-<pre><code>Given numerator = 1, denominator = 2, return &quot;0.5&quot;.
-Given numerator = 2, denominator = 1, return &quot;2&quot;.
-Given numerator = 2, denominator = 3, return &quot;0.(6)&quot;.
-</code></pre><p>Hint:</p>
-<pre><code>No scary math, just apply elementary math knowledge. Still remember how to perform a long division?
-Try a long division on 4/9, the repeating part is obvious. Now try 4/333. Do you see a pattern?
-Be wary of edge cases! List out as many test cases as you can think of and test your code thoroughly.
-</code></pre><a id="more"></a>
-<p><strong>题意</strong><br>给定一个分子和一个分母，以字符串的形式返回该小数。如果小数无限循环的话，用括号扩住循环体。</p>
-<p><strong>官方Solution</strong></p>
-<pre><code>    0.16  
-6 ) 1.00
-    0 
-    1 0       &lt;-- Remainder=1, mark 1 as seen at position=0.
-    - 6 
-      40      &lt;-- Remainder=4, mark 4 as seen at position=1.
-    - 36 
-       4      &lt;-- Remainder=4 was seen before at position=1, so the fractional part which is 16 starts repeating at position=1 =&gt; 1(6).
-</code></pre><p>The key insight here is to notice that once the remainder starts repeating, so does the divided result.<br>You will need a hash table that maps from the remainder to its position of the fractional part. Once you found a repeating remainder, you may enclose the reoccurring fractional part with parentheses by consulting the position from the table.<br>The remainder could be zero while doing the division. That means there is no repeating fractional part and you should stop right away.<br>Just like the question Divide Two Integers, be wary of edge case such as negative fractions and nasty extreme case such as -2147483648 / -1.</p>
-<p><strong>中文解析</strong><br>难点：如何识别循环体？</p>
-<p>解决方法：用一个HashMap记录每一个余数，当出现重复的余数时，那么将会进入循环，两个重复余数之间的部分就是循环体。</p>
-<p>示例：1/13=0.076923076923076923…，当小数部分第二次出现0时，就意味着开始了循环，那么需要把076923用括号括起来，结果为0.(076923)。</p>
-<p>涉及技巧：1）在不断相除的过程中，把余数乘以10再进行下一次相除，保证一直是整数相除；2）HashMap的key和value分别是&lt;当前余数, 对应结果下标&gt;，这样获取076923时就可根据value值来找。</p>
-<p>注意点1：考虑正负数，先判断符号，然后都转化为正数；</p>
-<p>注意点2：考虑溢出，如果输入为Integer.MIN_VALUE，取绝对值后会溢出。</p>
-<p>代码中已添加注释，来看代码：</p>
-<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{  
-    <span class="function"><span class="keyword">public</span> String <span class="title">fractionToDecimal</span><span class="params">(<span class="keyword">int</span> numerator, <span class="keyword">int</span> denominator)</span> </span>{  
-        <span class="keyword">if</span> (numerator == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">"0"</span>;  
-        <span class="keyword">if</span> (denominator == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;  
+        <p>Find the sum of all left leaves in a given binary tree.<br>Example:</p>
+<pre><code>  3
+ / \
+9  20
+  /  \
+ 15   7
+</code></pre><p>There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.<br><a id="more"></a><br><strong>递归思路：</strong><br>直接递归找到最端点的左叶节点即可；</p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
 
-        String ans = <span class="string">""</span>;  
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumOfLeftLeaves</span><span class="params">(TreeNode root)</span> </span>{
+        <span class="keyword">int</span> l = <span class="number">0</span>,r=<span class="number">0</span>;
+        <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;
 
-        <span class="comment">//如果结果为负数  </span>
-        <span class="keyword">if</span> ((numerator &lt; <span class="number">0</span>) ^ (denominator &lt; <span class="number">0</span>)) {  
-            ans += <span class="string">"-"</span>; <span class="comment">//String可以直接相加，注意不一定非要使用StringBuilder!</span>
-        }  
+        <span class="keyword">if</span>(root.left != <span class="keyword">null</span>){
+            <span class="keyword">if</span>(root.left.left == <span class="keyword">null</span> &amp;&amp; root.left.right == <span class="keyword">null</span>){
+                l = root.left.val;
+            }<span class="keyword">else</span>{
+                l = sumOfLeftLeaves(root.left);
+            }
+        }
+        <span class="keyword">if</span>(root.right != <span class="keyword">null</span>){
+            r = sumOfLeftLeaves(root.right);
+        }
 
-        <span class="comment">//下面要把两个数都转为正数，为避免溢出，int转为long  </span>
-        <span class="keyword">long</span> num = numerator, den = denominator;  
-        num = Math.abs(num);  
-        den = Math.abs(den);  
-
-        <span class="comment">//结果的整数部分  </span>
-        <span class="keyword">long</span> res = num / den;  
-        ans += String.valueOf(res);  <span class="comment">//String可以直接相加</span>
-
-        <span class="comment">//如果能够整除，返回结果  </span>
-        <span class="keyword">long</span> rem = (num % den) * <span class="number">10</span>;  
-        <span class="keyword">if</span> (rem == <span class="number">0</span>) <span class="keyword">return</span> ans;  
-
-        <span class="comment">//结果的小数部分  </span>
-        HashMap&lt;Long, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Long, Integer&gt;();  
-        ans += <span class="string">"."</span>;  
-        <span class="keyword">while</span> (rem != <span class="number">0</span>) {  
-            <span class="comment">//如果前面已经出现过该余数，那么将会开始循环  </span>
-            <span class="keyword">if</span> (map.containsKey(rem)) {  
-                <span class="keyword">int</span> beg = map.get(rem); <span class="comment">//循环体开始的位置  </span>
-                String part1 = ans.substring(<span class="number">0</span>, beg);  
-                String part2 = ans.substring(beg, ans.length());  
-                ans = part1 + <span class="string">"("</span> + part2 + <span class="string">")"</span>;  
-                <span class="keyword">return</span> ans;  
-            }  
-
-            <span class="comment">//继续往下除  </span>
-            map.put(rem, ans.length());  
-            res = rem / den;  
-            ans += String.valueOf(res);  
-            rem = (rem % den) * <span class="number">10</span>;  
-        }  
-
-        <span class="keyword">return</span> ans;  
-    }  
+        <span class="keyword">return</span> l+r;
+    }
 }
 </code></pre>
-<p>Java编程误区：一定要先把 int 转为 long，然后再取绝对值。如果写成 long num = Math.abs(numerator) 就会有问题，<br>因为这句代码在 numerator=Integer.MIN_VALUE 时相当于 long num = Math.abs(-2147483648)，这样得到的 num还是 -2147483648。<br>转自：<a href="http://blog.csdn.net/ljiabin/article/details/42025037" target="_blank" rel="external">http://blog.csdn.net/ljiabin/article/details/42025037</a></p>
 
       
     </div>
@@ -403,13 +381,13 @@ Be wary of edge cases! List out as many test cases as you can think of and test 
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/13/Fraction to Recurring Decimal/">Fraction to Recurring Decimal.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/26/Sum of Left Leaves/">Sum of Left Leaves.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-13, 16:59:04</p>
-        <p><span>最后更新:</span>2016-12-13, 17:04:15</p>
+        <p><span>发布时间:</span>2016-12-26, 10:56:10</p>
+        <p><span>最后更新:</span>2016-12-26, 10:57:14</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/13/Fraction to Recurring Decimal/" title="Fraction to Recurring Decimal.java">http://pangbo.space/2016/12/13/Fraction to Recurring Decimal/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/13/Fraction to Recurring Decimal/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/26/Sum of Left Leaves/" title="Sum of Left Leaves.java">http://pangbo.space/2016/12/26/Sum of Left Leaves/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/26/Sum of Left Leaves/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -421,16 +399,10 @@ Be wary of edge cases! List out as many test cases as you can think of and test 
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/13/Divide Two Integers/">
-                    Divide Two Integers.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/13/Reverse Integer/">
-                    Reverse Integer.java
+                <a href="/2016/12/26/Path Sum II/">
+                    Path Sum II.java
                 </a>
             </div>
         
@@ -478,7 +450,7 @@ Be wary of edge cases! List out as many test cases as you can think of and test 
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Fraction to Recurring Decimal.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Sum of Left Leaves.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -496,7 +468,7 @@ Be wary of edge cases! List out as many test cases as you can think of and test 
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/13/Fraction to Recurring Decimal/" data-title="Fraction to Recurring Decimal.java" data-url="http://pangbo.space/2016/12/13/Fraction to Recurring Decimal/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/26/Sum of Left Leaves/" data-title="Sum of Left Leaves.java" data-url="http://pangbo.space/2016/12/26/Sum of Left Leaves/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -519,15 +491,13 @@ Be wary of edge cases! List out as many test cases as you can think of and test 
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/13/Divide Two Integers/" title="上一篇: Divide Two Integers.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/13/Reverse Integer/" title="下一篇: Reverse Integer.java">
+            <a href="/2016/12/26/Path Sum II/" title="下一篇: Path Sum II.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
