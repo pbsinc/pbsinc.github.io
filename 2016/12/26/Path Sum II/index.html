@@ -15,16 +15,31 @@
 
 
 
-<meta name="description" content="You are given two jugs with capacities x and y litres. There is an infinite amount of water supply available. You need to determine whether it is possible to measure exactly z litres using these two j">
+<meta name="description" content="Given a binary tree and a sum, find all root-to-leaf paths where each path’s sum equals the given sum.For example:Given the below binary tree and sum = 22,
+      5
+     / \
+    4   8
+   /   / \
+  11">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Water and Jug Problem.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/13/Water and Jug Problem/index.html">
+<meta property="og:title" content="Path Sum II.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/26/Path Sum II/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="You are given two jugs with capacities x and y litres. There is an infinite amount of water supply available. You need to determine whether it is possible to measure exactly z litres using these two j">
-<meta property="og:updated_time" content="2016-12-13T03:18:48.899Z">
+<meta property="og:description" content="Given a binary tree and a sum, find all root-to-leaf paths where each path’s sum equals the given sum.For example:Given the below binary tree and sum = 22,
+      5
+     / \
+    4   8
+   /   / \
+  11">
+<meta property="og:updated_time" content="2016-12-26T02:36:19.637Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Water and Jug Problem.java">
-<meta name="twitter:description" content="You are given two jugs with capacities x and y litres. There is an infinite amount of water supply available. You need to determine whether it is possible to measure exactly z litres using these two j">
+<meta name="twitter:title" content="Path Sum II.java">
+<meta name="twitter:description" content="Given a binary tree and a sum, find all root-to-leaf paths where each path’s sum equals the given sum.For example:Given the below binary tree and sum = 22,
+      5
+     / \
+    4   8
+   /   / \
+  11">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +71,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Water and Jug Problem.java | Bo`s blog</title>
+<title>Path Sum II.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +289,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Water and Jug Problem" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Path Sum II" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/13/Water and Jug Problem/" class="article-date">
-      <time datetime="2016-12-13T03:13:37.531Z" itemprop="datePublished">2016-12-13</time>
+      <a href="/2016/12/26/Path Sum II/" class="article-date">
+      <time datetime="2016-12-26T02:33:21.070Z" itemprop="datePublished">2016-12-26</time>
 </a>
 
 
@@ -293,7 +308,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Water and Jug Problem.java
+      Path Sum II.java
     </h1>
   
 
@@ -308,7 +323,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/求两个数的最大公约数/">求两个数的最大公约数</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/裴蜀定理/">裴蜀定理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,28 +333,49 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>You are given two jugs with capacities x and y litres. There is an infinite amount of water supply available. You need to determine whether it is possible to measure exactly z litres using these two jugs.<br>If z liters of water is measurable, you must have z liters of water contained within one or both buckets by the end.<br>Operations allowed:<br>Fill any of the jugs completely with water.<br>Empty any of the jugs.<br>Pour water from one jug into another till the other jug is completely full or the first jug itself is empty.<br>Example 1: (From the famous “Die Hard” example)</p>
-<pre><code>Input: x = 3, y = 5, z = 4
-Output: True
-</code></pre><p>Example 2:</p>
-<pre><code>Input: x = 2, y = 6, z = 5
-Output: False
-</code></pre><a id="more"></a>
-<p><strong>思路：</strong><br>这是一道脑筋急转弯题，我想很多人以前应该听过这道题目，有一个容量为3升和一个容量为5升的水罐，问我们如何准确的称出4升的水。<br>我想很多人都知道怎么做，先把5升水罐装满水，倒到3升水罐里，这时5升水罐里还有2升水，然后把3升水罐里的水都倒掉，<br>把5升水罐中的2升水倒入3升水罐中，这时候把5升水罐解满，然后往此时有2升水的3升水罐里倒水，这样5升水罐倒出1升后还剩4升即为所求。<br>这个很多人都知道，但是这道题随意给我们了三个参数，问有没有解法，这就比较难了。这里我就照搬网上大神的讲解吧：</p>
-<p>这道问题其实可以转换为有一个很大的容器，我们有两个杯子，容量分别为x和y，问我们通过用两个杯子往里倒水，和往出舀水，问能不能使容器中的水刚好为z升。那么我们可以用一个公式来表达：</p>
-<p>z = m <em> x + n </em> y</p>
-<p>其中m，n为舀水和倒水的次数，正数表示往里舀水，负数表示往外倒水，<br>那么题目中的例子可以写成: 4 = (-2) <em> 3 + 2 </em> 5，即3升的水罐往外倒了两次水，5升水罐往里舀了两次水。<br>那么问题就变成了对于任意给定的x,y,z，存不存在m和n使得上面的等式成立。<br>根据裴蜀定理<a href="https://zh.wikipedia.org/wiki/%E8%B2%9D%E7%A5%96%E7%AD%89%E5%BC%8F" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E8%B2%9D%E7%A5%96%E7%AD%89%E5%BC%8F</a> ，ax + by = d的解为 d = gcd(x, y)，<br>那么我们只要只要z % d == 0，上面的等式就有解，所以问题就迎刃而解了，<br>我们只要看z是不是x和y的最大公约数的倍数就行了，<br>别忘了还有个限制条件x + y &gt;= z，因为x和y不可能称出比它们之和还多的水，参见代码如下；</p>
-<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canMeasureWater</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z)</span> </span>{
-        <span class="keyword">int</span> gcd = gcd(x,y);
-        <span class="keyword">if</span>(z==<span class="number">0</span> || x+y&gt;=z &amp;&amp; z%gcd == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;
-        <span class="keyword">return</span> <span class="keyword">false</span>;
-        <span class="comment">//return z == 0 || (x + y &gt;= z &amp;&amp; z % gcd(x, y) == 0);</span>
+        <p>Given a binary tree and a sum, find all root-to-leaf paths where each path’s sum equals the given sum.<br>For example:<br>Given the below binary tree and sum = 22,</p>
+<pre><code>      5
+     / \
+    4   8
+   /   / \
+  11  13  4
+ /  \    / \
+7    2  5   1
+</code></pre><p>return<br>[[5,4,11,2],[5,8,4,5]]<br><a id="more"></a><br><strong>递归思路：</strong><br>计算所有可能路径,顺便把路径记录下来即可；</p>
+<pre><code class="java"><span class="comment">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; pathSum(TreeNode root, <span class="keyword">int</span> sum) {
+        List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> LinkedList&lt;List&lt;Integer&gt;&gt;();
+        List&lt;Integer&gt; sublist = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();
+
+        calcu(ans,sublist,root,sum,<span class="number">0</span>);
+        <span class="keyword">return</span> ans;
     }
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>{<span class="comment">//求两个数的最大公约数</span>
-        <span class="keyword">if</span>(y == <span class="number">0</span>) <span class="keyword">return</span> x;
-        <span class="keyword">return</span> gcd(y,x%y);
-        <span class="comment">//return y==0 ? x : gcd(y,x%y);</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calcu</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; ans, List&lt;Integer&gt; sublist, TreeNode root, <span class="keyword">int</span> sum, <span class="keyword">int</span> count)</span></span>{
+        <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span>;
+        sublist.add(root.val);
+        count += root.val;
+
+        <span class="keyword">if</span>(root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>){
+            <span class="keyword">if</span>(count == sum){
+                ans.add(<span class="keyword">new</span> LinkedList&lt;Integer&gt;(sublist));<span class="comment">//不能直接Add(sublist)；而是要add它的新的对象！</span>
+            }
+        }
+        <span class="keyword">if</span>(root.left != <span class="keyword">null</span>){
+            calcu(ans,sublist,root.left, sum, count);
+        }
+        <span class="keyword">if</span>(root.right != <span class="keyword">null</span>){
+            calcu(ans,sublist,root.right, sum, count);
+        }
+        sublist.remove(sublist.size()-<span class="number">1</span>);<span class="comment">//注意要删除掉最后不符合的节点</span>
     }
 }
 </code></pre>
@@ -351,13 +387,13 @@ Output: False
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/13/Water and Jug Problem/">Water and Jug Problem.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/26/Path Sum II/">Path Sum II.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-13, 11:13:37</p>
-        <p><span>最后更新:</span>2016-12-13, 11:18:48</p>
+        <p><span>发布时间:</span>2016-12-26, 10:33:21</p>
+        <p><span>最后更新:</span>2016-12-26, 10:36:19</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/13/Water and Jug Problem/" title="Water and Jug Problem.java">http://pangbo.space/2016/12/13/Water and Jug Problem/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/13/Water and Jug Problem/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/26/Path Sum II/" title="Path Sum II.java">http://pangbo.space/2016/12/26/Path Sum II/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/26/Path Sum II/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -369,16 +405,10 @@ Output: False
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/13/Reverse Integer/">
-                    Reverse Integer.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/13/Add Two Numbers/">
-                    Add Two Numbers.java
+                <a href="/2016/12/23/Path Sum III/">
+                    Path Sum III.java
                 </a>
             </div>
         
@@ -426,7 +456,7 @@ Output: False
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Water and Jug Problem.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Path Sum II.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -444,7 +474,7 @@ Output: False
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/13/Water and Jug Problem/" data-title="Water and Jug Problem.java" data-url="http://pangbo.space/2016/12/13/Water and Jug Problem/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/26/Path Sum II/" data-title="Path Sum II.java" data-url="http://pangbo.space/2016/12/26/Path Sum II/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -467,15 +497,13 @@ Output: False
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/13/Reverse Integer/" title="上一篇: Reverse Integer.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/13/Add Two Numbers/" title="下一篇: Add Two Numbers.java">
+            <a href="/2016/12/23/Path Sum III/" title="下一篇: Path Sum III.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
