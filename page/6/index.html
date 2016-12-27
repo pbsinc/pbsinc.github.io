@@ -280,6 +280,236 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Permutation Sequence" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/12/Permutation Sequence/" class="article-date">
+      <time datetime="2016-12-12T07:14:42.817Z" itemprop="datePublished">2016-12-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/12/Permutation Sequence/">Permutation Sequence.java</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>The set [1,2,3,…,n] contains a total of n! unique permutations.<br>By listing and labeling all of the permutations in order,<br>We get the following sequence (ie, for n = 3):</p>
+<pre><code>1.&quot;123&quot;
+2.&quot;132&quot;
+3.&quot;213&quot;
+4.&quot;231&quot;
+5.&quot;312&quot;
+6.&quot;321&quot;
+</code></pre><p>Given n and k, return the kth permutation sequence.<br>Note: Given n will be between 1 and 9 inclusive.<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/12/12/Permutation Sequence/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Integer Replacement" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/12/Integer Replacement/" class="article-date">
+      <time datetime="2016-12-12T06:49:48.789Z" itemprop="datePublished">2016-12-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/12/Integer Replacement/">Integer Replacement.java</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>Given a positive integer n and you can do operations as follow:<br>If n is even, replace n with n/2.<br>If n is odd, you can replace n with either n + 1 or n - 1.<br>What is the minimum number of replacements needed for n to become 1?</p>
+<p>Example 1:</p>
+<pre><code>Input:8
+Output:3
+Explanation:8 -&gt; 4 -&gt; 2 -&gt; 1
+</code></pre><p>Example 2:</p>
+<pre><code>Input:7
+Output:4
+Explanation:7 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1
+         or:7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
+</code></pre>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/12/12/Integer Replacement/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Rotate Function" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/12/Rotate Function/" class="article-date">
+      <time datetime="2016-12-12T03:14:30.497Z" itemprop="datePublished">2016-12-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/12/Rotate Function/">Rotate Function.java</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>Given an array of integers A and let n to be its length.<br>Assume Bk to be an array obtained by rotating the array A k positions clock-wise, we define a “rotation function” F on A as follow:<br>F(k) = 0 <em> Bk[0] + 1 </em> Bk[1] + … + (n-1) * Bk[n-1].<br>Calculate the maximum value of F(0), F(1), …, F(n-1).<br>Note:<br>n is guaranteed to be less than 105.<br>Example:</p>
+<pre><code>A = [4, 3, 2, 6]
+
+F(0) = (0 * 4) + (1 * 3) + (2 * 2) + (3 * 6) = 0 + 3 + 4 + 18 = 25
+F(1) = (0 * 6) + (1 * 4) + (2 * 3) + (3 * 2) = 0 + 4 + 6 + 6 = 16
+F(2) = (0 * 2) + (1 * 6) + (2 * 4) + (3 * 3) = 0 + 6 + 8 + 9 = 23
+F(3) = (0 * 3) + (1 * 2) + (2 * 6) + (3 * 4) = 0 + 2 + 12 + 12 = 26
+
+So the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26.
+</code></pre>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/12/12/Rotate Function/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Nth Digit" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -758,210 +988,6 @@ b = [1,0]
       
         <p class="article-more-link">
           <a href="/2016/12/07/堆和栈的区别/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-集合Collections工具类用法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/07/集合Collections工具类用法/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.049Z" itemprop="datePublished">2016-12-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/07/集合Collections工具类用法/">集合Collections工具类用法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>Collections工具类提供了大量针对Collection/Map的操作，总体可分为四类，都为静态（static）方法：<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Collections工具类/">Collections工具类</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/12/07/集合Collections工具类用法/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-二叉树：先序遍历、中序遍历、后序遍历" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/07/二叉树：先序遍历、中序遍历、后序遍历/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.048Z" itemprop="datePublished">2016-12-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/07/二叉树：先序遍历、中序遍历、后序遍历/">二叉树：先序遍历、中序遍历、后序遍历</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>本文实例讲述了二叉树的先序遍历、中序遍历、后序遍历的特点:<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二叉树：先序遍历、中序遍历、后序遍历/">二叉树：先序遍历、中序遍历、后序遍历</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/12/07/二叉树：先序遍历、中序遍历、后序遍历/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java堆栈Stack类简介" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/07/java堆栈Stack类简介/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.048Z" itemprop="datePublished">2016-12-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/07/java堆栈Stack类简介/">java堆栈Stack类简介</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>Stack是一个后进先出（last in first out，LIFO）的堆栈，在Vector类的基础上扩展5个方法而来<br>Deque（双端队列）比起Stack具有更好的完整性和一致性，应该被优先使用<br>！<a href="http://img.blog.csdn.net/20130722161253281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTE5ODgxMDI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center"></a><br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java总结/">java总结</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java堆栈Stack类简介/">java堆栈Stack类简介</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/12/07/java堆栈Stack类简介/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
