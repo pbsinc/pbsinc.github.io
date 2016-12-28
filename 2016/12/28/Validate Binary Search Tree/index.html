@@ -15,16 +15,22 @@
 
 
 
-<meta name="description" content="Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.Do not allocate extra space for another array, you must do this in place with con">
+<meta name="description" content="Given a binary tree, determine if it is a valid binary search tree (BST).Assume a BST is defined as follows:
+The left subtree of a node contains only nodes with keys less than the node&amp;apos;s key.
+The">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Remove Duplicates from Sorted Array.java">
-<meta property="og:url" content="http://pangbo.space/2016/12/07/Remove Duplicates from Sorted Array/index.html">
+<meta property="og:title" content="Validate Binary Search Tree.java">
+<meta property="og:url" content="http://pangbo.space/2016/12/28/Validate Binary Search Tree/index.html">
 <meta property="og:site_name" content="Bo`s blog">
-<meta property="og:description" content="Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.Do not allocate extra space for another array, you must do this in place with con">
-<meta property="og:updated_time" content="2016-10-20T02:24:52.000Z">
+<meta property="og:description" content="Given a binary tree, determine if it is a valid binary search tree (BST).Assume a BST is defined as follows:
+The left subtree of a node contains only nodes with keys less than the node&amp;apos;s key.
+The">
+<meta property="og:updated_time" content="2016-12-28T11:39:02.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Remove Duplicates from Sorted Array.java">
-<meta name="twitter:description" content="Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.Do not allocate extra space for another array, you must do this in place with con">
+<meta name="twitter:title" content="Validate Binary Search Tree.java">
+<meta name="twitter:description" content="Given a binary tree, determine if it is a valid binary search tree (BST).Assume a BST is defined as follows:
+The left subtree of a node contains only nodes with keys less than the node&amp;apos;s key.
+The">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +62,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Remove Duplicates from Sorted Array.java | Bo`s blog</title>
+<title>Validate Binary Search Tree.java | Bo`s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -274,11 +280,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Remove Duplicates from Sorted Array" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Validate Binary Search Tree" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/07/Remove Duplicates from Sorted Array/" class="article-date">
-      <time datetime="2016-12-07T06:40:32.031Z" itemprop="datePublished">2016-12-07</time>
+      <a href="/2016/12/28/Validate Binary Search Tree/" class="article-date">
+      <time datetime="2016-12-28T11:36:55.794Z" itemprop="datePublished">2016-12-28</time>
 </a>
 
 
@@ -293,7 +299,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Remove Duplicates from Sorted Array.java
+      Validate Binary Search Tree.java
     </h1>
   
 
@@ -308,7 +314,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重做/">重做</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,11 +324,32 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.<br>Do not allocate extra space for another array, you must do this in place with constant memory.<br>For example,<br>Given input array nums = [1,1,2],<br>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn’t matter what you leave beyond the new length.<br><a id="more"></a><br><strong>思路：</strong><br>我的思路完全跑偏了，这是正确思路，一次遍历，比较相邻，若不同按顺序重新填入数组！</p>
-<p>（1）主要是因为数组<strong>已经是排好顺序</strong>的。如果不仔细看题目，把数组当作无序数组进行操作，OJ时会显示超时。</p>
-<p>（2）题目要求是不能申请二额外空间，如果提交时有申请额外空间，也是不通过的。</p>
-<p>（3）还需要注意的一个地方是，数组中元素的位置不能改变。比如对于数组[1,1,1,4,5]，移除重复元素后为[1,4,5]，起始数字为1，而不能是其它数字。</p>
-<p>（4）我们只需对对组遍历一次，并设置一个计数器，每当遍历前后元素不相同，计数器加1，并将计数器对应在数组中位置定位到当前遍历的元素。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">        <span class="keyword">if</span>(len ==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> count =<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i]==nums[i-<span class="number">1</span>])</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">                nums[count]=nums[i];</div><div class="line">                count++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> count;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>Given a binary tree, determine if it is a valid binary search tree (BST).<br>Assume a BST is defined as follows:</p>
+<pre><code>The left subtree of a node contains only nodes with keys less than the node&apos;s key.
+The right subtree of a node contains only nodes with keys greater than the node&apos;s key.
+Both the left and right subtrees must also be binary search trees.
+</code></pre><p>Example 1:</p>
+<pre><code>  2
+ / \
+1   3
+</code></pre><p>Binary tree [2,1,3], return true.<br>Example 2:</p>
+<pre><code>  1
+ / \
+2   3
+</code></pre><p>Binary tree [1,2,3], return false.<br><a id="more"></a><br><strong>思路：</strong></p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>{
+        <span class="keyword">return</span> isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root, <span class="keyword">long</span> minVal, <span class="keyword">long</span> maxVal)</span> </span>{
+        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;
+        <span class="keyword">if</span> (root.val &gt;= maxVal || root.val &lt;= minVal) <span class="keyword">return</span> <span class="keyword">false</span>;
+        <span class="keyword">return</span> isValidBST(root.left, minVal, root.val) &amp;&amp; isValidBST(root.right, root.val, maxVal);
+    }
+}
+</code></pre>
+<p><a href="http://blog.csdn.net/ljiabin/article/details/41699241" target="_blank" rel="external">http://blog.csdn.net/ljiabin/article/details/41699241</a></p>
 
       
     </div>
@@ -331,13 +358,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/12/07/Remove Duplicates from Sorted Array/">Remove Duplicates from Sorted Array.java</a></p>
+        <p><span>本文标题:</span><a href="/2016/12/28/Validate Binary Search Tree/">Validate Binary Search Tree.java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Bo Pang</a></p>
-        <p><span>发布时间:</span>2016-12-07, 14:40:32</p>
-        <p><span>最后更新:</span>2016-10-20, 10:24:52</p>
+        <p><span>发布时间:</span>2016-12-28, 19:36:55</p>
+        <p><span>最后更新:</span>2016-12-28, 19:39:02</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/12/07/Remove Duplicates from Sorted Array/" title="Remove Duplicates from Sorted Array.java">http://pangbo.space/2016/12/07/Remove Duplicates from Sorted Array/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/07/Remove Duplicates from Sorted Array/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/28/Validate Binary Search Tree/" title="Validate Binary Search Tree.java">http://pangbo.space/2016/12/28/Validate Binary Search Tree/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://pangbo.space/2016/12/28/Validate Binary Search Tree/　　作者: Bo Pang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -349,16 +376,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/12/07/Repeated Substring Pattern/">
-                    Repeated Substring Pattern.java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/07/Remove Duplicates from Sorted Array II/">
-                    Remove Duplicates from Sorted Array II.java
+                <a href="/2016/12/28/Count Complete Tree Nodes/">
+                    Count Complete Tree Nodes.java
                 </a>
             </div>
         
@@ -406,7 +427,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Remove Duplicates from Sorted Array.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Validate Binary Search Tree.java　| Bo`s blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -424,7 +445,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/07/Remove Duplicates from Sorted Array/" data-title="Remove Duplicates from Sorted Array.java" data-url="http://pangbo.space/2016/12/07/Remove Duplicates from Sorted Array/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/12/28/Validate Binary Search Tree/" data-title="Validate Binary Search Tree.java" data-url="http://pangbo.space/2016/12/28/Validate Binary Search Tree/"></div>
     <script>
         var duoshuoQuery = {short_name:"pbsinc"};
         var loadComment = function(){
@@ -447,15 +468,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/12/07/Repeated Substring Pattern/" title="上一篇: Repeated Substring Pattern.java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/12/07/Remove Duplicates from Sorted Array II/" title="下一篇: Remove Duplicates from Sorted Array II.java">
+            <a href="/2016/12/28/Count Complete Tree Nodes/" title="下一篇: Count Complete Tree Nodes.java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
